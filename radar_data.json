@@ -5,7 +5,9 @@
     "checkIn": "2026-06-09",
     "checkOut": "2026-06-10",
     "fonte": "Booking.com via Apify",
-    "totalHotels": 44
+    "totalHotels": 44,
+    "checkIn14": "2026-06-16",
+    "checkOut14": "2026-06-17"
   },
   "hotels": [
     {
@@ -49,7 +51,9 @@
           "title": "WiFi gratuito",
           "score": 9.4
         }
-      ]
+      ],
+      "priceWeekend14": 359,
+      "fullyBooked14": false
     },
     {
       "rank": 2,
@@ -92,7 +96,9 @@
           "title": "WiFi gratuito",
           "score": 8.7
         }
-      ]
+      ],
+      "priceWeekend14": 279,
+      "fullyBooked14": false
     },
     {
       "rank": 3,
@@ -135,7 +141,9 @@
           "title": "WiFi gratuito",
           "score": 9.4
         }
-      ]
+      ],
+      "priceWeekend14": 333,
+      "fullyBooked14": false
     },
     {
       "rank": 4,
@@ -178,7 +186,9 @@
           "title": "WiFi gratuito",
           "score": 8.5
         }
-      ]
+      ],
+      "priceWeekend14": 216,
+      "fullyBooked14": false
     },
     {
       "rank": 5,
@@ -221,7 +231,9 @@
           "title": "WiFi gratuito",
           "score": 8.3
         }
-      ]
+      ],
+      "priceWeekend14": 357,
+      "fullyBooked14": false
     },
     {
       "rank": 6,
@@ -264,7 +276,9 @@
           "title": "WiFi gratuito",
           "score": 9.5
         }
-      ]
+      ],
+      "priceWeekend14": 198,
+      "fullyBooked14": false
     },
     {
       "rank": 7,
@@ -307,7 +321,9 @@
           "title": "WiFi gratuito",
           "score": 9.3
         }
-      ]
+      ],
+      "priceWeekend14": 240,
+      "fullyBooked14": false
     },
     {
       "rank": 8,
@@ -350,7 +366,9 @@
           "title": "WiFi gratuito",
           "score": 9.4
         }
-      ]
+      ],
+      "priceWeekend14": 143,
+      "fullyBooked14": false
     },
     {
       "rank": 9,
@@ -393,7 +411,9 @@
           "title": "WiFi gratuito",
           "score": 8.9
         }
-      ]
+      ],
+      "priceWeekend14": 165,
+      "fullyBooked14": false
     },
     {
       "rank": 10,
@@ -436,7 +456,9 @@
           "title": "WiFi gratuito",
           "score": 7.9
         }
-      ]
+      ],
+      "priceWeekend14": 362,
+      "fullyBooked14": false
     },
     {
       "rank": 11,
@@ -479,7 +501,9 @@
           "title": "WiFi gratuito",
           "score": 8.4
         }
-      ]
+      ],
+      "priceWeekend14": null,
+      "fullyBooked14": true
     },
     {
       "rank": 12,
@@ -518,7 +542,9 @@
           "title": "Posizione",
           "score": 9.8
         }
-      ]
+      ],
+      "priceWeekend14": 355,
+      "fullyBooked14": false
     },
     {
       "rank": 13,
@@ -561,7 +587,9 @@
           "title": "WiFi gratuito",
           "score": 8.6
         }
-      ]
+      ],
+      "priceWeekend14": 158,
+      "fullyBooked14": false
     },
     {
       "rank": 14,
@@ -604,7 +632,9 @@
           "title": "WiFi gratuito",
           "score": 9.6
         }
-      ]
+      ],
+      "priceWeekend14": 131,
+      "fullyBooked14": false
     },
     {
       "rank": 15,
@@ -647,7 +677,9 @@
           "title": "WiFi gratuito",
           "score": 9.4
         }
-      ]
+      ],
+      "priceWeekend14": null,
+      "fullyBooked14": true
     },
     {
       "rank": 16,
@@ -690,7 +722,9 @@
           "title": "WiFi gratuito",
           "score": 8.5
         }
-      ]
+      ],
+      "priceWeekend14": 217,
+      "fullyBooked14": false
     },
     {
       "rank": 17,
@@ -733,7 +767,9 @@
           "title": "WiFi gratuito",
           "score": 8.7
         }
-      ]
+      ],
+      "priceWeekend14": 238,
+      "fullyBooked14": false
     },
     {
       "rank": 18,
@@ -776,7 +812,9 @@
           "title": "WiFi gratuito",
           "score": 7.9
         }
-      ]
+      ],
+      "priceWeekend14": 213,
+      "fullyBooked14": false
     },
     {
       "rank": 19,
@@ -819,7 +857,9 @@
           "title": "WiFi gratuito",
           "score": 8.5
         }
-      ]
+      ],
+      "priceWeekend14": 173,
+      "fullyBooked14": false
     },
     {
       "rank": 20,
@@ -862,7 +902,9 @@
           "title": "WiFi gratuito",
           "score": 9.4
         }
-      ]
+      ],
+      "priceWeekend14": 198,
+      "fullyBooked14": false
     },
     {
       "rank": 21,
@@ -901,7 +943,9 @@
           "title": "Posizione",
           "score": 9.2
         }
-      ]
+      ],
+      "priceWeekend14": 120,
+      "fullyBooked14": false
     },
     {
       "rank": 22,
@@ -944,7 +988,9 @@
           "title": "WiFi gratuito",
           "score": 7.6
         }
-      ]
+      ],
+      "priceWeekend14": 258,
+      "fullyBooked14": false
     },
     {
       "rank": 23,
@@ -987,7 +1033,9 @@
           "title": "WiFi gratuito",
           "score": 9
         }
-      ]
+      ],
+      "priceWeekend14": 113,
+      "fullyBooked14": false
     },
     {
       "rank": 24,
@@ -1030,7 +1078,9 @@
           "title": "WiFi gratuito",
           "score": 8.7
         }
-      ]
+      ],
+      "priceWeekend14": 306,
+      "fullyBooked14": false
     },
     {
       "rank": 25,
@@ -1073,7 +1123,9 @@
           "title": "WiFi gratuito",
           "score": 6.7
         }
-      ]
+      ],
+      "priceWeekend14": null,
+      "fullyBooked14": true
     },
     {
       "rank": 26,
@@ -1116,7 +1168,9 @@
           "title": "WiFi gratuito",
           "score": 8.6
         }
-      ]
+      ],
+      "priceWeekend14": 176,
+      "fullyBooked14": false
     },
     {
       "rank": 27,
@@ -1159,7 +1213,9 @@
           "title": "WiFi gratuito",
           "score": 8.1
         }
-      ]
+      ],
+      "priceWeekend14": 228,
+      "fullyBooked14": false
     },
     {
       "rank": 28,
@@ -1202,7 +1258,9 @@
           "title": "WiFi gratuito",
           "score": 9
         }
-      ]
+      ],
+      "priceWeekend14": null,
+      "fullyBooked14": true
     },
     {
       "rank": 29,
@@ -1245,7 +1303,9 @@
           "title": "WiFi gratuito",
           "score": 8.7
         }
-      ]
+      ],
+      "priceWeekend14": 285,
+      "fullyBooked14": false
     },
     {
       "rank": 30,
@@ -1288,7 +1348,9 @@
           "title": "WiFi gratuito",
           "score": 8.5
         }
-      ]
+      ],
+      "priceWeekend14": 249,
+      "fullyBooked14": false
     },
     {
       "rank": 31,
@@ -1331,7 +1393,9 @@
           "title": "WiFi gratuito",
           "score": 8.1
         }
-      ]
+      ],
+      "priceWeekend14": 110,
+      "fullyBooked14": false
     },
     {
       "rank": 32,
@@ -1374,7 +1438,9 @@
           "title": "WiFi gratuito",
           "score": 8.6
         }
-      ]
+      ],
+      "priceWeekend14": 181,
+      "fullyBooked14": false
     },
     {
       "rank": 33,
@@ -1417,7 +1483,9 @@
           "title": "WiFi gratuito",
           "score": 8.4
         }
-      ]
+      ],
+      "priceWeekend14": 170,
+      "fullyBooked14": false
     },
     {
       "rank": 34,
@@ -1460,7 +1528,9 @@
           "title": "WiFi gratuito",
           "score": 8.5
         }
-      ]
+      ],
+      "priceWeekend14": 140,
+      "fullyBooked14": false
     },
     {
       "rank": 35,
@@ -1503,7 +1573,9 @@
           "title": "WiFi gratuito",
           "score": 8.5
         }
-      ]
+      ],
+      "priceWeekend14": 175,
+      "fullyBooked14": false
     },
     {
       "rank": 36,
@@ -1546,7 +1618,9 @@
           "title": "WiFi gratuito",
           "score": 9.3
         }
-      ]
+      ],
+      "priceWeekend14": 200,
+      "fullyBooked14": false
     },
     {
       "rank": 37,
@@ -1585,7 +1659,9 @@
           "title": "Posizione",
           "score": 9.3
         }
-      ]
+      ],
+      "priceWeekend14": 168,
+      "fullyBooked14": false
     },
     {
       "rank": 38,
@@ -1628,7 +1704,9 @@
           "title": "WiFi gratuito",
           "score": 9.1
         }
-      ]
+      ],
+      "priceWeekend14": 155,
+      "fullyBooked14": false
     },
     {
       "rank": 39,
@@ -1671,7 +1749,9 @@
           "title": "WiFi gratuito",
           "score": 7.7
         }
-      ]
+      ],
+      "priceWeekend14": 180,
+      "fullyBooked14": false
     },
     {
       "rank": 40,
@@ -1714,7 +1794,9 @@
           "title": "WiFi gratuito",
           "score": 8.7
         }
-      ]
+      ],
+      "priceWeekend14": 184,
+      "fullyBooked14": false
     },
     {
       "rank": 41,
@@ -1757,7 +1839,9 @@
           "title": "WiFi gratuito",
           "score": 7.6
         }
-      ]
+      ],
+      "priceWeekend14": 112,
+      "fullyBooked14": false
     },
     {
       "rank": 42,
@@ -1800,7 +1884,9 @@
           "title": "WiFi gratuito",
           "score": 7.1
         }
-      ]
+      ],
+      "priceWeekend14": null,
+      "fullyBooked14": true
     },
     {
       "rank": 43,
@@ -1843,7 +1929,9 @@
           "title": "WiFi gratuito",
           "score": 7
         }
-      ]
+      ],
+      "priceWeekend14": 116,
+      "fullyBooked14": false
     },
     {
       "rank": 44,
@@ -1886,7 +1974,9 @@
           "title": "WiFi gratuito",
           "score": 7.5
         }
-      ]
+      ],
+      "priceWeekend14": 166,
+      "fullyBooked14": false
     }
   ]
 }

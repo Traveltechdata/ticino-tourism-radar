@@ -133,6 +133,11 @@
   .az-desc { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.6; }
   .az-fonte { font-size: 10px; color: var(--accent); margin-top: 5px; font-style: italic; }
 
+  /* SOLD OUT */
+  .sold-out-badge { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: var(--red-bg); color: var(--red); font-weight: 500; white-space: nowrap; }
+  .price-up { color: var(--red); font-size: 11px; }
+  .price-down { color: var(--accent); font-size: 11px; }
+
   /* LOADING */
   .loading-state { padding: 24px 18px; text-align: center; color: var(--muted); font-size: 13px; }
   .loading-spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
@@ -399,14 +404,24 @@ function getRatingWord(r) {
 
 function buildRankingTable(hotels) {
   let html = '<table class="ranking-table"><thead><tr>' +
-    '<th>#</th><th>Struttura</th><th>Score</th><th>Recensioni</th><th>Prezzo +7gg</th></tr></thead><tbody>';
+    '<th>#</th><th>Struttura</th><th>Score</th><th>Recensioni</th><th>+7 gg</th><th>+14 gg</th></tr></thead><tbody>';
   hotels.forEach(function(h, i) {
+    var p14cell = h.fullyBooked14
+      ? '<span class="sold-out-badge">Sold out</span>'
+      : (h.priceWeekend14 ? 'CHF ' + h.priceWeekend14 : '—');
+    var p14delta = '';
+    if (!h.fullyBooked14 && h.priceWeekend14 && h.priceWeekend7) {
+      var diff = h.priceWeekend14 - h.priceWeekend7;
+      if (diff > 0) p14delta = ' <span class="price-up">+' + diff + '</span>';
+      else if (diff < 0) p14delta = ' <span class="price-down">' + diff + '</span>';
+    }
     html += '<tr id="row-' + i + '">' +
       '<td class="rank-num">' + h.rank + '</td>' +
       '<td class="hotel-name-cell" onclick="selectHotel(' + i + ')">' + h.name + '</td>' +
       '<td><span class="rating-pill ' + getRatingPillClass(h.rating) + '">' + h.rating.toFixed(1) + '</span></td>' +
       '<td style="color:var(--muted)">' + h.reviews.toLocaleString('it') + '</td>' +
       '<td style="font-weight:500">CHF ' + h.priceWeekend7 + '</td>' +
+      '<td>' + p14cell + p14delta + '</td>' +
     '</tr>';
   });
   html += '</tbody></table>';
@@ -452,9 +467,16 @@ function updateHotelDetail() {
         '<div class="m-sub">Ordinato per score Booking</div>' +
       '</div>' +
       '<div class="metric-card">' +
-        '<div class="m-label">Prezzo weekend +7 gg</div>' +
+        '<div class="m-label">Prezzo +7 gg</div>' +
         '<div class="m-value">CHF ' + h.priceWeekend7 + '</div>' +
         '<div class="m-sub">Check-in: ' + (window.radarMeta ? window.radarMeta.checkIn : '—') + '</div>' +
+      '</div>' +
+      '<div class="metric-card">' +
+        '<div class="m-label">Prezzo +14 gg</div>' +
+        (h.fullyBooked14
+          ? '<div class="m-value" style="font-size:16px">Sold out</div><div class="m-sub" style="color:var(--red)">Non disponibile ' + (window.radarMeta ? window.radarMeta.checkIn14 : '') + '</div>'
+          : '<div class="m-value">CHF ' + (h.priceWeekend14 || '—') + '</div><div class="m-sub">Check-in: ' + (window.radarMeta ? window.radarMeta.checkIn14 : '—') + '</div>'
+        ) +
       '</div>' +
       '<div class="metric-card">' +
         '<div class="m-label">Score Booking</div>' +
