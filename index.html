@@ -133,6 +133,21 @@
   .az-desc { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.6; }
   .az-fonte { font-size: 10px; color: var(--accent); margin-top: 5px; font-style: italic; }
 
+  /* GOTTARDO */
+  .g-city-card { background: var(--bg); border-radius: 8px; padding: 10px 8px; border: 0.5px solid var(--border); text-align: center; }
+  .gcc-loading { font-size: 11px; color: var(--muted); padding: 12px 0; }
+  .gcc-city { font-size: 10px; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .gcc-temp { font-size: 22px; font-weight: 300; color: var(--text); line-height: 1; }
+  .gcc-icon { font-size: 18px; margin: 4px 0; }
+  .gcc-desc { font-size: 10px; color: var(--muted); margin-top: 2px; line-height: 1.3; }
+  .gcc-precip { font-size: 10px; color: var(--blue); margin-top: 2px; }
+  .gcc-highlight { border-color: var(--accent); background: var(--accent-light); }
+  .g-factor { font-size: 11px; padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .gf-positive { background: var(--accent-light); color: var(--accent); }
+  .gf-negative { background: var(--red-bg); color: var(--red); }
+  .gf-neutral { background: var(--amber-bg); color: var(--amber); }
+  @media (max-width: 500px) { #cityCards { grid-template-columns: repeat(2,1fr); } }
+
   /* SOLD OUT */
   .sold-out-badge { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: var(--red-bg); color: var(--red); font-weight: 500; white-space: nowrap; }
   .price-up { color: var(--red); font-size: 11px; }
@@ -280,48 +295,74 @@
     <div class="section-note">Prossimi: Moon&amp;Stars Locarno 9–19 lug &middot; Locarno Film Festival 5–15 ago.</div>
   </div>
 
-  <!-- SEZIONE 5 — METEO -->
+  <!-- SEZIONE 5 — INDICE DI PRESSIONE GOTTARDO -->
   <div class="section">
     <div class="section-head">
-      <h2><span class="section-num">5</span> Meteo previsionale — driver domanda</h2>
-      <span class="section-tag">OpenMeteo API &middot; +14 giorni</span>
+      <h2><span class="section-num">5</span> Indice di Pressione Gottardo&#x2122;</h2>
+      <span class="section-tag" id="gottardoMeta">OpenMeteo API &middot; aggiornamento in corso...</span>
     </div>
-    <div class="section-body">
-      <div class="meteo-grid">
-        <div class="meteo-card">
-          <div class="m-loc">&#x1F4CD; Locarno / Brissago (46.16°N, 8.79°E)</div>
-          <div class="m-temp">27°C</div>
-          <div class="m-desc">Soleggiato, vento leggero dal lago</div>
-          <div class="meteo-days">
-            <div class="mday"><div class="md-label">ma</div><div class="md-temp">28°</div></div>
-            <div class="mday"><div class="md-label">me</div><div class="md-temp">25°</div></div>
-            <div class="mday"><div class="md-label">gi</div><div class="md-temp">22°</div></div>
-            <div class="mday"><div class="md-label">ve</div><div class="md-temp">24°</div></div>
-            <div class="mday"><div class="md-label">sa</div><div class="md-temp">26°</div></div>
-            <div class="mday"><div class="md-label">do</div><div class="md-temp">27°</div></div>
-          </div>
+    <div class="section-body" id="gottardoBody">
+
+      <!-- GAUGE -->
+      <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:1rem;">
+        <svg id="gottardoGauge" viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px;">
+          <defs>
+            <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#1D6B4A"/>
+              <stop offset="35%"  stop-color="#4CAF7D"/>
+              <stop offset="60%"  stop-color="#E6A817"/>
+              <stop offset="80%"  stop-color="#D05A1A"/>
+              <stop offset="100%" stop-color="#991F1F"/>
+            </linearGradient>
+            <clipPath id="gaugeClip">
+              <path d="M20,140 A120,120 0 0,1 260,140"/>
+            </clipPath>
+          </defs>
+          <!-- Track background -->
+          <path d="M20,140 A120,120 0 0,1 260,140" fill="none" stroke="rgba(0,0,0,0.07)" stroke-width="18" stroke-linecap="round"/>
+          <!-- Colored track -->
+          <path d="M20,140 A120,120 0 0,1 260,140" fill="none" stroke="url(#gaugeGrad)" stroke-width="18" stroke-linecap="round"/>
+          <!-- Tick marks -->
+          <g id="gaugeTicks"></g>
+          <!-- Needle -->
+          <g id="gaugeNeedle" transform="rotate(-90, 140, 140)">
+            <line x1="140" y1="140" x2="140" y2="38" stroke="#1C1C1A" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="140" cy="140" r="6" fill="#1C1C1A"/>
+            <circle cx="140" cy="140" r="3" fill="white"/>
+          </g>
+          <!-- Score text -->
+          <text id="gaugeScore" x="140" y="118" text-anchor="middle" font-family="'DM Serif Display',Georgia,serif" font-size="42" fill="#1C1C1A">—</text>
+          <text x="140" y="136" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="10" fill="#6B6A65">PRESSIONE GOTTARDO</text>
+          <!-- Scale labels -->
+          <text x="24" y="156" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="9" fill="#6B6A65">0</text>
+          <text x="140" y="30" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="9" fill="#6B6A65">50</text>
+          <text x="256" y="156" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="9" fill="#6B6A65">100</text>
+        </svg>
+
+        <!-- Verdict badge -->
+        <div id="gottardoVerdict" style="margin-top:-4px;font-size:13px;font-weight:500;color:#1C1C1A;text-align:center;max-width:320px;line-height:1.5;">
+          Caricamento dati meteo...
         </div>
-        <div class="meteo-card">
-          <div class="m-loc">&#x1F4CD; Svizzera centrale — Zurigo (47.37°N, 8.54°E)</div>
-          <div class="m-temp">16°C</div>
-          <div class="m-desc">Variabile, parzialmente nuvoloso</div>
-          <div class="meteo-days">
-            <div class="mday"><div class="md-label">ma</div><div class="md-temp">14°</div></div>
-            <div class="mday"><div class="md-label">me</div><div class="md-temp">13°</div></div>
-            <div class="mday"><div class="md-label">gi</div><div class="md-temp">17°</div></div>
-            <div class="mday"><div class="md-label">ve</div><div class="md-temp">16°</div></div>
-            <div class="mday"><div class="md-label">sa</div><div class="md-temp">18°</div></div>
-            <div class="mday"><div class="md-label">do</div><div class="md-temp">19°</div></div>
-          </div>
-        </div>
+        <div id="gottardoReason" style="margin-top:6px;font-size:12px;color:#6B6A65;text-align:center;max-width:340px;line-height:1.6;"></div>
       </div>
-      <div class="alert-gottardo">
-        <strong>&#9888; Regola Gottardo attiva:</strong> Meteo variabile a Zurigo e Lucerna (13–17°C). Lago Maggiore a 27°C. Opportunità last-minute verso mercato ZH/LU.
+
+      <!-- CITY CARDS -->
+      <div id="cityCards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px;">
+        <div class="g-city-card" id="city-locarno"><div class="gcc-loading">...</div></div>
+        <div class="g-city-card" id="city-zurich"><div class="gcc-loading">...</div></div>
+        <div class="g-city-card" id="city-basel"><div class="gcc-loading">...</div></div>
+        <div class="g-city-card" id="city-bern"><div class="gcc-loading">...</div></div>
       </div>
+
+      <!-- MOLTIPLICATORI ATTIVI -->
+      <div id="gottardoFactors" style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;"></div>
+
     </div>
+    <div class="section-note">Indice calcolato su delta temperatura e precipitazioni tra destinazione (Locarno) e mercati di origine (ZH, BS, BE). Aggiornato ad ogni caricamento pagina.</div>
   </div>
 
-  <!-- VACANZE SCOLASTICHE -->
+
+    <!-- VACANZE SCOLASTICHE -->
   <div class="section">
     <div class="section-head">
       <h2><span class="section-num">+</span> Vacanze scolastiche CH &amp; DE — prossimi 2 mesi</h2>
@@ -531,6 +572,211 @@ function loadRadarData() {
 }
 
 loadRadarData();
+
+  /* ── INDICE DI PRESSIONE GOTTARDO ── */
+  const CITIES = [
+    { id: 'locarno', name: 'Locarno',  lat: 46.16, lon: 8.79,  isDestination: true  },
+    { id: 'zurich',  name: 'Zurigo',   lat: 47.37, lon: 8.54,  isDestination: false },
+    { id: 'basel',   name: 'Basilea',  lat: 47.56, lon: 7.59,  isDestination: false },
+    { id: 'bern',    name: 'Berna',    lat: 46.95, lon: 7.45,  isDestination: false }
+  ];
+
+  const WMO_ICONS = {
+    0:'☀️', 1:'🌤️', 2:'⛅', 3:'☁️',
+    45:'🌫️', 48:'🌫️',
+    51:'🌦️', 53:'🌦️', 55:'🌧️',
+    61:'🌧️', 63:'🌧️', 65:'🌧️',
+    71:'🌨️', 73:'🌨️', 75:'❄️',
+    80:'🌦️', 81:'🌧️', 82:'⛈️',
+    95:'⛈️', 96:'⛈️', 99:'⛈️'
+  };
+
+  function wmoDesc(code) {
+    const map = {
+      0:'Sereno', 1:'Poco nuvoloso', 2:'Parzialmente nuvoloso', 3:'Coperto',
+      45:'Nebbia', 48:'Nebbia',
+      51:'Pioviggine', 53:'Pioviggine', 55:'Pioviggine intensa',
+      61:'Pioggia leggera', 63:'Pioggia', 65:'Pioggia forte',
+      71:'Neve leggera', 73:'Neve', 75:'Neve intensa',
+      80:'Rovesci', 81:'Rovesci forti', 82:'Rovesci violenti',
+      95:'Temporale', 96:'Temporale', 99:'Temporale forte'
+    };
+    return map[code] || 'Variabile';
+  }
+
+  function isRainy(code) { return code >= 51; }
+  function isCloudy(code) { return code >= 3; }
+  function isSunny(code) { return code <= 1; }
+
+  function calculateGotthardIndex(weather, isHolidayCH, isHolidayDE) {
+    const loc = weather.locarno;
+    const zh  = weather.zurich;
+    const bs  = weather.basel;
+    const be  = weather.bern;
+
+    const tLoc  = loc.temp;
+    const tNord = (zh.temp + bs.temp + be.temp) / 3;
+    const tDelta = tLoc - tNord;
+
+    let score = 30; // base
+    const factors = [];
+
+    // ── SCENARIO 1: Fuga dalla pioggia (massimo impatto)
+    const nordRainy = isRainy(zh.code) || isRainy(bs.code) || isRainy(be.code);
+    if (tLoc > 20 && isSunny(loc.code) && nordRainy) {
+      score += 55;
+      factors.push({ label: '☀️ Fuga dalla pioggia', type: 'positive' });
+    }
+    // ── SCENARIO 2: Status quo (concorrenza laghi interni)
+    else if (tLoc > 25 && isSunny(loc.code) && tNord > 22 && !isCloudy(zh.code)) {
+      score = 45;
+      factors.push({ label: '⚖️ Status quo — laghi interni competitivi', type: 'neutral' });
+    }
+    // ── SCENARIO 3: Mezza stagione / nebbia
+    else if (tNord < 15 && tLoc > 18 && isSunny(loc.code)) {
+      score += 42;
+      factors.push({ label: '🌫️ Mezza stagione — nord freddo', type: 'positive' });
+    }
+    // ── Delta temperatura generico
+    else {
+      if (tDelta > 8)       { score += 25; factors.push({ label: '+' + Math.round(tDelta) + '°C vs Nord', type: 'positive' }); }
+      else if (tDelta > 4)  { score += 12; factors.push({ label: '+' + Math.round(tDelta) + '°C vs Nord', type: 'positive' }); }
+      else if (tDelta < 0)  { score -= 10; factors.push({ label: Math.round(tDelta) + '°C vs Nord', type: 'negative' }); }
+    }
+
+    // ── SCENARIO 4: Canicola estrema (malus)
+    if (tLoc > 32 && tNord > 30) {
+      score -= 15;
+      factors.push({ label: '🥵 Canicola — malus viaggio', type: 'negative' });
+    }
+
+    // ── Precipitazioni Locarno (penalizza)
+    if (isRainy(loc.code)) {
+      score -= 20;
+      factors.push({ label: '🌧️ Pioggia a Locarno', type: 'negative' });
+    }
+
+    // ── MOLTIPLICATORI CALENDARIO
+    if (isHolidayCH) {
+      score += 15;
+      factors.push({ label: '📅 Vacanze CH +15%', type: 'positive' });
+    }
+    if (isHolidayDE) {
+      score += 20;
+      factors.push({ label: '🇩🇪 Vacanze DE/BY +20%', type: 'positive' });
+    }
+
+    score = Math.max(0, Math.min(100, Math.round(score)));
+
+    // ── Testo dinamico
+    let verdict, reason;
+    if (score >= 80) {
+      verdict = '🔴 Alta pressione — Esodo in corso';
+      reason = 'Forte differenziale meteo con il Nord. Aspettati last-minute e richieste elevate nei prossimi 2–3 giorni.';
+    } else if (score >= 65) {
+      verdict = '🟠 Pressione elevata — Opportunità attiva';
+      reason = 'Condizioni favorevoli per afflusso dal mercato svizzero-tedesco. Monitora le prenotazioni nelle prossime 48 ore.';
+    } else if (score >= 45) {
+      verdict = '🟡 Pressione media — Mercato stabile';
+      reason = 'Condizioni bilanciate. Il differenziale meteo non è sufficiente da solo — punta su eventi locali e promozioni mirate.';
+    } else if (score >= 25) {
+      verdict = '🟢 Pressione bassa — Traffico ordinario';
+      reason = 'Nessun driver meteo significativo. Settimana nella norma stagionale.';
+    } else {
+      verdict = '🔵 Pressione minima';
+      reason = 'Condizioni meteo sfavorevoli o parità con il Nord. Focus su mercato locale e fedeli.';
+    }
+
+    return { score, factors, verdict, reason };
+  }
+
+  function setNeedle(score) {
+    // -90deg = 0, +90deg = 100
+    const angle = -90 + (score / 100) * 180;
+    document.getElementById('gaugeNeedle').setAttribute('transform', 'rotate(' + angle + ', 140, 140)');
+    document.getElementById('gaugeScore').textContent = score;
+  }
+
+  function renderCityCard(city, data) {
+    const el = document.getElementById('city-' + city.id);
+    const isLoc = city.isDestination;
+    el.className = 'g-city-card' + (isLoc ? ' gcc-highlight' : '');
+    el.innerHTML =
+      '<div class="gcc-city">' + city.name + (isLoc ? ' ★' : '') + '</div>' +
+      '<div class="gcc-icon">' + (WMO_ICONS[data.code] || '🌡️') + '</div>' +
+      '<div class="gcc-temp">' + Math.round(data.temp) + '°</div>' +
+      '<div class="gcc-desc">' + wmoDesc(data.code) + '</div>' +
+      (data.precip > 0 ? '<div class="gcc-precip">💧 ' + data.precip.toFixed(1) + ' mm</div>' : '');
+  }
+
+  function renderFactors(factors) {
+    const el = document.getElementById('gottardoFactors');
+    el.innerHTML = factors.map(function(f) {
+      return '<span class="g-factor gf-' + f.type + '">' + f.label + '</span>';
+    }).join('');
+  }
+
+  async function fetchCityWeather(city) {
+    const url = 'https://api.open-meteo.com/v1/forecast' +
+      '?latitude=' + city.lat +
+      '&longitude=' + city.lon +
+      '&current=temperature_2m,precipitation,weather_code' +
+      '&hourly=temperature_2m' +
+      '&forecast_days=1' +
+      '&timezone=Europe%2FZurich';
+    const r = await fetch(url);
+    const d = await r.json();
+    return {
+      temp:   d.current.temperature_2m,
+      precip: d.current.precipitation,
+      code:   d.current.weather_code
+    };
+  }
+
+  async function loadGotthardIndex() {
+    // ── Variabili calendario — aggiornare ogni settimana manualmente
+    // true se la settimana corrente coincide con vacanze scolastiche
+    const isHolidayCH = false;  // es: true durante ponti primaverili ZH/LU
+    const isHolidayDE = false;  // es: true durante estate Baviera/Baden-WÜ
+
+    try {
+      const results = await Promise.all(CITIES.map(fetchCityWeather));
+      const weather = {};
+      CITIES.forEach(function(c, i) { weather[c.id] = results[i]; });
+
+      // Render city cards
+      CITIES.forEach(function(c, i) { renderCityCard(c, results[i]); });
+
+      // Calculate index
+      const idx = calculateGotthardIndex(weather, isHolidayCH, isHolidayDE);
+
+      // Animate needle
+      let current = 0;
+      const target = idx.score;
+      const step = function() {
+        current = Math.min(current + 2, target);
+        setNeedle(current);
+        if (current < target) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+
+      document.getElementById('gottardoVerdict').textContent = idx.verdict;
+      document.getElementById('gottardoReason').textContent = idx.reason;
+      renderFactors(idx.factors);
+
+      const now = new Date();
+      document.getElementById('gottardoMeta').textContent =
+        'OpenMeteo API · aggiornato ' +
+        now.toLocaleTimeString('it-CH', {hour:'2-digit', minute:'2-digit'});
+
+    } catch(e) {
+      document.getElementById('gottardoVerdict').textContent = 'Dati meteo non disponibili';
+      document.getElementById('gottardoReason').textContent = 'Verificare la connessione. I dati OpenMeteo sono gratuiti e non richiedono API key.';
+      document.getElementById('gottardoMeta').textContent = 'OpenMeteo API · errore';
+    }
+  }
+
+  loadGotthardIndex();
+
+
 </script>
-</body>
-</html>
