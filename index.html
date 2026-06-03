@@ -158,6 +158,36 @@
   .loading-spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
+  /* LEAD GEN */
+  .leadgen-wrap { margin: 0 1.5rem 1rem; }
+  .leadgen-banner { background: #0F1F14; border-radius: var(--radius); padding: 2rem; color: #fff; }
+  .leadgen-banner .lg-eyebrow { font-size: 11px; color: #4CAF7D; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; margin-bottom: 10px; }
+  .leadgen-banner .lg-title { font-family: var(--serif); font-size: 22px; font-weight: 400; color: #fff; line-height: 1.3; margin-bottom: 6px; }
+  .leadgen-banner .lg-sub { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; line-height: 1.6; }
+  .leadgen-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 560px) { .leadgen-cards { grid-template-columns: 1fr; } }
+  .lg-card { background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 16px; }
+  .lg-card:hover { background: rgba(255,255,255,0.09); }
+  .lg-card .lgc-tag { font-size: 10px; color: #4CAF7D; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+  .lg-card .lgc-title { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+  .lg-card .lgc-desc { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 14px; line-height: 1.5; }
+  .lg-card .lgc-input { width: 100%; font-family: var(--sans); font-size: 12px; padding: 8px 10px; border-radius: 6px; border: 0.5px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: #fff; margin-bottom: 8px; outline: none; }
+  .lg-card .lgc-input::placeholder { color: rgba(255,255,255,0.35); }
+  .lg-card .lgc-input:focus { border-color: #4CAF7D; }
+  .lg-card .lgc-btn { width: 100%; font-family: var(--sans); font-size: 12px; font-weight: 500; padding: 9px 12px; border-radius: 6px; border: none; cursor: pointer; transition: opacity 0.15s; }
+  .lg-card .lgc-btn:hover { opacity: 0.85; }
+  .lgc-btn-audit { background: #4CAF7D; color: #0F1F14; }
+  .lgc-btn-early { background: #E6A817; color: #0F1F14; }
+  .lg-microcopy { font-size: 10px; color: rgba(255,255,255,0.3); margin-top: 6px; text-align: center; }
+
+  /* AZIONI AI */
+  .az-loading { display: flex; align-items: center; gap: 10px; padding: 20px 0; color: var(--muted); font-size: 13px; }
+  .az-contesto { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 12px; padding: 8px 12px; background: var(--bg); border-radius: 6px; border-left: 3px solid var(--accent); }
+  .az-categoria { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
+  .az-fonte { font-size: 10px; color: var(--accent); margin-top: 5px; font-style: italic; }
+  .az-error { padding: 12px; background: var(--red-bg); border-radius: 8px; font-size: 12px; color: var(--red); }
+  .az-cached { font-size: 10px; color: var(--muted); text-align: right; margin-top: 8px; }
+
   /* FOOTER */
   .footer { text-align: center; padding: 2rem 1.5rem; font-size: 11px; color: var(--muted); border-top: 0.5px solid var(--border); margin: 1.5rem 1.5rem 0; }
   .footer strong { color: var(--text); }
@@ -184,37 +214,37 @@
   <!-- USTAT SNAPSHOT -->
   <div class="section">
     <div class="section-head">
-      <h2><span class="section-num">&#x25CB;</span> Contesto mercato — Lago Maggiore e Valli</h2>
-      <span class="section-tag">Dati USTAT 2025</span>
+      <h2><span class="section-num">&#x25CB;</span> Contesto mercato &mdash; Lago Maggiore e Valli</h2>
+      <span class="section-tag">USTAT 2026 &middot; Q1 + benchmark estate</span>
     </div>
     <div class="section-body">
       <div class="ustat-strip">
         <div class="ustat-card">
-          <div class="us-label">Occupazione letti lug 2025</div>
+          <div class="us-label">Trend arrivi Q1 2026</div>
+          <div class="us-value">+22%</div>
+          <div class="us-delta delta-up">&#x2191; Feb 2026 vs Feb 2025 &mdash; Mar +9%</div>
+        </div>
+        <div class="ustat-card">
+          <div class="us-label">Occupazione letti mar 2026</div>
+          <div class="us-value">33.5%</div>
+          <div class="us-delta delta-up">&#x2191; vs 31.0% mar 2025 &mdash; +2.5 punti</div>
+        </div>
+        <div class="ustat-card">
+          <div class="us-label">Record estate &mdash; lug 2025</div>
           <div class="us-value">75.5%</div>
-          <div class="us-delta delta-up">&#x2191; +12 punti vs 2024</div>
+          <div class="us-delta delta-flat">&#x25CB; Benchmark da battere lug 2026</div>
         </div>
         <div class="ustat-card">
-          <div class="us-label">Arrivi totali 2025</div>
-          <div class="us-value">498.525</div>
-          <div class="us-delta delta-up">&#x2191; +7% vs 2024</div>
-        </div>
-        <div class="ustat-card">
-          <div class="us-label">Pernott. esteri 2025</div>
-          <div class="us-value">127.746</div>
-          <div class="us-delta delta-up">&#x2191; +18% vs 2024</div>
-        </div>
-        <div class="ustat-card">
-          <div class="us-label">Soggiorno medio</div>
-          <div class="us-value">2.06 gg</div>
-          <div class="us-delta delta-flat">= Stabile</div>
+          <div class="us-label">Germania &mdash; mercato chiave</div>
+          <div class="us-value">250k</div>
+          <div class="us-delta delta-up">&#x2191; +6.9% pernottamenti 2025</div>
         </div>
       </div>
-      <div style="font-size:11px;color:var(--muted);font-style:italic;">Fonte: USTAT — Statistica del turismo. Germania mercato estero chiave: 250.087 pernottamenti (+6.9%). Aggiornamento mensile.</div>
+      <div style="font-size:11px;color:var(--muted);font-style:italic;">Fonte: USTAT &mdash; Statistica del turismo Ticino. Q1 2026 in forte crescita. Soggiorno medio 2.06 gg &mdash; mercato prevalentemente last-minute.</div>
     </div>
   </div>
 
-  <!-- SEZIONE 1 — RANKING COMPLETO -->
+    <!-- SEZIONE 1 — RANKING COMPLETO -->
   <div class="section">
     <div class="section-head">
       <h2><span class="section-num">1</span> Ranking Booking.com — cluster Locarnese</h2>
@@ -382,41 +412,50 @@
     <div class="section-note">Mercati chiave: ZH, LU, BE, ZG (domestico) + Baviera, Baden-WÜ (principale mercato estero DE).</div>
   </div>
 
-  <!-- SEZIONE 6 — 3 AZIONI -->
+  <!-- SEZIONE 6 — 3 AZIONI AI-POWERED -->
   <div class="section">
     <div class="section-head">
       <h2><span class="section-num">6</span> 3 azioni prioritarie — questa settimana</h2>
-      <span class="section-tag">Sintesi AI &middot; sezioni 1–5</span>
+      <span class="section-tag" id="azioniTag">AI &middot; caricamento...</span>
     </div>
-    <div class="section-body">
-      <div class="azioni-list">
-        <div class="azione">
-          <div class="az-num">1</div>
-          <div>
-            <div class="az-title">Alza i prezzi del weekend 14–21 giugno del 10–15%</div>
-            <div class="az-desc">JazzAscona parte il 25/6: le prenotazioni last-minute iniziano 2 settimane prima. Il ranking Booking del cluster è stabile. Agisci ora prima che i competitor si muovano.</div>
-            <div class="az-fonte">Fonte: Ranking cluster (sez. 1) + JazzAscona 25/6 (sez. 4)</div>
-          </div>
-        </div>
-        <div class="azione">
-          <div class="az-num">2</div>
-          <div>
-            <div class="az-title">Lancia promozione "fuga dal grigio" questa settimana</div>
-            <div class="az-desc">Zurigo a 13–16°C, Locarno a 27°C. Delta di 11°C = opportunità immediata. Un post social o una mail alla lista clienti ZH/LU con foto sole+lago converte bene in questo scenario.</div>
-            <div class="az-fonte">Fonte: Regola Gottardo attiva (sez. 5)</div>
-          </div>
-        </div>
-        <div class="azione">
-          <div class="az-num">3</div>
-          <div>
-            <div class="az-title">Rispondi alle ultime 3 recensioni Booking entro oggi</div>
-            <div class="az-desc">La media del cluster Locarnese è 8.7/10. Le strutture con score sotto 8.2 perdono posizioni nel ranking organico. Una risposta curata migliora visibilità in 5–7 giorni.</div>
-            <div class="az-fonte">Fonte: Score medio cluster (sez. 1) — media calcolata su 44 strutture</div>
-          </div>
-        </div>
+    <div class="section-body" id="azioniBody">
+      <div class="az-loading">
+        <span class="loading-spinner"></span>Analisi scenario in corso...
       </div>
     </div>
-    <div class="section-note">Le azioni prioritarie vengono rigenerate ogni lunedì in base ai dati aggiornati delle sezioni 1–5.</div>
+    <div class="section-note">Generate da Claude AI su dati meteo, cluster e eventi in tempo reale. Cache 24h per prestazioni ottimali.</div>
+  </div>
+
+  <!-- LEAD GENERATION -->
+  <div class="leadgen-wrap">
+    <div class="leadgen-banner">
+      <div class="lg-eyebrow">&#x2605; Accesso anticipato &mdash; Locarnese 2026</div>
+      <div class="lg-title">Vuoi che il Radar lavori per il tuo hotel?</div>
+      <div class="lg-sub">Due strumenti esclusivi per gli operatori del Locarnese che vogliono anticipare il mercato, non inseguirlo.</div>
+      <div class="leadgen-cards">
+
+        <div class="lg-card">
+          <div class="lgc-tag">&#x1F50D; Gratuito &middot; 30 minuti</div>
+          <div class="lgc-title">Audit AI: come l&apos;intelligenza artificiale legge e vende il tuo hotel</div>
+          <div class="lgc-desc">Analizziamo il tuo profilo Booking, le recensioni e il posizionamento nel cluster. Ti diciamo cosa vede un algoritmo quando cerca un hotel nel Locarnese.</div>
+          <input class="lgc-input" id="auditEmail" type="email" placeholder="La tua email professionale" autocomplete="off">
+          <input class="lgc-input" id="auditHotel" type="text" placeholder="Nome del tuo hotel" autocomplete="off">
+          <button class="lgc-btn lgc-btn-audit" onclick="submitLead('audit')">Prenota il mio Audit gratuito &rarr;</button>
+          <div class="lg-microcopy">Nessuno spam. Risposta entro 48 ore.</div>
+        </div>
+
+        <div class="lg-card">
+          <div class="lgc-tag">&#x1F4C5; Early Access &middot; Edizione limitata</div>
+          <div class="lgc-title">Predictive Calendar 2026: tutte le finestre di alta domanda del Locarnese</div>
+          <div class="lgc-desc">Il nostro modello predittivo incrocia eventi, vacanze scolastiche CH/DE e pattern meteo storici. Ottieni le date esatte in cui il tuo hotel pu&ograve; spuntare il massimo.</div>
+          <input class="lgc-input" id="earlyEmail" type="email" placeholder="La tua email professionale" autocomplete="off">
+          <input class="lgc-input" id="earlyHotel" type="text" placeholder="Nome del tuo hotel" autocomplete="off">
+          <button class="lgc-btn lgc-btn-early" onclick="submitLead('early')">Voglio l&apos;accesso anticipato &rarr;</button>
+          <div class="lg-microcopy">Disponibile per i primi 15 operatori. Lista aperta.</div>
+        </div>
+
+      </div>
+    </div>
   </div>
 
   <div class="footer">
@@ -560,6 +599,9 @@ function loadRadarData() {
         sel.appendChild(opt);
       });
       document.getElementById('hotelCountBadge').textContent = allHotels.length + ' strutture';
+
+      // Esponi eventi per il Worker AI
+      window.radarEventi = data.eventi || { locali: [], nord: [] };
 
       // Show first hotel detail
       updateHotelDetail();
@@ -769,6 +811,12 @@ loadRadarData();
         'OpenMeteo API · aggiornato ' +
         now.toLocaleTimeString('it-CH', {hour:'2-digit', minute:'2-digit'});
 
+      // Esponi score e weather per il Worker AI
+      window.isHolidayCH = isHolidayCH;
+      window.isHolidayDE = isHolidayDE;
+      // Chiama le azioni AI con i dati meteo reali
+      loadAzioniAI(idx.score, idx.verdict, weather);
+
     } catch(e) {
       document.getElementById('gottardoVerdict').textContent = 'Dati meteo non disponibili';
       document.getElementById('gottardoReason').textContent = 'Verificare la connessione. I dati OpenMeteo sono gratuiti e non richiedono API key.';
@@ -777,6 +825,132 @@ loadRadarData();
   }
 
   loadGotthardIndex();
+
+
+
+  /* ── DATA DINAMICA HEADER ── */
+  function aggiornaBadgeData() {
+    const now = new Date();
+    const oggi = now.toLocaleDateString('it-CH', { weekday: 'long', day: 'numeric', month: 'long' });
+    const ore  = now.toLocaleTimeString('it-CH', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('badgeAggiornato').textContent = '↻ Oggi, ' + oggi;
+  }
+  aggiornaBadgeData();
+
+  /* ── WORKER URL — sostituire con il proprio dopo il deploy ── */
+  const WORKER_URL = 'https://ticino-radar.ACCOUNT.workers.dev';
+
+  /* ── COSTRUISCE IL PAYLOAD DA PASSARE AL WORKER ── */
+  function buildWorkerPayload(gottardoScore, gottardoVerdict, weatherData) {
+    // Calcola statistiche cluster da allHotels
+    const validP7  = allHotels.filter(h => h.priceWeekend7).map(h => h.priceWeekend7);
+    const validP14 = allHotels.filter(h => h.priceWeekend14).map(h => h.priceWeekend14);
+    const soldOut  = allHotels.filter(h => h.fullyBooked14).map(h => h.name);
+    const avg = arr => arr.length ? Math.round(arr.reduce((a,b) => a+b, 0) / arr.length) : 0;
+    const avgP7  = avg(validP7);
+    const avgP14 = avg(validP14);
+    const delta  = avgP7 > 0 ? Math.round(((avgP14 - avgP7) / avgP7) * 100) : 0;
+    const scores = allHotels.filter(h => h.rating).map(h => h.rating);
+    const avgScore = scores.length ? (scores.reduce((a,b) => a+b,0) / scores.length).toFixed(1) : 0;
+    const top3 = allHotels.slice(0, 3).map(h => ({ name: h.name, rating: h.rating }));
+
+    // Legge eventi da radar_data.json (window.radarEventi)
+    const eventi = window.radarEventi || { locali: [], nord: [] };
+
+    return {
+      gottardoScore: gottardoScore || 0,
+      gottardoVerdict: gottardoVerdict || 'N/D',
+      meteo: weatherData || {},
+      clusterStats: {
+        totaleHotel: allHotels.length,
+        soldOut14: soldOut,
+        prezzoMedio7: avgP7,
+        prezzoMedio14: avgP14,
+        deltaMedio: delta,
+        scoreMedio: avgScore,
+        top3: top3,
+        isHolidayCH: window.isHolidayCH || false,
+        isHolidayDE: window.isHolidayDE || false
+      },
+      eventi: eventi
+    };
+  }
+
+  /* ── RENDER AZIONI DAL JSON CLAUDE ── */
+  function renderAzioni(data, source) {
+    const catColors = { 1: 'var(--accent)', 2: 'var(--blue)', 3: 'var(--amber)' };
+    let html = '';
+    if (data.contesto) {
+      html += '<div class="az-contesto">&#x1F4CB; ' + data.contesto + '</div>';
+    }
+    html += '<div class="azioni-list">';
+    data.azioni.forEach(function(az) {
+      html += '<div class="azione">' +
+        '<div class="az-num" style="background:' + (catColors[az.numero] || 'var(--accent)') + '">' + az.numero + '</div>' +
+        '<div>' +
+          '<div class="az-categoria">' + az.categoria + '</div>' +
+          '<div class="az-title">' + az.titolo + '</div>' +
+          '<div class="az-desc">' + az.descrizione + '</div>' +
+          '<div class="az-fonte">Fonte: ' + az.fonte + '</div>' +
+        '</div>' +
+      '</div>';
+    });
+    html += '</div>';
+    const cacheLabel = source === 'cache'
+      ? '<div class="az-cached">&#x23F1; Dati in cache &mdash; aggiornamento prossime 24h</div>'
+      : '<div class="az-cached">&#x2728; Generato ora da Claude AI</div>';
+    html += cacheLabel;
+
+    document.getElementById('azioniBody').innerHTML = html;
+    document.getElementById('azioniTag').textContent = 'Claude AI · ' + (source === 'cache' ? 'cache 24h' : 'live');
+  }
+
+  /* ── CHIAMA IL WORKER ── */
+  async function loadAzioniAI(gottardoScore, gottardoVerdict, weatherData) {
+    try {
+      const payload = buildWorkerPayload(gottardoScore, gottardoVerdict, weatherData);
+      const res = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('Worker HTTP ' + res.status);
+      const json = await res.json();
+      if (json.error) throw new Error(json.error);
+      renderAzioni(json.data, json.source);
+    } catch(err) {
+      document.getElementById('azioniBody').innerHTML =
+        '<div class="az-error">&#x26A0; Impossibile caricare le azioni AI: ' + err.message +
+        '. Verifica che il Cloudflare Worker sia attivo e che WORKER_URL sia configurato.</div>';
+      document.getElementById('azioniTag').textContent = 'AI · errore';
+    }
+  }
+
+  /* ── LEAD GEN ── */
+  function submitLead(tipo) {
+    const emailId = tipo === 'audit' ? 'auditEmail' : 'earlyEmail';
+    const hotelId = tipo === 'audit' ? 'auditHotel' : 'earlyHotel';
+    const email = document.getElementById(emailId).value.trim();
+    const hotel = document.getElementById(hotelId).value.trim();
+
+    if (!email || !email.includes('@')) {
+      alert('Inserisci un indirizzo email valido.');
+      return;
+    }
+    if (!hotel) {
+      alert('Inserisci il nome del tuo hotel.');
+      return;
+    }
+
+    const messaggio = tipo === 'audit'
+      ? '✅ Richiesta ricevuta!\n\nTi contatteremo entro 48 ore per fissare il tuo Audit AI gratuito.\n\nHotel: ' + hotel
+      : '✅ Sei in lista!\n\nTi invieremo il Predictive Calendar 2026 non appena disponibile.\n\nHotel: ' + hotel;
+
+    alert(messaggio);
+    document.getElementById(emailId).value = '';
+    document.getElementById(hotelId).value = '';
+    // TODO Fase 4: sostituire con fetch() verso endpoint Make/Supabase per salvare il lead
+  }
 
 
 </script>
