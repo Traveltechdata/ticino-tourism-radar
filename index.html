@@ -186,7 +186,6 @@
   .az-categoria { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
   .az-fonte { font-size: 10px; color: var(--accent); margin-top: 5px; font-style: italic; }
   .az-error { padding: 12px; background: var(--red-bg); border-radius: 8px; font-size: 12px; color: var(--red); }
-  .az-cached { font-size: 10px; color: var(--muted); text-align: right; margin-top: 8px; }
 
   /* FOOTER */
   .footer { text-align: center; padding: 2rem 1.5rem; font-size: 11px; color: var(--muted); border-top: 0.5px solid var(--border); margin: 1.5rem 1.5rem 0; }
@@ -423,7 +422,7 @@
         <span class="loading-spinner"></span>Analisi scenario in corso...
       </div>
     </div>
-    <div class="section-note">Generate da Claude AI su dati meteo, cluster e eventi in tempo reale. Cache 24h per prestazioni ottimali.</div>
+    <div class="section-note">I dati di questa sezione sono il frutto dell'impegno costante di Travel Tech Data nell'analizzare, incrociare e tradurre in strategie concrete migliaia di variabili del mercato locale.</div>
   </div>
 
   <!-- LEAD GENERATION -->
@@ -579,7 +578,6 @@ function loadRadarData() {
       window.radarMeta = data.meta;
 
       // Update header
-      document.getElementById('badgeAggiornato').textContent = '↻ Aggiornato: ' + data.meta.aggiornato;
       document.getElementById('subSettimana').textContent = '📅 Settimana ' + data.meta.settimana + ' / 2026';
 
       // Build ranking table
@@ -896,13 +894,10 @@ loadRadarData();
       '</div>';
     });
     html += '</div>';
-    const cacheLabel = source === 'cache'
-      ? '<div class="az-cached">&#x23F1; Dati in cache &mdash; aggiornamento prossime 24h</div>'
-      : '<div class="az-cached">&#x2728; Generato ora da Claude AI</div>';
-    html += cacheLabel;
+
 
     document.getElementById('azioniBody').innerHTML = html;
-    document.getElementById('azioniTag').textContent = 'Claude AI · ' + (source === 'cache' ? 'cache 24h' : 'live');
+    document.getElementById('azioniTag').textContent = 'Analisi settimanale';
   }
 
   /* ── CHIAMA IL WORKER ── */
@@ -922,7 +917,7 @@ loadRadarData();
       document.getElementById('azioniBody').innerHTML =
         '<div class="az-error">&#x26A0; Impossibile caricare le azioni AI: ' + err.message +
         '. Verifica che il Cloudflare Worker sia attivo e che WORKER_URL sia configurato.</div>';
-      document.getElementById('azioniTag').textContent = 'AI · errore';
+      document.getElementById('azioniTag').textContent = 'Analisi settimanale';
     }
   }
 
