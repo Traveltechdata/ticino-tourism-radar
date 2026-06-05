@@ -148,6 +148,37 @@
   .gf-neutral { background: var(--amber-bg); color: var(--amber); }
   @media (max-width: 500px) { #cityCards { grid-template-columns: repeat(2,1fr); } }
 
+  /* TERMOMETRO PREZZI */
+  .termometro-wrap { margin-bottom: 14px; padding: 12px 14px; background: var(--bg); border-radius: 8px; border: 0.5px solid var(--border); }
+  .termometro-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .termometro-label { font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .termometro-input { font-family: var(--sans); font-size: 13px; padding: 7px 10px; border: 0.5px solid var(--border); border-radius: var(--radius-sm); background: var(--card); color: var(--text); width: 200px; }
+  .termometro-input:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .termometro-btn { font-family: var(--sans); font-size: 12px; font-weight: 500; padding: 7px 14px; border-radius: var(--radius-sm); border: none; background: var(--accent); color: #fff; cursor: pointer; }
+  .termometro-btn:hover { opacity: 0.85; }
+  .termometro-result { margin-top: 8px; font-size: 12px; line-height: 1.5; min-height: 18px; }
+  .tr-media { color: var(--muted); }
+  .tr-above { color: var(--red); font-weight: 500; }
+  .tr-below { color: var(--accent); font-weight: 500; }
+  .tr-par { color: var(--muted); font-weight: 500; }
+
+  /* PROGRESS BAR */
+  .progress-wrap { padding: 12px 18px 10px; border-bottom: 0.5px solid var(--border); }
+  .progress-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .progress-label { font-size: 12px; color: var(--muted); }
+  .progress-bar-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; border-radius: 3px; background: var(--accent); transition: width 0.4s ease; width: 0%; }
+  .progress-success { font-size: 12px; color: var(--accent); font-weight: 500; margin-top: 6px; display: none; }
+
+  /* AZIONE COMPLETATA */
+  .azione-completata { opacity: 0.55; }
+  .azione-completata .az-title { text-decoration: line-through; color: var(--muted); }
+  .az-checkbox { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; margin-top: 3px; }
+
+  /* WHATSAPP */
+  .whatsapp-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; margin-top: 12px; padding: 10px 16px; border-radius: var(--radius-sm); border: 0.5px solid rgba(37,211,102,0.3); background: rgba(37,211,102,0.08); color: #1a7a3c; font-family: var(--sans); font-size: 13px; font-weight: 500; cursor: pointer; transition: background 0.15s; }
+  .whatsapp-btn:hover { background: rgba(37,211,102,0.15); }
+
   /* SOLD OUT */
   .sold-out-badge { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: var(--red-bg); color: var(--red); font-weight: 500; white-space: nowrap; }
   .price-up { color: var(--red); font-size: 11px; }
@@ -248,6 +279,16 @@
     <div class="section-head">
       <h2><span class="section-num">1</span> Ranking Booking.com — cluster Locarnese</h2>
       <span class="section-tag" id="rankingMeta">Booking.com &middot; caricamento...</span>
+    </div>
+    <div class="section-body" style="padding-bottom:0">
+      <div class="termometro-wrap">
+        <div class="termometro-row">
+          <span class="termometro-label">Termometro prezzi:</span>
+          <input class="termometro-input" id="termometroInput" type="number" placeholder="Tua tariffa weekend (CHF)" min="0">
+          <button class="termometro-btn" onclick="calcolaTermometro()">Verifica posizione</button>
+        </div>
+        <div class="termometro-result" id="termometroResult"></div>
+      </div>
     </div>
     <div class="section-body" id="rankingBody">
       <div class="loading-state"><span class="loading-spinner"></span>Caricamento dati cluster...</div>
@@ -416,6 +457,15 @@
     <div class="section-head">
       <h2><span class="section-num">6</span> 3 azioni prioritarie — questa settimana</h2>
       <span class="section-tag" id="azioniTag">AI &middot; caricamento...</span>
+    </div>
+    <div class="progress-wrap" id="progressWrap" style="display:none">
+      <div class="progress-header">
+        <span class="progress-label" id="progressLabel">Progresso settimanale: 0/3 completate</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-success" id="progressSuccess">&#x2705; Ottimo lavoro! Strategia completata.</div>
     </div>
     <div class="section-body" id="azioniBody">
       <div class="az-loading">
