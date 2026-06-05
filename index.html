@@ -941,14 +941,7 @@ loadRadarData();
       }
     });
     if (titoli.length === 0) { alert('Le azioni non sono ancora disponibili.'); return; }
-    const testo = 'Ciao! Le priorità del Ticino Tourism Radar di oggi sono:
-
-' +
-      titoli.join('
-') +
-      '
-
-— Travel Tech Data';
+    const testo = 'Ciao! Le priorit\u00e0 del Ticino Tourism Radar di oggi sono:\n\n' + titoli.join('\n') + '\n\n\u2014 Travel Tech Data';
     window.open('https://wa.me/?text=' + encodeURIComponent(testo), '_blank');
   }
 
