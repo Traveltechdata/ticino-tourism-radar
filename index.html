@@ -877,29 +877,109 @@ loadRadarData();
   /* ── RENDER AZIONI DAL JSON CLAUDE ── */
   function renderAzioni(data, source) {
     const catColors = { 1: 'var(--accent)', 2: 'var(--blue)', 3: 'var(--amber)' };
-    let html = '';
+    let h = '';
     if (data.contesto) {
-      html += '<div class="az-contesto">&#x1F4CB; ' + data.contesto + '</div>';
+      h += '<div class="az-contesto">&#x1F4CB; ' + data.contesto + '</div>';
     }
-    html += '<div class="azioni-list">';
+    h += '<div class="azioni-list">';
     data.azioni.forEach(function(az) {
-      html += '<div class="azione">' +
+      h += '<div class="azione" id="azione-' + az.numero + '">' +
         '<div class="az-num" style="background:' + (catColors[az.numero] || 'var(--accent)') + '">' + az.numero + '</div>' +
-        '<div>' +
+        '<div style="flex:1">' +
           '<div class="az-categoria">' + az.categoria + '</div>' +
           '<div class="az-title">' + az.titolo + '</div>' +
           '<div class="az-desc">' + az.descrizione + '</div>' +
           '<div class="az-fonte">Fonte: ' + az.fonte + '</div>' +
         '</div>' +
+        '<input type="checkbox" class="az-checkbox" onchange="toggleAzione(' + az.numero + ', this)">' +
       '</div>';
     });
-    html += '</div>';
+    h += '</div>';
+    h += '<button class="whatsapp-btn" onclick="condividiWhatsApp()">&#x1F4F2; Condividi con il Team (WhatsApp)</button>';
 
-
-    document.getElementById('azioniBody').innerHTML = html;
+    document.getElementById('azioniBody').innerHTML = h;
     document.getElementById('azioniTag').textContent = 'Analisi settimanale';
+    document.getElementById('progressWrap').style.display = 'block';
+    aggiornaProgress();
   }
 
+  /* ── TOGGLE AZIONE COMPLETATA ── */
+  function toggleAzione(num, checkbox) {
+    const el = document.getElementById('azione-' + num);
+    if (checkbox.checked) { el.classList.add('azione-completata'); }
+    else { el.classList.remove('azione-completata'); }
+    aggiornaProgress();
+  }
+
+  /* ── AGGIORNA BARRA PROGRESSO ── */
+  function aggiornaProgress() {
+    const checkboxes = document.querySelectorAll('.az-checkbox');
+    const total = checkboxes.length;
+    if (total === 0) return;
+    const done = Array.from(checkboxes).filter(function(c) { return c.checked; }).length;
+    const pct = Math.round((done / total) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = 'Progresso settimanale: ' + done + '/' + total + ' completate';
+    const success = document.getElementById('progressSuccess');
+    if (done === total) {
+      success.style.display = 'block';
+      document.getElementById('progressFill').classList.add('complete');
+    } else {
+      success.style.display = 'none';
+      document.getElementById('progressFill').classList.remove('complete');
+    }
+  }
+
+  /* ── CONDIVIDI SU WHATSAPP ── */
+  function condividiWhatsApp() {
+    const titoli = [];
+    [1, 2, 3].forEach(function(n) {
+      const el = document.getElementById('azione-' + n);
+      if (el) {
+        const t = el.querySelector('.az-title');
+        if (t) titoli.push(n + '. ' + t.textContent.trim());
+      }
+    });
+    if (titoli.length === 0) { alert('Le azioni non sono ancora disponibili.'); return; }
+    const testo = 'Ciao! Le priorità del Ticino Tourism Radar di oggi sono:
+
+' +
+      titoli.join('
+') +
+      '
+
+— Travel Tech Data';
+    window.open('https://wa.me/?text=' + encodeURIComponent(testo), '_blank');
+  }
+
+  /* ── TERMOMETRO PREZZI ── */
+  function calcolaTermometro() {
+    const input = parseFloat(document.getElementById('termometroInput').value);
+    if (!input || input <= 0) {
+      document.getElementById('termometroResult').innerHTML =
+        '<span class="tr-media">Inserisci una tariffa valida.</span>';
+      return;
+    }
+    const prezzi = allHotels.filter(function(h) { return h.priceWeekend7 && h.priceWeekend7 > 0; })
+                             .map(function(h) { return h.priceWeekend7; });
+    if (prezzi.length === 0) {
+      document.getElementById('termometroResult').innerHTML =
+        '<span class="tr-media">Dati cluster non ancora caricati.</span>';
+      return;
+    }
+    const media = Math.round(prezzi.reduce(function(a, b) { return a + b; }, 0) / prezzi.length);
+    const diff = Math.round(((input - media) / media) * 100);
+    const absD = Math.abs(diff);
+    let risultato = '<span class="tr-media">Prezzo medio del cluster: <strong>CHF ' + media + '</strong>. </span>';
+    if (diff > 0) {
+      risultato += '<span class="tr-above">Sei posizionato al ' + absD + '% sopra la media.</span>';
+    } else if (diff < 0) {
+      risultato += '<span class="tr-below">Sei posizionato al ' + absD + '% sotto la media.</span>';
+    } else {
+      risultato += '<span class="tr-par">Sei esattamente in linea con la media del cluster.</span>';
+    }
+    document.getElementById('termometroResult').innerHTML = risultato;
+  }
   /* ── CHIAMA IL WORKER ── */
   async function loadAzioniAI(gottardoScore, gottardoVerdict, weatherData) {
     try {
