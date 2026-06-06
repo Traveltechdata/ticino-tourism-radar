@@ -1056,13 +1056,13 @@ loadRadarData();
     let consiglio = '';
     if (diff > 0) {
       risultato += '<span class="tr-above">Sei posizionato al ' + absD + '% sopra la media.</span>';
-      consiglio = 'Posizionamento premium. Mantieni solo se prevedi alta domanda dal Nord (Gottardo alto) o se il tuo score lo giustifica.';
+      consiglio = "Posizionamento premium. Mantieni solo se prevedi alta domanda dal Nord (Gottardo alto) o se il tuo score lo giustifica.";
     } else if (diff < 0) {
       risultato += '<span class="tr-below">Sei posizionato al ' + absD + '% sotto la media.</span>';
-      consiglio = 'Strategia aggressiva. Ottimo per saturare le ultime camere, ma se l'occupazione \u00e8 gi\u00e0 sopra il 60%, prova a rialzare di CHF 10-20.';
+      consiglio = "Strategia aggressiva. Ottimo per saturare le ultime camere. Se occupazione sopra 60%, valuta un rialzo di CHF 10-20.";
     } else {
       risultato += '<span class="tr-par">Sei esattamente in linea con la media del cluster.</span>';
-      consiglio = 'Allineamento perfetto. La differenza la far\u00e0 la visibilit\u00e0: ottimizza le foto o attiva tariffe mobile.';
+      consiglio = "Allineamento perfetto. La differenza la fara la visibilita: ottimizza le foto o attiva tariffe mobile.";
     }
     risultato += '<div style="margin-top:6px;font-size:11px;color:var(--muted);padding:6px 8px;background:var(--bg);border-radius:5px;border-left:2px solid var(--accent)">' + consiglio + '</div>';
     document.getElementById('termometroResult').innerHTML = risultato;
