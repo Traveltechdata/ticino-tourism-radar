@@ -563,23 +563,40 @@ function updateHotelDetail() {
         '<div class="m-value">CHF ' + h.priceWeekend7 + '</div>' +
         '<div class="m-sub">Check-in: ' + (window.radarMeta ? window.radarMeta.checkIn : '—') + '</div>' +
       '</div>' +
-      '<div class="metric-card">' +
-        '<div class="m-label">Prezzo +14 gg</div>' +
-        (h.fullyBooked14
-          ? '<div class="m-value" style="font-size:16px">Sold out</div><div class="m-sub" style="color:var(--red)">Non disponibile ' + (window.radarMeta ? window.radarMeta.checkIn14 : '') + '</div>'
-          : (function() {
-              var p14 = h.priceWeekend14;
-              var p7  = h.priceWeekend7;
-              var deltaHtml = '';
-              if (p14 && p7) {
-                var d = p14 - p7;
-                if (d > 0) deltaHtml = ' <span style="color:var(--accent);font-size:11px">&#x2191; +CHF ' + d + '</span>';
-                else if (d < 0) deltaHtml = ' <span style="color:var(--red);font-size:11px">&#x2193; CHF ' + d + '</span>';
-              }
-              return '<div class="m-value">CHF ' + (p14 || '—') + deltaHtml + '</div><div class="m-sub">Check-in: ' + (window.radarMeta ? window.radarMeta.checkIn14 : '—') + '</div>';
-            })()
-        ) +
-      '</div>' +
+      (function() {
+        if (h.fullyBooked14) {
+          return '<div class="metric-card" style="background:var(--red-bg);border:0.5px solid rgba(153,31,31,0.2);border-left:3px solid var(--red)">' +
+            '<div class="m-label">Prezzo +14 gg</div>' +
+            '<div class="m-value" style="font-size:16px">Sold out</div>' +
+            '<div class="m-sub" style="color:var(--red)">Non disponibile ' + (window.radarMeta ? window.radarMeta.checkIn14 : '') + '</div>' +
+          '</div>';
+        }
+        var p14 = h.priceWeekend14;
+        var p7  = h.priceWeekend7;
+        if (!p14) {
+          return '<div class="metric-card"><div class="m-label">Prezzo +14 gg</div><div class="m-value">—</div></div>';
+        }
+        var d = p7 ? (p14 - p7) : 0;
+        var cardStyle, arrowHtml;
+        if (d > 0) {
+          cardStyle = 'background:var(--accent-light);border:0.5px solid rgba(29,107,74,0.2);border-left:3px solid var(--accent)';
+          arrowHtml = '<div style="font-size:28px;line-height:1;color:var(--accent);margin:4px 0">&#x2191;</div>' +
+                      '<div style="font-size:11px;color:var(--accent);font-weight:500">+CHF ' + d + ' vs +7gg</div>';
+        } else if (d < 0) {
+          cardStyle = 'background:var(--red-bg);border:0.5px solid rgba(153,31,31,0.2);border-left:3px solid var(--red)';
+          arrowHtml = '<div style="font-size:28px;line-height:1;color:var(--red);margin:4px 0">&#x2193;</div>' +
+                      '<div style="font-size:11px;color:var(--red);font-weight:500">CHF ' + d + ' vs +7gg</div>';
+        } else {
+          cardStyle = 'background:var(--bg);border:0.5px solid var(--border)';
+          arrowHtml = '<div style="font-size:11px;color:var(--muted);margin-top:4px">=&nbsp;Invariato</div>';
+        }
+        return '<div class="metric-card" style="' + cardStyle + '">' +
+          '<div class="m-label">Prezzo +14 gg</div>' +
+          '<div class="m-value">CHF ' + p14 + '</div>' +
+          arrowHtml +
+          '<div class="m-sub" style="margin-top:4px">Check-in: ' + (window.radarMeta ? window.radarMeta.checkIn14 : '—') + '</div>' +
+        '</div>';
+      })() +
       '<div class="metric-card">' +
         '<div class="m-label">Score Booking</div>' +
         '<div class="m-value">' + h.rating.toFixed(1) + ' <span style="font-size:13px;font-weight:400;color:var(--muted)">/ 10</span></div>' +
