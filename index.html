@@ -322,47 +322,10 @@
       <h2><span class="section-num">4</span> Radar territorio — prossime 3 settimane</h2>
       <span class="section-tag">ascona-locarno.com &middot; locarnese.events</span>
     </div>
-    <div class="section-body">
-      <div class="events-list">
-        <div class="event-row">
-          <div class="event-dot dot-basso"></div>
-          <div class="event-info">
-            <div class="ev-name">Street Food Festival Locarno</div>
-            <div class="ev-date">3–6 giugno 2026 &middot; Piazza Grande</div>
-            <div class="ev-note">Pubblico locale. Impatto pernottamenti limitato.</div>
-          </div>
-          <div class="event-badge badge-basso">Impatto basso</div>
-        </div>
-        <div class="event-row">
-          <div class="event-dot dot-basso"></div>
-          <div class="event-info">
-            <div class="ev-name">Corpus Domini</div>
-            <div class="ev-date">4 giugno 2026 &middot; Locarno e dintorni</div>
-            <div class="ev-note">Gite giornaliere, effetto booking minimo.</div>
-          </div>
-          <div class="event-badge badge-basso">Impatto basso</div>
-        </div>
-        <div class="event-row">
-          <div class="event-dot dot-basso"></div>
-          <div class="event-info">
-            <div class="ev-name">Tour de Suisse — tappa Locarnese</div>
-            <div class="ev-date">18 giugno 2026 &middot; Regione Locarnese</div>
-            <div class="ev-note">Spettatori con rientro serale. Monitorare.</div>
-          </div>
-          <div class="event-badge badge-basso">Impatto basso</div>
-        </div>
-        <div class="event-row alto">
-          <div class="event-dot dot-alto"></div>
-          <div class="event-info">
-            <div class="ev-name">JazzAscona 2026 &#x1F3B7;</div>
-            <div class="ev-date">25 giugno – 4 luglio 2026 &middot; Ascona, lungolago</div>
-            <div class="ev-note">75.000 spettatori stimati. Driver principale estate. Prenotazioni last-minute già attive.</div>
-          </div>
-          <div class="event-badge badge-alto">Impatto alto</div>
-        </div>
-      </div>
+    <div class="section-body" id="eventiBody">
+      <div class="loading-state"><span class="loading-spinner"></span>Caricamento eventi...</div>
     </div>
-    <div class="section-note">Prossimi: Moon&amp;Stars Locarno 9–19 lug &middot; Locarno Film Festival 5–15 ago.</div>
+    <div class="section-note" id="eventiNote">Aggiornato dal database eventi di radar_data.json. Gli eventi conclusi vengono rimossi automaticamente.</div>
   </div>
 
   <!-- SEZIONE 5 — INDICE DI PRESSIONE GOTTARDO -->
@@ -604,7 +567,17 @@ function updateHotelDetail() {
         '<div class="m-label">Prezzo +14 gg</div>' +
         (h.fullyBooked14
           ? '<div class="m-value" style="font-size:16px">Sold out</div><div class="m-sub" style="color:var(--red)">Non disponibile ' + (window.radarMeta ? window.radarMeta.checkIn14 : '') + '</div>'
-          : '<div class="m-value">CHF ' + (h.priceWeekend14 || '—') + '</div><div class="m-sub">Check-in: ' + (window.radarMeta ? window.radarMeta.checkIn14 : '—') + '</div>'
+          : (function() {
+              var p14 = h.priceWeekend14;
+              var p7  = h.priceWeekend7;
+              var deltaHtml = '';
+              if (p14 && p7) {
+                var d = p14 - p7;
+                if (d > 0) deltaHtml = ' <span style="color:var(--accent);font-size:11px">&#x2191; +CHF ' + d + '</span>';
+                else if (d < 0) deltaHtml = ' <span style="color:var(--red);font-size:11px">&#x2193; CHF ' + d + '</span>';
+              }
+              return '<div class="m-value">CHF ' + (p14 || '—') + deltaHtml + '</div><div class="m-sub">Check-in: ' + (window.radarMeta ? window.radarMeta.checkIn14 : '—') + '</div>';
+            })()
         ) +
       '</div>' +
       '<div class="metric-card">' +
@@ -651,6 +624,9 @@ function loadRadarData() {
       // Esponi eventi per il Worker AI
       window.radarEventi = data.eventi || { locali: [], nord: [] };
 
+      // Render eventi dinamici sezione 4
+      renderEventi(window.radarEventi.locali);
+
       // Show first hotel detail
       updateHotelDetail();
     })
@@ -662,6 +638,69 @@ function loadRadarData() {
 }
 
 loadRadarData();
+
+  /* ── RENDER EVENTI DINAMICI ── */
+  function renderEventi(eventi) {
+    if (!eventi || eventi.length === 0) {
+      document.getElementById('eventiBody').innerHTML =
+        '<div style="font-size:13px;color:var(--muted);padding:8px 0">Nessun evento in programma nelle prossime settimane.</div>';
+      return;
+    }
+
+    const oggi = new Date();
+    oggi.setHours(0, 0, 0, 0);
+
+    // Filtra eventi non ancora conclusi
+    const futuri = eventi.filter(function(e) {
+      if (!e.dataFine) return true; // se manca dataFine, mostralo sempre
+      const fine = new Date(e.dataFine);
+      return fine >= oggi;
+    });
+
+    if (futuri.length === 0) {
+      document.getElementById('eventiBody').innerHTML =
+        '<div style="font-size:13px;color:var(--muted);padding:8px 0">Nessun evento imminente. Consulta il calendario completo.</div>';
+      return;
+    }
+
+    const impactMap = {
+      'alto':  { dotClass: 'dot-alto',  badgeClass: 'badge-alto',  rowClass: 'alto',  label: 'Impatto alto' },
+      'medio': { dotClass: 'dot-medio', badgeClass: 'badge-medio', rowClass: 'medio', label: 'Impatto medio' },
+      'basso': { dotClass: 'dot-basso', badgeClass: 'badge-basso', rowClass: '',      label: 'Impatto basso' }
+    };
+
+    let html = '<div class="events-list">';
+    futuri.forEach(function(e) {
+      const imp = impactMap[e.impatto] || impactMap['basso'];
+      // Calcola giorni mancanti dalla data di inizio
+      var giorniLabel = '';
+      if (e.dataInizio) {
+        var inizio = new Date(e.dataInizio);
+        var diff = Math.ceil((inizio - oggi) / (1000 * 60 * 60 * 24));
+        if (diff > 0) giorniLabel = ' &middot; tra ' + diff + ' giorni';
+        else if (diff <= 0 && new Date(e.dataFine) >= oggi) giorniLabel = ' &middot; In corso';
+      }
+      html += '<div class="event-row ' + imp.rowClass + '">' +
+        '<div class="event-dot ' + imp.dotClass + '"></div>' +
+        '<div class="event-info">' +
+          '<div class="ev-name">' + e.nome + '</div>' +
+          '<div class="ev-date">' + e.dateLabel + ' &middot; ' + e.luogo + giorniLabel + '</div>' +
+          (e.note ? '<div class="ev-note">' + e.note + '</div>' : '') +
+        '</div>' +
+        '<div class="event-badge ' + imp.badgeClass + '">' + imp.label + '</div>' +
+      '</div>';
+    });
+    html += '</div>';
+
+    document.getElementById('eventiBody').innerHTML = html;
+
+    // Aggiorna la section-note con il prossimo evento ad alto impatto
+    var prossimoAlto = futuri.find(function(e) { return e.impatto === 'alto'; });
+    if (prossimoAlto) {
+      document.getElementById('eventiNote').textContent =
+        'Prossimo evento ad alto impatto: ' + prossimoAlto.nome + ' (' + prossimoAlto.dateLabel + ')';
+    }
+  }
 
   /* ── INDICE DI PRESSIONE GOTTARDO ── */
   const CITIES = [
@@ -1014,13 +1053,18 @@ loadRadarData();
     const diff = Math.round(((input - media) / media) * 100);
     const absD = Math.abs(diff);
     let risultato = '<span class="tr-media">Prezzo medio del cluster: <strong>CHF ' + media + '</strong>. </span>';
+    let consiglio = '';
     if (diff > 0) {
       risultato += '<span class="tr-above">Sei posizionato al ' + absD + '% sopra la media.</span>';
+      consiglio = 'Posizionamento premium. Mantieni solo se prevedi alta domanda dal Nord (Gottardo alto) o se il tuo score lo giustifica.';
     } else if (diff < 0) {
       risultato += '<span class="tr-below">Sei posizionato al ' + absD + '% sotto la media.</span>';
+      consiglio = 'Strategia aggressiva. Ottimo per saturare le ultime camere, ma se l'occupazione \u00e8 gi\u00e0 sopra il 60%, prova a rialzare di CHF 10-20.';
     } else {
       risultato += '<span class="tr-par">Sei esattamente in linea con la media del cluster.</span>';
+      consiglio = 'Allineamento perfetto. La differenza la far\u00e0 la visibilit\u00e0: ottimizza le foto o attiva tariffe mobile.';
     }
+    risultato += '<div style="margin-top:6px;font-size:11px;color:var(--muted);padding:6px 8px;background:var(--bg);border-radius:5px;border-left:2px solid var(--accent)">' + consiglio + '</div>';
     document.getElementById('termometroResult').innerHTML = risultato;
   }
   /* ── CHIAMA IL WORKER ── */

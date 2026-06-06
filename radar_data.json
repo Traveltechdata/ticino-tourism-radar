@@ -1978,5 +1978,92 @@
       "priceWeekend14": 166,
       "fullyBooked14": false
     }
-  ]
+  ],
+  "eventi": {
+    "locali": [
+      {
+        "nome": "JazzAscona 2026",
+        "dateLabel": "25 giu – 4 lug 2026",
+        "dataInizio": "2026-06-25",
+        "dataFine": "2026-07-04",
+        "luogo": "Ascona, lungolago",
+        "impatto": "alto",
+        "note": "75.000 spettatori stimati. Driver principale dell'estate. Prenotazioni last-minute già attive."
+      },
+      {
+        "nome": "Vallemaggia Magic Blues",
+        "dateLabel": "Lug 2026 (date TBC)",
+        "dataInizio": "2026-07-03",
+        "dataFine": "2026-07-26",
+        "luogo": "Valle Maggia, vari comuni",
+        "impatto": "medio",
+        "note": "Festival blues diffuso nelle valli. Pubblico fedele e fidelizzato, soggiorni medi-lunghi."
+      },
+      {
+        "nome": "CSI Ascona — Concorso Ippico",
+        "dateLabel": "10–13 lug 2026",
+        "dataInizio": "2026-07-10",
+        "dataFine": "2026-07-13",
+        "luogo": "Ascona",
+        "impatto": "medio",
+        "note": "Pubblico alto-spendente internazionale. Riempie strutture medio-alte della zona."
+      },
+      {
+        "nome": "Moon & Stars Locarno",
+        "dateLabel": "9–19 lug 2026",
+        "dataInizio": "2026-07-09",
+        "dataFine": "2026-07-19",
+        "luogo": "Locarno, Piazza Grande",
+        "impatto": "alto",
+        "note": "100.000+ visitatori. Artisti internazionali. Picco prezzi garantito."
+      },
+      {
+        "nome": "Locarno Film Festival",
+        "dateLabel": "5–15 ago 2026",
+        "dataInizio": "2026-08-05",
+        "dataFine": "2026-08-15",
+        "luogo": "Locarno, Piazza Grande",
+        "impatto": "alto",
+        "note": "Pubblico internazionale. Sold out diffuso nel cluster. Evento di punta dell'estate."
+      },
+      {
+        "nome": "SunIce Festival",
+        "dateLabel": "Set 2026 (data TBC)",
+        "dataInizio": "2026-09-05",
+        "dataFine": "2026-09-07",
+        "luogo": "Ascona",
+        "impatto": "medio",
+        "note": "Festival di nicchia, musica e arte. Prolunga la stagione verso settembre."
+      }
+    ],
+    "nord": [
+      {
+        "nome": "Street Parade Zurigo",
+        "luogo": "Zurigo",
+        "dateLabel": "8 ago 2026",
+        "dataInizio": "2026-08-08",
+        "dataFine": "2026-08-08",
+        "peso": "alto",
+        "note": "1 milione di partecipanti. Esodo Inverso massimo: nessuno lascia Zurigo quel weekend."
+      },
+      {
+        "nome": "Zürich Film Festival",
+        "luogo": "Zurigo",
+        "dateLabel": "24 set – 4 ott 2026",
+        "dataInizio": "2026-09-24",
+        "dataFine": "2026-10-04",
+        "peso": "medio",
+        "note": "Trattiene pubblico internazionale a Zurigo. Riduce afflusso verso il Ticino."
+      },
+      {
+        "nome": "Knabenschiessen Zurigo",
+        "luogo": "Zurigo",
+        "dateLabel": "12–14 set 2026",
+        "dataInizio": "2026-09-12",
+        "dataFine": "2026-09-14",
+        "peso": "basso",
+        "note": "Evento tradizionale locale. Effetto detrattore limitato."
+      }
+    ]
+  }
 }
