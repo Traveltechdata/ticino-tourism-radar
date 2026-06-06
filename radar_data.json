@@ -1982,58 +1982,193 @@
   "eventi": {
     "locali": [
       {
+        "nome": "Notte Bianca Locarno",
+        "dateLabel": "13 giu 2026",
+        "dataInizio": "2026-06-13",
+        "dataFine": "2026-06-13",
+        "luogo": "Locarno",
+        "impatto": "basso",
+        "note": "Pubblico locale. Pernottamenti marginali, utile per animazione."
+      },
+      {
+        "nome": "Tour de Suisse — 2a tappa",
+        "dateLabel": "18 giu 2026",
+        "dataInizio": "2026-06-18",
+        "dataFine": "2026-06-18",
+        "luogo": "Locarno",
+        "impatto": "basso",
+        "note": "Spettatori prevalentemente giornalieri. Visibilità mediatica regionale."
+      },
+      {
+        "nome": "THE BEACH Ascona",
+        "dateLabel": "19–20 giu 2026",
+        "dataInizio": "2026-06-19",
+        "dataFine": "2026-06-20",
+        "luogo": "Ascona",
+        "impatto": "medio",
+        "note": "Evento estivo sul lago. Buon traino su weekend, pubblico giovane."
+      },
+      {
         "nome": "JazzAscona 2026",
         "dateLabel": "25 giu – 4 lug 2026",
         "dataInizio": "2026-06-25",
         "dataFine": "2026-07-04",
-        "luogo": "Ascona, lungolago",
-        "impatto": "alto",
-        "note": "75.000 spettatori stimati. Driver principale dell'estate. Prenotazioni last-minute già attive."
-      },
-      {
-        "nome": "Vallemaggia Magic Blues",
-        "dateLabel": "Lug 2026 (date TBC)",
-        "dataInizio": "2026-07-03",
-        "dataFine": "2026-07-26",
-        "luogo": "Valle Maggia, vari comuni",
-        "impatto": "medio",
-        "note": "Festival blues diffuso nelle valli. Pubblico fedele e fidelizzato, soggiorni medi-lunghi."
-      },
-      {
-        "nome": "CSI Ascona — Concorso Ippico",
-        "dateLabel": "10–13 lug 2026",
-        "dataInizio": "2026-07-10",
-        "dataFine": "2026-07-13",
         "luogo": "Ascona",
-        "impatto": "medio",
-        "note": "Pubblico alto-spendente internazionale. Riempie strutture medio-alte della zona."
+        "impatto": "alto",
+        "note": "75.000 spettatori. Alzare prezzi subito — sold out garantito."
       },
       {
-        "nome": "Moon & Stars Locarno",
+        "nome": "Vallemaggia Magic Blues 2026",
+        "dateLabel": "10 lug – 6 ago 2026",
+        "dataInizio": "2026-07-10",
+        "dataFine": "2026-08-06",
+        "luogo": "Valle Maggia",
+        "impatto": "medio",
+        "note": "Festival diffuso nelle valli. Soggiorni medi-lunghi, pubblico fidelizzato."
+      },
+      {
+        "nome": "Moon & Stars 2026",
         "dateLabel": "9–19 lug 2026",
         "dataInizio": "2026-07-09",
         "dataFine": "2026-07-19",
-        "luogo": "Locarno, Piazza Grande",
+        "luogo": "Locarno",
         "impatto": "alto",
-        "note": "100.000+ visitatori. Artisti internazionali. Picco prezzi garantito."
+        "note": "100.000+ visitatori. Picco prezzi garantito. Attivare minimum stay."
       },
       {
-        "nome": "Locarno Film Festival",
+        "nome": "Luci e Ombre",
+        "dateLabel": "24–26 lug 2026",
+        "dataInizio": "2026-07-24",
+        "dataFine": "2026-07-26",
+        "luogo": "Locarno",
+        "impatto": "medio",
+        "note": "Festival arte e musica in centro. Riempie bene il midweek di luglio."
+      },
+      {
+        "nome": "Rotonda by la Mobiliare",
+        "dateLabel": "30 lug – 15 ago 2026",
+        "dataInizio": "2026-07-30",
+        "dataFine": "2026-08-15",
+        "luogo": "Locarno",
+        "impatto": "medio",
+        "note": "Villaggio Film Festival. Prolunga il picco estivo. Pubblico internazionale."
+      },
+      {
+        "nome": "Festeggiamenti 1° Agosto",
+        "dateLabel": "1 ago 2026",
+        "dataInizio": "2026-08-01",
+        "dataFine": "2026-08-01",
+        "luogo": "Ascona / Brissago",
+        "impatto": "medio",
+        "note": "Festa nazionale, fuochi d'artificio. Weekend pieno in tutta la regione."
+      },
+      {
+        "nome": "Locarno Film Festival 2026",
         "dateLabel": "5–15 ago 2026",
         "dataInizio": "2026-08-05",
         "dataFine": "2026-08-15",
-        "luogo": "Locarno, Piazza Grande",
+        "luogo": "Locarno",
         "impatto": "alto",
-        "note": "Pubblico internazionale. Sold out diffuso nel cluster. Evento di punta dell'estate."
+        "note": "Evento di punta. Sold out diffuso. Pubblico internazionale alto-spendente."
+      },
+      {
+        "nome": "Verzasca Country Festival",
+        "dateLabel": "8 ago 2026",
+        "dataInizio": "2026-08-08",
+        "dataFine": "2026-08-08",
+        "luogo": "Sonogno",
+        "impatto": "basso",
+        "note": "Nicchia country. Pubblico di valle, pernottamenti limitati."
+      },
+      {
+        "nome": "Ascona Polo Cup",
+        "dateLabel": "4–6 set 2026",
+        "dataInizio": "2026-09-04",
+        "dataFine": "2026-09-06",
+        "luogo": "Ascona",
+        "impatto": "medio",
+        "note": "Pubblico molto alto-spendente. Ottimo per strutture premium e boutique."
+      },
+      {
+        "nome": "Triathlon Locarno",
+        "dateLabel": "5–6 set 2026",
+        "dataInizio": "2026-09-05",
+        "dataFine": "2026-09-06",
+        "luogo": "Locarno",
+        "impatto": "medio",
+        "note": "Atleti e famiglie al seguito. Riempie bene il primo weekend di settembre."
+      },
+      {
+        "nome": "CSI Ascona — Concorso Ippico",
+        "dateLabel": "10–13 set 2026",
+        "dataInizio": "2026-09-10",
+        "dataFine": "2026-09-13",
+        "luogo": "Ascona",
+        "impatto": "medio",
+        "note": "Clientela internazionale alto-spendente. Riempie strutture medio-alte."
+      },
+      {
+        "nome": "Autunno Gastronomico Lago Maggiore",
+        "dateLabel": "15 set – 27 ott 2026",
+        "dataInizio": "2026-09-15",
+        "dataFine": "2026-10-27",
+        "luogo": "Lago Maggiore e Valli",
+        "impatto": "medio",
+        "note": "Rassegna lunga. Driver ottobre sottovalutato. Comunicare pacchetti gourmet."
       },
       {
         "nome": "SunIce Festival",
-        "dateLabel": "Set 2026 (data TBC)",
-        "dataInizio": "2026-09-05",
-        "dataFine": "2026-09-07",
+        "dateLabel": "17–19 set 2026",
+        "dataInizio": "2026-09-17",
+        "dataFine": "2026-09-19",
         "luogo": "Ascona",
         "impatto": "medio",
-        "note": "Festival di nicchia, musica e arte. Prolunga la stagione verso settembre."
+        "note": "Festival di nicchia, musica e arte. Prolunga stagione verso fine settembre."
+      },
+      {
+        "nome": "classicAscona 2026",
+        "dateLabel": "18 set – 10 ott 2026",
+        "dataInizio": "2026-09-18",
+        "dataFine": "2026-10-10",
+        "luogo": "Ascona",
+        "impatto": "medio",
+        "note": "Auto d'epoca, pubblico svizzero-tedesco alto-spendente. Ottobre da presidiare."
+      },
+      {
+        "nome": "Ascona Classic Car Award",
+        "dateLabel": "19–20 set 2026",
+        "dataInizio": "2026-09-19",
+        "dataFine": "2026-09-20",
+        "luogo": "Ascona",
+        "impatto": "medio",
+        "note": "Sovrapposto a classicAscona. Weekend di settembre molto forte."
+      },
+      {
+        "nome": "Ascona-Locarno Run",
+        "dateLabel": "10–11 ott 2026",
+        "dataInizio": "2026-10-10",
+        "dataFine": "2026-10-11",
+        "luogo": "Locarno / Ascona",
+        "impatto": "medio",
+        "note": "Evento podistico importante. Atleti + famiglie. Ottobre da non sottovalutare."
+      },
+      {
+        "nome": "Sagra d'Autunno Ascona",
+        "dateLabel": "3 ott 2026",
+        "dataInizio": "2026-10-03",
+        "dataFine": "2026-10-03",
+        "luogo": "Ascona",
+        "impatto": "basso",
+        "note": "Pubblico locale e di prossimita. Utile per animare inizio ottobre."
+      },
+      {
+        "nome": "Festa delle Castagne Ascona",
+        "dateLabel": "10 ott 2026",
+        "dataInizio": "2026-10-10",
+        "dataFine": "2026-10-10",
+        "luogo": "Ascona",
+        "impatto": "basso",
+        "note": "Tradizione autunnale. Si sovrappone alla Run. Weekend ottobre pieno."
       }
     ],
     "nord": [
@@ -2044,25 +2179,16 @@
         "dataInizio": "2026-08-08",
         "dataFine": "2026-08-08",
         "peso": "alto",
-        "note": "1 milione di partecipanti. Esodo Inverso massimo: nessuno lascia Zurigo quel weekend."
+        "note": "1 milione di partecipanti. Esodo inverso: il mercato zurighese non scende in Ticino."
       },
       {
-        "nome": "Zürich Film Festival",
+        "nome": "Zurich Film Festival",
         "luogo": "Zurigo",
         "dateLabel": "24 set – 4 ott 2026",
         "dataInizio": "2026-09-24",
         "dataFine": "2026-10-04",
         "peso": "medio",
         "note": "Trattiene pubblico internazionale a Zurigo. Riduce afflusso verso il Ticino."
-      },
-      {
-        "nome": "Knabenschiessen Zurigo",
-        "luogo": "Zurigo",
-        "dateLabel": "12–14 set 2026",
-        "dataInizio": "2026-09-12",
-        "dataFine": "2026-09-14",
-        "peso": "basso",
-        "note": "Evento tradizionale locale. Effetto detrattore limitato."
       }
     ]
   }
