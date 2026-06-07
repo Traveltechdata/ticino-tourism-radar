@@ -5470,46 +5470,44 @@
     "mercato": "DACH (CH-DE-AT)",
     "ricerche_top": [
       {
-        "keyword": "Tessin Urlaub am See",
-        "crescita": "+142%",
+        "keyword": "Ascona",
+        "crescita": "+11%",
         "trend": "up",
-        "note": "Picco stagionale — mercato ZH/BE in forte movimento",
-        "suggerimento_azione": "Usa come oggetto esatto per una mail last-minute al tuo database tedesco"
+        "geo": "DE",
+        "note": "Brand forte, ricercato da pubblico alto-spendente svizzero-tedesco",
+        "suggerimento_azione": "Controlla disponibilità Booking — se alto, rivedi la tariffa al rialzo"
       },
       {
-        "keyword": "Hotel Ascona Sommer 2026",
-        "crescita": "+89%",
-        "trend": "up",
-        "note": "Intent alta, pubblico pronto a prenotare",
-        "suggerimento_azione": "Controlla che Booking.com mostri disponibilità — se sold out, attiva waitlist manuale"
-      },
-      {
-        "keyword": "Lago Maggiore con bambini",
-        "crescita": "+67%",
-        "trend": "up",
-        "note": "Driver vacanze scolastiche ZH (4-19 lug)",
-        "suggerimento_azione": "Aggiungi una foto della spiaggia/piscina sul profilo Booking con tag famiglia"
-      },
-      {
-        "keyword": "Locarno Piazza Grande estate",
-        "crescita": "+54%",
-        "trend": "up",
-        "note": "Traino Film Festival — prenotazioni anticipate",
-        "suggerimento_azione": "Pubblica una storia IG con la Piazza e scrivi le date del Festival in sovrimpressione"
-      },
-      {
-        "keyword": "Wetter Tessin Wochenende",
+        "keyword": "Tessin",
         "crescita": "Stabile",
         "trend": "stable",
-        "note": "Ricerca ricorrente ogni venerdì — utenti indecisi",
-        "suggerimento_azione": "Pianifica un post venerdì mattina quando il meteo è favorevole — conversione alta"
+        "geo": "DE",
+        "note": "Termine ombrello — cattura tutto il mercato DACH verso il cantone",
+        "suggerimento_azione": "Usa come oggetto per una mail last-minute al tuo database tedesco"
       },
       {
-        "keyword": "Ascona Hotel last minute",
-        "crescita": "+38%",
-        "trend": "up",
-        "note": "Segmento last-minute in crescita costante",
-        "suggerimento_azione": "Attiva una tariffa last-minute flessibile su Booking per i prossimi 3 giorni"
+        "keyword": "Lago Maggiore",
+        "crescita": "-12%",
+        "trend": "down",
+        "geo": "DE",
+        "note": "Alta intent turistica, pubblico pronto a prenotare",
+        "suggerimento_azione": "Pubblica una foto del lago al tramonto con questa keyword nel caption"
+      },
+      {
+        "keyword": "Locarno",
+        "crescita": "-14%",
+        "trend": "down",
+        "geo": "DE",
+        "note": "Picco legato al Film Festival — prenotazioni anticipate",
+        "suggerimento_azione": "Menziona Locarno Film Festival nei post — alta intent prenotazione"
+      },
+      {
+        "keyword": "Brissago",
+        "crescita": "-100%",
+        "trend": "down",
+        "geo": "DE",
+        "note": "Nicchia premium, bassa competizione, alta conversione",
+        "suggerimento_azione": "Perfetto per campagne micro-targeting su FB/IG verso utenti ZH"
       }
     ],
     "social_hashtags": [
