@@ -1,0 +1,36 @@
+name: Update Google Trends
+
+on:
+  schedule:
+    - cron: '0 5 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update-trends:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pytrends
+
+      - name: Run trends updater
+        run: python update_trends.py
+
+      - name: Commit updated radar_data.json
+        run: |
+          git config --global user.name "Radar Bot"
+          git config --global user.email "bot@traveltechdata.ch"
+          git add radar_data.json
+          git diff --staged --quiet || git commit -m "Auto: aggiornamento Google Trends $(date +'%Y-%m-%d')"
+          git push
