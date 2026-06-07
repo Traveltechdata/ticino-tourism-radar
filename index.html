@@ -229,6 +229,27 @@
   .az-fonte { font-size: 10px; color: var(--accent); margin-top: 5px; font-style: italic; }
   .az-error { padding: 12px; background: var(--red-bg); border-radius: 8px; font-size: 12px; color: var(--red); }
 
+  /* MARKETING INTELLIGENCE */
+  .trend-grid { display: flex; flex-direction: column; gap: 8px; }
+  .trend-card { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: var(--bg); border-radius: 8px; border: 0.5px solid var(--border); transition: border-color 0.15s; }
+  .trend-card:hover { border-color: var(--accent); }
+  .trend-left { flex: 1; }
+  .trend-keyword { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+  .trend-note { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+  .trend-action { font-size: 12px; color: var(--text); background: var(--card); border-radius: 5px; padding: 5px 8px; border-left: 2px solid var(--accent); line-height: 1.4; }
+  .trend-action::before { content: "92  "; color: var(--accent); font-weight: 500; }
+  .trend-badge { font-size: 13px; font-weight: 600; white-space: nowrap; padding: 4px 10px; border-radius: 20px; align-self: flex-start; margin-top: 2px; }
+  .trend-up { background: var(--accent-light); color: var(--accent); }
+  .trend-stable { background: var(--amber-bg); color: var(--amber); }
+  .trend-down { background: var(--red-bg); color: var(--red); }
+  .hashtag-box { margin-top: 12px; padding: 14px; background: var(--bg); border-radius: 8px; border: 0.5px solid var(--border); }
+  .hashtag-box-title { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+  .hashtag-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .hashtag-pill { font-size: 12px; color: var(--accent); background: var(--accent-light); padding: 3px 10px; border-radius: 12px; }
+  .copy-btn { font-family: var(--sans); font-size: 12px; font-weight: 500; padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; transition: all 0.2s; }
+  .copy-btn:hover { background: var(--accent); color: #fff; }
+  .copy-btn.copied { background: var(--accent); color: #fff; }
+
   /* FOOTER */
   .footer { text-align: center; padding: 2rem 1.5rem; font-size: 11px; color: var(--muted); border-top: 0.5px solid var(--border); margin: 1.5rem 1.5rem 0; }
   .footer strong { color: var(--text); }
@@ -457,6 +478,17 @@
       </div>
     </div>
     <div class="section-note">I dati di questa sezione sono il frutto dell'impegno costante di Travel Tech Data nell'analizzare, incrociare e tradurre in strategie concrete migliaia di variabili del mercato locale.</div>
+  </div>
+
+  <!-- SEZIONE MARKETING INTELLIGENCE -->
+  <div class="section">
+    <div class="section-head">
+      <h2><span class="section-num">M</span> Marketing Intelligence — trend DACH</h2>
+      <span class="section-tag" id="trendsMeta">Google Trends &middot; mercato CH-DE-AT</span>
+    </div>
+    <div class="section-body" id="trendsBody">
+      <div class="loading-state"><span class="loading-spinner"></span>Caricamento trend...</div>
+    </div>
   </div>
 
   <!-- LEAD GENERATION -->
@@ -721,6 +753,9 @@ function loadRadarData() {
 
       // Render eventi dinamici sezione 4
       renderEventi(window.radarEventi.locali);
+
+      // Render marketing trends
+      renderMarketingTrends(data.marketing_trends);
 
       // Show first hotel detail
       updateHotelDetail();
@@ -1209,5 +1244,76 @@ loadRadarData();
     // TODO Fase 4: sostituire con fetch() verso endpoint Make/Supabase per salvare il lead
   }
 
+
+
+  /* ── MARKETING INTELLIGENCE ── */
+  function renderMarketingTrends(trends) {
+    if (!trends) return;
+
+    var settimana = trends.settimana || '';
+    var keywords = trends.ricerche_top || [];
+    var hashtags = trends.social_hashtags || [];
+
+    // Trend cards
+    var html = '<div class="trend-grid">';
+    keywords.forEach(function(k) {
+      var badgeClass = k.trend === 'up' ? 'trend-up' : k.trend === 'down' ? 'trend-down' : 'trend-stable';
+      html += '<div class="trend-card">' +
+        '<div class="trend-left">' +
+          '<div class="trend-keyword">' + k.keyword + '</div>' +
+          '<div class="trend-note">' + k.note + '</div>' +
+          '<div class="trend-action">' + k.suggerimento_azione + '</div>' +
+        '</div>' +
+        '<div class="trend-badge ' + badgeClass + '">' + k.crescita + '</div>' +
+      '</div>';
+    });
+    html += '</div>';
+
+    // Hashtag toolkit
+    html += '<div class="hashtag-box">' +
+      '<div class="hashtag-box-title">&#x1F4F7; Toolkit Instagram — copia e incolla</div>' +
+      '<div class="hashtag-wrap" id="hashtagWrap">';
+    hashtags.forEach(function(tag) {
+      html += '<span class="hashtag-pill">' + tag + '</span>';
+    });
+    html += '</div>' +
+      '<button class="copy-btn" id="copyBtn" onclick="copiaHashtag()">&#x1F4CB; Copia Hashtag</button>' +
+    '</div>';
+
+    document.getElementById('trendsBody').innerHTML = html;
+    if (settimana) {
+      document.getElementById('trendsMeta').textContent =
+        'Google Trends · ' + trends.mercato + ' · sett. ' + settimana;
+    }
+  }
+
+  function copiaHashtag() {
+    var pills = document.querySelectorAll('#hashtagWrap .hashtag-pill');
+    var testo = Array.from(pills).map(function(p) { return p.textContent; }).join(' ');
+    navigator.clipboard.writeText(testo).then(function() {
+      var btn = document.getElementById('copyBtn');
+      btn.textContent = '✅ Copiati!';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.innerHTML = '&#x1F4CB; Copia Hashtag';
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(function() {
+      // Fallback for older browsers
+      var ta = document.createElement('textarea');
+      ta.value = testo;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      var btn = document.getElementById('copyBtn');
+      btn.textContent = '✅ Copiati!';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.innerHTML = '&#x1F4CB; Copia Hashtag';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
 
 </script>
