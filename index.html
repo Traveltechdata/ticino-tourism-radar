@@ -148,6 +148,17 @@
   .gf-neutral { background: var(--amber-bg); color: var(--amber); }
   @media (max-width: 500px) { #cityCards { grid-template-columns: repeat(2,1fr); } }
 
+  /* RANKING FILTERS */
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .filter-pill { font-family: var(--sans); font-size: 11px; font-weight: 500; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+  .filter-pill:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .table-wrap { max-height: 400px; overflow-y: auto; border-radius: 6px; border: 0.5px solid var(--border); }
+  .ranking-table thead th { position: sticky; top: 0; background: var(--card); z-index: 2; box-shadow: 0 1px 0 var(--border); }
+  .ranking-table th.sortable { cursor: pointer; user-select: none; }
+  .ranking-table th.sortable:hover { color: var(--accent); }
+  .sort-indicator { margin-left: 4px; font-size: 10px; color: var(--accent); }
+
   /* TERMOMETRO PREZZI */
   .termometro-wrap { margin-bottom: 14px; padding: 12px 14px; background: var(--bg); border-radius: 8px; border: 0.5px solid var(--border); }
   .termometro-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -288,6 +299,16 @@
           <button class="termometro-btn" onclick="calcolaTermometro()">Verifica posizione</button>
         </div>
         <div class="termometro-result" id="termometroResult"></div>
+      </div>
+    </div>
+    <div class="section-body" style="padding-bottom:8px">
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-pill active" onclick="applyFilter('tutti', this)">Tutti</button>
+        <button class="filter-pill" onclick="applyFilter('locarno', this)">Locarno &amp; Dintorni</button>
+        <button class="filter-pill" onclick="applyFilter('ascona', this)">Ascona &amp; Losone</button>
+        <button class="filter-pill" onclick="applyFilter('cannobio', this)">Cannobio 🇮🇹</button>
+        <button class="filter-pill" onclick="applyFilter('valli', this)">Valli</button>
+        <button class="filter-pill" onclick="applyFilter('brissago', this)">Brissago</button>
       </div>
     </div>
     <div class="section-body" id="rankingBody">
@@ -494,10 +515,64 @@ function getRatingWord(r) {
   return 'Sufficiente';
 }
 
-function buildRankingTable(hotels) {
-  let html = '<table class="ranking-table"><thead><tr>' +
-    '<th>#</th><th>Struttura</th><th>Score</th><th>Recensioni</th><th>+7 gg</th><th>+14 gg</th></tr></thead><tbody>';
+/* ── RANKING STATE ── */
+var currentSort = { col: null, dir: 1 };
+var currentFilter = 'tutti';
+
+function filterHotels(hotels, filter) {
+  if (filter === 'tutti') return hotels;
+  return hotels.filter(function(h) {
+    var addr = (h.address + ' ' + h.city).toLowerCase();
+    if (filter === 'locarno')  return /locarno|minusio|muralto/.test(addr);
+    if (filter === 'ascona')   return /ascona|losone/.test(addr);
+    if (filter === 'cannobio') return /cannobio/.test(addr);
+    if (filter === 'valli')    return /vallemaggia|maggia|cevio/.test(addr);
+    if (filter === 'brissago') return /brissago/.test(addr);
+    return true;
+  });
+}
+
+function applyFilter(filter, btn) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-pill').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  currentSort = { col: null, dir: 1 };
+  renderRankingTable();
+}
+
+function applySort(col) {
+  if (currentSort.col === col) {
+    currentSort.dir *= -1;
+  } else {
+    currentSort.col = col;
+    currentSort.dir = -1; // default: descending for score, descending for price
+  }
+  renderRankingTable();
+}
+
+function renderRankingTable() {
+  var hotels = filterHotels(allHotels, currentFilter);
+  if (currentSort.col) {
+    hotels = hotels.slice().sort(function(a, b) {
+      var va = currentSort.col === 'score' ? (a.rating || 0) : (a.priceWeekend7 || 0);
+      var vb = currentSort.col === 'score' ? (b.rating || 0) : (b.priceWeekend7 || 0);
+      return currentSort.dir * (vb - va);
+    });
+  }
+  var scoreInd = currentSort.col === 'score' ? '<span class="sort-indicator">' + (currentSort.dir === -1 ? '&#x25BE;' : '&#x25B4;') + '</span>' : '';
+  var priceInd = currentSort.col === 'price' ? '<span class="sort-indicator">' + (currentSort.dir === -1 ? '&#x25BE;' : '&#x25B4;') + '</span>' : '';
+
+  var html = '<div class="table-wrap"><table class="ranking-table"><thead><tr>' +
+    '<th>#</th><th>Struttura</th>' +
+    '<th class="sortable" onclick="applySort('score')">Score' + scoreInd + '</th>' +
+    '<th>Recensioni</th>' +
+    '<th class="sortable" onclick="applySort('price')">+7 gg' + priceInd + '</th>' +
+    '<th>+14 gg</th></tr></thead><tbody>';
+
   hotels.forEach(function(h, i) {
+    var globalIdx = allHotels.indexOf(h);
+    var isCannobio = (h.address + ' ' + h.city).toLowerCase().indexOf('cannobio') !== -1;
+    var flag = isCannobio ? ' &#x1F1EE;&#x1F1F9;' : '';
     var p14cell = h.fullyBooked14
       ? '<span class="sold-out-badge">Sold out</span>'
       : (h.priceWeekend14 ? 'CHF ' + h.priceWeekend14 : '—');
@@ -507,17 +582,25 @@ function buildRankingTable(hotels) {
       if (diff > 0) p14delta = ' <span class="price-up">+' + diff + '</span>';
       else if (diff < 0) p14delta = ' <span class="price-down">' + diff + '</span>';
     }
-    html += '<tr id="row-' + i + '">' +
+    html += '<tr id="row-' + globalIdx + '">' +
       '<td class="rank-num">' + h.rank + '</td>' +
-      '<td class="hotel-name-cell" onclick="selectHotel(' + i + ')">' + h.name + '</td>' +
+      '<td class="hotel-name-cell" onclick="selectHotel(' + globalIdx + ')">' + h.name + flag + '</td>' +
       '<td><span class="rating-pill ' + getRatingPillClass(h.rating) + '">' + h.rating.toFixed(1) + '</span></td>' +
       '<td style="color:var(--muted)">' + h.reviews.toLocaleString('it') + '</td>' +
       '<td style="font-weight:500">CHF ' + h.priceWeekend7 + '</td>' +
       '<td>' + p14cell + p14delta + '</td>' +
     '</tr>';
   });
-  html += '</tbody></table>';
-  return html;
+  html += '</tbody></table></div>';
+
+  document.getElementById('rankingBody').innerHTML = html;
+  document.getElementById('rankingNote').textContent =
+    hotels.length + ' strutture visualizzate' + (currentFilter !== 'tutti' ? ' (filtro attivo)' : '') + ' su ' + allHotels.length + ' monitorate.';
+}
+
+function buildRankingTable(hotels) {
+  // Legacy wrapper — kept for compatibility
+  return '';
 }
 
 function selectHotel(idx) {
@@ -621,11 +704,9 @@ function loadRadarData() {
       document.getElementById('subSettimana').textContent = '📅 Settimana ' + data.meta.settimana + ' / 2026';
 
       // Build ranking table
-      document.getElementById('rankingBody').innerHTML = buildRankingTable(allHotels);
       document.getElementById('rankingMeta').textContent =
         'Booking.com · ' + allHotels.length + ' strutture · check-in ' + data.meta.checkIn;
-      document.getElementById('rankingNote').textContent =
-        'Clic sul nome per vedere il dettaglio prezzi e recensioni. ' + allHotels.length + ' strutture monitorate nella Regione Locarnese.';
+      renderRankingTable();
 
       // Populate select
       const sel = document.getElementById('hotelSelect');
