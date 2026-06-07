@@ -1,17 +1,61 @@
 {
   "meta": {
-    "aggiornato": "2026-06-02",
+    "aggiornato": "2026-06-07",
     "settimana": 23,
-    "checkIn": "2026-06-09",
-    "checkOut": "2026-06-10",
+    "checkIn": "2026-06-16",
+    "checkOut": "2026-06-17",
     "fonte": "Booking.com via Apify",
-    "totalHotels": 44,
-    "checkIn14": "2026-06-16",
-    "checkOut14": "2026-06-17"
+    "totalHotels": 117,
+    "checkIn14": "2026-06-23",
+    "checkOut14": "2026-06-24"
   },
   "hotels": [
     {
-      "rank": 1,
+      "name": "LA VILLA - Studios & Rooms, a Swiss Quality Hotel",
+      "city": "Locarno",
+      "address": "Via Verbano 33, Minusio, 6648 Locarno, Svizzera",
+      "rating": 9.7,
+      "ratingLabel": "Eccezionale",
+      "reviews": 30,
+      "priceWeekend7": 274,
+      "priceWeekend14": 261,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/la-villa-studios-amp-rooms-by-remorino.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.8
+        },
+        {
+          "title": "Servizi",
+          "score": 9.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.9
+        },
+        {
+          "title": "Comfort",
+          "score": 9.8
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9.3
+        },
+        {
+          "title": "Posizione",
+          "score": 9.7
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.8
+        }
+      ],
+      "rank": 1
+    },
+    {
       "name": "Boutique Hotel Albergo Brione",
       "city": "Locarno",
       "address": "75 Via Orselina Brione sopra Minusio, Minusio, 6645 Locarno, Svizzera",
@@ -19,9 +63,11 @@
       "ratingLabel": "Eccezionale",
       "reviews": 119,
       "priceWeekend7": 359,
+      "priceWeekend14": 359,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 4,
-      "url": "https://www.booking.com/hotel/ch/boutiquehotel-albergo-brione.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/boutiquehotel-albergo-brione.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -52,29 +98,29 @@
           "score": 9.4
         }
       ],
-      "priceWeekend14": 359,
-      "fullyBooked14": false
+      "rank": 2
     },
     {
-      "rank": 2,
-      "name": "LA VILLA - Studios & Rooms, a Swiss Quality Hotel",
-      "city": "Locarno",
-      "address": "Via Verbano 33, Minusio, 6648 Locarno, Svizzera",
+      "name": "Boutique Hotel Villa Cuserina wellness",
+      "city": "Cannobio",
+      "address": "Via Valle Cannobina, 45, 28822 Cannobio, Italia",
       "rating": 9.7,
       "ratingLabel": "Eccezionale",
-      "reviews": 30,
-      "priceWeekend7": 270,
+      "reviews": 173,
+      "priceWeekend7": 241,
+      "priceWeekend14": null,
+      "fullyBooked14": true,
       "currency": "CHF",
-      "stars": 4,
-      "url": "https://www.booking.com/hotel/ch/la-villa-studios-amp-rooms-by-remorino.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/it/villa-cuserina.it.html?checkout=2026-06-18&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-17&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
-          "score": 9.8
+          "score": 10
         },
         {
           "title": "Servizi",
-          "score": 9.7
+          "score": 9.8
         },
         {
           "title": "Pulizia",
@@ -82,7 +128,187 @@
         },
         {
           "title": "Comfort",
+          "score": 9.9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9.2
+        },
+        {
+          "title": "Posizione",
+          "score": 9
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.4
+        }
+      ],
+      "rank": 3
+    },
+    {
+      "name": "Villa Palmira Kinderfreies Hotel",
+      "city": "Cannobio",
+      "address": " Via Domenico Uccelli 24, 28822 Cannobio, Italia",
+      "rating": 9.7,
+      "ratingLabel": "Eccezionale",
+      "reviews": 254,
+      "priceWeekend7": 251,
+      "priceWeekend14": null,
+      "fullyBooked14": true,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/it/villa-palmira.it.html?checkout=2026-06-18&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-17&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 10
+        },
+        {
+          "title": "Servizi",
           "score": 9.8
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.9
+        },
+        {
+          "title": "Comfort",
+          "score": 9.9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.6
+        }
+      ],
+      "rank": 4
+    },
+    {
+      "name": "Art Hotel Riposo",
+      "city": "Ascona",
+      "address": "Scalinata della Ruga 4, 6612 Ascona, Svizzera",
+      "rating": 9.6,
+      "ratingLabel": "Eccezionale",
+      "reviews": 182,
+      "priceWeekend7": 474,
+      "priceWeekend14": 397,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/art-riposo.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 10
+        },
+        {
+          "title": "Servizi",
+          "score": 9.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.8
+        },
+        {
+          "title": "Comfort",
+          "score": 9.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.5
+        }
+      ],
+      "rank": 5
+    },
+    {
+      "name": "Park Hotel Villa Belvedere",
+      "city": "Cannobio",
+      "address": "Casali Cuserina 2, 28822 Cannobio, Italia",
+      "rating": 9.6,
+      "ratingLabel": "Eccezionale",
+      "reviews": 440,
+      "priceWeekend7": 228,
+      "priceWeekend14": 228,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/it/park-villa-belvedere.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.9
+        },
+        {
+          "title": "Servizi",
+          "score": 9.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.7
+        },
+        {
+          "title": "Comfort",
+          "score": 9.8
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9.2
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.5
+        }
+      ],
+      "rank": 6
+    },
+    {
+      "name": "Hotel Pironi",
+      "city": "Cannobio",
+      "address": "Via Marconi 35, 28822 Cannobio, Italia",
+      "rating": 9.6,
+      "ratingLabel": "Eccezionale",
+      "reviews": 587,
+      "priceWeekend7": 214,
+      "priceWeekend14": 214,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/it/pironi.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.9
+        },
+        {
+          "title": "Servizi",
+          "score": 9.5
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.7
+        },
+        {
+          "title": "Comfort",
+          "score": 9.7
         },
         {
           "title": "Rapporto qualità-prezzo",
@@ -90,28 +316,28 @@
         },
         {
           "title": "Posizione",
-          "score": 9.7
+          "score": 9.8
         },
         {
           "title": "WiFi gratuito",
-          "score": 8.7
+          "score": 8.5
         }
       ],
-      "priceWeekend14": 279,
-      "fullyBooked14": false
+      "rank": 7
     },
     {
-      "rank": 3,
       "name": "Boutique-HOTEL REMORINO, a Private Selection Hotel",
       "city": "Locarno",
       "address": "Via Verbano 29, Minusio, 6648 Locarno, Svizzera",
       "rating": 9.5,
       "ratingLabel": "Eccezionale",
-      "reviews": 250,
-      "priceWeekend7": 302,
+      "reviews": 249,
+      "priceWeekend7": 342,
+      "priceWeekend14": 346,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 4,
-      "url": "https://www.booking.com/hotel/ch/remorino-relais-du-silence.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/remorino-relais-du-silence.it.html?checkout=2026-06-18&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-17&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -142,21 +368,381 @@
           "score": 9.4
         }
       ],
-      "priceWeekend14": 333,
-      "fullyBooked14": false
+      "rank": 8
     },
     {
-      "rank": 4,
+      "name": "Castello del Sole Beach Resort&SPA",
+      "city": "Ascona",
+      "address": "Via Muraccio 142, 6612 Ascona, Svizzera",
+      "rating": 9.5,
+      "ratingLabel": "Eccezionale",
+      "reviews": 126,
+      "priceWeekend7": 812,
+      "priceWeekend14": 702,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 5,
+      "url": "https://www.booking.com/hotel/ch/castello-del-sole.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.6
+        },
+        {
+          "title": "Servizi",
+          "score": 9.5
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.7
+        },
+        {
+          "title": "Comfort",
+          "score": 9.6
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.5
+        },
+        {
+          "title": "Posizione",
+          "score": 9.6
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 10
+        }
+      ],
+      "rank": 9
+    },
+    {
+      "name": "Albergo Losone",
+      "city": "Losone",
+      "address": "Via dei Pioppi 14, 6616 Losone, Svizzera",
+      "rating": 9.5,
+      "ratingLabel": "Eccezionale",
+      "reviews": 35,
+      "priceWeekend7": 432,
+      "priceWeekend14": 432,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/albergo-losone.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.9
+        },
+        {
+          "title": "Servizi",
+          "score": 9.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.8
+        },
+        {
+          "title": "Comfort",
+          "score": 9.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 6.3
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "name": "Hotel Garni Rivabella au Lac",
+      "city": "Brissago",
+      "address": "Via Ruggero Leoncavallo 43, 6614 Brissago, Svizzera",
+      "rating": 9.4,
+      "ratingLabel": "Eccellente",
+      "reviews": 357,
+      "priceWeekend7": 173,
+      "priceWeekend14": 202,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/garni-rivabella-au-lac.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 10
+        },
+        {
+          "title": "Servizi",
+          "score": 8.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.4
+        },
+        {
+          "title": "Comfort",
+          "score": 9.2
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9.2
+        },
+        {
+          "title": "Posizione",
+          "score": 9.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9
+        }
+      ],
+      "rank": 11
+    },
+    {
+      "name": "Hotel Villa Emden",
+      "city": "Brissago",
+      "address": "Isole di Brissago, 6614 Brissago, Svizzera",
+      "rating": 9.4,
+      "ratingLabel": "Eccellente",
+      "reviews": 108,
+      "priceWeekend7": 328,
+      "priceWeekend14": 328,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/isole-di-brissago.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.3
+        },
+        {
+          "title": "Comfort",
+          "score": 9.3
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.5
+        },
+        {
+          "title": "Posizione",
+          "score": 10
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 5
+        }
+      ],
+      "rank": 12
+    },
+    {
+      "name": "Villa Siesta, Park & Pool Living",
+      "city": "Losone",
+      "address": "Via Madonna della Fontana 22, 6616 Losone, Svizzera",
+      "rating": 9.4,
+      "ratingLabel": "Eccellente",
+      "reviews": 219,
+      "priceWeekend7": 190,
+      "priceWeekend14": 220,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/villa-siesta-park.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Host",
+          "score": 9.9
+        },
+        {
+          "title": "Servizi",
+          "score": 9.2
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.5
+        },
+        {
+          "title": "Comfort",
+          "score": 9.4
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.3
+        }
+      ],
+      "rank": 13
+    },
+    {
+      "name": "Giardino Ascona",
+      "city": "Ascona",
+      "address": "Via del Segnale 10, 6612 Ascona, Svizzera",
+      "rating": 9.4,
+      "ratingLabel": "Eccellente",
+      "reviews": 85,
+      "priceWeekend7": 847,
+      "priceWeekend14": 920,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 5,
+      "url": "https://www.booking.com/hotel/ch/giardino.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 9.5
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.7
+        },
+        {
+          "title": "Comfort",
+          "score": 9.4
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.3
+        },
+        {
+          "title": "Posizione",
+          "score": 9.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 5
+        }
+      ],
+      "rank": 14
+    },
+    {
+      "name": "Hotel Garni Golf",
+      "city": "Ascona",
+      "address": "Vicolo Sacchetti 2, 6612 Ascona, Svizzera",
+      "rating": 9.4,
+      "ratingLabel": "Eccellente",
+      "reviews": 821,
+      "priceWeekend7": 196,
+      "priceWeekend14": 266,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/garnigolf.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.9
+        },
+        {
+          "title": "Servizi",
+          "score": 9
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.5
+        },
+        {
+          "title": "Comfort",
+          "score": 9.5
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.3
+        }
+      ],
+      "rank": 15
+    },
+    {
+      "name": "Hotel Eden Roc - The Leading Hotels of the World",
+      "city": "Ascona",
+      "address": "Via Albarelle 16, 6612 Ascona, Svizzera",
+      "rating": 9.4,
+      "ratingLabel": "Eccellente",
+      "reviews": 195,
+      "priceWeekend7": 679,
+      "priceWeekend14": 719,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 5,
+      "url": "https://www.booking.com/hotel/ch/eden-roc.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.7
+        },
+        {
+          "title": "Servizi",
+          "score": 9.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.8
+        },
+        {
+          "title": "Comfort",
+          "score": 9.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9.9
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.5
+        }
+      ],
+      "rank": 16
+    },
+    {
       "name": "Smart-HOTEL MINUSIO, a Swiss Quality Hotel",
       "city": "Locarno",
       "address": "via Esplanade 6, Minusio, 6648 Locarno, Svizzera",
       "rating": 9.4,
       "ratingLabel": "Eccellente",
       "reviews": 508,
-      "priceWeekend7": 241,
+      "priceWeekend7": 211,
+      "priceWeekend14": 191,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/garni-minusio.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/garni-minusio.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -187,21 +773,21 @@
           "score": 8.5
         }
       ],
-      "priceWeekend14": 216,
-      "fullyBooked14": false
+      "rank": 17
     },
     {
-      "rank": 5,
       "name": "Hotel Lago Maggiore - Welcome!",
       "city": "Locarno",
       "address": "25 Viale Verbano, Muralto, 6600 Locarno, Svizzera",
       "rating": 9.4,
       "ratingLabel": "Eccellente",
-      "reviews": 1523,
-      "priceWeekend7": 473,
+      "reviews": 1521,
+      "priceWeekend7": 308,
+      "priceWeekend14": 352,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 4,
-      "url": "https://www.booking.com/hotel/ch/lago-maggiore.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/lago-maggiore.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -213,7 +799,7 @@
         },
         {
           "title": "Pulizia",
-          "score": 9.6
+          "score": 9.7
         },
         {
           "title": "Comfort",
@@ -229,14 +815,233 @@
         },
         {
           "title": "WiFi gratuito",
+          "score": 8.2
+        }
+      ],
+      "rank": 18
+    },
+    {
+      "name": "Boutique Hotel Locanda Fior di Campo",
+      "city": "Campo",
+      "address": "Case Pedrazzini 1, 6684 Campo, Svizzera",
+      "rating": 9.3,
+      "ratingLabel": "Eccellente",
+      "reviews": 47,
+      "priceWeekend7": 277,
+      "priceWeekend14": 333,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/locanda-fior-di-campo-campo1.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.2
+        },
+        {
+          "title": "Servizi",
+          "score": 9.4
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.8
+        },
+        {
+          "title": "Comfort",
+          "score": 9.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.3
+        },
+        {
+          "title": "Posizione",
+          "score": 9.2
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 10
+        }
+      ],
+      "rank": 19
+    },
+    {
+      "name": "Hotel Ascovilla Charming Hideway",
+      "city": "Ascona",
+      "address": "Via Albarelle 37/Via Lido 20, 6612 Ascona, Svizzera",
+      "rating": 9.3,
+      "ratingLabel": "Eccellente",
+      "reviews": 226,
+      "priceWeekend7": 378,
+      "priceWeekend14": 420,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/ascovilla.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.9
+        },
+        {
+          "title": "Servizi",
+          "score": 9.4
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.7
+        },
+        {
+          "title": "Comfort",
+          "score": 9.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.8
+        },
+        {
+          "title": "Posizione",
+          "score": 9.7
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.4
+        }
+      ],
+      "rank": 20
+    },
+    {
+      "name": "Hotel Casa Arizzoli",
+      "city": "Cannobio",
+      "address": "Via A. Giovanola 92, 28822 Cannobio, Italia",
+      "rating": 9.3,
+      "ratingLabel": "Eccellente",
+      "reviews": 771,
+      "priceWeekend7": 226,
+      "priceWeekend14": 226,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/it/casa-arizzoli.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.9
+        },
+        {
+          "title": "Servizi",
+          "score": 9.1
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.6
+        },
+        {
+          "title": "Comfort",
+          "score": 9.5
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9.2
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        }
+      ],
+      "rank": 21
+    },
+    {
+      "name": "Appartamenti Ferrari Residence",
+      "city": "Cannobio",
+      "address": "Via Darbedo 23, 28822 Cannobio, Italia",
+      "rating": 9.3,
+      "ratingLabel": "Eccellente",
+      "reviews": 315,
+      "priceWeekend7": 130,
+      "priceWeekend14": 121,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/it/appartamenti-ferrari.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Host",
+          "score": 9.6
+        },
+        {
+          "title": "Servizi",
+          "score": 9.2
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.4
+        },
+        {
+          "title": "Comfort",
+          "score": 9.3
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.4
+        },
+        {
+          "title": "WiFi gratuito",
           "score": 8.3
         }
       ],
-      "priceWeekend14": 357,
-      "fullyBooked14": false
+      "rank": 22
     },
     {
-      "rank": 6,
+      "name": "Villa Maria Boutique Hotel",
+      "city": "Cannobio",
+      "address": "Via XXVII XXVIII Maggio 1, 28822 Cannobio, Italia",
+      "rating": 9.3,
+      "ratingLabel": "Eccellente",
+      "reviews": 84,
+      "priceWeekend7": 213,
+      "priceWeekend14": 318,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/it/villa-maria-cannobio.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.8
+        },
+        {
+          "title": "Servizi",
+          "score": 9.3
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.6
+        },
+        {
+          "title": "Comfort",
+          "score": 9.5
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.7
+        },
+        {
+          "title": "Posizione",
+          "score": 9.9
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 10
+        }
+      ],
+      "rank": 23
+    },
+    {
       "name": "EasyRooms ai Monti",
       "city": "Locarno",
       "address": "Via ai Monti 44, 6600 Locarno, Svizzera",
@@ -244,9 +1049,11 @@
       "ratingLabel": "Eccellente",
       "reviews": 120,
       "priceWeekend7": 198,
+      "priceWeekend14": 198,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": null,
-      "url": "https://www.booking.com/hotel/ch/trinity-rooms.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/trinity-rooms.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -262,7 +1069,7 @@
         },
         {
           "title": "Comfort",
-          "score": 9.5
+          "score": 9.4
         },
         {
           "title": "Rapporto qualità-prezzo",
@@ -270,28 +1077,28 @@
         },
         {
           "title": "Posizione",
-          "score": 9.3
+          "score": 9.2
         },
         {
           "title": "WiFi gratuito",
           "score": 9.5
         }
       ],
-      "priceWeekend14": 198,
-      "fullyBooked14": false
+      "rank": 24
     },
     {
-      "rank": 7,
       "name": "Schloss Locarno - Suites & Apartments",
       "city": "Locarno",
       "address": "Via Bartolomeo Rusca 9, 6600 Locarno, Svizzera",
       "rating": 9.3,
       "ratingLabel": "Eccellente",
-      "reviews": 202,
-      "priceWeekend7": 227,
+      "reviews": 210,
+      "priceWeekend7": 233,
+      "priceWeekend14": 242,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": null,
-      "url": "https://www.booking.com/hotel/ch/schloss-locarno.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/schloss-locarno.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Host",
@@ -322,21 +1129,21 @@
           "score": 9.3
         }
       ],
-      "priceWeekend14": 240,
-      "fullyBooked14": false
+      "rank": 25
     },
     {
-      "rank": 8,
       "name": "Pensione Olanda",
       "city": "Locarno",
       "address": "Via ai Monti 139a, 6605 Locarno, Svizzera",
       "rating": 9.3,
       "ratingLabel": "Eccellente",
-      "reviews": 723,
-      "priceWeekend7": 172,
+      "reviews": 724,
+      "priceWeekend7": 143,
+      "priceWeekend14": 155,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": null,
-      "url": "https://www.booking.com/hotel/ch/pensione-olanda.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/pensione-olanda.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -367,21 +1174,291 @@
           "score": 9.4
         }
       ],
-      "priceWeekend14": 143,
-      "fullyBooked14": false
+      "rank": 26
     },
     {
-      "rank": 9,
+      "name": "Hotel Collinetta",
+      "city": "Ascona",
+      "address": "Via Collinetta 115, 6612 Ascona, Svizzera",
+      "rating": 9.2,
+      "ratingLabel": "Eccellente",
+      "reviews": 437,
+      "priceWeekend7": 351,
+      "priceWeekend14": null,
+      "fullyBooked14": true,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/collinetta.it.html?checkout=2026-06-18&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-17&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.7
+        },
+        {
+          "title": "Servizi",
+          "score": 8.8
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.4
+        },
+        {
+          "title": "Comfort",
+          "score": 9.3
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.6
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 7.8
+        }
+      ],
+      "rank": 27
+    },
+    {
+      "name": "Charme Hotel al Torchio",
+      "city": "Ascona",
+      "address": "47 Via Borgo, 6612 Ascona, Svizzera",
+      "rating": 9.2,
+      "ratingLabel": "Eccellente",
+      "reviews": 804,
+      "priceWeekend7": 175,
+      "priceWeekend14": 185,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/charme-al-torchio.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.8
+        },
+        {
+          "title": "Servizi",
+          "score": 9.4
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.7
+        },
+        {
+          "title": "Comfort",
+          "score": 9.6
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.7
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 7.4
+        }
+      ],
+      "rank": 28
+    },
+    {
+      "name": "Sasso Boretto, Luxury Holiday Apartments",
+      "city": "Ascona",
+      "address": "Viale Monte verità 45, 6612 Ascona, Svizzera",
+      "rating": 9.2,
+      "ratingLabel": "Eccellente",
+      "reviews": 287,
+      "priceWeekend7": 286,
+      "priceWeekend14": 320,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/sasso-boretto-luxury-apartments.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Host",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 9.4
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.3
+        },
+        {
+          "title": "Comfort",
+          "score": 9.3
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.6
+        },
+        {
+          "title": "Posizione",
+          "score": 9.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 10
+        }
+      ],
+      "rank": 29
+    },
+    {
+      "name": "Hotel Garni dei fiori",
+      "city": "Ascona",
+      "address": "Via Buonamano 35, 6612 Ascona, Svizzera",
+      "rating": 9.2,
+      "ratingLabel": "Eccellente",
+      "reviews": 379,
+      "priceWeekend7": 201,
+      "priceWeekend14": 201,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/dei-fiori.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.9
+        },
+        {
+          "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.5
+        },
+        {
+          "title": "Comfort",
+          "score": 9.2
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.5
+        }
+      ],
+      "rank": 30
+    },
+    {
+      "name": "Villa Maria Boutique Apartments",
+      "city": "Cannobio",
+      "address": "Via XXVII e XXVIII Maggio 1, 28822 Cannobio, Italia",
+      "rating": 9.2,
+      "ratingLabel": "Eccellente",
+      "reviews": 36,
+      "priceWeekend7": 193,
+      "priceWeekend14": null,
+      "fullyBooked14": true,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/it/villa-maria-residence.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Host",
+          "score": 9.8
+        },
+        {
+          "title": "Servizi",
+          "score": 9.2
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.6
+        },
+        {
+          "title": "Comfort",
+          "score": 9.6
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9.9
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 10
+        }
+      ],
+      "rank": 31
+    },
+    {
+      "name": "Villa Pineta",
+      "city": "Fusio",
+      "address": "Via Schiadüü, 6696 Fusio, Svizzera",
+      "rating": 9.2,
+      "ratingLabel": "Eccellente",
+      "reviews": 72,
+      "priceWeekend7": 186,
+      "priceWeekend14": 186,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/villa-pineta-fusio1.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.9
+        },
+        {
+          "title": "Servizi",
+          "score": 8.8
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.5
+        },
+        {
+          "title": "Comfort",
+          "score": 9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.8
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 10
+        }
+      ],
+      "rank": 32
+    },
+    {
       "name": "Piccolo Hotel",
       "city": "Locarno",
       "address": "Via Avvocato Buetti 11, Muralto, 6600 Locarno, Svizzera",
       "rating": 9.2,
       "ratingLabel": "Eccellente",
-      "reviews": 869,
-      "priceWeekend7": 178,
+      "reviews": 868,
+      "priceWeekend7": 175,
+      "priceWeekend14": 192,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/piccolo.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/piccolo.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -412,82 +1489,37 @@
           "score": 8.9
         }
       ],
-      "priceWeekend14": 165,
-      "fullyBooked14": false
+      "rank": 33
     },
     {
-      "rank": 10,
-      "name": "Hotel Millennium",
-      "city": "Locarno",
-      "address": "Via Dogana Nuova 2, 6600 Locarno, Svizzera",
+      "name": "Casa Berno Panorama Resort",
+      "city": "Ascona",
+      "address": "Via Gottardo Madonna 15, 6612 Ascona, Svizzera",
       "rating": 9.1,
       "ratingLabel": "Eccellente",
-      "reviews": 1148,
-      "priceWeekend7": 264,
+      "reviews": 383,
+      "priceWeekend7": 372,
+      "priceWeekend14": 387,
+      "fullyBooked14": false,
       "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/garni-millennium.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/casaberno.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
-          "score": 9.7
+          "score": 9.5
         },
         {
           "title": "Servizi",
-          "score": 9
-        },
-        {
-          "title": "Pulizia",
-          "score": 9.3
-        },
-        {
-          "title": "Comfort",
-          "score": 9.1
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
           "score": 8.9
         },
         {
-          "title": "Posizione",
-          "score": 9.8
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 7.9
-        }
-      ],
-      "priceWeekend14": 362,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 11,
-      "name": "Hotel Belvedere Locarno",
-      "city": "Locarno",
-      "address": "Via ai Monti della Trinita 44, 6601 Locarno, Svizzera",
-      "rating": 9.1,
-      "ratingLabel": "Eccellente",
-      "reviews": 1125,
-      "priceWeekend7": 359,
-      "currency": "CHF",
-      "stars": 4,
-      "url": "https://www.booking.com/hotel/ch/belvedere-locarno-sa.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.5
-        },
-        {
-          "title": "Servizi",
-          "score": 9.3
-        },
-        {
           "title": "Pulizia",
-          "score": 9.5
+          "score": 9.4
         },
         {
           "title": "Comfort",
-          "score": 9.5
+          "score": 9.4
         },
         {
           "title": "Rapporto qualità-prezzo",
@@ -495,28 +1527,73 @@
         },
         {
           "title": "Posizione",
+          "score": 9.7
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8
+        }
+      ],
+      "rank": 34
+    },
+    {
+      "name": "Boutique Hotel Fusio",
+      "city": "Fusio",
+      "address": "Salee, 6696 Fusio, Svizzera",
+      "rating": 9.1,
+      "ratingLabel": "Eccellente",
+      "reviews": 90,
+      "priceWeekend7": 235,
+      "priceWeekend14": 275,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/unique-fusio.it.html?checkout=2026-06-18&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-17&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.7
+        },
+        {
+          "title": "Servizi",
+          "score": 9.1
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.4
+        },
+        {
+          "title": "Comfort",
+          "score": 9.5
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9.1
+        },
+        {
+          "title": "Posizione",
           "score": 9.3
         },
         {
           "title": "WiFi gratuito",
-          "score": 8.4
+          "score": 5
         }
       ],
-      "priceWeekend14": null,
-      "fullyBooked14": true
+      "rank": 35
     },
     {
-      "rank": 12,
       "name": "Giardino Lago",
       "city": "Locarno",
       "address": "Via alla Riva 83a, Minusio, 6648 Locarno, Svizzera",
       "rating": 9.1,
       "ratingLabel": "Eccellente",
       "reviews": 68,
-      "priceWeekend7": 297,
+      "priceWeekend7": 355,
+      "priceWeekend14": 376,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": null,
-      "url": "https://www.booking.com/hotel/ch/giardino-lago.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/giardino-lago.it.html?checkout=2026-06-18&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-17&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -528,7 +1605,7 @@
         },
         {
           "title": "Pulizia",
-          "score": 9.1
+          "score": 9.2
         },
         {
           "title": "Comfort",
@@ -543,21 +1620,21 @@
           "score": 9.8
         }
       ],
-      "priceWeekend14": 355,
-      "fullyBooked14": false
+      "rank": 36
     },
     {
-      "rank": 13,
-      "name": "Villa Rossella",
-      "city": "Locarno",
-      "address": "13 Via della Stazione, Muralto, 6600 Locarno, Svizzera",
-      "rating": 9,
+      "name": "B&B Toblerina",
+      "city": "Ascona",
+      "address": "Via Strada Collina 28 28, 6612 Ascona, Svizzera",
+      "rating": 9.1,
       "ratingLabel": "Eccellente",
-      "reviews": 996,
-      "priceWeekend7": 154,
+      "reviews": 268,
+      "priceWeekend7": 158,
+      "priceWeekend14": 158,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": null,
-      "url": "https://www.booking.com/hotel/ch/villa-rossella-muralto.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/villa-toblerina.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -565,187 +1642,52 @@
         },
         {
           "title": "Servizi",
-          "score": 9.1
-        },
-        {
-          "title": "Pulizia",
-          "score": 9.3
-        },
-        {
-          "title": "Comfort",
-          "score": 9.4
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
           "score": 8.9
         },
         {
-          "title": "Posizione",
+          "title": "Pulizia",
           "score": 9.3
         },
         {
-          "title": "WiFi gratuito",
-          "score": 8.6
-        }
-      ],
-      "priceWeekend14": 158,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 14,
-      "name": "Riva Rooms & Studios - Check-In 24hr",
-      "city": "Locarno",
-      "address": "Via Rinaldo Simen 56, Minusio, 6648 Locarno, Svizzera",
-      "rating": 9,
-      "ratingLabel": "Eccellente",
-      "reviews": 930,
-      "priceWeekend7": 117,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/riva-rooms-amp-studios.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.5
-        },
-        {
-          "title": "Servizi",
+          "title": "Comfort",
           "score": 9.1
         },
         {
-          "title": "Pulizia",
-          "score": 9.3
-        },
-        {
-          "title": "Comfort",
-          "score": 9.2
-        },
-        {
           "title": "Rapporto qualità-prezzo",
-          "score": 8.8
+          "score": 8.5
         },
         {
           "title": "Posizione",
-          "score": 8.8
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 9.6
-        }
-      ],
-      "priceWeekend14": 131,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 15,
-      "name": "Hotel Bellavista Locarno",
-      "city": "Locarno",
-      "address": "Via Bartolomeo Varenna 31, 6600 Locarno, Svizzera",
-      "rating": 9,
-      "ratingLabel": "Eccellente",
-      "reviews": 746,
-      "priceWeekend7": 170,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/bellavista-locarno-locarno.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.6
-        },
-        {
-          "title": "Servizi",
-          "score": 9
-        },
-        {
-          "title": "Pulizia",
           "score": 9.2
-        },
-        {
-          "title": "Comfort",
-          "score": 9
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 9
-        },
-        {
-          "title": "Posizione",
-          "score": 8.7
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 9.4
-        }
-      ],
-      "priceWeekend14": null,
-      "fullyBooked14": true
-    },
-    {
-      "rank": 16,
-      "name": "Hotel Binario",
-      "city": "Locarno",
-      "address": "Via Scazziga 2, Muralto, 6600 Locarno, Svizzera",
-      "rating": 8.9,
-      "ratingLabel": "Favoloso",
-      "reviews": 802,
-      "priceWeekend7": 173,
-      "currency": "CHF",
-      "stars": null,
-      "url": "https://www.booking.com/hotel/ch/binario-934-boutique.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.5
-        },
-        {
-          "title": "Servizi",
-          "score": 9.2
-        },
-        {
-          "title": "Pulizia",
-          "score": 9.3
-        },
-        {
-          "title": "Comfort",
-          "score": 9.4
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.9
-        },
-        {
-          "title": "Posizione",
-          "score": 9.6
         },
         {
           "title": "WiFi gratuito",
           "score": 8.5
         }
       ],
-      "priceWeekend14": 217,
-      "fullyBooked14": false
+      "rank": 37
     },
     {
-      "rank": 17,
-      "name": "Hotel Geranio Au Lac",
-      "city": "Locarno",
-      "address": "Viale Verbano, Muralto, 6600 Locarno, Svizzera",
-      "rating": 8.9,
-      "ratingLabel": "Favoloso",
-      "reviews": 1222,
-      "priceWeekend7": 280,
+      "name": "Albergo Mirador Ascona",
+      "city": "Ascona",
+      "address": "Via al Lido 28, 6612 Ascona, Svizzera",
+      "rating": 9.1,
+      "ratingLabel": "Eccellente",
+      "reviews": 843,
+      "priceWeekend7": 190,
+      "priceWeekend14": 206,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/smarthotel-geranio-au-lac.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/golf-mirador.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
-          "score": 9.5
+          "score": 9.9
         },
         {
           "title": "Servizi",
-          "score": 8.9
+          "score": 9
         },
         {
           "title": "Pulizia",
@@ -753,318 +1695,142 @@
         },
         {
           "title": "Comfort",
-          "score": 9.1
+          "score": 9.3
         },
         {
           "title": "Rapporto qualità-prezzo",
-          "score": 8.6
+          "score": 8.9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9
+        }
+      ],
+      "rank": 38
+    },
+    {
+      "name": "Boutique Hotel Sunstar Brissago am Lago Maggiore",
+      "city": "Brissago",
+      "address": "Via Gabietta 3, 6614 Brissago, Svizzera",
+      "rating": 9.1,
+      "ratingLabel": "Eccellente",
+      "reviews": 209,
+      "priceWeekend7": 395,
+      "priceWeekend14": 306,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/hotel-villa-caesar.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.8
+        },
+        {
+          "title": "Servizi",
+          "score": 9.2
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.5
+        },
+        {
+          "title": "Comfort",
+          "score": 9.6
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.5
+        },
+        {
+          "title": "Posizione",
+          "score": 9.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.9
+        }
+      ],
+      "rank": 39
+    },
+    {
+      "name": "Hotel Millennium",
+      "city": "Locarno",
+      "address": "Via Dogana Nuova 2, 6600 Locarno, Svizzera",
+      "rating": 9.1,
+      "ratingLabel": "Eccellente",
+      "reviews": 1148,
+      "priceWeekend7": 286,
+      "priceWeekend14": 176,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/garni-millennium.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.7
+        },
+        {
+          "title": "Servizi",
+          "score": 9
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.3
+        },
+        {
+          "title": "Comfort",
+          "score": 9.2
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.9
         },
         {
           "title": "Posizione",
           "score": 9.8
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 8.7
-        }
-      ],
-      "priceWeekend14": 238,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 18,
-      "name": "Hotel Stella SA",
-      "city": "Locarno",
-      "address": "Via al Parco 14, Orselina, 6644 Locarno, Svizzera",
-      "rating": 8.9,
-      "ratingLabel": "Favoloso",
-      "reviews": 536,
-      "priceWeekend7": 187,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/stella.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.5
-        },
-        {
-          "title": "Servizi",
-          "score": 8.6
-        },
-        {
-          "title": "Pulizia",
-          "score": 9.2
-        },
-        {
-          "title": "Comfort",
-          "score": 9
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.6
-        },
-        {
-          "title": "Posizione",
-          "score": 9.2
         },
         {
           "title": "WiFi gratuito",
           "score": 7.9
         }
       ],
-      "priceWeekend14": 213,
-      "fullyBooked14": false
+      "rank": 40
     },
     {
-      "rank": 19,
-      "name": "Hotel Muralto Locarno",
+      "name": "Hotel Belvedere Locarno",
       "city": "Locarno",
-      "address": "Via Sempione 10, Muralto, 6600 Locarno, Svizzera",
-      "rating": 8.8,
-      "ratingLabel": "Favoloso",
-      "reviews": 3090,
-      "priceWeekend7": 248,
+      "address": "Via ai Monti della Trinita 44, 6601 Locarno, Svizzera",
+      "rating": 9.1,
+      "ratingLabel": "Eccellente",
+      "reviews": 1125,
+      "priceWeekend7": 382,
+      "priceWeekend14": 418,
+      "fullyBooked14": false,
       "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/garni-muralto.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/belvedere-locarno-sa.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
-          "score": 9.4
-        },
-        {
-          "title": "Servizi",
-          "score": 8.8
-        },
-        {
-          "title": "Pulizia",
-          "score": 9.2
-        },
-        {
-          "title": "Comfort",
-          "score": 9
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.9
-        },
-        {
-          "title": "Posizione",
-          "score": 9.3
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 8.5
-        }
-      ],
-      "priceWeekend14": 173,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 20,
-      "name": "Caffè dell'Arte Boutique Rooms Locarno",
-      "city": "Locarno",
-      "address": "via Cittadella 9, 6600 Locarno, Svizzera",
-      "rating": 8.8,
-      "ratingLabel": "Favoloso",
-      "reviews": 268,
-      "priceWeekend7": 211,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/caffe-dell-arte.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.4
-        },
-        {
-          "title": "Servizi",
-          "score": 8.7
-        },
-        {
-          "title": "Pulizia",
-          "score": 9
-        },
-        {
-          "title": "Comfort",
-          "score": 9.2
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.6
-        },
-        {
-          "title": "Posizione",
-          "score": 9.6
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 9.4
-        }
-      ],
-      "priceWeekend14": 198,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 21,
-      "name": "@ Home Hotel Locarno",
-      "city": "Locarno",
-      "address": "Via San Gottardo 18, Muralto, 6600 Locarno, Svizzera",
-      "rating": 8.8,
-      "ratingLabel": "Favoloso",
-      "reviews": 1166,
-      "priceWeekend7": 114,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/gottardo-garni.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.6
-        },
-        {
-          "title": "Servizi",
-          "score": 8.7
-        },
-        {
-          "title": "Pulizia",
-          "score": 9.2
-        },
-        {
-          "title": "Comfort",
-          "score": 9
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.7
-        },
-        {
-          "title": "Posizione",
-          "score": 9.2
-        }
-      ],
-      "priceWeekend14": 120,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 22,
-      "name": "Tertianum Residenza Al Parco Appartements & Restaurant",
-      "city": "Locarno",
-      "address": "Via San Gottardo 8, Muralto, 6600 Locarno, Svizzera",
-      "rating": 8.8,
-      "ratingLabel": "Favoloso",
-      "reviews": 912,
-      "priceWeekend7": 343,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/tertianum-ticino-sa-residenza-al-parco.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Host",
-          "score": 9.4
-        },
-        {
-          "title": "Servizi",
-          "score": 8.7
-        },
-        {
-          "title": "Pulizia",
-          "score": 9.2
-        },
-        {
-          "title": "Comfort",
-          "score": 9.1
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.7
-        },
-        {
-          "title": "Posizione",
           "score": 9.5
         },
         {
-          "title": "WiFi gratuito",
-          "score": 7.6
-        }
-      ],
-      "priceWeekend14": 258,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 23,
-      "name": "Miralago Locarno Easy Rooms - Easy Self Check-In",
-      "city": "Locarno",
-      "address": "Via San Vittore 1, Muralto, 6600 Locarno, Svizzera",
-      "rating": 8.8,
-      "ratingLabel": "Favoloso",
-      "reviews": 1835,
-      "priceWeekend7": 113,
-      "currency": "CHF",
-      "stars": null,
-      "url": "https://www.booking.com/hotel/ch/pensione-miralago.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.4
-        },
-        {
           "title": "Servizi",
-          "score": 8.9
+          "score": 9.3
         },
         {
           "title": "Pulizia",
-          "score": 9.3
+          "score": 9.5
         },
         {
           "title": "Comfort",
-          "score": 9.2
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 9.2
-        },
-        {
-          "title": "Posizione",
-          "score": 9.3
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 9
-        }
-      ],
-      "priceWeekend14": 113,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 24,
-      "name": "Hotel la Palma au Lac",
-      "city": "Locarno",
-      "address": "Viale Verbano 29, Muralto, 6602 Locarno, Svizzera",
-      "rating": 8.8,
-      "ratingLabel": "Favoloso",
-      "reviews": 1267,
-      "priceWeekend7": 431,
-      "currency": "CHF",
-      "stars": 4,
-      "url": "https://www.booking.com/hotel/ch/h-la-palma-hotel-and-spa-locarno.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.3
-        },
-        {
-          "title": "Servizi",
-          "score": 8.8
-        },
-        {
-          "title": "Pulizia",
-          "score": 9.2
-        },
-        {
-          "title": "Comfort",
-          "score": 9.1
+          "score": 9.5
         },
         {
           "title": "Rapporto qualità-prezzo",
@@ -1072,36 +1838,36 @@
         },
         {
           "title": "Posizione",
-          "score": 9.7
+          "score": 9.3
         },
         {
           "title": "WiFi gratuito",
-          "score": 8.7
+          "score": 8.4
         }
       ],
-      "priceWeekend14": 306,
-      "fullyBooked14": false
+      "rank": 41
     },
     {
-      "rank": 25,
-      "name": "Tertianum Residenza Al Lido - Appartements & Restaurant",
+      "name": "Riva Rooms & Studios - Check-In 24hr",
       "city": "Locarno",
-      "address": "Via della Posta 44, 6600 Locarno, Svizzera",
-      "rating": 8.7,
-      "ratingLabel": "Favoloso",
-      "reviews": 729,
-      "priceWeekend7": 322,
+      "address": "Via Rinaldo Simen 56, Minusio, 6648 Locarno, Svizzera",
+      "rating": 9,
+      "ratingLabel": "Eccellente",
+      "reviews": 931,
+      "priceWeekend7": 117,
+      "priceWeekend14": 133,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/residenza-al-lido-tertianum.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/riva-rooms-amp-studios.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
-          "title": "Host",
+          "title": "Staff",
           "score": 9.5
         },
         {
           "title": "Servizi",
-          "score": 8.7
+          "score": 9.1
         },
         {
           "title": "Pulizia",
@@ -1109,40 +1875,310 @@
         },
         {
           "title": "Comfort",
+          "score": 9.2
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.8
+        },
+        {
+          "title": "Posizione",
+          "score": 8.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.6
+        }
+      ],
+      "rank": 42
+    },
+    {
+      "name": "Romantik Hotel Castello Seeschloss",
+      "city": "Ascona",
+      "address": "Via Circonvallazione 26, 6612 Ascona, Svizzera",
+      "rating": 9,
+      "ratingLabel": "Eccellente",
+      "reviews": 585,
+      "priceWeekend7": 366,
+      "priceWeekend14": 366,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/romantikcastello.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.6
+        },
+        {
+          "title": "Servizi",
+          "score": 8.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.2
+        },
+        {
+          "title": "Comfort",
+          "score": 9.3
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8
+        }
+      ],
+      "rank": 43
+    },
+    {
+      "name": "Hotel Luna Garni",
+      "city": "Ascona",
+      "address": "Via Buonamano 28, 6612 Ascona, Svizzera",
+      "rating": 9,
+      "ratingLabel": "Eccellente",
+      "reviews": 453,
+      "priceWeekend7": 138,
+      "priceWeekend14": 160,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/luna.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.8
+        },
+        {
+          "title": "Servizi",
+          "score": 9
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.4
+        },
+        {
+          "title": "Comfort",
+          "score": 9.2
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.4
+        }
+      ],
+      "rank": 44
+    },
+    {
+      "name": "Ascona Lodge, Pool & Garden Retreat",
+      "city": "Ascona",
+      "address": "Via delle Scuole 17, 6612 Ascona, Svizzera",
+      "rating": 9,
+      "ratingLabel": "Eccellente",
+      "reviews": 418,
+      "priceWeekend7": 251,
+      "priceWeekend14": 221,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/mulino.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 9.2
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.4
+        },
+        {
+          "title": "Comfort",
+          "score": 9.4
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.7
+        },
+        {
+          "title": "Posizione",
+          "score": 8.9
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.2
+        }
+      ],
+      "rank": 45
+    },
+    {
+      "name": "Antica Osteria Dazio",
+      "city": "Fusio",
+      "address": "Loc. Nucleo, 5, 6696 Fusio, Svizzera",
+      "rating": 9,
+      "ratingLabel": "Eccellente",
+      "reviews": 79,
+      "priceWeekend7": 188,
+      "priceWeekend14": 188,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/antica-osteria-dazio-fusio.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.3
+        },
+        {
+          "title": "Servizi",
+          "score": 8.3
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.8
+        },
+        {
+          "title": "Comfort",
+          "score": 8.9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.8
+        }
+      ],
+      "rank": 46
+    },
+    {
+      "name": "Villa Rossella",
+      "city": "Locarno",
+      "address": "13 Via della Stazione, Muralto, 6600 Locarno, Svizzera",
+      "rating": 9,
+      "ratingLabel": "Eccellente",
+      "reviews": 992,
+      "priceWeekend7": 158,
+      "priceWeekend14": 162,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/villa-rossella-muralto.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.7
+        },
+        {
+          "title": "Servizi",
+          "score": 9.1
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.3
+        },
+        {
+          "title": "Comfort",
+          "score": 9.4
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.6
+        }
+      ],
+      "rank": 47
+    },
+    {
+      "name": "Hotel Monte Verità",
+      "city": "Ascona",
+      "address": "Strada Collina 84, 6612 Ascona, Svizzera",
+      "rating": 8.9,
+      "ratingLabel": "Favoloso",
+      "reviews": 656,
+      "priceWeekend7": 258,
+      "priceWeekend14": 258,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/monteverita.it.html?checkout=2026-06-18&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-17&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.3
+        },
+        {
+          "title": "Servizi",
+          "score": 8.5
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
           "score": 9.1
         },
         {
           "title": "Rapporto qualità-prezzo",
-          "score": 8.6
+          "score": 8.5
         },
         {
           "title": "Posizione",
-          "score": 9.1
+          "score": 9.4
         },
         {
           "title": "WiFi gratuito",
           "score": 6.7
         }
       ],
-      "priceWeekend14": null,
-      "fullyBooked14": true
+      "rank": 48
     },
     {
-      "rank": 26,
-      "name": "Hotel Rio Muralto",
-      "city": "Locarno",
-      "address": "Via della Collegiata 1, Muralto, 6600 Locarno, Svizzera",
-      "rating": 8.7,
+      "name": "Boutique-Hotel Antica Posta",
+      "city": "Ascona",
+      "address": "Via Borgo, 6612 Ascona, Svizzera",
+      "rating": 8.9,
       "ratingLabel": "Favoloso",
-      "reviews": 1138,
-      "priceWeekend7": 166,
+      "reviews": 537,
+      "priceWeekend7": 203,
+      "priceWeekend14": 188,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/rio-garni.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/albergo-antica-posta.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
-          "score": 9.7
+          "score": 9.6
         },
         {
           "title": "Servizi",
@@ -1150,97 +2186,7 @@
         },
         {
           "title": "Pulizia",
-          "score": 9.2
-        },
-        {
-          "title": "Comfort",
-          "score": 9.1
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.9
-        },
-        {
-          "title": "Posizione",
-          "score": 9.4
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 8.6
-        }
-      ],
-      "priceWeekend14": 176,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 27,
-      "name": "Aparthotel Al Lago",
-      "city": "Locarno",
-      "address": "Via Lungolago Giuseppe Motta 12, 6600 Locarno, Svizzera",
-      "rating": 8.6,
-      "ratingLabel": "Favoloso",
-      "reviews": 649,
-      "priceWeekend7": 248,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/aparthotel-al-lago.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.4
-        },
-        {
-          "title": "Servizi",
-          "score": 8.3
-        },
-        {
-          "title": "Pulizia",
-          "score": 8.9
-        },
-        {
-          "title": "Comfort",
-          "score": 8.8
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.1
-        },
-        {
-          "title": "Posizione",
-          "score": 9.5
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 8.1
-        }
-      ],
-      "priceWeekend14": 228,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 28,
-      "name": "Hotel Du Lac Locarno",
-      "city": "Locarno",
-      "address": "Via Ramogna 3, 6600 Locarno, Svizzera",
-      "rating": 8.6,
-      "ratingLabel": "Favoloso",
-      "reviews": 997,
-      "priceWeekend7": 232,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/garni-du-lac.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.3
-        },
-        {
-          "title": "Servizi",
-          "score": 8.6
-        },
-        {
-          "title": "Pulizia",
-          "score": 9.2
+          "score": 9
         },
         {
           "title": "Comfort",
@@ -1248,7 +2194,7 @@
         },
         {
           "title": "Rapporto qualità-prezzo",
-          "score": 8.6
+          "score": 8.9
         },
         {
           "title": "Posizione",
@@ -1256,212 +2202,77 @@
         },
         {
           "title": "WiFi gratuito",
-          "score": 9
+          "score": 9.3
         }
       ],
-      "priceWeekend14": null,
-      "fullyBooked14": true
+      "rank": 49
     },
     {
-      "rank": 29,
-      "name": "H4 Hotel Arcadia Locarno",
-      "city": "Locarno",
-      "address": "Lungolago G. Motta, 6600 Locarno, Svizzera",
-      "rating": 8.6,
+      "name": "Albergo Carcani by Ketty & Tommy",
+      "city": "Ascona",
+      "address": "Piazza Motta, 6612 Ascona, Svizzera",
+      "rating": 8.9,
       "ratingLabel": "Favoloso",
-      "reviews": 2238,
-      "priceWeekend7": 278,
+      "reviews": 714,
+      "priceWeekend7": 316,
+      "priceWeekend14": 388,
+      "fullyBooked14": false,
       "currency": "CHF",
-      "stars": 4,
-      "url": "https://www.booking.com/hotel/ch/h4-hotel-arcadia-locarno.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/albergo-carcani.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
+          "score": 9.4
+        },
+        {
+          "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
           "score": 9.1
         },
         {
-          "title": "Servizi",
-          "score": 8.6
-        },
-        {
-          "title": "Pulizia",
-          "score": 8.9
-        },
-        {
           "title": "Comfort",
-          "score": 9
+          "score": 9.2
         },
         {
           "title": "Rapporto qualità-prezzo",
-          "score": 8.1
+          "score": 8.6
         },
         {
           "title": "Posizione",
-          "score": 9.5
+          "score": 9.9
         },
         {
           "title": "WiFi gratuito",
-          "score": 8.7
+          "score": 8.6
         }
       ],
-      "priceWeekend14": 285,
-      "fullyBooked14": false
+      "rank": 50
     },
     {
-      "rank": 30,
-      "name": "Hotel City Locarno",
-      "city": "Locarno",
-      "address": "Via Giuseppe Cattori 4, 6600 Locarno, Svizzera",
-      "rating": 8.6,
+      "name": "Residence Villa Margherita WITH POOL & HYDROMASSAGE",
+      "city": "Cannobio",
+      "address": "VIA NAZIONALE 2, 28822 Cannobio, Italia",
+      "rating": 8.9,
       "ratingLabel": "Favoloso",
-      "reviews": 1715,
-      "priceWeekend7": 226,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/city-locarno.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.3
-        },
-        {
-          "title": "Servizi",
-          "score": 8.6
-        },
-        {
-          "title": "Pulizia",
-          "score": 9
-        },
-        {
-          "title": "Comfort",
-          "score": 9
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.6
-        },
-        {
-          "title": "Posizione",
-          "score": 9.5
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 8.5
-        }
-      ],
-      "priceWeekend14": 249,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 31,
-      "name": "Hotel Alexandra",
-      "city": "Locarno",
-      "address": "Via San Gottardo 43, Muralto, 6600 Locarno, Svizzera",
-      "rating": 8.6,
-      "ratingLabel": "Favoloso",
-      "reviews": 922,
-      "priceWeekend7": 105,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/alexandra.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9.5
-        },
-        {
-          "title": "Servizi",
-          "score": 8.4
-        },
-        {
-          "title": "Pulizia",
-          "score": 9
-        },
-        {
-          "title": "Comfort",
-          "score": 8.7
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.6
-        },
-        {
-          "title": "Posizione",
-          "score": 8.9
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 8.1
-        }
-      ],
-      "priceWeekend14": 110,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 32,
-      "name": "ibis Locarno",
-      "city": "Locarno",
-      "address": "Via Giuseppe Cattori 6, 6600 Locarno, Svizzera",
-      "rating": 8.4,
-      "ratingLabel": "Ottimo",
-      "reviews": 1607,
-      "priceWeekend7": 181,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/giuseppecattori-locarno.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 9
-        },
-        {
-          "title": "Servizi",
-          "score": 8.3
-        },
-        {
-          "title": "Pulizia",
-          "score": 8.8
-        },
-        {
-          "title": "Comfort",
-          "score": 8.7
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.4
-        },
-        {
-          "title": "Posizione",
-          "score": 9.3
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 8.6
-        }
-      ],
-      "priceWeekend14": 181,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 33,
-      "name": "Boutique Hotel Piazza Grande Locarno - Easy Self Check-In",
-      "city": "Locarno",
-      "address": "Piazzetta dei Capitani, Locarno Piazza Grande, 6600 Locarno, Svizzera",
-      "rating": 8.4,
-      "ratingLabel": "Ottimo",
-      "reviews": 1152,
-      "priceWeekend7": 180,
+      "reviews": 188,
+      "priceWeekend7": 135,
+      "priceWeekend14": null,
+      "fullyBooked14": true,
       "currency": "CHF",
       "stars": null,
-      "url": "https://www.booking.com/hotel/ch/boutique-piazza-grande.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/it/residence-villa-margherita-cannobio.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
-          "title": "Staff",
-          "score": 8.5
+          "title": "Host",
+          "score": 9.7
         },
         {
           "title": "Servizi",
-          "score": 8.6
+          "score": 8.7
         },
         {
           "title": "Pulizia",
@@ -1469,11 +2280,142 @@
         },
         {
           "title": "Comfort",
-          "score": 9
+          "score": 8.8
         },
         {
           "title": "Rapporto qualità-prezzo",
+          "score": 8.7
+        },
+        {
+          "title": "Posizione",
+          "score": 9.3
+        },
+        {
+          "title": "WiFi gratuito",
           "score": 8.5
+        }
+      ],
+      "rank": 51
+    },
+    {
+      "name": "Eco-Hotel Cristallina",
+      "city": "Coglio",
+      "address": "Al stradon da Coi 22, 6678 Coglio, Svizzera",
+      "rating": 8.9,
+      "ratingLabel": "Favoloso",
+      "reviews": 58,
+      "priceWeekend7": 149,
+      "priceWeekend14": 149,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/eco-cristallina.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.7
+        },
+        {
+          "title": "Servizi",
+          "score": 8.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.5
+        },
+        {
+          "title": "Comfort",
+          "score": 8.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9.1
+        }
+      ],
+      "rank": 52
+    },
+    {
+      "name": "Hotel Geranio Au Lac",
+      "city": "Locarno",
+      "address": "Viale Verbano, Muralto, 6600 Locarno, Svizzera",
+      "rating": 8.9,
+      "ratingLabel": "Favoloso",
+      "reviews": 1218,
+      "priceWeekend7": 238,
+      "priceWeekend14": 238,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/smarthotel-geranio-au-lac.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 8.9
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.3
+        },
+        {
+          "title": "Comfort",
+          "score": 9.1
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.6
+        },
+        {
+          "title": "Posizione",
+          "score": 9.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.7
+        }
+      ],
+      "rank": 53
+    },
+    {
+      "name": "Hotel Binario",
+      "city": "Locarno",
+      "address": "Via Scazziga 2, Muralto, 6600 Locarno, Svizzera",
+      "rating": 8.9,
+      "ratingLabel": "Favoloso",
+      "reviews": 803,
+      "priceWeekend7": 217,
+      "priceWeekend14": 195,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/binario-934-boutique.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 9.2
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.4
+        },
+        {
+          "title": "Comfort",
+          "score": 9.4
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9
         },
         {
           "title": "Posizione",
@@ -1484,21 +2426,467 @@
           "score": 8.4
         }
       ],
-      "priceWeekend14": 170,
-      "fullyBooked14": false
+      "rank": 54
     },
     {
-      "rank": 34,
-      "name": "Hotel Nessi Locarno",
+      "name": "Hotel Stella SA",
       "city": "Locarno",
-      "address": "Via B. Varenna 79, 6600 Locarno, Svizzera",
-      "rating": 8.3,
-      "ratingLabel": "Ottimo",
-      "reviews": 1127,
-      "priceWeekend7": 174,
+      "address": "Via al Parco 14, Orselina, 6644 Locarno, Svizzera",
+      "rating": 8.9,
+      "ratingLabel": "Favoloso",
+      "reviews": 539,
+      "priceWeekend7": 198,
+      "priceWeekend14": 288,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/garni-nessi.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/stella.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.2
+        },
+        {
+          "title": "Comfort",
+          "score": 9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.6
+        },
+        {
+          "title": "Posizione",
+          "score": 9.2
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.3
+        }
+      ],
+      "rank": 55
+    },
+    {
+      "name": "Parkhotel Delta, Wellbeing Resort",
+      "city": "Ascona",
+      "address": "Via Delta 137-141, 6612 Ascona, Svizzera",
+      "rating": 8.8,
+      "ratingLabel": "Favoloso",
+      "reviews": 1050,
+      "priceWeekend7": 329,
+      "priceWeekend14": 209,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/parkhoteldelta.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.2
+        },
+        {
+          "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.1
+        },
+        {
+          "title": "Comfort",
+          "score": 9.2
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.3
+        },
+        {
+          "title": "Posizione",
+          "score": 8.6
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.2
+        }
+      ],
+      "rank": 56
+    },
+    {
+      "name": "Living Ascona Boutique Hotel",
+      "city": "Ascona",
+      "address": "Scalinata della Ruga 3, 6612 Ascona, Svizzera",
+      "rating": 8.8,
+      "ratingLabel": "Favoloso",
+      "reviews": 738,
+      "priceWeekend7": 167,
+      "priceWeekend14": 151,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/living-ascona-boutique.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 8.7
+        },
+        {
+          "title": "Servizi",
+          "score": 8.9
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.1
+        },
+        {
+          "title": "Comfort",
+          "score": 9.2
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.8
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.8
+        }
+      ],
+      "rank": 57
+    },
+    {
+      "name": "Delta Resort Apartments",
+      "city": "Ascona",
+      "address": "Via Delta 143, 6612 Ascona, Svizzera",
+      "rating": 8.8,
+      "ratingLabel": "Favoloso",
+      "reviews": 72,
+      "priceWeekend7": 407,
+      "priceWeekend14": 697,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 5,
+      "url": "https://www.booking.com/hotel/ch/delta-resort-apartments.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 8.7
+        },
+        {
+          "title": "Servizi",
+          "score": 9.1
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.4
+        },
+        {
+          "title": "Comfort",
+          "score": 9.3
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.1
+        },
+        {
+          "title": "Posizione",
+          "score": 9.1
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 7.5
+        }
+      ],
+      "rank": 58
+    },
+    {
+      "name": "Hotel Antica Stallera",
+      "city": "Cannobio",
+      "address": "Via Paolo Zaccheo, 7, 28822 Cannobio, Italia",
+      "rating": 8.8,
+      "ratingLabel": "Favoloso",
+      "reviews": 491,
+      "priceWeekend7": 172,
+      "priceWeekend14": 172,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/it/antica-stallera.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.4
+        },
+        {
+          "title": "Servizi",
+          "score": 8.4
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.1
+        },
+        {
+          "title": "Comfort",
+          "score": 8.8
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.5
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.7
+        }
+      ],
+      "rank": 59
+    },
+    {
+      "name": "Hotel Ristorante Walser",
+      "city": "Bosco Gurin",
+      "address": "Piazza, 6685 Bosco Gurin, Svizzera",
+      "rating": 8.8,
+      "ratingLabel": "Favoloso",
+      "reviews": 39,
+      "priceWeekend7": 274,
+      "priceWeekend14": 274,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/walser-bosco-gurin.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 8.1
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.6
+        },
+        {
+          "title": "Comfort",
+          "score": 8.9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 7.5
+        },
+        {
+          "title": "Posizione",
+          "score": 9.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 10
+        }
+      ],
+      "rank": 60
+    },
+    {
+      "name": "Hotel Muralto Locarno",
+      "city": "Locarno",
+      "address": "Via Sempione 10, Muralto, 6600 Locarno, Svizzera",
+      "rating": 8.8,
+      "ratingLabel": "Favoloso",
+      "reviews": 3084,
+      "priceWeekend7": 279,
+      "priceWeekend14": 167,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/garni-muralto.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.4
+        },
+        {
+          "title": "Servizi",
+          "score": 8.8
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.2
+        },
+        {
+          "title": "Comfort",
+          "score": 9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.5
+        }
+      ],
+      "rank": 61
+    },
+    {
+      "name": "Caffè dell'Arte Boutique Rooms Locarno",
+      "city": "Locarno",
+      "address": "via Cittadella 9, 6600 Locarno, Svizzera",
+      "rating": 8.8,
+      "ratingLabel": "Favoloso",
+      "reviews": 269,
+      "priceWeekend7": 198,
+      "priceWeekend14": 180,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/caffe-dell-arte.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.4
+        },
+        {
+          "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 9.2
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.6
+        },
+        {
+          "title": "Posizione",
+          "score": 9.6
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.4
+        }
+      ],
+      "rank": 62
+    },
+    {
+      "name": "@ Home Hotel Locarno",
+      "city": "Locarno",
+      "address": "Via San Gottardo 18, Muralto, 6600 Locarno, Svizzera",
+      "rating": 8.8,
+      "ratingLabel": "Favoloso",
+      "reviews": 1165,
+      "priceWeekend7": 130,
+      "priceWeekend14": 135,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/gottardo-garni.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.6
+        },
+        {
+          "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.2
+        },
+        {
+          "title": "Comfort",
+          "score": 9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.7
+        },
+        {
+          "title": "Posizione",
+          "score": 9.2
+        }
+      ],
+      "rank": 63
+    },
+    {
+      "name": "Miralago Locarno Easy Rooms - Easy Self Check-In",
+      "city": "Locarno",
+      "address": "Via San Vittore 1, Muralto, 6600 Locarno, Svizzera",
+      "rating": 8.8,
+      "ratingLabel": "Favoloso",
+      "reviews": 1841,
+      "priceWeekend7": 89,
+      "priceWeekend14": 133,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/pensione-miralago.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.4
+        },
+        {
+          "title": "Servizi",
+          "score": 8.9
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.3
+        },
+        {
+          "title": "Comfort",
+          "score": 9.2
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9.2
+        },
+        {
+          "title": "Posizione",
+          "score": 9.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9
+        }
+      ],
+      "rank": 64
+    },
+    {
+      "name": "Hotel la Palma au Lac",
+      "city": "Locarno",
+      "address": "Viale Verbano 29, Muralto, 6602 Locarno, Svizzera",
+      "rating": 8.8,
+      "ratingLabel": "Favoloso",
+      "reviews": 1265,
+      "priceWeekend7": 282,
+      "priceWeekend14": 268,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/h-la-palma-hotel-and-spa-locarno.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -1506,52 +2894,97 @@
         },
         {
           "title": "Servizi",
-          "score": 8.3
+          "score": 8.8
         },
         {
           "title": "Pulizia",
-          "score": 8.7
+          "score": 9.2
         },
         {
           "title": "Comfort",
-          "score": 8.6
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.4
-        },
-        {
-          "title": "Posizione",
-          "score": 8.2
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 8.5
-        }
-      ],
-      "priceWeekend14": 140,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 35,
-      "name": "Hotel Excelsior",
-      "city": "Locarno",
-      "address": "Via Simone da Locarno 12, 6600 Locarno, Svizzera",
-      "rating": 8.2,
-      "ratingLabel": "Ottimo",
-      "reviews": 255,
-      "priceWeekend7": 170,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/excelsior-locarno.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
           "score": 9.1
         },
         {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.3
+        },
+        {
+          "title": "Posizione",
+          "score": 9.7
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.7
+        }
+      ],
+      "rank": 65
+    },
+    {
+      "name": "Tertianum Residenza Al Parco Appartements & Restaurant",
+      "city": "Locarno",
+      "address": "Via San Gottardo 8, Muralto, 6600 Locarno, Svizzera",
+      "rating": 8.8,
+      "ratingLabel": "Favoloso",
+      "reviews": 912,
+      "priceWeekend7": 208,
+      "priceWeekend14": 258,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/tertianum-ticino-sa-residenza-al-parco.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Host",
+          "score": 9.4
+        },
+        {
           "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.2
+        },
+        {
+          "title": "Comfort",
+          "score": 9.1
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.7
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        },
+        {
+          "title": "WiFi gratuito",
           "score": 7.6
+        }
+      ],
+      "rank": 66
+    },
+    {
+      "name": "Hotel Arancio",
+      "city": "Ascona",
+      "address": "Strada Collinetta 78, 6612 Ascona, Svizzera",
+      "rating": 8.7,
+      "ratingLabel": "Favoloso",
+      "reviews": 668,
+      "priceWeekend7": 171,
+      "priceWeekend14": 211,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/arancio.it.html?checkout=2026-06-18&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-17&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 8
         },
         {
           "title": "Pulizia",
@@ -1559,7 +2992,457 @@
         },
         {
           "title": "Comfort",
-          "score": 8.1
+          "score": 8.5
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.5
+        }
+      ],
+      "rank": 67
+    },
+    {
+      "name": "Hapimag Resort Ascona",
+      "city": "Ascona",
+      "address": "Via Muraccio 116, 6612 Ascona, Svizzera",
+      "rating": 8.7,
+      "ratingLabel": "Favoloso",
+      "reviews": 147,
+      "priceWeekend7": 258,
+      "priceWeekend14": 258,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/hapimag-resort-ascona.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Host",
+          "score": 9.7
+        },
+        {
+          "title": "Servizi",
+          "score": 8.8
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 9.3
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.2
+        },
+        {
+          "title": "Posizione",
+          "score": 8.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 10
+        }
+      ],
+      "rank": 68
+    },
+    {
+      "name": "Hotel Tobler",
+      "city": "Ascona",
+      "address": "Strada Collina 28, 6612 Ascona, Svizzera",
+      "rating": 8.7,
+      "ratingLabel": "Favoloso",
+      "reviews": 741,
+      "priceWeekend7": 285,
+      "priceWeekend14": 285,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/tobler.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 8.5
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 9.1
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.2
+        },
+        {
+          "title": "Posizione",
+          "score": 9.2
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.3
+        }
+      ],
+      "rank": 69
+    },
+    {
+      "name": "Hotel Elvezia Ascona",
+      "city": "Ascona",
+      "address": "Piazza Giuseppe Motta 15, 6612 Ascona, Svizzera",
+      "rating": 8.7,
+      "ratingLabel": "Favoloso",
+      "reviews": 839,
+      "priceWeekend7": 204,
+      "priceWeekend14": 215,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/new-elvezia-ascona2.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.4
+        },
+        {
+          "title": "Servizi",
+          "score": 8.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.7
+        },
+        {
+          "title": "Posizione",
+          "score": 9.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.9
+        }
+      ],
+      "rank": 70
+    },
+    {
+      "name": "Locanda Villa d' Epoca",
+      "city": "Aurigeno",
+      "address": "la cantonal 38, 6677 Aurigeno, Svizzera",
+      "rating": 8.7,
+      "ratingLabel": "Favoloso",
+      "reviews": 140,
+      "priceWeekend7": 235,
+      "priceWeekend14": 269,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/villa-d-39-epoca-aurigeno-47-maggia.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.8
+        },
+        {
+          "title": "Servizi",
+          "score": 8.4
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 8.9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.5
+        },
+        {
+          "title": "Posizione",
+          "score": 8.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.2
+        }
+      ],
+      "rank": 71
+    },
+    {
+      "name": "Hotel Rio Muralto",
+      "city": "Locarno",
+      "address": "Via della Collegiata 1, Muralto, 6600 Locarno, Svizzera",
+      "rating": 8.7,
+      "ratingLabel": "Favoloso",
+      "reviews": 1130,
+      "priceWeekend7": 166,
+      "priceWeekend14": 146,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/rio-garni.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.7
+        },
+        {
+          "title": "Servizi",
+          "score": 8.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.2
+        },
+        {
+          "title": "Comfort",
+          "score": 9.1
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.6
+        }
+      ],
+      "rank": 72
+    },
+    {
+      "name": "Hotel Tiziana",
+      "city": "Losone",
+      "address": "via Truscio 9, 6616 Losone, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 373,
+      "priceWeekend7": 215,
+      "priceWeekend14": 215,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/residenza-garni-tiziana.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 8.4
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.8
+        },
+        {
+          "title": "Comfort",
+          "score": 8.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.8
+        },
+        {
+          "title": "Posizione",
+          "score": 8.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8
+        }
+      ],
+      "rank": 73
+    },
+    {
+      "name": "Osteria Belvedere",
+      "city": "Losone",
+      "address": "Via Lusciago 2, 6616 Losone, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 216,
+      "priceWeekend7": 160,
+      "priceWeekend14": 160,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 2,
+      "url": "https://www.booking.com/hotel/ch/albergo-belvedere.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.6
+        },
+        {
+          "title": "Servizi",
+          "score": 8.2
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 8.6
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.8
+        },
+        {
+          "title": "Posizione",
+          "score": 8.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.6
+        }
+      ],
+      "rank": 74
+    },
+    {
+      "name": "Hampton By Hilton Locarno",
+      "city": "Losone",
+      "address": "Via dei Pioppi, 6616 Losone, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 1049,
+      "priceWeekend7": 158,
+      "priceWeekend14": 177,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/hampton-by-hilton-locarno.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 8.8
+        },
+        {
+          "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.2
+        },
+        {
+          "title": "Comfort",
+          "score": 9.1
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.7
+        },
+        {
+          "title": "Posizione",
+          "score": 8.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9
+        }
+      ],
+      "rank": 75
+    },
+    {
+      "name": "Hotel Ascona",
+      "city": "Ascona",
+      "address": "Via Signor in Croce 1, 6612 Ascona, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 1702,
+      "priceWeekend7": 216,
+      "priceWeekend14": 278,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/ascona.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9
+        },
+        {
+          "title": "Servizi",
+          "score": 8.4
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.8
+        },
+        {
+          "title": "Comfort",
+          "score": 8.9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9.2
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.7
+        }
+      ],
+      "rank": 76
+    },
+    {
+      "name": "Hotel la Meridiana, Lake & SPA",
+      "city": "Ascona",
+      "address": "Piazza G. Motta 61, 6612 Ascona, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 569,
+      "priceWeekend7": 376,
+      "priceWeekend14": 269,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/garni-la-meridiana.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.2
+        },
+        {
+          "title": "Servizi",
+          "score": 8.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 8.9
         },
         {
           "title": "Rapporto qualità-prezzo",
@@ -1567,28 +3450,1239 @@
         },
         {
           "title": "Posizione",
+          "score": 9.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.1
+        }
+      ],
+      "rank": 77
+    },
+    {
+      "name": "Vista Lakefront Boutique Hotel",
+      "city": "Ascona",
+      "address": "Piazza Motta 29, 6612 Ascona, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 1383,
+      "priceWeekend7": 162,
+      "priceWeekend14": 186,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/casa-olive.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.2
+        },
+        {
+          "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 9.1
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.3
+        },
+        {
+          "title": "Posizione",
+          "score": 9.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.8
+        }
+      ],
+      "rank": 78
+    },
+    {
+      "name": "Parkhotel Brenscino Brissago",
+      "city": "Brissago",
+      "address": "Via Sacro Monte 21, 6614 Brissago, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 548,
+      "priceWeekend7": 208,
+      "priceWeekend14": 181,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/parkhotel-brenscino.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 8.1
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.6
+        },
+        {
+          "title": "Comfort",
+          "score": 8.8
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 7.7
+        },
+        {
+          "title": "Posizione",
+          "score": 9.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.2
+        }
+      ],
+      "rank": 79
+    },
+    {
+      "name": "H4 Hotel Arcadia Locarno",
+      "city": "Locarno",
+      "address": "Lungolago G. Motta, 6600 Locarno, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 2234,
+      "priceWeekend7": 212,
+      "priceWeekend14": 202,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/ch/h4-hotel-arcadia-locarno.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.1
+        },
+        {
+          "title": "Servizi",
+          "score": 8.6
+        },
+        {
+          "title": "Pulizia",
           "score": 8.9
+        },
+        {
+          "title": "Comfort",
+          "score": 9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.1
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.7
+        }
+      ],
+      "rank": 80
+    },
+    {
+      "name": "Aparthotel Al Lago",
+      "city": "Locarno",
+      "address": "Via Lungolago Giuseppe Motta 12, 6600 Locarno, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 650,
+      "priceWeekend7": 228,
+      "priceWeekend14": 228,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/aparthotel-al-lago.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.4
+        },
+        {
+          "title": "Servizi",
+          "score": 8.3
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.9
+        },
+        {
+          "title": "Comfort",
+          "score": 8.8
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.2
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.1
+        }
+      ],
+      "rank": 81
+    },
+    {
+      "name": "Hotel City Locarno",
+      "city": "Locarno",
+      "address": "Via Giuseppe Cattori 4, 6600 Locarno, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 1716,
+      "priceWeekend7": 220,
+      "priceWeekend14": 250,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/city-locarno.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.3
+        },
+        {
+          "title": "Servizi",
+          "score": 8.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.6
+        },
+        {
+          "title": "Posizione",
+          "score": 9.4
         },
         {
           "title": "WiFi gratuito",
           "score": 8.5
         }
       ],
-      "priceWeekend14": 175,
-      "fullyBooked14": false
+      "rank": 82
     },
     {
-      "rank": 36,
+      "name": "Hotel Du Lac Locarno",
+      "city": "Locarno",
+      "address": "Via Ramogna 3, 6600 Locarno, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 995,
+      "priceWeekend7": 232,
+      "priceWeekend14": 272,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/garni-du-lac.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.3
+        },
+        {
+          "title": "Servizi",
+          "score": 8.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.2
+        },
+        {
+          "title": "Comfort",
+          "score": 9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.6
+        },
+        {
+          "title": "Posizione",
+          "score": 9.7
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9
+        }
+      ],
+      "rank": 83
+    },
+    {
+      "name": "Hotel Alexandra",
+      "city": "Locarno",
+      "address": "Via San Gottardo 43, Muralto, 6600 Locarno, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 922,
+      "priceWeekend7": 105,
+      "priceWeekend14": 189,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/alexandra.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.6
+        },
+        {
+          "title": "Servizi",
+          "score": 8.4
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 8.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.6
+        },
+        {
+          "title": "Posizione",
+          "score": 8.9
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.2
+        }
+      ],
+      "rank": 84
+    },
+    {
+      "name": "Al Pozz Boutique Resort",
+      "city": "Locarno",
+      "address": "Viale Verbano 21, Muralto, 6600 Locarno, Svizzera",
+      "rating": 8.6,
+      "ratingLabel": "Favoloso",
+      "reviews": 1177,
+      "priceWeekend7": 197,
+      "priceWeekend14": 213,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/al-pozz.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.1
+        },
+        {
+          "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.1
+        },
+        {
+          "title": "Comfort",
+          "score": 9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.6
+        },
+        {
+          "title": "Posizione",
+          "score": 9.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.6
+        }
+      ],
+      "rank": 85
+    },
+    {
+      "name": "Hotel Villa Delle Palme",
+      "city": "Cannobio",
+      "address": "Via Casali Darbedo 12, 28822 Cannobio, Italia",
+      "rating": 8.5,
+      "ratingLabel": "Ottimo",
+      "reviews": 373,
+      "priceWeekend7": 162,
+      "priceWeekend14": 173,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/it/villa-delle-palme.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.1
+        },
+        {
+          "title": "Servizi",
+          "score": 8.7
+        },
+        {
+          "title": "Pulizia",
+          "score": 9.2
+        },
+        {
+          "title": "Comfort",
+          "score": 9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.3
+        },
+        {
+          "title": "Posizione",
+          "score": 8.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8
+        }
+      ],
+      "rank": 86
+    },
+    {
+      "name": "Hotel Tamaro",
+      "city": "Ascona",
+      "address": "Piazza Giuseppe Motta 35, 6612 Ascona, Svizzera",
+      "rating": 8.5,
+      "ratingLabel": "Ottimo",
+      "reviews": 1174,
+      "priceWeekend7": 177,
+      "priceWeekend14": 177,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/tamaro.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.4
+        },
+        {
+          "title": "Servizi",
+          "score": 8.3
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.8
+        },
+        {
+          "title": "Comfort",
+          "score": 8.8
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.5
+        },
+        {
+          "title": "Posizione",
+          "score": 9.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.4
+        }
+      ],
+      "rank": 87
+    },
+    {
+      "name": "Hotel Polo",
+      "city": "Ascona",
+      "address": "Via Buonamano, 7, 6612 Ascona, Svizzera",
+      "rating": 8.5,
+      "ratingLabel": "Ottimo",
+      "reviews": 299,
+      "priceWeekend7": 194,
+      "priceWeekend14": 194,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/polo.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.4
+        },
+        {
+          "title": "Servizi",
+          "score": 8.3
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 8.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.1
+        },
+        {
+          "title": "Posizione",
+          "score": 9
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.2
+        }
+      ],
+      "rank": 88
+    },
+    {
+      "name": "Osteria Ticino by Ketty & Tommy",
+      "city": "Ascona",
+      "address": "Via Muraccio 20, 6612 Ascona, Svizzera",
+      "rating": 8.5,
+      "ratingLabel": "Ottimo",
+      "reviews": 545,
+      "priceWeekend7": 240,
+      "priceWeekend14": 211,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 2,
+      "url": "https://www.booking.com/hotel/ch/osteria-ticino-ascona.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.2
+        },
+        {
+          "title": "Servizi",
+          "score": 8.1
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.7
+        },
+        {
+          "title": "Comfort",
+          "score": 8.6
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.7
+        },
+        {
+          "title": "Posizione",
+          "score": 9
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.5
+        }
+      ],
+      "rank": 89
+    },
+    {
+      "name": "Hotel Cannobio",
+      "city": "Cannobio",
+      "address": "P.zza V. Emanuele Iii, 6, 28822 Cannobio, Italia",
+      "rating": 8.5,
+      "ratingLabel": "Ottimo",
+      "reviews": 355,
+      "priceWeekend7": 273,
+      "priceWeekend14": 352,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 4,
+      "url": "https://www.booking.com/hotel/it/cannobio-cannobio.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.2
+        },
+        {
+          "title": "Servizi",
+          "score": 8.4
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.7
+        },
+        {
+          "title": "Comfort",
+          "score": 8.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.1
+        },
+        {
+          "title": "Posizione",
+          "score": 9.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.9
+        }
+      ],
+      "rank": 90
+    },
+    {
+      "name": "Albergo Robiei",
+      "city": "San Carlo",
+      "address": "Robiei, 6690 San Carlo, Svizzera",
+      "rating": 8.5,
+      "ratingLabel": "Ottimo",
+      "reviews": 168,
+      "priceWeekend7": 143,
+      "priceWeekend14": 110,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/albergo-robiei.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9
+        },
+        {
+          "title": "Servizi",
+          "score": 8.2
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.8
+        },
+        {
+          "title": "Comfort",
+          "score": 8.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        }
+      ],
+      "rank": 91
+    },
+    {
+      "name": "Seven Boutique Hotel",
+      "city": "Ascona",
+      "address": "Piazza G. Motta 21 + 25, 6612 Ascona, Svizzera",
+      "rating": 8.4,
+      "ratingLabel": "Ottimo",
+      "reviews": 1597,
+      "priceWeekend7": 216,
+      "priceWeekend14": 213,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/seven-hotel.it.html?checkout=2026-06-18&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-17&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.2
+        },
+        {
+          "title": "Servizi",
+          "score": 8.3
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.6
+        },
+        {
+          "title": "Comfort",
+          "score": 8.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.1
+        },
+        {
+          "title": "Posizione",
+          "score": 9.6
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.8
+        }
+      ],
+      "rank": 92
+    },
+    {
+      "name": "Garni degli Angioli",
+      "city": "Ascona",
+      "address": "Via Albarelle 3, 6612 Ascona, Svizzera",
+      "rating": 8.4,
+      "ratingLabel": "Ottimo",
+      "reviews": 316,
+      "priceWeekend7": 187,
+      "priceWeekend14": 177,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/ristorante-degli-angioli.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.4
+        },
+        {
+          "title": "Servizi",
+          "score": 8.1
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.6
+        },
+        {
+          "title": "Comfort",
+          "score": 8.6
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.3
+        },
+        {
+          "title": "Posizione",
+          "score": 9.7
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 7.9
+        }
+      ],
+      "rank": 93
+    },
+    {
+      "name": "Hotel Rondinella Locarno",
+      "city": "Locarno",
+      "address": "Via Dogana Nuova 4, 6600 Locarno, Svizzera",
+      "rating": 8.4,
+      "ratingLabel": "Ottimo",
+      "reviews": 1276,
+      "priceWeekend7": 225,
+      "priceWeekend14": 183,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/garni-rondinella.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.5
+        },
+        {
+          "title": "Servizi",
+          "score": 7.9
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.7
+        },
+        {
+          "title": "Comfort",
+          "score": 8.5
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.6
+        },
+        {
+          "title": "Posizione",
+          "score": 9.5
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.7
+        }
+      ],
+      "rank": 94
+    },
+    {
+      "name": "Boutique Hotel Piazza Grande Locarno - Easy Self Check-In",
+      "city": "Locarno",
+      "address": "Piazzetta dei Capitani, Locarno Piazza Grande, 6600 Locarno, Svizzera",
+      "rating": 8.4,
+      "ratingLabel": "Ottimo",
+      "reviews": 1152,
+      "priceWeekend7": 175,
+      "priceWeekend14": 170,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/boutique-piazza-grande.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 8.5
+        },
+        {
+          "title": "Servizi",
+          "score": 8.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 9
+        },
+        {
+          "title": "Comfort",
+          "score": 9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.5
+        },
+        {
+          "title": "Posizione",
+          "score": 9.6
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.4
+        }
+      ],
+      "rank": 95
+    },
+    {
+      "name": "ibis Locarno",
+      "city": "Locarno",
+      "address": "Via Giuseppe Cattori 6, 6600 Locarno, Svizzera",
+      "rating": 8.4,
+      "ratingLabel": "Ottimo",
+      "reviews": 1605,
+      "priceWeekend7": 181,
+      "priceWeekend14": 181,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/giuseppecattori-locarno.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9
+        },
+        {
+          "title": "Servizi",
+          "score": 8.3
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.8
+        },
+        {
+          "title": "Comfort",
+          "score": 8.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9.3
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.6
+        }
+      ],
+      "rank": 96
+    },
+    {
+      "name": "Nuova Locanda Turisti",
+      "city": "Bignasco",
+      "address": "15 Via ai Mulini, 6676 Bignasco, Svizzera",
+      "rating": 8.4,
+      "ratingLabel": "Ottimo",
+      "reviews": 220,
+      "priceWeekend7": 173,
+      "priceWeekend14": 173,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/nuova-locanda-turisti-bignasco.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.3
+        },
+        {
+          "title": "Servizi",
+          "score": 8.3
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.9
+        },
+        {
+          "title": "Comfort",
+          "score": 8.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.6
+        },
+        {
+          "title": "Posizione",
+          "score": 8.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.5
+        }
+      ],
+      "rank": 97
+    },
+    {
+      "name": "Locanda Poncini",
+      "city": "Maggia",
+      "address": "Piazza Dal Pózz, 6673 Maggia, Svizzera",
+      "rating": 8.4,
+      "ratingLabel": "Ottimo",
+      "reviews": 167,
+      "priceWeekend7": 148,
+      "priceWeekend14": 148,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/locanda-poncini.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.3
+        },
+        {
+          "title": "Servizi",
+          "score": 8.1
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.7
+        },
+        {
+          "title": "Comfort",
+          "score": 8.8
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.2
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9
+        }
+      ],
+      "rank": 98
+    },
+    {
+      "name": "Garden Hotel Primavera",
+      "city": "Brissago",
+      "address": "Via Costa di Dentro 19, 6614 Brissago, Svizzera",
+      "rating": 8.3,
+      "ratingLabel": "Ottimo",
+      "reviews": 508,
+      "priceWeekend7": 227,
+      "priceWeekend14": 169,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 2,
+      "url": "https://www.booking.com/hotel/ch/garden-primavera.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.1
+        },
+        {
+          "title": "Servizi",
+          "score": 7.8
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.5
+        },
+        {
+          "title": "Comfort",
+          "score": 8.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.1
+        },
+        {
+          "title": "Posizione",
+          "score": 9
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.5
+        }
+      ],
+      "rank": 99
+    },
+    {
+      "name": "Piazza Ascona Hotel & Restaurants",
+      "city": "Ascona",
+      "address": "Lungolago Motta 29, 6612 Ascona, Svizzera",
+      "rating": 8.3,
+      "ratingLabel": "Ottimo",
+      "reviews": 807,
+      "priceWeekend7": 192,
+      "priceWeekend14": 217,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 2,
+      "url": "https://www.booking.com/hotel/ch/piazza-ascona-restaurants.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.3
+        },
+        {
+          "title": "Servizi",
+          "score": 7.3
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.3
+        },
+        {
+          "title": "Comfort",
+          "score": 8.2
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8
+        },
+        {
+          "title": "Posizione",
+          "score": 9.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.3
+        }
+      ],
+      "rank": 100
+    },
+    {
+      "name": "Casa Cannobio",
+      "city": "Cannobio",
+      "address": "Via Zaccheo Paolo 14, 28822 Cannobio, Italia",
+      "rating": 8.3,
+      "ratingLabel": "Ottimo",
+      "reviews": 452,
+      "priceWeekend7": 111,
+      "priceWeekend14": null,
+      "fullyBooked14": true,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/it/zaccheo-apartments.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Host",
+          "score": 9
+        },
+        {
+          "title": "Servizi",
+          "score": 8
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.6
+        },
+        {
+          "title": "Comfort",
+          "score": 8.4
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.3
+        },
+        {
+          "title": "Posizione",
+          "score": 9.6
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.4
+        }
+      ],
+      "rank": 101
+    },
+    {
+      "name": "Unione",
+      "city": "Gordevio",
+      "address": "cp 23, 6672 Gordevio, Svizzera",
+      "rating": 8.3,
+      "ratingLabel": "Ottimo",
+      "reviews": 87,
+      "priceWeekend7": 146,
+      "priceWeekend14": 146,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/unione-gordevio.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.3
+        },
+        {
+          "title": "Servizi",
+          "score": 7.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.3
+        },
+        {
+          "title": "Comfort",
+          "score": 7.9
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.4
+        },
+        {
+          "title": "Posizione",
+          "score": 8.8
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 10
+        }
+      ],
+      "rank": 102
+    },
+    {
+      "name": "Hotel Nessi Locarno",
+      "city": "Locarno",
+      "address": "Via B. Varenna 79, 6600 Locarno, Svizzera",
+      "rating": 8.3,
+      "ratingLabel": "Ottimo",
+      "reviews": 1128,
+      "priceWeekend7": 140,
+      "priceWeekend14": 140,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/garni-nessi.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.3
+        },
+        {
+          "title": "Servizi",
+          "score": 8.3
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.7
+        },
+        {
+          "title": "Comfort",
+          "score": 8.7
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.4
+        },
+        {
+          "title": "Posizione",
+          "score": 8.2
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.5
+        }
+      ],
+      "rank": 103
+    },
+    {
+      "name": "Hotel Giardino",
+      "city": "Cannobio",
+      "address": "Viale Vittorio Veneto 24, 28822 Cannobio, Italia",
+      "rating": 8.2,
+      "ratingLabel": "Ottimo",
+      "reviews": 423,
+      "priceWeekend7": 165,
+      "priceWeekend14": 173,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/it/albergo-ristorante-giardino-cannobio.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.1
+        },
+        {
+          "title": "Servizi",
+          "score": 7.8
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.6
+        },
+        {
+          "title": "Comfort",
+          "score": 8.5
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.4
+        },
+        {
+          "title": "Posizione",
+          "score": 9
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.5
+        }
+      ],
+      "rank": 104
+    },
+    {
       "name": "Hotel Cittadella",
       "city": "Locarno",
       "address": "Via Cittadella 18, 6600 Locarno, Svizzera",
       "rating": 8.2,
       "ratingLabel": "Ottimo",
-      "reviews": 398,
+      "reviews": 399,
       "priceWeekend7": 200,
+      "priceWeekend14": 200,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/cittadella.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/cittadella.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -1619,21 +4713,66 @@
           "score": 9.3
         }
       ],
-      "priceWeekend14": 200,
-      "fullyBooked14": false
+      "rank": 105
     },
     {
-      "rank": 37,
+      "name": "Hotel La Perla",
+      "city": "Ascona",
+      "address": "Strada della Collina 14, 6612 Ascona, Svizzera",
+      "rating": 8.1,
+      "ratingLabel": "Ottimo",
+      "reviews": 586,
+      "priceWeekend7": 172,
+      "priceWeekend14": 169,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/laperlaascona.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.1
+        },
+        {
+          "title": "Servizi",
+          "score": 7.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.4
+        },
+        {
+          "title": "Comfort",
+          "score": 8.3
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8
+        },
+        {
+          "title": "Posizione",
+          "score": 9
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.9
+        }
+      ],
+      "rank": 106
+    },
+    {
       "name": "Hotel Scaletta",
       "city": "Locarno",
       "address": "10 Piazza Stazione, Muralto, 6600 Locarno, Svizzera",
       "rating": 8.1,
       "ratingLabel": "Ottimo",
       "reviews": 327,
-      "priceWeekend7": 148,
+      "priceWeekend7": 168,
+      "priceWeekend14": 168,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": null,
-      "url": "https://www.booking.com/hotel/ch/scaletta-locarno.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/scaletta-locarno.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -1660,66 +4799,21 @@
           "score": 9.3
         }
       ],
-      "priceWeekend14": 168,
-      "fullyBooked14": false
+      "rank": 107
     },
     {
-      "rank": 38,
-      "name": "Seven Town House Boutique Hotel",
-      "city": "Locarno",
-      "address": "14 Largo Franco Zorzi, 6600 Locarno, Svizzera",
-      "rating": 8.1,
-      "ratingLabel": "Ottimo",
-      "reviews": 550,
-      "priceWeekend7": 159,
-      "currency": "CHF",
-      "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/seven-town-house-boutique.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 8.6
-        },
-        {
-          "title": "Servizi",
-          "score": 8.3
-        },
-        {
-          "title": "Pulizia",
-          "score": 8.6
-        },
-        {
-          "title": "Comfort",
-          "score": 8.6
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 8.1
-        },
-        {
-          "title": "Posizione",
-          "score": 9.4
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 9.1
-        }
-      ],
-      "priceWeekend14": 155,
-      "fullyBooked14": false
-    },
-    {
-      "rank": 39,
       "name": "Hotel America",
       "city": "Locarno",
       "address": "Piazza Grande, 6601 Locarno, Svizzera",
       "rating": 8.1,
       "ratingLabel": "Ottimo",
-      "reviews": 354,
-      "priceWeekend7": 150,
+      "reviews": 358,
+      "priceWeekend7": 183,
+      "priceWeekend14": 182,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/america.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/america.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -1750,21 +4844,246 @@
           "score": 7.7
         }
       ],
-      "priceWeekend14": 180,
-      "fullyBooked14": false
+      "rank": 108
     },
     {
-      "rank": 40,
+      "name": "Seven Town House Boutique Hotel",
+      "city": "Locarno",
+      "address": "14 Largo Franco Zorzi, 6600 Locarno, Svizzera",
+      "rating": 8.1,
+      "ratingLabel": "Ottimo",
+      "reviews": 552,
+      "priceWeekend7": 155,
+      "priceWeekend14": 149,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/seven-town-house-boutique.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 8.6
+        },
+        {
+          "title": "Servizi",
+          "score": 8.3
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.6
+        },
+        {
+          "title": "Comfort",
+          "score": 8.6
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.1
+        },
+        {
+          "title": "Posizione",
+          "score": 9.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 9.1
+        }
+      ],
+      "rank": 109
+    },
+    {
+      "name": "Easy Stay by Hotel La Perla",
+      "city": "Ascona",
+      "address": "Strada Collina 14, 6612 Ascona, Svizzera",
+      "rating": 8,
+      "ratingLabel": "Ottimo",
+      "reviews": 633,
+      "priceWeekend7": 153,
+      "priceWeekend14": 149,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/ch/ville-la-perla.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 9.1
+        },
+        {
+          "title": "Servizi",
+          "score": 7.5
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.3
+        },
+        {
+          "title": "Comfort",
+          "score": 8.1
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 7.9
+        },
+        {
+          "title": "Posizione",
+          "score": 9.1
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.3
+        }
+      ],
+      "rank": 110
+    },
+    {
+      "name": "Hotel Del Fiume",
+      "city": "Cannobio",
+      "address": "Via Darbedo 26, 28822 Cannobio, Italia",
+      "rating": 8,
+      "ratingLabel": "Ottimo",
+      "reviews": 811,
+      "priceWeekend7": 127,
+      "priceWeekend14": 117,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/it/del-fiume.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 8.9
+        },
+        {
+          "title": "Servizi",
+          "score": 7.5
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.2
+        },
+        {
+          "title": "Comfort",
+          "score": 8
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 8.3
+        },
+        {
+          "title": "Posizione",
+          "score": 8.6
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 7.7
+        }
+      ],
+      "rank": 111
+    },
+    {
+      "name": "LVG Hotel Collection - Il Portico",
+      "city": "Cannobio",
+      "address": "Piazza Santuario 2, 28822 Cannobio, Italia",
+      "rating": 8,
+      "ratingLabel": "Ottimo",
+      "reviews": 1676,
+      "priceWeekend7": 200,
+      "priceWeekend14": 181,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": 3,
+      "url": "https://www.booking.com/hotel/it/il-portico-cannobio.it.html?checkout=2026-06-18&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-17&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 8.9
+        },
+        {
+          "title": "Servizi",
+          "score": 7.6
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.2
+        },
+        {
+          "title": "Comfort",
+          "score": 8.2
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 7.7
+        },
+        {
+          "title": "Posizione",
+          "score": 9.6
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.3
+        }
+      ],
+      "rank": 112
+    },
+    {
+      "name": "Osteria Ascona",
+      "city": "Ascona",
+      "address": "Via Albarelle 5, 6612 Ascona, Svizzera",
+      "rating": 7.9,
+      "ratingLabel": "Buono",
+      "reviews": 466,
+      "priceWeekend7": 167,
+      "priceWeekend14": 205,
+      "fullyBooked14": false,
+      "currency": "CHF",
+      "stars": null,
+      "url": "https://www.booking.com/hotel/ch/ristorante-lanca.it.html?checkout=2026-06-16&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-15&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "categoryReviews": [
+        {
+          "title": "Staff",
+          "score": 8.2
+        },
+        {
+          "title": "Servizi",
+          "score": 7.9
+        },
+        {
+          "title": "Pulizia",
+          "score": 8.4
+        },
+        {
+          "title": "Comfort",
+          "score": 8.4
+        },
+        {
+          "title": "Rapporto qualità-prezzo",
+          "score": 7.8
+        },
+        {
+          "title": "Posizione",
+          "score": 9.4
+        },
+        {
+          "title": "WiFi gratuito",
+          "score": 8.2
+        }
+      ],
+      "rank": 113
+    },
+    {
       "name": "Hotel Garni Montaldi",
       "city": "Locarno",
       "address": "Piazza Stazione, Muralto, 6600 Locarno, Svizzera",
       "rating": 7.8,
       "ratingLabel": "Buono",
-      "reviews": 1939,
+      "reviews": 1940,
       "priceWeekend7": 184,
+      "priceWeekend14": 184,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": null,
-      "url": "https://www.booking.com/hotel/ch/garni-montaldi.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/garni-montaldi.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -1795,21 +5114,21 @@
           "score": 8.7
         }
       ],
-      "priceWeekend14": 184,
-      "fullyBooked14": false
+      "rank": 114
     },
     {
-      "rank": 41,
       "name": "Hotel dell'Angelo",
       "city": "Locarno",
       "address": "Piazza Grande, 6600 Locarno, Svizzera",
       "rating": 7.7,
       "ratingLabel": "Buono",
-      "reviews": 3465,
-      "priceWeekend7": 105,
+      "reviews": 3462,
+      "priceWeekend7": 112,
+      "priceWeekend14": 102,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": 3,
-      "url": "https://www.booking.com/hotel/ch/dellangelo.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/dellangelo.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -1825,7 +5144,7 @@
         },
         {
           "title": "Comfort",
-          "score": 7.9
+          "score": 7.8
         },
         {
           "title": "Rapporto qualità-prezzo",
@@ -1840,56 +5159,9 @@
           "score": 7.6
         }
       ],
-      "priceWeekend14": 112,
-      "fullyBooked14": false
+      "rank": 115
     },
     {
-      "rank": 42,
-      "name": "Residenze dell'Angelo",
-      "city": "Locarno",
-      "address": "Piazza Grande, 6600 Locarno, Svizzera",
-      "rating": 7.5,
-      "ratingLabel": "Buono",
-      "reviews": 306,
-      "priceWeekend7": 105,
-      "currency": "CHF",
-      "stars": null,
-      "url": "https://www.booking.com/hotel/ch/residenze-dell-angelo.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
-      "categoryReviews": [
-        {
-          "title": "Staff",
-          "score": 8.5
-        },
-        {
-          "title": "Servizi",
-          "score": 7.1
-        },
-        {
-          "title": "Pulizia",
-          "score": 7.9
-        },
-        {
-          "title": "Comfort",
-          "score": 7.9
-        },
-        {
-          "title": "Rapporto qualità-prezzo",
-          "score": 7.9
-        },
-        {
-          "title": "Posizione",
-          "score": 9.3
-        },
-        {
-          "title": "WiFi gratuito",
-          "score": 7.1
-        }
-      ],
-      "priceWeekend14": null,
-      "fullyBooked14": true
-    },
-    {
-      "rank": 43,
       "name": "Osteria Pozzo",
       "city": "Locarno",
       "address": "Piazza Sant'Antonio, 6600 Locarno, Svizzera",
@@ -1897,9 +5169,11 @@
       "ratingLabel": "Buono",
       "reviews": 342,
       "priceWeekend7": 116,
+      "priceWeekend14": 98,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": null,
-      "url": "https://www.booking.com/hotel/ch/osteria-pozzo-con-alloggio.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/osteria-pozzo-con-alloggio.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -1930,11 +5204,9 @@
           "score": 7
         }
       ],
-      "priceWeekend14": 116,
-      "fullyBooked14": false
+      "rank": 116
     },
     {
-      "rank": 44,
       "name": "Hotel Corona",
       "city": "Locarno",
       "address": "Piazza Orelli 12, 6600 Locarno, Svizzera",
@@ -1942,9 +5214,11 @@
       "ratingLabel": "Carino",
       "reviews": 67,
       "priceWeekend7": 166,
+      "priceWeekend14": 166,
+      "fullyBooked14": false,
       "currency": "CHF",
       "stars": null,
-      "url": "https://www.booking.com/hotel/ch/corona.it.html?checkout=2026-06-10&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-09&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
+      "url": "https://www.booking.com/hotel/ch/corona.it.html?checkout=2026-06-17&lang=it&group_children=0&soz=1&explicit_lang_change=1&checkin=2026-06-16&selected_currency=CHF&group_adults=2&no_rooms=1&lang_changed=1&explicit_curr_change=1",
       "categoryReviews": [
         {
           "title": "Staff",
@@ -1975,8 +5249,7 @@
           "score": 7.5
         }
       ],
-      "priceWeekend14": 166,
-      "fullyBooked14": false
+      "rank": 117
     }
   ],
   "eventi": {
