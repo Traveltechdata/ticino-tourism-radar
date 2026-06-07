@@ -562,12 +562,9 @@ function renderRankingTable() {
   var scoreInd = currentSort.col === 'score' ? '<span class="sort-indicator">' + (currentSort.dir === -1 ? '&#x25BE;' : '&#x25B4;') + '</span>' : '';
   var priceInd = currentSort.col === 'price' ? '<span class="sort-indicator">' + (currentSort.dir === -1 ? '&#x25BE;' : '&#x25B4;') + '</span>' : '';
 
-  var html = '<div class="table-wrap"><table class="ranking-table"><thead><tr>' +
-    '<th>#</th><th>Struttura</th>' +
-    '<th class="sortable" onclick="applySort('score')">Score' + scoreInd + '</th>' +
-    '<th>Recensioni</th>' +
-    '<th class="sortable" onclick="applySort('price')">+7 gg' + priceInd + '</th>' +
-    '<th>+14 gg</th></tr></thead><tbody>';
+  var thScore = '<th class="sortable" onclick="applySort(&quot;score&quot;)">Score' + scoreInd + '</th>';
+  var thPrice = '<th class="sortable" onclick="applySort(&quot;price&quot;)">+7 gg' + priceInd + '</th>';
+  var html = '<div class="table-wrap"><table class="ranking-table"><thead><tr><th>#</th><th>Struttura</th>' + thScore + '<th>Recensioni</th>' + thPrice + '<th>+14 gg</th></tr></thead><tbody>';
 
   hotels.forEach(function(h, i) {
     var globalIdx = allHotels.indexOf(h);
