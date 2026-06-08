@@ -5466,48 +5466,48 @@
     ]
   },
   "marketing_trends": {
-    "settimana": "2026-06-07",
+    "settimana": "2026-06-08",
     "mercato": "DACH (CH-DE-AT)",
     "ricerche_top": [
       {
-        "keyword": "Ascona",
-        "crescita": "+11%",
-        "trend": "up",
-        "geo": "DE",
-        "note": "Brand forte, ricercato da pubblico alto-spendente svizzero-tedesco",
-        "suggerimento_azione": "Controlla disponibilità Booking — se alto, rivedi la tariffa al rialzo"
-      },
-      {
-        "keyword": "Tessin",
-        "crescita": "Stabile",
-        "trend": "stable",
-        "geo": "DE",
-        "note": "Termine ombrello — cattura tutto il mercato DACH verso il cantone",
-        "suggerimento_azione": "Usa come oggetto per una mail last-minute al tuo database tedesco"
-      },
-      {
         "keyword": "Lago Maggiore",
-        "crescita": "-12%",
-        "trend": "down",
-        "geo": "DE",
+        "crescita": "+12%",
+        "trend": "up",
+        "geo": "CH",
         "note": "Alta intent turistica, pubblico pronto a prenotare",
         "suggerimento_azione": "Pubblica una foto del lago al tramonto con questa keyword nel caption"
       },
       {
+        "keyword": "Ascona",
+        "crescita": "+29%",
+        "trend": "up",
+        "geo": "CH",
+        "note": "Brand forte, ricercato da pubblico alto-spendente svizzero-tedesco",
+        "suggerimento_azione": "Controlla disponibilità Booking — se alto, rivedi la tariffa al rialzo"
+      },
+      {
         "keyword": "Locarno",
-        "crescita": "-14%",
-        "trend": "down",
-        "geo": "DE",
+        "crescita": "+9%",
+        "trend": "up",
+        "geo": "CH",
         "note": "Picco legato al Film Festival — prenotazioni anticipate",
         "suggerimento_azione": "Menziona Locarno Film Festival nei post — alta intent prenotazione"
       },
       {
         "keyword": "Brissago",
-        "crescita": "-100%",
-        "trend": "down",
-        "geo": "DE",
+        "crescita": "+32%",
+        "trend": "up",
+        "geo": "CH",
         "note": "Nicchia premium, bassa competizione, alta conversione",
         "suggerimento_azione": "Perfetto per campagne micro-targeting su FB/IG verso utenti ZH"
+      },
+      {
+        "keyword": "Tessin",
+        "crescita": "Stabile",
+        "trend": "stable",
+        "geo": "CH",
+        "note": "Termine ombrello — cattura tutto il mercato DACH verso il cantone",
+        "suggerimento_azione": "Usa come oggetto per una mail last-minute al tuo database tedesco"
       }
     ],
     "social_hashtags": [
