@@ -45,14 +45,38 @@ def calcola_crescita(df, keyword):
     trend = "up" if delta > 5 else ("down" if delta < -5 else "stable")
     return round(delta), label, trend
 
-SUGGERIMENTI = {
-    "Tessin": "Usa come oggetto per una mail last-minute al tuo database tedesco",
-    "Lago Maggiore": "Pubblica una foto del lago al tramonto con questa keyword nel caption",
-    "Ascona": "Controlla disponibilit\u00e0 Booking — se alto, rivedi la tariffa al rialzo",
-    "Locarno": "Menziona Locarno Film Festival nei post — alta intent prenotazione",
-    "Brissago": "Perfetto per campagne micro-targeting su FB/IG verso utenti ZH",
-    "Cannobio": "Evidenzia l'accesso transfrontaliero nelle descrizioni Booking"
-}
+# Suggerimenti dipendenti dalla DIREZIONE del trend, non fissi per keyword
+def genera_suggerimento(keyword, trend):
+    if trend == "up":
+        opzioni = {
+            "Tessin": "Ricerche in crescita: spingi questa keyword nei titoli di post e newsletter ora",
+            "Lago Maggiore": "Onda di interesse alta: pubblica foto del lago al tramonto con questa keyword nel caption",
+            "Ascona": "Domanda in salita: controlla disponibilit\u00e0 Booking e valuta un rialzo tariffario",
+            "Locarno": "Interesse in aumento: menziona il Film Festival nei post per intercettare l'intent",
+            "Brissago": "Trend positivo: lancia una campagna micro-targeting FB/IG verso utenti ZH/DE",
+            "Cannobio": "Ricerche in crescita: evidenzia l'accesso transfrontaliero nelle descrizioni Booking"
+        }
+        return opzioni.get(keyword, "Ricerche in crescita: aumenta la presenza social su questa keyword")
+    elif trend == "down":
+        opzioni = {
+            "Tessin": "Ricerche in calo: la domanda si sposta su termini pi\u00f9 specifici, punta su 'Lago Maggiore' o sulla tua localit\u00e0",
+            "Lago Maggiore": "Interesse in flessione: differenzia con esperienze uniche (gastronomia, eventi) invece della sola destinazione",
+            "Ascona": "Ricerche in calo: rafforza il brand con contenuti di valore, non sconti che erodono il posizionamento premium",
+            "Locarno": "Interesse in flessione: prepara i contenuti per il picco Film Festival, non spingere ora",
+            "Brissago": "Ricerche in calo: punta sulla nicchia, evita campagne ampie poco efficienti in questa fase",
+            "Cannobio": "Interesse in flessione: concentra il budget sui canali transfrontalieri ad alta conversione"
+        }
+        return opzioni.get(keyword, "Ricerche in calo: rivedi la strategia, non investire su questa keyword ora")
+    else:  # stable
+        opzioni = {
+            "Tessin": "Domanda stabile: mantieni presenza costante, usa come keyword di base nei contenuti",
+            "Lago Maggiore": "Interesse costante: keyword affidabile per contenuti sempreverdi e SEO di base",
+            "Ascona": "Brand stabile: ottimo momento per consolidare le recensioni e la reputazione online",
+            "Locarno": "Domanda costante: mantieni i contenuti aggiornati in vista dei picchi stagionali",
+            "Brissago": "Nicchia stabile: punta sulla qualit\u00e0 e sulla conversione, non sul volume",
+            "Cannobio": "Domanda costante: presidia il canale transfrontaliero con descrizioni curate"
+        }
+        return opzioni.get(keyword, "Domanda stabile: mantieni una presenza costante su questa keyword")
 
 NOTE = {
     "Tessin": "Termine ombrello — cattura tutto il mercato DACH verso il cantone",
@@ -85,7 +109,7 @@ def main():
                         "trend": trend,
                         "geo": geo,
                         "note": NOTE.get(kw, ""),
-                        "suggerimento_azione": SUGGERIMENTI.get(kw, "")
+                        "suggerimento_azione": genera_suggerimento(kw, trend)
                     })
                     seen.add(kw)
             time.sleep(3)
@@ -102,7 +126,7 @@ def main():
                 "trend": "stable",
                 "geo": "N/D",
                 "note": NOTE.get(kw, ""),
-                "suggerimento_azione": SUGGERIMENTI.get(kw, "")
+                "suggerimento_azione": genera_suggerimento(kw, "stable")
             })
 
     # Ordina: prima quelli con crescita positiva
