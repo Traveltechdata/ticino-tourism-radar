@@ -6,1314 +6,1063 @@
 <title>Ticino Tourism Radar — Regione Locarnese</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #F7F5F0; --card: #FFFFFF; --border: rgba(0,0,0,0.08);
-    --text: #1C1C1A; --muted: #6B6A65; --accent: #1D6B4A;
-    --accent-light: #E3F2EC; --amber: #8A5C00; --amber-bg: #FFF4DC;
-    --red: #991F1F; --red-bg: #FDEAEA;
+    --bg: #2B2E33;
+    --bg-deep: #232529;
+    --card: #34373D;
+    --card-hi: #3C4046;
+    --border: rgba(255,255,255,0.09);
+    --border-hi: rgba(255,255,255,0.16);
+    --text: #ECEDEF;
+    --text-soft: #C3C6CC;
+    --muted: #8B9099;
+    --accent: #4FB286;
+    --accent-deep: #3A9670;
+    --accent-light: rgba(79,178,134,0.14);
+    --amber: #E0A458;
+    --amber-bg: rgba(224,164,88,0.13);
+    --red: #E0726B;
+    --red-bg: rgba(224,114,107,0.13);
+    --blue: #6FA8DC;
+    --blue-bg: rgba(111,168,220,0.13);
+    --radius: 14px;
+    --radius-sm: 9px;
     --serif: 'DM Serif Display', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
-    --radius: 10px; --radius-sm: 6px;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+    --shadow: 0 2px 8px rgba(0,0,0,0.18);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.28);
   }
-  body { font-family: var(--sans); background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; }
-  a { color: var(--accent); text-decoration: none; }
-  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 0 3rem; }
-
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    background-image: radial-gradient(900px 500px at 50% -120px, rgba(79,178,134,0.07), transparent 70%);
+    min-height: 100vh;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px 80px; }
   /* HEADER */
-  .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem 1rem; margin-bottom: 1.5rem; }
-  .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-  .logo-zone h1 { font-family: var(--serif); font-size: 26px; font-weight: 400; letter-spacing: -0.3px; }
-  .logo-zone h1 span { color: var(--accent); }
-  .logo-zone p { font-size: 13px; color: var(--muted); margin-top: 3px; }
-  .badge-aggiornato { background: var(--accent-light); color: var(--accent); font-size: 11px; padding: 5px 12px; border-radius: 20px; font-weight: 500; white-space: nowrap; align-self: flex-start; }
-  .subheader { margin-top: 12px; font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .topbar { padding: 26px 0 18px; }
+  .topbar-inner { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .brand h1 { font-family: var(--serif); font-size: 30px; font-weight: 400; letter-spacing: -0.5px; color: var(--text); line-height: 1.1; }
+  .brand .sub { font-size: 13px; color: var(--muted); margin-top: 3px; }
+  .header-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .lang-toggle { display: inline-flex; border: 0.5px solid var(--border-hi); border-radius: 20px; overflow: hidden; }
+  .lang-btn { padding: 5px 13px; font-size: 12px; font-weight: 600; background: transparent; color: var(--muted); border: none; cursor: pointer; font-family: var(--sans); transition: all 0.15s; }
+  .lang-btn.active { background: var(--accent); color: #11231b; }
+  .meta-line { font-size: 12px; color: var(--muted); margin-top: 10px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .meta-line .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; margin-right: 5px; animation: pulse 2.4s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-  /* SECTIONS */
-  .section { background: var(--card); border-radius: var(--radius); border: 0.5px solid var(--border); margin: 0 1.5rem 1rem; overflow: hidden; }
-  .section-head { padding: 13px 18px; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-  .section-head h2 { font-size: 13px; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 10px; }
-  .section-num { width: 22px; height: 22px; border-radius: 50%; background: var(--text); color: var(--bg); font-size: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  /* TABS */
+  .tabs { position: sticky; top: 0; z-index: 50; background: rgba(43,46,51,0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 0.5px solid var(--border); margin: 0 -16px 22px; padding: 0 16px; }
+  .tabs-inner { max-width: 1080px; margin: 0 auto; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  .tabs-inner::-webkit-scrollbar { display: none; }
+  .tab { padding: 14px 16px; font-size: 13.5px; font-weight: 500; color: var(--muted); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-family: var(--sans); white-space: nowrap; transition: color 0.15s, border-color 0.15s; display: flex; align-items: center; gap: 7px; }
+  .tab:hover { color: var(--text-soft); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-ico { font-size: 15px; }
+  .panel { display: none; animation: fade 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* SECTION CARD */
+  .section { background: var(--card); border: 0.5px solid var(--border); border-radius: var(--radius); margin-bottom: 18px; overflow: hidden; box-shadow: var(--shadow); }
+  .section-head { padding: 15px 18px; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .section-head h2 { font-size: 15px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 10px; letter-spacing: -0.1px; }
+  .section-num { width: 23px; height: 23px; border-radius: 7px; background: var(--accent-light); color: var(--accent); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .section-tag { font-size: 11px; color: var(--muted); }
-  .section-body { padding: 16px 18px; }
-  .section-note { font-size: 11px; color: var(--muted); padding: 6px 18px 14px; font-style: italic; }
-
-  /* USTAT STRIP */
-  .ustat-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; }
-  @media (max-width: 560px) { .ustat-strip { grid-template-columns: repeat(2, 1fr); } }
-  .ustat-card { background: var(--bg); border-radius: 8px; padding: 12px 14px; border: 0.5px solid var(--border); }
-  .ustat-card .us-label { font-size: 10px; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .ustat-card .us-value { font-size: 18px; font-weight: 500; color: var(--text); }
-  .ustat-card .us-delta { font-size: 11px; margin-top: 2px; }
-  .delta-up { color: var(--accent); } .delta-down { color: var(--red); } .delta-flat { color: var(--muted); }
-
-  /* HOTEL SELECTOR */
-  .hotel-selector { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
-  .hotel-selector label { font-size: 12px; color: var(--muted); }
-  .hotel-selector select { font-family: var(--sans); font-size: 13px; padding: 7px 30px 7px 12px; border: 0.5px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); cursor: pointer; min-width: 260px; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%236B6A65' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
-  .hotel-selector select:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .hotel-count-badge { font-size: 11px; color: var(--muted); background: var(--bg); border: 0.5px solid var(--border); padding: 4px 10px; border-radius: 12px; }
-
-  /* METRICS GRID */
-  .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  @media (max-width: 500px) { .metrics-grid { grid-template-columns: 1fr; } }
-  .metric-card { background: var(--bg); border-radius: 8px; padding: 12px 14px; border: 0.5px solid var(--border); }
-  .metric-card .m-label { font-size: 11px; color: var(--muted); margin-bottom: 5px; }
-  .metric-card .m-value { font-size: 22px; font-weight: 500; color: var(--text); }
-  .metric-card .m-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
-  .metric-card .m-delta { font-size: 11px; margin-top: 3px; }
-
-  /* CATEGORY REVIEWS */
-  .cat-reviews { margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .cat-row { display: flex; align-items: center; justify-content: space-between; font-size: 12px; padding: 5px 10px; background: var(--bg); border-radius: 6px; }
-  .cat-row .cr-label { color: var(--muted); }
-  .cat-row .cr-score { font-weight: 500; color: var(--text); }
-  .cr-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 3px; }
-  .cr-bar-fill { height: 100%; border-radius: 2px; background: var(--accent); }
-
-  /* RANKING TABLE */
-  .ranking-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-  .ranking-table th { text-align: left; padding: 6px 10px; color: var(--muted); font-weight: 400; border-bottom: 0.5px solid var(--border); font-size: 11px; }
-  .ranking-table td { padding: 7px 10px; border-bottom: 0.5px solid var(--border); vertical-align: middle; }
-  .ranking-table tr:last-child td { border-bottom: none; }
-  .ranking-table tr.selected-row td { background: var(--accent-light); }
-  .rank-num { font-weight: 500; color: var(--muted); width: 28px; }
-  .hotel-name-cell { font-weight: 500; color: var(--text); cursor: pointer; }
-  .hotel-name-cell:hover { color: var(--accent); }
-  .rating-pill { display: inline-block; padding: 2px 8px; border-radius: 10px; font-weight: 500; font-size: 11px; }
-  .pill-eccezionale { background: #E3F2EC; color: #1D6B4A; }
-  .pill-ottimo { background: #E6F1FB; color: #0C447C; }
-  .pill-buono { background: var(--amber-bg); color: var(--amber); }
-  .pill-default { background: var(--bg); color: var(--muted); }
-
-  /* EVENTS */
-  .events-list { display: flex; flex-direction: column; gap: 7px; }
-  .event-row { display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; border-radius: 8px; border: 0.5px solid var(--border); }
-  .event-row.alto { border-color: rgba(200,50,50,0.2); background: #FDF6F6; }
-  .event-row.medio { border-color: rgba(200,130,0,0.15); background: #FDFAF3; }
-  .event-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
-  .dot-alto { background: #C0392B; } .dot-medio { background: #D4860A; } .dot-basso { background: #1D6B4A; }
-  .event-info { flex: 1; }
-  .ev-name { font-size: 13px; font-weight: 500; color: var(--text); }
-  .ev-date { font-size: 11px; color: var(--muted); margin-top: 1px; }
-  .ev-note { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 2px; }
-  .event-badge { font-size: 10px; padding: 3px 9px; border-radius: 12px; font-weight: 500; white-space: nowrap; flex-shrink: 0; align-self: flex-start; margin-top: 2px; }
-  .badge-alto { background: var(--red-bg); color: var(--red); }
-  .badge-medio { background: var(--amber-bg); color: var(--amber); }
-  .badge-basso { background: var(--accent-light); color: var(--accent); }
-
-  /* METEO */
-  .meteo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
-  @media (max-width: 500px) { .meteo-grid { grid-template-columns: 1fr; } }
-  .meteo-card { background: var(--bg); border-radius: 8px; padding: 12px 14px; border: 0.5px solid var(--border); }
-  .meteo-card .m-loc { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
-  .meteo-card .m-temp { font-size: 26px; font-weight: 300; color: var(--text); }
-  .meteo-card .m-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .meteo-days { display: flex; gap: 0; margin-top: 10px; border-top: 0.5px solid var(--border); padding-top: 8px; }
-  .mday { flex: 1; text-align: center; }
-  .mday .md-label { font-size: 10px; color: var(--muted); }
-  .mday .md-temp { font-size: 12px; font-weight: 500; color: var(--text); margin-top: 2px; }
-  .alert-gottardo { padding: 10px 12px; background: var(--amber-bg); border-radius: 8px; font-size: 12px; color: var(--amber); border: 0.5px solid rgba(138,92,0,0.15); }
-
-  /* VACANZE */
-  .vacanze-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  @media (max-width: 500px) { .vacanze-grid { grid-template-columns: 1fr; } }
-  .vc-row { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 7px; background: var(--bg); border: 0.5px solid var(--border); }
-  .vc-cantone { font-size: 12px; font-weight: 500; color: var(--text); min-width: 80px; }
-  .vc-date { font-size: 11px; color: var(--muted); flex: 1; }
-  .vc-pill { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 500; background: var(--accent-light); color: var(--accent); white-space: nowrap; }
-
-  /* AZIONI */
-  .azioni-list { display: flex; flex-direction: column; gap: 10px; }
-  .azione { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 8px; background: var(--bg); border: 0.5px solid var(--border); }
-  .az-num { width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
-  .az-title { font-size: 13px; font-weight: 500; color: var(--text); }
-  .az-desc { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.6; }
-  .az-fonte { font-size: 10px; color: var(--accent); margin-top: 5px; font-style: italic; }
-
-  /* GOTTARDO */
-  .g-city-card { background: var(--bg); border-radius: 8px; padding: 10px 8px; border: 0.5px solid var(--border); text-align: center; }
-  .gcc-loading { font-size: 11px; color: var(--muted); padding: 12px 0; }
-  .gcc-city { font-size: 10px; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .gcc-temp { font-size: 22px; font-weight: 300; color: var(--text); line-height: 1; }
-  .gcc-icon { font-size: 18px; margin: 4px 0; }
-  .gcc-desc { font-size: 10px; color: var(--muted); margin-top: 2px; line-height: 1.3; }
-  .gcc-precip { font-size: 10px; color: var(--blue); margin-top: 2px; }
-  .gcc-highlight { border-color: var(--accent); background: var(--accent-light); }
-  .g-factor { font-size: 11px; padding: 3px 10px; border-radius: 12px; font-weight: 500; }
-  .gf-positive { background: var(--accent-light); color: var(--accent); }
-  .gf-negative { background: var(--red-bg); color: var(--red); }
-  .gf-neutral { background: var(--amber-bg); color: var(--amber); }
-  @media (max-width: 500px) { #cityCards { grid-template-columns: repeat(2,1fr); } }
-
-  /* RANKING FILTERS */
-  .filter-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-  .filter-pill { font-family: var(--sans); font-size: 11px; font-weight: 500; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
-  .filter-pill:hover { border-color: var(--accent); color: var(--accent); }
-  .filter-pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .table-wrap { max-height: 400px; overflow-y: auto; border-radius: 6px; border: 0.5px solid var(--border); }
-  .ranking-table thead th { position: sticky; top: 0; background: var(--card); z-index: 2; box-shadow: 0 1px 0 var(--border); }
-  .ranking-table th.sortable { cursor: pointer; user-select: none; }
-  .ranking-table th.sortable:hover { color: var(--accent); }
-  .sort-indicator { margin-left: 4px; font-size: 10px; color: var(--accent); }
-
-  /* TERMOMETRO PREZZI */
-  .termometro-wrap { margin-bottom: 14px; padding: 12px 14px; background: var(--bg); border-radius: 8px; border: 0.5px solid var(--border); }
-  .termometro-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .termometro-label { font-size: 12px; color: var(--muted); white-space: nowrap; }
-  .termometro-input { font-family: var(--sans); font-size: 13px; padding: 7px 10px; border: 0.5px solid var(--border); border-radius: var(--radius-sm); background: var(--card); color: var(--text); width: 200px; }
-  .termometro-input:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .termometro-btn { font-family: var(--sans); font-size: 12px; font-weight: 500; padding: 7px 14px; border-radius: var(--radius-sm); border: none; background: var(--accent); color: #fff; cursor: pointer; }
-  .termometro-btn:hover { opacity: 0.85; }
-  .termometro-result { margin-top: 8px; font-size: 12px; line-height: 1.5; min-height: 18px; }
-  .tr-media { color: var(--muted); }
-  .tr-above { color: var(--red); font-weight: 500; }
-  .tr-below { color: var(--accent); font-weight: 500; }
-  .tr-par { color: var(--muted); font-weight: 500; }
-
-  /* PROGRESS BAR */
-  .progress-wrap { padding: 12px 18px 10px; border-bottom: 0.5px solid var(--border); }
-  .progress-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
-  .progress-label { font-size: 12px; color: var(--muted); }
-  .progress-bar-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-  .progress-bar-fill { height: 100%; border-radius: 3px; background: var(--accent); transition: width 0.4s ease; width: 0%; }
-  .progress-success { font-size: 12px; color: var(--accent); font-weight: 500; margin-top: 6px; display: none; }
-
-  /* AZIONE COMPLETATA */
-  .azione-completata { opacity: 0.55; }
-  .azione-completata .az-title { text-decoration: line-through; color: var(--muted); }
-  .az-checkbox { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; margin-top: 3px; }
-
-  /* WHATSAPP */
-  .whatsapp-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; margin-top: 12px; padding: 10px 16px; border-radius: var(--radius-sm); border: 0.5px solid rgba(37,211,102,0.3); background: rgba(37,211,102,0.08); color: #1a7a3c; font-family: var(--sans); font-size: 13px; font-weight: 500; cursor: pointer; transition: background 0.15s; }
-  .whatsapp-btn:hover { background: rgba(37,211,102,0.15); }
-
-  /* SOLD OUT */
-  .sold-out-badge { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: var(--red-bg); color: var(--red); font-weight: 500; white-space: nowrap; }
-  .price-up { color: var(--red); font-size: 11px; }
-  .price-down { color: var(--accent); font-size: 11px; }
-
-  /* LOADING */
-  .loading-state { padding: 24px 18px; text-align: center; color: var(--muted); font-size: 13px; }
-  .loading-spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
+  .section-body { padding: 18px; }
+  .loading-state { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px; padding: 20px 0; justify-content: center; }
+  .loading-spinner { width: 15px; height: 15px; border: 2px solid var(--border-hi); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* LEAD GEN */
-  .leadgen-wrap { margin: 0 1.5rem 1rem; }
-  .leadgen-banner { background: #0F1F14; border-radius: var(--radius); padding: 2rem; color: #fff; }
-  .leadgen-banner .lg-eyebrow { font-size: 11px; color: #4CAF7D; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; margin-bottom: 10px; }
-  .leadgen-banner .lg-title { font-family: var(--serif); font-size: 22px; font-weight: 400; color: #fff; line-height: 1.3; margin-bottom: 6px; }
-  .leadgen-banner .lg-sub { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; line-height: 1.6; }
-  .leadgen-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  @media (max-width: 560px) { .leadgen-cards { grid-template-columns: 1fr; } }
-  .lg-card { background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 16px; }
-  .lg-card:hover { background: rgba(255,255,255,0.09); }
-  .lg-card .lgc-tag { font-size: 10px; color: #4CAF7D; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
-  .lg-card .lgc-title { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 6px; line-height: 1.4; }
-  .lg-card .lgc-desc { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 14px; line-height: 1.5; }
-  .lg-card .lgc-input { width: 100%; font-family: var(--sans); font-size: 12px; padding: 8px 10px; border-radius: 6px; border: 0.5px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: #fff; margin-bottom: 8px; outline: none; }
-  .lg-card .lgc-input::placeholder { color: rgba(255,255,255,0.35); }
-  .lg-card .lgc-input:focus { border-color: #4CAF7D; }
-  .lg-card .lgc-btn { width: 100%; font-family: var(--sans); font-size: 12px; font-weight: 500; padding: 9px 12px; border-radius: 6px; border: none; cursor: pointer; transition: opacity 0.15s; }
-  .lg-card .lgc-btn:hover { opacity: 0.85; }
-  .lgc-btn-audit { background: #4CAF7D; color: #0F1F14; }
-  .lgc-btn-early { background: #E6A817; color: #0F1F14; }
-  .lg-microcopy { font-size: 10px; color: rgba(255,255,255,0.3); margin-top: 6px; text-align: center; }
+  /* KPI GRID */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .kpi { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 14px; }
+  .kpi-label { font-size: 11px; color: var(--muted); margin-bottom: 6px; line-height: 1.3; }
+  .kpi-value { font-family: var(--serif); font-size: 26px; color: var(--text); line-height: 1; }
+  .kpi-delta { font-size: 12px; margin-top: 5px; font-weight: 600; }
+  .kpi-delta.up { color: var(--accent); }
+  .kpi-delta.down { color: var(--red); }
+  .kpi-delta.flat { color: var(--muted); }
+  @media (max-width: 720px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  /* CHART */
+  .chart-tabs { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+  .chart-tab { padding: 6px 13px; font-size: 12px; font-weight: 500; border-radius: 18px; border: 0.5px solid var(--border-hi); background: var(--bg-deep); color: var(--muted); cursor: pointer; font-family: var(--sans); transition: all 0.15s; }
+  .chart-tab:hover { color: var(--text-soft); border-color: var(--accent); }
+  .chart-tab.active { background: var(--accent); color: #11231b; border-color: var(--accent); }
+  .chart-box { position: relative; height: 320px; }
+  .chart-note { font-size: 11px; color: var(--muted); margin-top: 10px; font-style: italic; }
 
-  /* AZIONI AI */
-  .az-loading { display: flex; align-items: center; gap: 10px; padding: 20px 0; color: var(--muted); font-size: 13px; }
-  .az-contesto { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 12px; padding: 8px 12px; background: var(--bg); border-radius: 6px; border-left: 3px solid var(--accent); }
-  .az-categoria { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 500; color: var(--accent); margin-bottom: 4px; }
-  .az-fonte { font-size: 10px; color: var(--accent); margin-top: 5px; font-style: italic; }
-  .az-error { padding: 12px; background: var(--red-bg); border-radius: 8px; font-size: 12px; color: var(--red); }
+  /* INSIGHTS */
+  .insights { display: flex; flex-direction: column; gap: 9px; margin-top: 4px; }
+  .insight { display: flex; gap: 11px; padding: 12px 14px; background: var(--bg-deep); border-radius: var(--radius-sm); border-left: 3px solid var(--muted); }
+  .insight.positivo { border-left-color: var(--accent); }
+  .insight.attenzione { border-left-color: var(--amber); }
+  .insight.info { border-left-color: var(--blue); }
+  .insight-ico { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .insight-text { font-size: 13px; color: var(--text-soft); line-height: 1.5; }
 
-  /* MARKETING INTELLIGENCE */
+  /* FILTER PILLS */
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .filter-pill { font-size: 11.5px; font-weight: 500; padding: 6px 13px; border-radius: 20px; border: 0.5px solid var(--border-hi); background: var(--bg-deep); color: var(--muted); cursor: pointer; font-family: var(--sans); white-space: nowrap; transition: all 0.15s; }
+  .filter-pill:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-pill.active { background: var(--accent); color: #11231b; border-color: var(--accent); }
+
+  /* TABLE */
+  .table-wrap { max-height: 420px; overflow-y: auto; border-radius: var(--radius-sm); border: 0.5px solid var(--border); }
+  .ranking-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .ranking-table thead th { position: sticky; top: 0; background: var(--card-hi); z-index: 2; padding: 10px 12px; text-align: left; font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; box-shadow: 0 1px 0 var(--border); }
+  .ranking-table th.sortable { cursor: pointer; user-select: none; }
+  .ranking-table th.sortable:hover { color: var(--accent); }
+  .sort-ind { margin-left: 3px; font-size: 9px; color: var(--accent); }
+  .ranking-table td { padding: 10px 12px; border-bottom: 0.5px solid var(--border); }
+  .ranking-table tr:last-child td { border-bottom: none; }
+  .ranking-table tbody tr { transition: background 0.12s; }
+  .ranking-table tbody tr:hover { background: var(--card-hi); }
+  .rank-num { color: var(--muted); font-weight: 600; width: 34px; }
+  .hotel-name-cell { font-weight: 500; color: var(--text); cursor: pointer; }
+  .hotel-name-cell:hover { color: var(--accent); }
+  .rating-pill { display: inline-block; padding: 2px 7px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .rating-pill.hi { background: var(--accent-light); color: var(--accent); }
+  .rating-pill.mid { background: var(--blue-bg); color: var(--blue); }
+  .rating-pill.lo { background: var(--amber-bg); color: var(--amber); }
+  .price-up { color: var(--accent); font-weight: 600; font-size: 11px; }
+  .price-down { color: var(--red); font-weight: 600; font-size: 11px; }
+  .sold-out-badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; background: var(--red-bg); color: var(--red); }
+
+  /* SELECT */
+  .struct-select { width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); border: 0.5px solid var(--border-hi); background: var(--bg-deep); color: var(--text); font-family: var(--sans); font-size: 13px; cursor: pointer; margin-bottom: 14px; }
+  .struct-select:focus { outline: none; border-color: var(--accent); }
+
+  /* METRIC CARDS */
+  .metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
+  .metric-card { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 14px; text-align: center; }
+  .m-label { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+  .m-value { font-family: var(--serif); font-size: 23px; color: var(--text); line-height: 1.1; }
+  .m-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  @media (max-width: 600px) { .metric-row { grid-template-columns: 1fr; } }
+  .cat-reviews { display: grid; grid-template-columns: repeat(2,1fr); gap: 7px; }
+  .cat-row { display: flex; align-items: center; justify-content: space-between; font-size: 12px; padding: 6px 11px; background: var(--bg-deep); border-radius: 7px; }
+  .cat-row .v { font-weight: 600; color: var(--accent); }
+  /* TERMOMETRO */
+  .termo-wrap { background: var(--bg-deep); border-radius: var(--radius-sm); padding: 14px; margin-top: 14px; }
+  .termo-input-row { display: flex; gap: 9px; flex-wrap: wrap; align-items: center; }
+  .termo-input { flex: 1; min-width: 130px; padding: 10px 13px; border-radius: 8px; border: 0.5px solid var(--border-hi); background: var(--card); color: var(--text); font-family: var(--sans); font-size: 14px; }
+  .termo-input:focus { outline: none; border-color: var(--accent); }
+  .termo-btn { padding: 10px 18px; border-radius: 8px; border: none; background: var(--accent); color: #11231b; font-family: var(--sans); font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+  .termo-btn:hover { background: var(--accent-deep); }
+  .termo-result { margin-top: 12px; font-size: 13px; line-height: 1.5; }
+  .tr-above { color: var(--amber); font-weight: 600; }
+  .tr-below { color: var(--accent); font-weight: 600; }
+  .tr-par { color: var(--blue); font-weight: 600; }
+  .termo-advice { margin-top: 8px; font-size: 12px; color: var(--text-soft); padding: 9px 11px; background: var(--card); border-radius: 7px; border-left: 2px solid var(--accent); }
+
+  /* EVENTS */
+  .events-list { display: flex; flex-direction: column; gap: 8px; }
+  .event-row { display: flex; align-items: flex-start; gap: 11px; padding: 11px 13px; background: var(--bg-deep); border-radius: var(--radius-sm); border: 0.5px solid var(--border); }
+  .event-row.alto { border-left: 3px solid var(--red); }
+  .event-row.medio { border-left: 3px solid var(--amber); }
+  .event-row.basso { border-left: 3px solid var(--muted); }
+  .ev-date { font-size: 11px; color: var(--accent); font-weight: 600; white-space: nowrap; min-width: 76px; }
+  .ev-body { flex: 1; }
+  .ev-name { font-size: 13.5px; font-weight: 500; color: var(--text); }
+  .ev-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .ev-note { font-size: 12px; color: var(--text-soft); margin-top: 4px; }
+  .ev-impact { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.4px; }
+  .ev-impact.alto { background: var(--red-bg); color: var(--red); }
+  .ev-impact.medio { background: var(--amber-bg); color: var(--amber); }
+  .ev-impact.basso { background: rgba(139,144,153,0.15); color: var(--muted); }
+  .nord-note { margin-top: 12px; padding: 11px 13px; background: var(--blue-bg); border-radius: var(--radius-sm); font-size: 12px; color: var(--text-soft); border-left: 3px solid var(--blue); }
+
+  /* GOTTARDO */
+  .gauge-box { display: flex; flex-direction: column; align-items: center; }
+  .gauge-verdict { font-size: 15px; font-weight: 700; margin-top: 8px; }
+  .city-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 9px; margin-top: 16px; width: 100%; }
+  .city-card { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 11px; text-align: center; }
+  .city-name { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+  .city-temp { font-family: var(--serif); font-size: 20px; color: var(--text); }
+  .city-ico { font-size: 17px; margin-top: 3px; }
+  @media (max-width: 560px) { .city-cards { grid-template-columns: repeat(2,1fr); } }
+
+  /* PREDICTIVE CALENDAR */
+  .pc-controls { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .pc-controls .lbl { font-size: 12px; color: var(--muted); }
+  .pc-star-btn { padding: 6px 14px; font-size: 12px; font-weight: 600; border-radius: 18px; border: 0.5px solid var(--border-hi); background: var(--bg-deep); color: var(--muted); cursor: pointer; font-family: var(--sans); transition: all 0.15s; }
+  .pc-star-btn.active { background: var(--accent); color: #11231b; border-color: var(--accent); }
+  .pc-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
+  .pc-card { flex: 0 0 230px; background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 15px; }
+  .pc-week { font-size: 11px; color: var(--muted); font-weight: 600; }
+  .pc-dates { font-size: 14px; color: var(--text); font-weight: 600; margin-bottom: 10px; }
+  .pc-level { display: inline-block; padding: 3px 10px; border-radius: 14px; font-size: 11px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+  .pc-prices { display: flex; flex-direction: column; gap: 5px; margin-bottom: 11px; }
+  .pc-price-row { display: flex; justify-content: space-between; font-size: 12px; }
+  .pc-price-row .k { color: var(--muted); }
+  .pc-price-row .v { font-weight: 600; color: var(--text); }
+  .pc-target { font-family: var(--serif); font-size: 24px; color: var(--accent); }
+  .pc-delta { font-size: 12px; font-weight: 600; }
+  .pc-badges { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
+  .pc-badge { font-size: 10px; padding: 2px 7px; border-radius: 5px; background: var(--card-hi); color: var(--text-soft); }
+  .pc-badge.event { background: var(--red-bg); color: var(--red); }
+  .pc-badge.holiday { background: var(--blue-bg); color: var(--blue); }
+  .pc-motiv { font-size: 11.5px; color: var(--muted); line-height: 1.45; border-top: 0.5px solid var(--border); padding-top: 9px; }
+
+  /* TREND CARDS */
   .trend-grid { display: flex; flex-direction: column; gap: 8px; }
-  .trend-card { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: var(--bg); border-radius: 8px; border: 0.5px solid var(--border); transition: border-color 0.15s; }
-  .trend-card:hover { border-color: var(--accent); }
+  .trend-card { display: flex; align-items: flex-start; gap: 12px; padding: 13px 15px; background: var(--bg-deep); border-radius: var(--radius-sm); border: 0.5px solid var(--border); }
   .trend-left { flex: 1; }
-  .trend-keyword { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
-  .trend-note { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
-  .trend-action { font-size: 12px; color: var(--text); background: var(--card); border-radius: 5px; padding: 5px 8px; border-left: 2px solid var(--accent); line-height: 1.4; }
-  .trend-action::before { content: "\2192  "; color: var(--accent); font-weight: 500; }
-  .trend-badge { font-size: 13px; font-weight: 600; white-space: nowrap; padding: 4px 10px; border-radius: 20px; align-self: flex-start; margin-top: 2px; }
+  .trend-keyword { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .trend-note { font-size: 11px; color: var(--muted); margin-bottom: 7px; }
+  .trend-action { font-size: 12px; color: var(--text-soft); background: var(--card); border-radius: 6px; padding: 6px 9px; border-left: 2px solid var(--accent); line-height: 1.45; }
+  .trend-action::before { content: "\2192  "; color: var(--accent); font-weight: 700; }
+  .trend-badge { font-size: 13px; font-weight: 700; white-space: nowrap; padding: 4px 11px; border-radius: 18px; align-self: flex-start; }
   .trend-up { background: var(--accent-light); color: var(--accent); }
   .trend-stable { background: var(--amber-bg); color: var(--amber); }
   .trend-down { background: var(--red-bg); color: var(--red); }
-  .hashtag-box { margin-top: 12px; padding: 14px; background: var(--bg); border-radius: 8px; border: 0.5px solid var(--border); }
-  .hashtag-box-title { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
-  .hashtag-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-  .hashtag-pill { font-size: 12px; color: var(--accent); background: var(--accent-light); padding: 3px 10px; border-radius: 12px; }
-  .copy-btn { font-family: var(--sans); font-size: 12px; font-weight: 500; padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; transition: all 0.2s; }
-  .copy-btn:hover { background: var(--accent); color: #fff; }
-  .copy-btn.copied { background: var(--accent); color: #fff; }
+  .hashtag-box { margin-top: 14px; padding: 15px; background: var(--bg-deep); border-radius: var(--radius-sm); border: 0.5px solid var(--border); }
+  .hashtag-box-title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 11px; }
+  .hashtag-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 13px; }
+  .hashtag-pill { font-size: 12px; color: var(--accent); background: var(--accent-light); padding: 4px 11px; border-radius: 13px; }
+  .copy-btn { font-family: var(--sans); font-size: 12px; font-weight: 600; padding: 9px 17px; border-radius: var(--radius-sm); border: 1px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; transition: all 0.2s; }
+  .copy-btn:hover, .copy-btn.copied { background: var(--accent); color: #11231b; }
+
+  /* AI ACTIONS */
+  .az-item { display: flex; gap: 12px; padding: 13px; background: var(--bg-deep); border-radius: var(--radius-sm); border: 0.5px solid var(--border); margin-bottom: 9px; }
+  .az-check { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid var(--border-hi); cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; margin-top: 1px; }
+  .az-check.done { background: var(--accent); border-color: var(--accent); color: #11231b; }
+  .az-body { flex: 1; }
+  .az-title { font-size: 13.5px; font-weight: 600; color: var(--text); }
+  .az-title.done { text-decoration: line-through; color: var(--muted); }
+  .az-text { font-size: 12.5px; color: var(--text-soft); margin-top: 3px; line-height: 1.5; }
+  .progress-wrap { margin-bottom: 14px; }
+  .progress-header { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .progress-bar { height: 6px; background: var(--bg-deep); border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.4s; width: 0; }
+  .progress-done { text-align: center; color: var(--accent); font-size: 13px; font-weight: 600; margin-top: 10px; display: none; }
+  .whatsapp-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; margin-top: 12px; padding: 11px; border-radius: var(--radius-sm); border: 0.5px solid rgba(79,178,134,0.35); background: var(--accent-light); color: var(--accent); font-family: var(--sans); font-size: 13px; font-weight: 600; cursor: pointer; }
+  .az-error { padding: 11px 13px; background: var(--red-bg); border-radius: var(--radius-sm); font-size: 12px; color: var(--red); }
+
+  /* LEAD GEN */
+  .lead-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+  @media (max-width: 700px) { .lead-grid { grid-template-columns: 1fr; } }
+  .lead-card { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 18px; }
+  .lead-tag { font-size: 11px; font-weight: 600; color: var(--accent); margin-bottom: 8px; }
+  .lead-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 7px; line-height: 1.3; }
+  .lead-desc { font-size: 12.5px; color: var(--text-soft); line-height: 1.5; margin-bottom: 13px; }
+  .lead-btn { display: block; width: 100%; padding: 11px; border-radius: var(--radius-sm); border: none; background: var(--accent); color: #11231b; font-family: var(--sans); font-size: 13px; font-weight: 600; cursor: pointer; text-align: center; transition: background 0.15s; }
+  .lead-btn:hover { background: var(--accent-deep); }
+  .lead-fine { font-size: 11px; color: var(--muted); margin-top: 8px; text-align: center; }
 
   /* FOOTER */
-  .footer { text-align: center; padding: 2rem 1.5rem; font-size: 11px; color: var(--muted); border-top: 0.5px solid var(--border); margin: 1.5rem 1.5rem 0; }
-  .footer strong { color: var(--text); }
+  .footer { text-align: center; padding: 30px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+  .footer a { color: var(--accent); text-decoration: none; }
+  .holiday-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+  @media (max-width: 700px) { .holiday-grid { grid-template-columns: repeat(2,1fr); } }
+  .holiday-card { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 11px; }
+  .h-canton { font-size: 13px; font-weight: 700; color: var(--accent); }
+  .h-dates { font-size: 11px; color: var(--text-soft); margin-top: 2px; }
+  .h-tag { font-size: 10px; color: var(--muted); margin-top: 1px; }
 </style>
 </head>
 <body>
-<div class="page-wrap">
+<div class="wrap">
 
-  <div class="header">
-    <div class="header-top">
-      <div class="logo-zone">
-        <h1><span>Ticino</span> Tourism Radar</h1>
-        <p>Intelligence turistica settimanale — Regione Locarnese</p>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <h1>Ticino Tourism Radar</h1>
+        <div class="sub" data-it="Intelligence turistica — Regione Locarnese" data-de="Tourismus-Intelligence — Region Locarno">Intelligence turistica — Regione Locarnese</div>
       </div>
-      <div class="badge-aggiornato" id="badgeAggiornato">&#x21bb; Caricamento...</div>
-    </div>
-    <div class="subheader">
-      <span>&#x1F4CD; Locarno &middot; Ascona &middot; Brissago</span>
-      <span id="subSettimana">&#x1F4C5; Settimana —</span>
-      <span>&#x1F4CA; Booking.com &middot; USTAT &middot; OpenMeteo</span>
-    </div>
-  </div>
-
-  <!-- USTAT SNAPSHOT -->
-  <div class="section">
-    <div class="section-head">
-      <h2><span class="section-num">&#x25CB;</span> Contesto mercato &mdash; Lago Maggiore e Valli</h2>
-      <span class="section-tag">USTAT 2026 &middot; Q1 + benchmark estate</span>
-    </div>
-    <div class="section-body">
-      <div class="ustat-strip">
-        <div class="ustat-card">
-          <div class="us-label">Trend arrivi Q1 2026</div>
-          <div class="us-value">+22%</div>
-          <div class="us-delta delta-up">&#x2191; Feb 2026 vs Feb 2025 &mdash; Mar +9%</div>
-        </div>
-        <div class="ustat-card">
-          <div class="us-label">Occupazione letti mar 2026</div>
-          <div class="us-value">33.5%</div>
-          <div class="us-delta delta-up">&#x2191; vs 31.0% mar 2025 &mdash; +2.5 punti</div>
-        </div>
-        <div class="ustat-card">
-          <div class="us-label">Record estate &mdash; lug 2025</div>
-          <div class="us-value">75.5%</div>
-          <div class="us-delta delta-flat">&#x25CB; Benchmark da battere lug 2026</div>
-        </div>
-        <div class="ustat-card">
-          <div class="us-label">Germania &mdash; mercato chiave</div>
-          <div class="us-value">250k</div>
-          <div class="us-delta delta-up">&#x2191; +6.9% pernottamenti 2025</div>
+      <div class="header-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="langIt" onclick="setLang('it')">IT</button>
+          <button class="lang-btn" id="langDe" onclick="setLang('de')">DE</button>
         </div>
       </div>
-      <div style="font-size:11px;color:var(--muted);font-style:italic;">Fonte: USTAT &mdash; Statistica del turismo Ticino. Q1 2026 in forte crescita. Soggiorno medio 2.06 gg &mdash; mercato prevalentemente last-minute.</div>
     </div>
-  </div>
+    <div class="meta-line">
+      <span><span class="dot"></span><span data-it="In aggiornamento" data-de="Wird aktualisiert">In aggiornamento</span></span>
+      <span id="metaSettimana">—</span>
+      <span id="metaHotels">—</span>
+      <span>Booking.com · USTAT · OpenMeteo · Google Trends</span>
+    </div>
+  </header>
 
-    <!-- SEZIONE 1 — RANKING COMPLETO -->
-  <div class="section">
-    <div class="section-head">
-      <h2><span class="section-num">1</span> Ranking Booking.com — cluster Locarnese</h2>
-      <span class="section-tag" id="rankingMeta">Booking.com &middot; caricamento...</span>
+  <!-- TABS -->
+  <nav class="tabs">
+    <div class="tabs-inner">
+      <button class="tab active" onclick="switchTab('mercato',this)"><span class="tab-ico">📊</span><span data-it="Mercato" data-de="Markt">Mercato</span></button>
+      <button class="tab" onclick="switchTab('competizione',this)"><span class="tab-ico">🏨</span><span data-it="Competizione" data-de="Wettbewerb">Competizione</span></button>
+      <button class="tab" onclick="switchTab('previsioni',this)"><span class="tab-ico">📅</span><span data-it="Previsioni" data-de="Prognosen">Previsioni</span></button>
+      <button class="tab" onclick="switchTab('marketing',this)"><span class="tab-ico">📈</span><span data-it="Marketing" data-de="Marketing">Marketing</span></button>
+      <button class="tab" onclick="switchTab('contatti',this)"><span class="tab-ico">✉️</span><span data-it="Contatti" data-de="Kontakt">Contatti</span></button>
     </div>
-    <div class="section-body" style="padding-bottom:0">
-      <div class="termometro-wrap">
-        <div class="termometro-row">
-          <span class="termometro-label">Termometro prezzi:</span>
-          <input class="termometro-input" id="termometroInput" type="number" placeholder="Tua tariffa weekend (CHF)" min="0">
-          <button class="termometro-btn" onclick="calcolaTermometro()">Verifica posizione</button>
+  </nav>
+
+  <!-- ===== PANEL: MERCATO ===== -->
+  <div class="panel active" id="panel-mercato">
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">①</span><span data-it="Contesto mercato — Lago Maggiore e Valli" data-de="Marktkontext — Lago Maggiore und Täler">Contesto mercato — Lago Maggiore e Valli</span></h2>
+        <span class="section-tag" id="ustatFonte">USTAT</span>
+      </div>
+      <div class="section-body">
+        <div class="kpi-grid" id="kpiGrid">
+          <div class="loading-state"><span class="loading-spinner"></span><span data-it="Caricamento dati..." data-de="Daten werden geladen...">Caricamento dati...</span></div>
         </div>
-        <div class="termometro-result" id="termometroResult"></div>
       </div>
     </div>
-    <div class="section-body" style="padding-bottom:8px">
-      <div class="filter-bar" id="filterBar">
-        <button class="filter-pill active" onclick="applyFilter('tutti', this)">Tutti</button>
-        <button class="filter-pill" onclick="applyFilter('locarno', this)">Locarno &amp; Dintorni</button>
-        <button class="filter-pill" onclick="applyFilter('ascona', this)">Ascona &amp; Losone</button>
-        <button class="filter-pill" onclick="applyFilter('cannobio', this)">Cannobio 🇮🇹</button>
-        <button class="filter-pill" onclick="applyFilter('valli', this)">Valli</button>
-        <button class="filter-pill" onclick="applyFilter('brissago', this)">Brissago</button>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">②</span><span data-it="Andamento storico e mercati" data-de="Historische Entwicklung und Märkte">Andamento storico e mercati</span></h2>
+        <span class="section-tag">2016–2026</span>
       </div>
-    </div>
-    <div class="section-body" id="rankingBody">
-      <div class="loading-state"><span class="loading-spinner"></span>Caricamento dati cluster...</div>
-    </div>
-    <div class="section-note" id="rankingNote"></div>
-  </div>
-
-  <!-- SEZIONE 2+3 — DETTAGLIO HOTEL -->
-  <div class="section">
-    <div class="section-head">
-      <h2><span class="section-num">2&ndash;3</span> Prezzi e recensioni — dettaglio struttura</h2>
-      <span class="section-tag">Booking.com &middot; per hotel selezionato</span>
-    </div>
-    <div class="section-body">
-      <div class="hotel-selector">
-        <label>Seleziona struttura:</label>
-        <select id="hotelSelect" onchange="updateHotelDetail()">
-          <option value="">— in caricamento —</option>
-        </select>
-        <span class="hotel-count-badge" id="hotelCountBadge"></span>
-      </div>
-      <div id="hotelDetail">
-        <div class="loading-state"><span class="loading-spinner"></span>Caricamento...</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SEZIONE 4 — RADAR TERRITORIO -->
-  <div class="section">
-    <div class="section-head">
-      <h2><span class="section-num">4</span> Radar territorio — prossime 3 settimane</h2>
-      <span class="section-tag">ascona-locarno.com &middot; locarnese.events</span>
-    </div>
-    <div class="section-body" id="eventiBody">
-      <div class="loading-state"><span class="loading-spinner"></span>Caricamento eventi...</div>
-    </div>
-    <div class="section-note" id="eventiNote">Aggiornato dal database eventi di radar_data.json. Gli eventi conclusi vengono rimossi automaticamente.</div>
-  </div>
-
-  <!-- SEZIONE 5 — INDICE DI PRESSIONE GOTTARDO -->
-  <div class="section">
-    <div class="section-head">
-      <h2><span class="section-num">5</span> Indice di Pressione Gottardo&#x2122;</h2>
-      <span class="section-tag" id="gottardoMeta">OpenMeteo API &middot; aggiornamento in corso...</span>
-    </div>
-    <div class="section-body" id="gottardoBody">
-
-      <!-- GAUGE -->
-      <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:1rem;">
-        <svg id="gottardoGauge" viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px;">
-          <defs>
-            <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"   stop-color="#1D6B4A"/>
-              <stop offset="35%"  stop-color="#4CAF7D"/>
-              <stop offset="60%"  stop-color="#E6A817"/>
-              <stop offset="80%"  stop-color="#D05A1A"/>
-              <stop offset="100%" stop-color="#991F1F"/>
-            </linearGradient>
-            <clipPath id="gaugeClip">
-              <path d="M20,140 A120,120 0 0,1 260,140"/>
-            </clipPath>
-          </defs>
-          <!-- Track background -->
-          <path d="M20,140 A120,120 0 0,1 260,140" fill="none" stroke="rgba(0,0,0,0.07)" stroke-width="18" stroke-linecap="round"/>
-          <!-- Colored track -->
-          <path d="M20,140 A120,120 0 0,1 260,140" fill="none" stroke="url(#gaugeGrad)" stroke-width="18" stroke-linecap="round"/>
-          <!-- Tick marks -->
-          <g id="gaugeTicks"></g>
-          <!-- Needle -->
-          <g id="gaugeNeedle" transform="rotate(-90, 140, 140)">
-            <line x1="140" y1="140" x2="140" y2="38" stroke="#1C1C1A" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="140" cy="140" r="6" fill="#1C1C1A"/>
-            <circle cx="140" cy="140" r="3" fill="white"/>
-          </g>
-          <!-- Score text -->
-          <text id="gaugeScore" x="140" y="118" text-anchor="middle" font-family="'DM Serif Display',Georgia,serif" font-size="42" fill="#1C1C1A">—</text>
-          <text x="140" y="136" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="10" fill="#6B6A65">PRESSIONE GOTTARDO</text>
-          <!-- Scale labels -->
-          <text x="24" y="156" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="9" fill="#6B6A65">0</text>
-          <text x="140" y="30" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="9" fill="#6B6A65">50</text>
-          <text x="256" y="156" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="9" fill="#6B6A65">100</text>
-        </svg>
-
-        <!-- Verdict badge -->
-        <div id="gottardoVerdict" style="margin-top:-4px;font-size:13px;font-weight:500;color:#1C1C1A;text-align:center;max-width:320px;line-height:1.5;">
-          Caricamento dati meteo...
+      <div class="section-body">
+        <div class="chart-tabs">
+          <button class="chart-tab active" onclick="switchChart('arrivi',this)" data-it="Arrivi mensili" data-de="Ankünfte/Monat">Arrivi mensili</button>
+          <button class="chart-tab" onclick="switchChart('occupazione',this)" data-it="Occupazione letti" data-de="Bettenauslastung">Occupazione letti</button>
+          <button class="chart-tab" onclick="switchChart('mercati',this)" data-it="Mercati esteri" data-de="Auslandsmärkte">Mercati esteri</button>
+          <button class="chart-tab" onclick="switchChart('storico',this)" data-it="Trend 10 anni" data-de="10-Jahres-Trend">Trend 10 anni</button>
         </div>
-        <div id="gottardoReason" style="margin-top:6px;font-size:12px;color:#6B6A65;text-align:center;max-width:340px;line-height:1.6;"></div>
-      </div>
-
-      <!-- CITY CARDS -->
-      <div id="cityCards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px;">
-        <div class="g-city-card" id="city-locarno"><div class="gcc-loading">...</div></div>
-        <div class="g-city-card" id="city-zurich"><div class="gcc-loading">...</div></div>
-        <div class="g-city-card" id="city-basel"><div class="gcc-loading">...</div></div>
-        <div class="g-city-card" id="city-bern"><div class="gcc-loading">...</div></div>
-      </div>
-
-      <!-- MOLTIPLICATORI ATTIVI -->
-      <div id="gottardoFactors" style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;"></div>
-
-    </div>
-    <div class="section-note">Indice calcolato su delta temperatura e precipitazioni tra destinazione (Locarno) e mercati di origine (ZH, BS, BE). Aggiornato ad ogni caricamento pagina.</div>
-  </div>
-
-
-    <!-- VACANZE SCOLASTICHE -->
-  <div class="section">
-    <div class="section-head">
-      <h2><span class="section-num">+</span> Vacanze scolastiche CH &amp; DE — prossimi 2 mesi</h2>
-      <span class="section-tag">Asset fisso 2026</span>
-    </div>
-    <div class="section-body">
-      <div class="vacanze-grid">
-        <div class="vc-row"><span class="vc-cantone">ZH</span><span class="vc-date">4–19 lug 2026</span><span class="vc-pill">Estate</span></div>
-        <div class="vc-row"><span class="vc-cantone">LU</span><span class="vc-date">5–17 lug 2026</span><span class="vc-pill">Estate</span></div>
-        <div class="vc-row"><span class="vc-cantone">BE</span><span class="vc-date">14–26 lug 2026</span><span class="vc-pill">Estate</span></div>
-        <div class="vc-row"><span class="vc-cantone">ZG</span><span class="vc-date">11–24 lug 2026</span><span class="vc-pill">Estate</span></div>
-        <div class="vc-row"><span class="vc-cantone">NW / OW</span><span class="vc-date">12–24 lug 2026</span><span class="vc-pill">Estate</span></div>
-        <div class="vc-row"><span class="vc-cantone">Baviera DE</span><span class="vc-date">28 lug – 8 set 2026</span><span class="vc-pill">Estate</span></div>
-        <div class="vc-row"><span class="vc-cantone">Baden-WÜ</span><span class="vc-date">30 lug – 12 set 2026</span><span class="vc-pill">Estate</span></div>
+        <div class="chart-box"><canvas id="ustatChart"></canvas></div>
+        <div class="chart-note" id="chartNote"></div>
       </div>
     </div>
-    <div class="section-note">Mercati chiave: ZH, LU, BE, ZG (domestico) + Baviera, Baden-WÜ (principale mercato estero DE).</div>
-  </div>
 
-  <!-- SEZIONE 6 — 3 AZIONI AI-POWERED -->
-  <div class="section">
-    <div class="section-head">
-      <h2><span class="section-num">6</span> 3 azioni prioritarie — questa settimana</h2>
-      <span class="section-tag" id="azioniTag">AI &middot; caricamento...</span>
-    </div>
-    <div class="progress-wrap" id="progressWrap" style="display:none">
-      <div class="progress-header">
-        <span class="progress-label" id="progressLabel">Progresso settimanale: 0/3 completate</span>
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">③</span><span data-it="Insight strategici" data-de="Strategische Insights">Insight strategici</span></h2>
+        <span class="section-tag" data-it="Letture operative" data-de="Operative Hinweise">Letture operative</span>
       </div>
-      <div class="progress-bar-track">
-        <div class="progress-bar-fill" id="progressFill"></div>
-      </div>
-      <div class="progress-success" id="progressSuccess">&#x2705; Ottimo lavoro! Strategia completata.</div>
-    </div>
-    <div class="section-body" id="azioniBody">
-      <div class="az-loading">
-        <span class="loading-spinner"></span>Analisi scenario in corso...
-      </div>
-    </div>
-    <div class="section-note">I dati di questa sezione sono il frutto dell'impegno costante di Travel Tech Data nell'analizzare, incrociare e tradurre in strategie concrete migliaia di variabili del mercato locale.</div>
-  </div>
-
-  <!-- SEZIONE MARKETING INTELLIGENCE -->
-  <div class="section">
-    <div class="section-head">
-      <h2><span class="section-num">M</span> Marketing Intelligence — trend DACH</h2>
-      <span class="section-tag" id="trendsMeta">Google Trends &middot; mercato CH-DE-AT</span>
-    </div>
-    <div class="section-body" id="trendsBody">
-      <div class="loading-state"><span class="loading-spinner"></span>Caricamento trend...</div>
-    </div>
-  </div>
-
-  <!-- LEAD GENERATION -->
-  <div class="leadgen-wrap">
-    <div class="leadgen-banner">
-      <div class="lg-eyebrow">&#x2605; Accesso anticipato &mdash; Locarnese 2026</div>
-      <div class="lg-title">Vuoi che il Radar lavori per il tuo hotel?</div>
-      <div class="lg-sub">Due strumenti esclusivi per gli operatori del Locarnese che vogliono anticipare il mercato, non inseguirlo.</div>
-      <div class="leadgen-cards">
-
-        <div class="lg-card">
-          <div class="lgc-tag">&#x1F50D; Gratuito &middot; 30 minuti</div>
-          <div class="lgc-title">Audit AI: come l&apos;intelligenza artificiale legge e vende il tuo hotel</div>
-          <div class="lgc-desc">Analizziamo il tuo profilo Booking, le recensioni e il posizionamento nel cluster. Ti diciamo cosa vede un algoritmo quando cerca un hotel nel Locarnese.</div>
-          <input class="lgc-input" id="auditEmail" type="email" placeholder="La tua email professionale" autocomplete="off">
-          <input class="lgc-input" id="auditHotel" type="text" placeholder="Nome del tuo hotel" autocomplete="off">
-          <button class="lgc-btn lgc-btn-audit" onclick="submitLead('audit')">Prenota il mio Audit gratuito &rarr;</button>
-          <div class="lg-microcopy">Nessuno spam. Risposta entro 48 ore.</div>
+      <div class="section-body">
+        <div class="insights" id="insightsBox">
+          <div class="loading-state"><span class="loading-spinner"></span></div>
         </div>
-
-        <div class="lg-card">
-          <div class="lgc-tag">&#x1F4C5; Early Access &middot; Edizione limitata</div>
-          <div class="lgc-title">Predictive Calendar 2026: tutte le finestre di alta domanda del Locarnese</div>
-          <div class="lgc-desc">Il nostro modello predittivo incrocia eventi, vacanze scolastiche CH/DE e pattern meteo storici. Ottieni le date esatte in cui il tuo hotel pu&ograve; spuntare il massimo.</div>
-          <input class="lgc-input" id="earlyEmail" type="email" placeholder="La tua email professionale" autocomplete="off">
-          <input class="lgc-input" id="earlyHotel" type="text" placeholder="Nome del tuo hotel" autocomplete="off">
-          <button class="lgc-btn lgc-btn-early" onclick="submitLead('early')">Voglio l&apos;accesso anticipato &rarr;</button>
-          <div class="lg-microcopy">Disponibile per i primi 15 operatori. Lista aperta.</div>
-        </div>
-
       </div>
     </div>
   </div>
 
-  <div class="footer">
-    <strong>Ticino Tourism Radar</strong> &mdash; Travel Tech Data &nbsp;&middot;&nbsp;
-    Aggiornato ogni luned&igrave; mattina &nbsp;&middot;&nbsp;
-    <a href="mailto:info@traveltechdata.ch">Contatto</a>
+  <!-- ===== PANEL: COMPETIZIONE ===== -->
+  <div class="panel" id="panel-competizione">
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">①</span><span data-it="Ranking cluster Locarnese" data-de="Ranking Cluster Locarno">Ranking cluster Locarnese</span></h2>
+        <span class="section-tag" id="rankingMeta">Booking.com</span>
+      </div>
+      <div class="section-body">
+        <div class="filter-bar" id="filterBar">
+          <button class="filter-pill active" onclick="applyFilter('tutti',this)" data-it="Tutti" data-de="Alle">Tutti</button>
+          <button class="filter-pill" onclick="applyFilter('locarno',this)">Locarno &amp; Dintorni</button>
+          <button class="filter-pill" onclick="applyFilter('ascona',this)">Ascona &amp; Losone</button>
+          <button class="filter-pill" onclick="applyFilter('cannobio',this)">Cannobio 🇮🇹</button>
+          <button class="filter-pill" onclick="applyFilter('valli',this)" data-it="Valli" data-de="Täler">Valli</button>
+          <button class="filter-pill" onclick="applyFilter('brissago',this)">Brissago</button>
+        </div>
+        <div id="rankingBody"><div class="loading-state"><span class="loading-spinner"></span></div></div>
+        <div class="section-tag" id="rankingNote" style="margin-top:10px;display:block"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">②</span><span data-it="Dettaglio struttura — prezzi e recensioni" data-de="Detailansicht — Preise und Bewertungen">Dettaglio struttura — prezzi e recensioni</span></h2>
+        <span class="section-tag" data-it="Per hotel" data-de="Pro Hotel">Per hotel</span>
+      </div>
+      <div class="section-body">
+        <select class="struct-select" id="hotelSelect" onchange="selectHotel(this.value)"><option data-it="— in caricamento —" data-de="— wird geladen —">— in caricamento —</option></select>
+        <div id="hotelDetail"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">③</span><span data-it="Termometro prezzi" data-de="Preis-Thermometer">Termometro prezzi</span></h2>
+        <span class="section-tag" data-it="Confronto col cluster" data-de="Cluster-Vergleich">Confronto col cluster</span>
+      </div>
+      <div class="section-body">
+        <div class="termo-wrap">
+          <div class="termo-input-row">
+            <input type="number" class="termo-input" id="termoInput" placeholder="La tua tariffa weekend (CHF)">
+            <button class="termo-btn" onclick="calcolaTermometro()" data-it="Verifica posizione" data-de="Position prüfen">Verifica posizione</button>
+          </div>
+          <div class="termo-result" id="termoResult"></div>
+        </div>
+      </div>
+    </div>
   </div>
+  <!-- ===== PANEL: PREVISIONI ===== -->
+  <div class="panel" id="panel-previsioni">
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">①</span><span data-it="Predictive Calendar — prossime 8 settimane" data-de="Predictive Calendar — nächste 8 Wochen">Predictive Calendar — prossime 8 settimane</span></h2>
+        <span class="section-tag" data-it="Algoritmo TTD · auto lunedì" data-de="TTD-Algorithmus · auto montags">Algoritmo TTD · auto lunedì</span>
+      </div>
+      <div class="section-body">
+        <div class="pc-controls">
+          <span class="lbl" data-it="Categoria di riferimento:" data-de="Referenzkategorie:">Categoria di riferimento:</span>
+          <button class="pc-star-btn" onclick="setPcStars(3,this)">3★</button>
+          <button class="pc-star-btn active" onclick="setPcStars(4,this)">4★</button>
+          <button class="pc-star-btn" onclick="setPcStars(0,this)" data-it="Tutte" data-de="Alle">Tutte</button>
+        </div>
+        <div class="pc-scroll" id="pcScroll"><div class="loading-state"><span class="loading-spinner"></span></div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">②</span><span data-it="Indice di Pressione Gottardo" data-de="Gotthard-Druckindex">Indice di Pressione Gottardo</span>™</h2>
+        <span class="section-tag" id="gottardoMeta">OpenMeteo</span>
+      </div>
+      <div class="section-body">
+        <div class="gauge-box">
+          <svg width="240" height="140" viewBox="0 0 240 140" id="gaugeSvg">
+            <path d="M 20 130 A 100 100 0 0 1 220 130" fill="none" stroke="var(--bg-deep)" stroke-width="16" stroke-linecap="round"/>
+            <path id="gaugeFill" d="M 20 130 A 100 100 0 0 1 220 130" fill="none" stroke="var(--accent)" stroke-width="16" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314" style="transition:stroke-dashoffset 1.1s ease, stroke 0.6s"/>
+            <line id="gaugeNeedle" x1="120" y1="130" x2="120" y2="50" stroke="var(--text)" stroke-width="3" stroke-linecap="round" style="transition:transform 1.1s ease; transform-origin:120px 130px; transform:rotate(-90deg)"/>
+            <circle cx="120" cy="130" r="7" fill="var(--text)"/>
+            <text x="120" y="105" text-anchor="middle" id="gaugeValue" font-family="DM Serif Display" font-size="30" fill="var(--text)">—</text>
+          </svg>
+          <div class="gauge-verdict" id="gaugeVerdict" data-it="Caricamento meteo..." data-de="Wetter wird geladen...">Caricamento meteo...</div>
+          <div class="city-cards" id="cityCards"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">③</span><span data-it="Radar territorio — eventi" data-de="Territorium-Radar — Events">Radar territorio — eventi</span></h2>
+        <span class="section-tag">locarnese.events</span>
+      </div>
+      <div class="section-body">
+        <div class="events-list" id="eventiBody"><div class="loading-state"><span class="loading-spinner"></span></div></div>
+        <div id="nordBox"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">④</span><span data-it="Vacanze scolastiche CH &amp; DE" data-de="Schulferien CH &amp; DE">Vacanze scolastiche CH &amp; DE</span></h2>
+        <span class="section-tag">2026</span>
+      </div>
+      <div class="section-body">
+        <div class="holiday-grid">
+          <div class="holiday-card"><div class="h-canton">ZH</div><div class="h-dates">4–19 lug 2026</div><div class="h-tag" data-it="Estate" data-de="Sommer">Estate</div></div>
+          <div class="holiday-card"><div class="h-canton">LU</div><div class="h-dates">5–17 lug 2026</div><div class="h-tag" data-it="Estate" data-de="Sommer">Estate</div></div>
+          <div class="holiday-card"><div class="h-canton">BE</div><div class="h-dates">14–26 lug 2026</div><div class="h-tag" data-it="Estate" data-de="Sommer">Estate</div></div>
+          <div class="holiday-card"><div class="h-canton">ZG</div><div class="h-dates">11–24 lug 2026</div><div class="h-tag" data-it="Estate" data-de="Sommer">Estate</div></div>
+          <div class="holiday-card"><div class="h-canton">NW / OW</div><div class="h-dates">12–24 lug 2026</div><div class="h-tag" data-it="Estate" data-de="Sommer">Estate</div></div>
+          <div class="holiday-card"><div class="h-canton">Baviera DE</div><div class="h-dates">28 lug – 8 set</div><div class="h-tag" data-it="Estate" data-de="Sommer">Estate</div></div>
+          <div class="holiday-card"><div class="h-canton">Baden-WÜ</div><div class="h-dates">30 lug – 12 set</div><div class="h-tag" data-it="Estate" data-de="Sommer">Estate</div></div>
+          <div class="holiday-card"><div class="h-canton">TI</div><div class="h-dates">18 giu – 23 ago</div><div class="h-tag" data-it="Estate" data-de="Sommer">Estate</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PANEL: MARKETING ===== -->
+  <div class="panel" id="panel-marketing">
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">①</span><span data-it="3 azioni prioritarie — questa settimana" data-de="3 Prioritäten — diese Woche">3 azioni prioritarie — questa settimana</span></h2>
+        <span class="section-tag" id="azioniTag">AI</span>
+      </div>
+      <div class="section-body">
+        <div class="progress-wrap">
+          <div class="progress-header"><span data-it="Progresso settimanale" data-de="Wochenfortschritt">Progresso settimanale</span><span id="progressLabel">0/3</span></div>
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="progress-done" id="progressDone" data-it="✓ Strategia completata" data-de="✓ Strategie abgeschlossen">✓ Strategia completata</div>
+        </div>
+        <div id="azioniBody"><div class="loading-state"><span class="loading-spinner"></span></div></div>
+        <button class="whatsapp-btn" onclick="condividiWhatsApp()"><span>📲</span><span data-it="Condividi il piano su WhatsApp" data-de="Plan auf WhatsApp teilen">Condividi il piano su WhatsApp</span></button>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">②</span><span data-it="Marketing Intelligence — trend DACH" data-de="Marketing Intelligence — DACH-Trends">Marketing Intelligence — trend DACH</span></h2>
+        <span class="section-tag" id="trendsMeta">Google Trends</span>
+      </div>
+      <div class="section-body">
+        <div id="trendsBody"><div class="loading-state"><span class="loading-spinner"></span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PANEL: CONTATTI ===== -->
+  <div class="panel" id="panel-contatti">
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">★</span><span data-it="Accesso anticipato — Locarnese 2026" data-de="Früher Zugang — Locarno 2026">Accesso anticipato — Locarnese 2026</span></h2>
+      </div>
+      <div class="section-body">
+        <div class="lead-grid">
+          <div class="lead-card">
+            <div class="lead-tag" data-it="🔍 Gratuito · 30 minuti" data-de="🔍 Kostenlos · 30 Minuten">🔍 Gratuito · 30 minuti</div>
+            <div class="lead-title" data-it="Audit AI: come l'intelligenza artificiale legge il tuo hotel" data-de="KI-Audit: Wie die KI Ihr Hotel sieht">Audit AI: come l'intelligenza artificiale legge il tuo hotel</div>
+            <div class="lead-desc" data-it="Analizziamo profilo Booking, recensioni e posizionamento nel cluster. Ti diciamo cosa vede un algoritmo quando cerca un hotel nel Locarnese." data-de="Wir analysieren Booking-Profil, Bewertungen und Cluster-Positionierung. Wir zeigen, was ein Algorithmus sieht.">Analizziamo profilo Booking, recensioni e posizionamento nel cluster. Ti diciamo cosa vede un algoritmo quando cerca un hotel nel Locarnese.</div>
+            <button class="lead-btn" onclick="submitLead('audit')" data-it="Prenota il mio Audit gratuito →" data-de="Kostenloses Audit buchen →">Prenota il mio Audit gratuito →</button>
+            <div class="lead-fine" data-it="Nessuno spam. Risposta entro 48 ore." data-de="Kein Spam. Antwort innert 48 Std.">Nessuno spam. Risposta entro 48 ore.</div>
+          </div>
+          <div class="lead-card">
+            <div class="lead-tag" data-it="📅 Early Access · Edizione limitata" data-de="📅 Early Access · Limitiert">📅 Early Access · Edizione limitata</div>
+            <div class="lead-title" data-it="Predictive Calendar 2026: le finestre di alta domanda" data-de="Predictive Calendar 2026: Hochsaison-Fenster">Predictive Calendar 2026: le finestre di alta domanda</div>
+            <div class="lead-desc" data-it="Il nostro modello incrocia eventi, vacanze scolastiche CH/DE e pattern meteo. Ottieni le date esatte in cui spuntare il massimo." data-de="Unser Modell kombiniert Events, Schulferien CH/DE und Wettermuster. Erhalten Sie die genauen Hochpreis-Daten.">Il nostro modello incrocia eventi, vacanze scolastiche CH/DE e pattern meteo. Ottieni le date esatte in cui spuntare il massimo.</div>
+            <button class="lead-btn" onclick="submitLead('calendar')" data-it="Voglio l'accesso anticipato →" data-de="Früher Zugang anfordern →">Voglio l'accesso anticipato →</button>
+            <div class="lead-fine" data-it="Disponibile per i primi 15 operatori." data-de="Für die ersten 15 Betriebe.">Disponibile per i primi 15 operatori.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <strong>Ticino Tourism Radar</strong> — Travel Tech Data<br>
+    <span data-it="Aggiornato ogni lunedì mattina" data-de="Jeden Montagmorgen aktualisiert">Aggiornato ogni lunedì mattina</span> · <a href="mailto:info@traveltechdata.ch">info@traveltechdata.ch</a>
+  </footer>
+
 </div>
-
 <script>
+const WORKER_URL = "https://ticino-radar.crimson-fire-7c19.workers.dev";
+let radarData = null;
 let allHotels = [];
+let currentLang = "it";
+let ustatChart = null;
 
-function getRatingPillClass(r) {
-  if (r >= 9.2) return 'pill-eccezionale';
-  if (r >= 8.5) return 'pill-ottimo';
-  if (r >= 7.5) return 'pill-buono';
-  return 'pill-default';
+/* ===== LANG ===== */
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById("langIt").classList.toggle("active", lang === "it");
+  document.getElementById("langDe").classList.toggle("active", lang === "de");
+  document.querySelectorAll("[data-it]").forEach(function(el) {
+    const t = el.getAttribute("data-" + lang);
+    if (t !== null) el.textContent = t;
+  });
+  document.documentElement.lang = lang;
+  if (radarData) {
+    renderInsights();
+    renderEventi();
+    renderPredictiveCalendar();
+    renderTrends();
+  }
 }
 
-function getRatingWord(r) {
-  if (r >= 9.2) return 'Eccezionale';
-  if (r >= 8.5) return 'Ottimo';
-  if (r >= 7.5) return 'Buono';
-  return 'Sufficiente';
+/* ===== TABS ===== */
+function switchTab(name, btn) {
+  document.querySelectorAll(".panel").forEach(function(p) { p.classList.remove("active"); });
+  document.querySelectorAll(".tab").forEach(function(t) { t.classList.remove("active"); });
+  document.getElementById("panel-" + name).classList.add("active");
+  btn.classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (name === "mercato" && ustatChart) setTimeout(function(){ ustatChart.resize(); }, 50);
 }
 
-/* ── RANKING STATE ── */
-var currentSort = { col: null, dir: 1 };
-var currentFilter = 'tutti';
+/* ===== LOAD DATA ===== */
+async function loadRadarData() {
+  try {
+    const res = await fetch("radar_data.json?v=" + Date.now());
+    radarData = await res.json();
+    allHotels = radarData.hotels || [];
 
-function filterHotels(hotels, filter) {
-  if (filter === 'tutti') return hotels;
+    const m = radarData.meta || {};
+    document.getElementById("metaSettimana").textContent = "Settimana " + (m.settimana || "—");
+    document.getElementById("metaHotels").textContent = (m.totalHotels || allHotels.length) + " strutture";
+    document.querySelector(".meta-line .dot").parentElement.querySelector("span:last-child").textContent =
+      currentLang === "it" ? "Aggiornato " + (m.aggiornato || "") : "Aktualisiert " + (m.aggiornato || "");
+
+    renderKpi();
+    initChart();
+    renderInsights();
+    buildHotelSelect();
+    renderRankingTable();
+    renderEventi();
+    renderPredictiveCalendar();
+    renderTrends();
+    loadGottardo();
+    loadAzioniAI();
+  } catch (e) {
+    console.error("Errore caricamento radar_data.json", e);
+  }
+}
+
+/* ===== USTAT KPI ===== */
+function renderKpi() {
+  const k = radarData.ustat.kpi;
+  document.getElementById("ustatFonte").textContent = radarData.ustat.fonte;
+  const cards = [
+    { l_it: "Pernottamenti 2025", l_de: "Logiernächte 2025", v: (k.pernottamenti_2025/1000000).toFixed(2) + "M", d: k.pernottamenti_delta, dir: "up" },
+    { l_it: "Arrivi 2025", l_de: "Ankünfte 2025", v: (k.arrivi_2025/1000).toFixed(0) + "k", d: k.arrivi_delta, dir: "up" },
+    { l_it: "Ospiti esteri", l_de: "Auslandsgäste", v: (k.esteri_2025/1000).toFixed(0) + "k", d: k.esteri_delta, dir: "up" },
+    { l_it: "Occupazione letti", l_de: "Bettenauslastung", v: k.occupazione_letti_2025 + "%", d: "vs " + k.occupazione_media_ch + "% CH", dir: "flat" }
+  ];
+  document.getElementById("kpiGrid").innerHTML = cards.map(function(c) {
+    return '<div class="kpi"><div class="kpi-label">' + (currentLang==="it"?c.l_it:c.l_de) +
+      '</div><div class="kpi-value">' + c.v + '</div><div class="kpi-delta ' + c.dir + '">' + c.d + '</div></div>';
+  }).join("");
+}
+
+/* ===== USTAT CHARTS ===== */
+const chartColors = { c2024: "#8B9099", c2025: "#4FB286", c2026: "#E0A458", grid: "rgba(255,255,255,0.06)", text: "#8B9099" };
+
+function initChart() { switchChart("arrivi", document.querySelector(".chart-tab")); }
+
+function switchChart(type, btn) {
+  if (btn) {
+    document.querySelectorAll(".chart-tab").forEach(function(t){ t.classList.remove("active"); });
+    btn.classList.add("active");
+  }
+  const u = radarData.ustat;
+  const ctx = document.getElementById("ustatChart");
+  if (ustatChart) ustatChart.destroy();
+
+  Chart.defaults.color = chartColors.text;
+  Chart.defaults.font.family = "DM Sans";
+  let config;
+
+  if (type === "arrivi") {
+    config = {
+      type: "bar",
+      data: { labels: u.stagionalita_arrivi.labels, datasets: [
+        { label: "2024", data: u.stagionalita_arrivi["2024"], backgroundColor: chartColors.c2024, borderRadius: 4 },
+        { label: "2025", data: u.stagionalita_arrivi["2025"], backgroundColor: chartColors.c2025, borderRadius: 4 },
+        { label: "2026", data: u.stagionalita_arrivi["2026"], backgroundColor: chartColors.c2026, borderRadius: 4 }
+      ]},
+      options: chartOpts(false)
+    };
+    setChartNote(currentLang === "it" ? "Arrivi mensili. Luglio 2025: 80.885 (+17% vs 2024)." : "Ankünfte/Monat. Juli 2025: 80.885 (+17% vs 2024).");
+  } else if (type === "occupazione") {
+    config = {
+      type: "line",
+      data: { labels: u.occupazione_letti.labels, datasets: [
+        { label: "2024", data: u.occupazione_letti["2024"], borderColor: chartColors.c2024, backgroundColor: "transparent", tension: 0.35, borderWidth: 2, pointRadius: 2 },
+        { label: "2025", data: u.occupazione_letti["2025"], borderColor: chartColors.c2025, backgroundColor: "rgba(79,178,134,0.08)", fill: true, tension: 0.35, borderWidth: 2.5, pointRadius: 2 },
+        { label: "2026", data: u.occupazione_letti["2026"], borderColor: chartColors.c2026, backgroundColor: "transparent", tension: 0.35, borderWidth: 2.5, borderDash: [5,4], pointRadius: 3 }
+      ]},
+      options: chartOpts(true, "%")
+    };
+    setChartNote(currentLang === "it" ? "Occupazione letti %. Picco luglio 2025: 75.5%." : "Bettenauslastung %. Spitze Juli 2025: 75,5%.");
+  } else if (type === "mercati") {
+    config = {
+      type: "bar",
+      data: { labels: u.mercati_esteri.labels, datasets: [
+        { label: currentLang==="it"?"Pernottamenti gen-mar 2026":"Logiernächte Jan-Mär 2026", data: u.mercati_esteri.values, backgroundColor: [chartColors.c2026, chartColors.c2025, "#6FA8DC", "#8B9099", "#8B9099", "#8B9099", "#8B9099", "#8B9099"], borderRadius: 4 }
+      ]},
+      options: Object.assign(chartOpts(false), { indexAxis: "y" })
+    };
+    setChartNote(u.mercati_esteri.nota);
+  } else if (type === "storico") {
+    config = {
+      type: "line",
+      data: { labels: u.trend_storico.labels, datasets: [
+        { label: currentLang==="it"?"Pernottamenti totali Ticino":"Logiernächte Tessin", data: u.trend_storico.values, borderColor: chartColors.c2025, backgroundColor: "rgba(79,178,134,0.1)", fill: true, tension: 0.3, borderWidth: 2.5, pointRadius: 3, pointBackgroundColor: chartColors.c2025 }
+      ]},
+      options: chartOpts(false)
+    };
+    setChartNote(currentLang === "it" ? "Pernottamenti totali. Picco 2021 (boom domestico post-Covid)." : "Logiernächte gesamt. Spitze 2021 (Inland-Boom nach Covid).");
+  }
+  ustatChart = new Chart(ctx, config);
+}
+
+function chartOpts(percent, suffix) {
+  return {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { labels: { boxWidth: 12, padding: 14, font: { size: 12 } } } },
+    scales: {
+      x: { grid: { color: chartColors.grid }, ticks: { font: { size: 11 } } },
+      y: { grid: { color: chartColors.grid }, ticks: { font: { size: 11 }, callback: function(v){ return suffix ? v + suffix : v.toLocaleString("it"); } }, beginAtZero: !percent }
+    }
+  };
+}
+function setChartNote(t) { document.getElementById("chartNote").textContent = t; }
+
+/* ===== INSIGHTS ===== */
+function renderInsights() {
+  const ico = { positivo: "📈", attenzione: "⚠️", info: "ℹ️" };
+  document.getElementById("insightsBox").innerHTML = radarData.ustat.insights.map(function(i) {
+    return '<div class="insight ' + i.tipo + '"><div class="insight-ico">' + (ico[i.tipo]||"•") +
+      '</div><div class="insight-text">' + (currentLang==="it"?i.testo_it:i.testo_de) + '</div></div>';
+  }).join("");
+}
+/* ===== RANKING TABLE ===== */
+let currentFilter = "tutti";
+let currentSort = { col: null, dir: 1 };
+
+function getRatingClass(r) { return r >= 9 ? "hi" : (r >= 8 ? "mid" : "lo"); }
+
+function filterHotels(hotels, f) {
+  if (f === "tutti") return hotels;
   return hotels.filter(function(h) {
-    var addr = (h.address + ' ' + h.city).toLowerCase();
-    if (filter === 'locarno')  return /locarno|minusio|muralto/.test(addr);
-    if (filter === 'ascona')   return /ascona|losone/.test(addr);
-    if (filter === 'cannobio') return /cannobio/.test(addr);
-    if (filter === 'valli')    return /vallemaggia|maggia|cevio/.test(addr);
-    if (filter === 'brissago') return /brissago/.test(addr);
+    const a = (h.address + " " + h.city).toLowerCase();
+    if (f === "locarno") return /locarno|minusio|muralto|orselina/.test(a);
+    if (f === "ascona") return /ascona|losone/.test(a);
+    if (f === "cannobio") return /cannobio/.test(a);
+    if (f === "valli") return /vallemaggia|maggia|cevio|intragna|tegna/.test(a);
+    if (f === "brissago") return /brissago/.test(a);
     return true;
   });
 }
-
-function applyFilter(filter, btn) {
-  currentFilter = filter;
-  document.querySelectorAll('.filter-pill').forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
+function applyFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll(".filter-pill").forEach(function(b){ b.classList.remove("active"); });
+  btn.classList.add("active");
   currentSort = { col: null, dir: 1 };
   renderRankingTable();
 }
-
 function applySort(col) {
-  if (currentSort.col === col) {
-    currentSort.dir *= -1;
-  } else {
-    currentSort.col = col;
-    currentSort.dir = -1; // default: descending for score, descending for price
-  }
+  if (currentSort.col === col) currentSort.dir *= -1;
+  else { currentSort.col = col; currentSort.dir = -1; }
   renderRankingTable();
 }
-
 function renderRankingTable() {
-  var hotels = filterHotels(allHotels, currentFilter);
+  let hotels = filterHotels(allHotels, currentFilter);
   if (currentSort.col) {
     hotels = hotels.slice().sort(function(a, b) {
-      var va = currentSort.col === 'score' ? (a.rating || 0) : (a.priceWeekend7 || 0);
-      var vb = currentSort.col === 'score' ? (b.rating || 0) : (b.priceWeekend7 || 0);
+      const va = currentSort.col === "score" ? (a.rating||0) : (a.priceWeekend7||0);
+      const vb = currentSort.col === "score" ? (b.rating||0) : (b.priceWeekend7||0);
       return currentSort.dir * (vb - va);
     });
   }
-  var scoreInd = currentSort.col === 'score' ? '<span class="sort-indicator">' + (currentSort.dir === -1 ? '&#x25BE;' : '&#x25B4;') + '</span>' : '';
-  var priceInd = currentSort.col === 'price' ? '<span class="sort-indicator">' + (currentSort.dir === -1 ? '&#x25BE;' : '&#x25B4;') + '</span>' : '';
+  const si = currentSort.col === "score" ? '<span class="sort-ind">' + (currentSort.dir===-1?"&#x25BE;":"&#x25B4;") + '</span>' : "";
+  const pi = currentSort.col === "price" ? '<span class="sort-ind">' + (currentSort.dir===-1?"&#x25BE;":"&#x25B4;") + '</span>' : "";
+  const thStruct = currentLang === "it" ? "Struttura" : "Hotel";
+  const thRev = currentLang === "it" ? "Recensioni" : "Bewert.";
 
-  var thScore = '<th class="sortable" onclick="applySort(&quot;score&quot;)">Score' + scoreInd + '</th>';
-  var thPrice = '<th class="sortable" onclick="applySort(&quot;price&quot;)">+7 gg' + priceInd + '</th>';
-  var html = '<div class="table-wrap"><table class="ranking-table"><thead><tr><th>#</th><th>Struttura</th>' + thScore + '<th>Recensioni</th>' + thPrice + '<th>+14 gg</th></tr></thead><tbody>';
+  const thScore = '<th class="sortable" onclick="applySort(&quot;score&quot;)">Score' + si + '</th>';
+  const thPrice = '<th class="sortable" onclick="applySort(&quot;price&quot;)">+7gg' + pi + '</th>';
+  let html = '<div class="table-wrap"><table class="ranking-table"><thead><tr><th>#</th><th>' + thStruct + '</th>' +
+    thScore + '<th>' + thRev + '</th>' + thPrice + '<th>+14gg</th></tr></thead><tbody>';
 
-  hotels.forEach(function(h, i) {
-    var globalIdx = allHotels.indexOf(h);
-    var isCannobio = (h.address + ' ' + h.city).toLowerCase().indexOf('cannobio') !== -1;
-    var flag = isCannobio ? ' &#x1F1EE;&#x1F1F9;' : '';
-    var p14cell = h.fullyBooked14
-      ? '<span class="sold-out-badge">Sold out</span>'
-      : (h.priceWeekend14 ? 'CHF ' + h.priceWeekend14 : '—');
-    var p14delta = '';
+  hotels.forEach(function(h) {
+    const gi = allHotels.indexOf(h);
+    const isCann = (h.address + " " + h.city).toLowerCase().indexOf("cannobio") !== -1;
+    const flag = isCann ? " &#x1F1EE;&#x1F1F9;" : "";
+    let p14 = h.fullyBooked14 ? '<span class="sold-out-badge">Sold out</span>' : (h.priceWeekend14 ? "CHF " + h.priceWeekend14 : "—");
+    let delta = "";
     if (!h.fullyBooked14 && h.priceWeekend14 && h.priceWeekend7) {
-      var diff = h.priceWeekend14 - h.priceWeekend7;
-      if (diff > 0) p14delta = ' <span class="price-up">+' + diff + '</span>';
-      else if (diff < 0) p14delta = ' <span class="price-down">' + diff + '</span>';
+      const d = h.priceWeekend14 - h.priceWeekend7;
+      if (d > 0) delta = ' <span class="price-up">+' + d + '</span>';
+      else if (d < 0) delta = ' <span class="price-down">' + d + '</span>';
     }
-    html += '<tr id="row-' + globalIdx + '">' +
-      '<td class="rank-num">' + h.rank + '</td>' +
-      '<td class="hotel-name-cell" onclick="selectHotel(' + globalIdx + ')">' + h.name + flag + '</td>' +
-      '<td><span class="rating-pill ' + getRatingPillClass(h.rating) + '">' + h.rating.toFixed(1) + '</span></td>' +
-      '<td style="color:var(--muted)">' + h.reviews.toLocaleString('it') + '</td>' +
-      '<td style="font-weight:500">CHF ' + h.priceWeekend7 + '</td>' +
-      '<td>' + p14cell + p14delta + '</td>' +
-    '</tr>';
+    html += '<tr><td class="rank-num">' + h.rank + '</td>' +
+      '<td class="hotel-name-cell" onclick="selectHotel(' + gi + ')">' + h.name + flag + '</td>' +
+      '<td><span class="rating-pill ' + getRatingClass(h.rating) + '">' + h.rating.toFixed(1) + '</span></td>' +
+      '<td style="color:var(--muted)">' + h.reviews.toLocaleString("it") + '</td>' +
+      '<td style="font-weight:600">CHF ' + h.priceWeekend7 + '</td>' +
+      '<td>' + p14 + delta + '</td></tr>';
   });
   html += '</tbody></table></div>';
-
-  document.getElementById('rankingBody').innerHTML = html;
-  document.getElementById('rankingNote').textContent =
-    hotels.length + ' strutture visualizzate' + (currentFilter !== 'tutti' ? ' (filtro attivo)' : '') + ' su ' + allHotels.length + ' monitorate.';
+  document.getElementById("rankingBody").innerHTML = html;
+  document.getElementById("rankingMeta").textContent = "Booking.com · check-in " + radarData.meta.checkIn;
+  document.getElementById("rankingNote").textContent =
+    hotels.length + (currentLang==="it" ? " strutture · " : " Hotels · ") + allHotels.length + (currentLang==="it"?" monitorate":" überwacht");
 }
 
-function buildRankingTable(hotels) {
-  // Legacy wrapper — kept for compatibility
-  return '';
+/* ===== HOTEL DETAIL ===== */
+function buildHotelSelect() {
+  const sel = document.getElementById("hotelSelect");
+  sel.innerHTML = allHotels.map(function(h, i) {
+    return '<option value="' + i + '">#' + h.rank + " — " + h.name + " (" + h.rating.toFixed(1) + ")</option>";
+  }).join("");
+  if (allHotels.length) updateHotelDetail(0);
 }
-
-function selectHotel(idx) {
-  document.getElementById('hotelSelect').value = idx;
-  updateHotelDetail();
-  document.querySelector('.section:nth-child(4)').scrollIntoView({behavior:'smooth', block:'start'});
+function selectHotel(i) {
+  document.getElementById("hotelSelect").value = i;
+  updateHotelDetail(i);
+  document.getElementById("hotelDetail").scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
+function updateHotelDetail(i) {
+  const h = allHotels[i];
+  if (!h) return;
+  let p14card;
+  if (h.fullyBooked14) {
+    p14card = '<div class="metric-card" style="border-left:3px solid var(--red)"><div class="m-label">Prezzo +14gg</div><div class="m-value" style="font-size:17px">Sold out</div><div class="m-sub" style="color:var(--red)">' + radarData.meta.checkIn14 + '</div></div>';
+  } else if (h.priceWeekend14) {
+    const d = h.priceWeekend7 ? (h.priceWeekend14 - h.priceWeekend7) : 0;
+    let style, arrow;
+    if (d > 0) { style = "border-left:3px solid var(--accent)"; arrow = '<div style="font-size:26px;color:var(--accent);line-height:1">&#x2191;</div><div style="font-size:11px;color:var(--accent);font-weight:600">+CHF ' + d + ' vs +7gg</div>'; }
+    else if (d < 0) { style = "border-left:3px solid var(--red)"; arrow = '<div style="font-size:26px;color:var(--red);line-height:1">&#x2193;</div><div style="font-size:11px;color:var(--red);font-weight:600">CHF ' + d + ' vs +7gg</div>'; }
+    else { style = ""; arrow = '<div style="font-size:11px;color:var(--muted)">= invariato</div>'; }
+    p14card = '<div class="metric-card" style="' + style + '"><div class="m-label">Prezzo +14gg</div><div class="m-value">CHF ' + h.priceWeekend14 + '</div>' + arrow + '</div>';
+  } else {
+    p14card = '<div class="metric-card"><div class="m-label">Prezzo +14gg</div><div class="m-value">—</div></div>';
+  }
 
-function updateHotelDetail() {
-  const idx = parseInt(document.getElementById('hotelSelect').value, 10);
-  if (isNaN(idx) || !allHotels[idx]) return;
-  const h = allHotels[idx];
-
-  // Highlight row in ranking table
-  document.querySelectorAll('.ranking-table tr').forEach(function(r) { r.classList.remove('selected-row'); });
-  const row = document.getElementById('row-' + idx);
-  if (row) row.classList.add('selected-row');
-
-  let catHtml = '';
+  let cats = "";
   if (h.categoryReviews && h.categoryReviews.length) {
-    catHtml = '<div class="cat-reviews">';
-    h.categoryReviews.forEach(function(c) {
-      const pct = Math.round((c.score / 10) * 100);
-      catHtml += '<div class="cat-row">' +
-        '<span class="cr-label">' + c.title + '</span>' +
-        '<span class="cr-score">' + c.score.toFixed(1) + '</span>' +
-        '</div>';
-    });
-    catHtml += '</div>';
+    cats = '<div class="cat-reviews">' + h.categoryReviews.map(function(c) {
+      const title = c.title || c.name || "";
+      const score = c.score || c.value || "";
+      return '<div class="cat-row"><span>' + title + '</span><span class="v">' + score + '</span></div>';
+    }).join("") + '</div>';
   }
 
-  const bookingUrl = h.url ? '<a href="' + h.url + '" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent)">Apri su Booking.com &#x2197;</a>' : '';
-
-  document.getElementById('hotelDetail').innerHTML =
-    '<div class="metrics-grid">' +
-      '<div class="metric-card">' +
-        '<div class="m-label">Ranking nel cluster</div>' +
-        '<div class="m-value">#' + h.rank + ' / ' + allHotels.length + '</div>' +
-        '<div class="m-sub">Ordinato per score Booking</div>' +
-      '</div>' +
-      '<div class="metric-card">' +
-        '<div class="m-label">Prezzo +7 gg</div>' +
-        '<div class="m-value">CHF ' + h.priceWeekend7 + '</div>' +
-        '<div class="m-sub">Check-in: ' + (window.radarMeta ? window.radarMeta.checkIn : '—') + '</div>' +
-      '</div>' +
-      (function() {
-        if (h.fullyBooked14) {
-          return '<div class="metric-card" style="background:var(--red-bg);border:0.5px solid rgba(153,31,31,0.2);border-left:3px solid var(--red)">' +
-            '<div class="m-label">Prezzo +14 gg</div>' +
-            '<div class="m-value" style="font-size:16px">Sold out</div>' +
-            '<div class="m-sub" style="color:var(--red)">Non disponibile ' + (window.radarMeta ? window.radarMeta.checkIn14 : '') + '</div>' +
-          '</div>';
-        }
-        var p14 = h.priceWeekend14;
-        var p7  = h.priceWeekend7;
-        if (!p14) {
-          return '<div class="metric-card"><div class="m-label">Prezzo +14 gg</div><div class="m-value">—</div></div>';
-        }
-        var d = p7 ? (p14 - p7) : 0;
-        var cardStyle, arrowHtml;
-        if (d > 0) {
-          cardStyle = 'background:var(--accent-light);border:0.5px solid rgba(29,107,74,0.2);border-left:3px solid var(--accent)';
-          arrowHtml = '<div style="font-size:28px;line-height:1;color:var(--accent);margin:4px 0">&#x2191;</div>' +
-                      '<div style="font-size:11px;color:var(--accent);font-weight:500">+CHF ' + d + ' vs +7gg</div>';
-        } else if (d < 0) {
-          cardStyle = 'background:var(--red-bg);border:0.5px solid rgba(153,31,31,0.2);border-left:3px solid var(--red)';
-          arrowHtml = '<div style="font-size:28px;line-height:1;color:var(--red);margin:4px 0">&#x2193;</div>' +
-                      '<div style="font-size:11px;color:var(--red);font-weight:500">CHF ' + d + ' vs +7gg</div>';
-        } else {
-          cardStyle = 'background:var(--bg);border:0.5px solid var(--border)';
-          arrowHtml = '<div style="font-size:11px;color:var(--muted);margin-top:4px">=&nbsp;Invariato</div>';
-        }
-        return '<div class="metric-card" style="' + cardStyle + '">' +
-          '<div class="m-label">Prezzo +14 gg</div>' +
-          '<div class="m-value">CHF ' + p14 + '</div>' +
-          arrowHtml +
-          '<div class="m-sub" style="margin-top:4px">Check-in: ' + (window.radarMeta ? window.radarMeta.checkIn14 : '—') + '</div>' +
-        '</div>';
-      })() +
-      '<div class="metric-card">' +
-        '<div class="m-label">Score Booking</div>' +
-        '<div class="m-value">' + h.rating.toFixed(1) + ' <span style="font-size:13px;font-weight:400;color:var(--muted)">/ 10</span></div>' +
-        '<div class="m-sub">' + h.reviews.toLocaleString('it') + ' recensioni &middot; ' + getRatingWord(h.rating) + '</div>' +
-      '</div>' +
+  document.getElementById("hotelDetail").innerHTML =
+    '<div class="metric-row">' +
+      '<div class="metric-card"><div class="m-label">Ranking cluster</div><div class="m-value">#' + h.rank + '</div><div class="m-sub">' + h.city + '</div></div>' +
+      '<div class="metric-card"><div class="m-label">Prezzo +7gg</div><div class="m-value">CHF ' + h.priceWeekend7 + '</div><div class="m-sub">check-in ' + radarData.meta.checkIn + '</div></div>' +
+      p14card +
     '</div>' +
-    catHtml +
-    '<div style="margin-top:10px;font-size:11px;color:var(--muted);">' + h.address + ' &nbsp;&nbsp;' + bookingUrl + '</div>';
+    '<div class="metric-row" style="grid-template-columns:1fr 1fr">' +
+      '<div class="metric-card"><div class="m-label">Score Booking</div><div class="m-value">' + h.rating.toFixed(1) + '</div><div class="m-sub">' + h.reviews.toLocaleString("it") + ' recensioni</div></div>' +
+      '<div class="metric-card"><div class="m-label">Categoria</div><div class="m-value">' + (h.stars ? h.stars + "★" : "—") + '</div><div class="m-sub">' + (h.ratingLabel||"") + '</div></div>' +
+    '</div>' + cats;
 }
 
-function loadRadarData() {
-  fetch('radar_data.json?v=' + Date.now())
-    .then(function(r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    })
-    .then(function(data) {
-      allHotels = data.hotels;
-      window.radarMeta = data.meta;
-
-      // Update header
-      document.getElementById('subSettimana').textContent = '📅 Settimana ' + data.meta.settimana + ' / 2026';
-
-      // Build ranking table
-      document.getElementById('rankingMeta').textContent =
-        'Booking.com · ' + allHotels.length + ' strutture · check-in ' + data.meta.checkIn;
-      renderRankingTable();
-
-      // Populate select
-      const sel = document.getElementById('hotelSelect');
-      sel.innerHTML = '';
-      allHotels.forEach(function(h, i) {
-        const opt = document.createElement('option');
-        opt.value = i;
-        opt.textContent = '#' + h.rank + ' ' + h.name + ' — ' + h.rating.toFixed(1) + '/10';
-        sel.appendChild(opt);
-      });
-      document.getElementById('hotelCountBadge').textContent = allHotels.length + ' strutture';
-
-      // Esponi eventi per il Worker AI
-      window.radarEventi = data.eventi || { locali: [], nord: [] };
-
-      // Render eventi dinamici sezione 4
-      renderEventi(window.radarEventi.locali);
-
-      // Render marketing trends
-      renderMarketingTrends(data.marketing_trends);
-
-      // Show first hotel detail
-      updateHotelDetail();
-    })
-    .catch(function(err) {
-      console.error(err);
-      document.getElementById('rankingBody').innerHTML =
-        '<div class="loading-state" style="color:var(--red)">Errore nel caricamento di radar_data.json. Verificare che il file sia presente nel repository.</div>';
-    });
-}
-
-loadRadarData();
-
-  /* ── RENDER EVENTI DINAMICI ── */
-  function renderEventi(eventi) {
-    if (!eventi || eventi.length === 0) {
-      document.getElementById('eventiBody').innerHTML =
-        '<div style="font-size:13px;color:var(--muted);padding:8px 0">Nessun evento in programma nelle prossime settimane.</div>';
-      return;
-    }
-
-    const oggi = new Date();
-    oggi.setHours(0, 0, 0, 0);
-
-    // Filtra eventi non ancora conclusi
-    const futuri = eventi.filter(function(e) {
-      if (!e.dataFine) return true; // se manca dataFine, mostralo sempre
-      const fine = new Date(e.dataFine);
-      return fine >= oggi;
-    });
-
-    if (futuri.length === 0) {
-      document.getElementById('eventiBody').innerHTML =
-        '<div style="font-size:13px;color:var(--muted);padding:8px 0">Nessun evento imminente. Consulta il calendario completo.</div>';
-      return;
-    }
-
-    const impactMap = {
-      'alto':  { dotClass: 'dot-alto',  badgeClass: 'badge-alto',  rowClass: 'alto',  label: 'Impatto alto' },
-      'medio': { dotClass: 'dot-medio', badgeClass: 'badge-medio', rowClass: 'medio', label: 'Impatto medio' },
-      'basso': { dotClass: 'dot-basso', badgeClass: 'badge-basso', rowClass: '',      label: 'Impatto basso' }
-    };
-
-    let html = '<div class="events-list">';
-    futuri.forEach(function(e) {
-      const imp = impactMap[e.impatto] || impactMap['basso'];
-      // Calcola giorni mancanti dalla data di inizio
-      var giorniLabel = '';
-      if (e.dataInizio) {
-        var inizio = new Date(e.dataInizio);
-        var diff = Math.ceil((inizio - oggi) / (1000 * 60 * 60 * 24));
-        if (diff > 0) giorniLabel = ' &middot; tra ' + diff + ' giorni';
-        else if (diff <= 0 && new Date(e.dataFine) >= oggi) giorniLabel = ' &middot; In corso';
-      }
-      html += '<div class="event-row ' + imp.rowClass + '">' +
-        '<div class="event-dot ' + imp.dotClass + '"></div>' +
-        '<div class="event-info">' +
-          '<div class="ev-name">' + e.nome + '</div>' +
-          '<div class="ev-date">' + e.dateLabel + ' &middot; ' + e.luogo + giorniLabel + '</div>' +
-          (e.note ? '<div class="ev-note">' + e.note + '</div>' : '') +
-        '</div>' +
-        '<div class="event-badge ' + imp.badgeClass + '">' + imp.label + '</div>' +
-      '</div>';
-    });
-    html += '</div>';
-
-    document.getElementById('eventiBody').innerHTML = html;
-
-    // Aggiorna la section-note con il prossimo evento ad alto impatto
-    var prossimoAlto = futuri.find(function(e) { return e.impatto === 'alto'; });
-    if (prossimoAlto) {
-      document.getElementById('eventiNote').textContent =
-        'Prossimo evento ad alto impatto: ' + prossimoAlto.nome + ' (' + prossimoAlto.dateLabel + ')';
-    }
+/* ===== TERMOMETRO ===== */
+function calcolaTermometro() {
+  const input = parseFloat(document.getElementById("termoInput").value);
+  if (!input || input <= 0) { document.getElementById("termoResult").innerHTML = '<span style="color:var(--muted)">Inserisci una tariffa valida.</span>'; return; }
+  const prezzi = allHotels.filter(function(h){ return h.priceWeekend7; }).map(function(h){ return h.priceWeekend7; });
+  const media = Math.round(prezzi.reduce(function(a,b){return a+b;},0) / prezzi.length);
+  const diff = Math.round(((input - media) / media) * 100);
+  const absD = Math.abs(diff);
+  let res = '<span class="tr-media">Prezzo medio cluster: <strong>CHF ' + media + '</strong>. </span>';
+  let consiglio = "";
+  if (diff > 0) {
+    res += '<span class="tr-above">Sei +' + absD + '% sopra la media.</span>';
+    consiglio = "Posizionamento premium. Mantieni solo se prevedi alta domanda dal Nord (Gottardo alto) o se il tuo score lo giustifica.";
+  } else if (diff < 0) {
+    res += '<span class="tr-below">Sei -' + absD + '% sotto la media.</span>';
+    consiglio = "Strategia aggressiva. Ottimo per saturare le ultime camere. Se occupazione sopra 60%, valuta un rialzo di CHF 10-20.";
+  } else {
+    res += '<span class="tr-par">Sei in linea con la media del cluster.</span>';
+    consiglio = "Allineamento perfetto. La differenza la fa la visibilita: ottimizza le foto o attiva tariffe mobile.";
   }
+  res += '<div class="termo-advice">' + consiglio + '</div>';
+  document.getElementById("termoResult").innerHTML = res;
+}
 
-  /* ── INDICE DI PRESSIONE GOTTARDO ── */
-  const CITIES = [
-    { id: 'locarno', name: 'Locarno',  lat: 46.16, lon: 8.79,  isDestination: true  },
-    { id: 'zurich',  name: 'Zurigo',   lat: 47.37, lon: 8.54,  isDestination: false },
-    { id: 'basel',   name: 'Basilea',  lat: 47.56, lon: 7.59,  isDestination: false },
-    { id: 'bern',    name: 'Berna',    lat: 46.95, lon: 7.45,  isDestination: false }
-  ];
+/* ===== EVENTI ===== */
+function renderEventi() {
+  const oggi = new Date(); oggi.setHours(0,0,0,0);
+  const locali = (radarData.eventi.locali || []).filter(function(e){ return new Date(e.dataFine) >= oggi; });
+  const impLabel = { alto: currentLang==="it"?"Alto":"Hoch", medio: currentLang==="it"?"Medio":"Mittel", basso: currentLang==="it"?"Basso":"Niedrig" };
+  document.getElementById("eventiBody").innerHTML = locali.map(function(e) {
+    return '<div class="event-row ' + e.impatto + '">' +
+      '<div class="ev-date">' + e.dateLabel + '</div>' +
+      '<div class="ev-body"><div class="ev-name">' + e.nome + '</div>' +
+      '<div class="ev-meta">' + e.luogo + '</div>' +
+      '<div class="ev-note">' + e.note + '</div></div>' +
+      '<span class="ev-impact ' + e.impatto + '">' + (impLabel[e.impatto]||e.impatto) + '</span></div>';
+  }).join("");
 
-  const WMO_ICONS = {
-    0:'☀️', 1:'🌤️', 2:'⛅', 3:'☁️',
-    45:'🌫️', 48:'🌫️',
-    51:'🌦️', 53:'🌦️', 55:'🌧️',
-    61:'🌧️', 63:'🌧️', 65:'🌧️',
-    71:'🌨️', 73:'🌨️', 75:'❄️',
-    80:'🌦️', 81:'🌧️', 82:'⛈️',
-    95:'⛈️', 96:'⛈️', 99:'⛈️'
+  const nord = radarData.eventi.nord || [];
+  if (nord.length) {
+    document.getElementById("nordBox").innerHTML = nord.map(function(n) {
+      return '<div class="nord-note"><strong>🔻 ' + n.nome + '</strong> (' + n.dateLabel + ') — ' + n.note + '</div>';
+    }).join("");
+  }
+}
+
+/* ===== PREDICTIVE CALENDAR ===== */
+let pcStars = 4;
+function setPcStars(s, btn) {
+  pcStars = s;
+  document.querySelectorAll(".pc-star-btn").forEach(function(b){ b.classList.remove("active"); });
+  btn.classList.add("active");
+  renderPredictiveCalendar();
+}
+function clusterAvg(stars) {
+  let pool = allHotels.filter(function(h){ return h.priceWeekend7; });
+  if (stars > 0) pool = pool.filter(function(h){ return h.stars === stars; });
+  if (!pool.length) pool = allHotels.filter(function(h){ return h.priceWeekend7; });
+  return Math.round(pool.reduce(function(a,h){return a+h.priceWeekend7;},0) / pool.length);
+}
+function renderPredictiveCalendar() {
+  const pc = radarData.predictive_calendar;
+  if (!pc) return;
+  const base = clusterAvg(pcStars);
+  const mult = pc.moltiplicatori;
+  const levelColor = { picco: "#085041", alta: "#1D6B4A", media: "#5DCAA5", spalla: "#6FA8DC", bassa: "#8B9099", "bassa+": "#8B9099" };
+  const levelLabel = {
+    picco: currentLang==="it"?"Picco":"Spitze", alta: currentLang==="it"?"Alta":"Hoch",
+    media: "Media", spalla: currentLang==="it"?"Spalla":"Schulter", bassa: currentLang==="it"?"Bassa":"Niedrig"
   };
+  document.getElementById("pcScroll").innerHTML = pc.settimane.map(function(w) {
+    const mDomanda = mult[w.livello] || 1.0;
+    const mEvento = w.eventi && w.eventi.length ? 1.10 : 1.0;
+    const mVac = w.vacanze_ch && w.vacanze_ch.length ? 1.15 : 1.0;
+    const target = Math.round(base * mDomanda * mEvento * mVac);
+    const delta = target - base;
+    const deltaStr = (delta >= 0 ? "+" : "") + "CHF " + delta;
+    const deltaColor = delta > 0 ? "var(--accent)" : (delta < 0 ? "var(--red)" : "var(--muted)");
+    let badges = "";
+    (w.eventi||[]).forEach(function(ev){ badges += '<span class="pc-badge event">🎵 ' + ev + '</span>'; });
+    if (w.vacanze_ch && w.vacanze_ch.length) badges += '<span class="pc-badge holiday">🏫 ' + w.vacanze_ch.join(" ") + '</span>';
+    const motiv = currentLang === "it" ? w.motivazione_it : w.motivazione_de;
+    return '<div class="pc-card">' +
+      '<div class="pc-week">SETT ' + w.settimana + '</div>' +
+      '<div class="pc-dates">' + w.label + '</div>' +
+      '<span class="pc-level" style="background:' + (levelColor[w.livello]||"#8B9099") + '">' + (levelLabel[w.livello]||w.livello) + '</span>' +
+      '<div class="pc-prices">' +
+        '<div class="pc-price-row"><span class="k">' + (currentLang==="it"?"Media cluster":"Cluster-Schnitt") + ' ' + (pcStars>0?pcStars+"★":(currentLang==="it"?"tutte":"alle")) + '</span><span class="v">CHF ' + base + '</span></div>' +
+        '<div class="pc-price-row"><span class="k">' + (currentLang==="it"?"Variazione":"Anpassung") + '</span><span class="pc-delta" style="color:' + deltaColor + '">' + deltaStr + '</span></div>' +
+      '</div>' +
+      '<div class="pc-target">CHF ' + target + '</div>' +
+      '<div class="pc-badges">' + badges + '</div>' +
+      '<div class="pc-motiv">' + motiv + '</div>' +
+    '</div>';
+  }).join("");
+}
 
-  function wmoDesc(code) {
-    const map = {
-      0:'Sereno', 1:'Poco nuvoloso', 2:'Parzialmente nuvoloso', 3:'Coperto',
-      45:'Nebbia', 48:'Nebbia',
-      51:'Pioviggine', 53:'Pioviggine', 55:'Pioviggine intensa',
-      61:'Pioggia leggera', 63:'Pioggia', 65:'Pioggia forte',
-      71:'Neve leggera', 73:'Neve', 75:'Neve intensa',
-      80:'Rovesci', 81:'Rovesci forti', 82:'Rovesci violenti',
-      95:'Temporale', 96:'Temporale', 99:'Temporale forte'
-    };
-    return map[code] || 'Variabile';
-  }
+/* ===== TRENDS ===== */
+function renderTrends() {
+  const mt = radarData.marketing_trends;
+  if (!mt) return;
+  document.getElementById("trendsMeta").textContent = "Google Trends · " + mt.mercato + " · " + mt.settimana;
+  let html = '<div class="trend-grid">';
+  mt.ricerche_top.forEach(function(k) {
+    const bc = k.trend === "up" ? "trend-up" : (k.trend === "down" ? "trend-down" : "trend-stable");
+    html += '<div class="trend-card"><div class="trend-left">' +
+      '<div class="trend-keyword">' + k.keyword + '</div>' +
+      '<div class="trend-note">' + k.note + '</div>' +
+      '<div class="trend-action">' + k.suggerimento_azione + '</div></div>' +
+      '<div class="trend-badge ' + bc + '">' + k.crescita + '</div></div>';
+  });
+  html += '</div>';
+  html += '<div class="hashtag-box"><div class="hashtag-box-title">📷 Toolkit Instagram — ' + (currentLang==="it"?"copia e incolla":"kopieren") + '</div><div class="hashtag-wrap" id="hashtagWrap">';
+  mt.social_hashtags.forEach(function(t){ html += '<span class="hashtag-pill">' + t + '</span>'; });
+  html += '</div><button class="copy-btn" id="copyBtn" onclick="copiaHashtag()">📋 ' + (currentLang==="it"?"Copia Hashtag":"Hashtags kopieren") + '</button></div>';
+  document.getElementById("trendsBody").innerHTML = html;
+}
+function copiaHashtag() {
+  const pills = document.querySelectorAll("#hashtagWrap .hashtag-pill");
+  const txt = Array.from(pills).map(function(p){ return p.textContent; }).join(" ");
+  const done = function() {
+    const b = document.getElementById("copyBtn");
+    b.textContent = "✅ " + (currentLang==="it"?"Copiati!":"Kopiert!");
+    b.classList.add("copied");
+    setTimeout(function(){ b.textContent = "📋 " + (currentLang==="it"?"Copia Hashtag":"Hashtags kopieren"); b.classList.remove("copied"); }, 2000);
+  };
+  navigator.clipboard.writeText(txt).then(done).catch(function() {
+    const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); document.body.removeChild(ta); done();
+  });
+}
 
-  function isRainy(code) { return code >= 51; }
-  function isCloudy(code) { return code >= 3; }
-  function isSunny(code) { return code <= 1; }
+/* ===== GOTTARDO ===== */
+const CITIES = [
+  { name: "Locarno", lat: 46.17, lon: 8.79 },
+  { name: "Zurigo", lat: 47.37, lon: 8.54 },
+  { name: "Basilea", lat: 47.56, lon: 7.59 },
+  { name: "Berna", lat: 46.95, lon: 7.44 }
+];
+const WMO = { 0:"☀️",1:"🌤️",2:"⛅",3:"☁️",45:"🌫️",48:"🌫️",51:"🌦️",53:"🌦️",55:"🌧️",61:"🌧️",63:"🌧️",65:"🌧️",71:"🌨️",73:"🌨️",75:"❄️",80:"🌦️",81:"🌧️",82:"⛈️",95:"⛈️",96:"⛈️" };
 
-  function calculateGotthardIndex(weather, isHolidayCH, isHolidayDE) {
-    const loc = weather.locarno;
-    const zh  = weather.zurich;
-    const bs  = weather.basel;
-    const be  = weather.bern;
+async function loadGottardo() {
+  try {
+    const results = await Promise.all(CITIES.map(function(c) {
+      return fetch("https://api.open-meteo.com/v1/forecast?latitude=" + c.lat + "&longitude=" + c.lon + "&current=temperature_2m,weather_code&timezone=Europe/Zurich")
+        .then(function(r){ return r.json(); })
+        .then(function(d){ return { name: c.name, temp: Math.round(d.current.temperature_2m), code: d.current.weather_code }; });
+    }));
+    const locarno = results[0];
+    const nord = results.slice(1);
+    const nordAvg = nord.reduce(function(a,c){ return a + c.temp; }, 0) / nord.length;
+    const nordRain = nord.some(function(c){ return c.code >= 51; });
+    const locarnoRain = locarno.code >= 51;
 
-    const tLoc  = loc.temp;
-    const tNord = (zh.temp + bs.temp + be.temp) / 3;
-    const tDelta = tLoc - tNord;
-
-    let score = 30; // base
-    const factors = [];
-
-    // ── SCENARIO 1: Fuga dalla pioggia (massimo impatto)
-    const nordRainy = isRainy(zh.code) || isRainy(bs.code) || isRainy(be.code);
-    if (tLoc > 20 && isSunny(loc.code) && nordRainy) {
-      score += 55;
-      factors.push({ label: '☀️ Fuga dalla pioggia', type: 'positive' });
-    }
-    // ── SCENARIO 2: Status quo (concorrenza laghi interni)
-    else if (tLoc > 25 && isSunny(loc.code) && tNord > 22 && !isCloudy(zh.code)) {
-      score = 45;
-      factors.push({ label: '⚖️ Status quo — laghi interni competitivi', type: 'neutral' });
-    }
-    // ── SCENARIO 3: Mezza stagione / nebbia
-    else if (tNord < 15 && tLoc > 18 && isSunny(loc.code)) {
-      score += 42;
-      factors.push({ label: '🌫️ Mezza stagione — nord freddo', type: 'positive' });
-    }
-    // ── Delta temperatura generico
-    else {
-      if (tDelta > 8)       { score += 25; factors.push({ label: '+' + Math.round(tDelta) + '°C vs Nord', type: 'positive' }); }
-      else if (tDelta > 4)  { score += 12; factors.push({ label: '+' + Math.round(tDelta) + '°C vs Nord', type: 'positive' }); }
-      else if (tDelta < 0)  { score -= 10; factors.push({ label: Math.round(tDelta) + '°C vs Nord', type: 'negative' }); }
-    }
-
-    // ── SCENARIO 4: Canicola estrema (malus)
-    if (tLoc > 32 && tNord > 30) {
-      score -= 15;
-      factors.push({ label: '🥵 Canicola — malus viaggio', type: 'negative' });
-    }
-
-    // ── Precipitazioni Locarno (penalizza)
-    if (isRainy(loc.code)) {
-      score -= 20;
-      factors.push({ label: '🌧️ Pioggia a Locarno', type: 'negative' });
-    }
-
-    // ── MOLTIPLICATORI CALENDARIO
-    if (isHolidayCH) {
-      score += 15;
-      factors.push({ label: '📅 Vacanze CH +15%', type: 'positive' });
-    }
-    if (isHolidayDE) {
-      score += 20;
-      factors.push({ label: '🇩🇪 Vacanze DE/BY +20%', type: 'positive' });
-    }
-
+    let score = 45;
+    const delta = locarno.temp - nordAvg;
+    if (delta >= 8) score += 25; else if (delta >= 4) score += 12; else if (delta < 0) score -= 10;
+    if (locarno.temp > 20 && locarno.code <= 2 && nordRain) score = Math.max(score, 85);
+    if (nordAvg < 15 && locarno.temp > 18 && locarno.code <= 2) score = Math.max(score, 74);
+    if (locarno.temp > 32 && nordAvg > 32) score -= 15;
+    if (locarnoRain) score -= 20;
     score = Math.max(0, Math.min(100, Math.round(score)));
 
-    // ── Testo dinamico
-    let verdict, reason;
-    if (score >= 80) {
-      verdict = '🔴 Alta pressione — Esodo in corso';
-      reason = 'Forte differenziale meteo con il Nord. Aspettati last-minute e richieste elevate nei prossimi 2–3 giorni.';
-    } else if (score >= 65) {
-      verdict = '🟠 Pressione elevata — Opportunità attiva';
-      reason = 'Condizioni favorevoli per afflusso dal mercato svizzero-tedesco. Monitora le prenotazioni nelle prossime 48 ore.';
-    } else if (score >= 45) {
-      verdict = '🟡 Pressione media — Mercato stabile';
-      reason = 'Condizioni bilanciate. Il differenziale meteo non è sufficiente da solo — punta su eventi locali e promozioni mirate.';
-    } else if (score >= 25) {
-      verdict = '🟢 Pressione bassa — Traffico ordinario';
-      reason = 'Nessun driver meteo significativo. Settimana nella norma stagionale.';
-    } else {
-      verdict = '🔵 Pressione minima';
-      reason = 'Condizioni meteo sfavorevoli o parità con il Nord. Focus su mercato locale e fedeli.';
-    }
+    let verdict, color;
+    if (score >= 80) { verdict = currentLang==="it"?"🔴 Alta pressione — Esodo in corso":"🔴 Hoher Druck"; color = "#E0726B"; }
+    else if (score >= 65) { verdict = currentLang==="it"?"🟠 Pressione elevata":"🟠 Erhöhter Druck"; color = "#E0A458"; }
+    else if (score >= 45) { verdict = currentLang==="it"?"🟡 Pressione media":"🟡 Mittlerer Druck"; color = "#E0A458"; }
+    else if (score >= 25) { verdict = currentLang==="it"?"🟢 Pressione bassa":"🟢 Niedriger Druck"; color = "#4FB286"; }
+    else { verdict = currentLang==="it"?"🔵 Pressione minima":"🔵 Minimaler Druck"; color = "#6FA8DC"; }
 
-    return { score, factors, verdict, reason };
+    document.getElementById("gaugeValue").textContent = score;
+    document.getElementById("gaugeVerdict").textContent = verdict;
+    document.getElementById("gaugeVerdict").style.color = color;
+    const offset = 314 - (314 * score / 100);
+    const fill = document.getElementById("gaugeFill");
+    fill.style.strokeDashoffset = offset;
+    fill.style.stroke = color;
+    document.getElementById("gaugeNeedle").style.transform = "rotate(" + (-90 + (score * 1.8)) + "deg)";
+    document.getElementById("gottardoMeta").textContent = "OpenMeteo · " + new Date().toLocaleTimeString("it-CH", {hour:"2-digit",minute:"2-digit"});
+
+    document.getElementById("cityCards").innerHTML = results.map(function(c) {
+      return '<div class="city-card"><div class="city-name">' + c.name + '</div><div class="city-temp">' + c.temp + '°</div><div class="city-ico">' + (WMO[c.code]||"•") + '</div></div>';
+    }).join("");
+  } catch (e) {
+    document.getElementById("gaugeVerdict").textContent = currentLang==="it"?"Meteo non disponibile":"Wetter nicht verfügbar";
   }
+}
 
-  function setNeedle(score) {
-    // -90deg = 0, +90deg = 100
-    const angle = -90 + (score / 100) * 180;
-    document.getElementById('gaugeNeedle').setAttribute('transform', 'rotate(' + angle + ', 140, 140)');
-    document.getElementById('gaugeScore').textContent = score;
+/* ===== AI ACTIONS ===== */
+let azioniDone = [false, false, false];
+async function loadAzioniAI() {
+  try {
+    const payload = { meta: radarData.meta, gottardo: null, eventi: radarData.eventi, marketing: radarData.marketing_trends };
+    const res = await fetch(WORKER_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+    if (!res.ok) throw new Error("Worker HTTP " + res.status);
+    const json = await res.json();
+    if (json.error) throw new Error(json.error);
+    renderAzioni(json.data || json.azioni || json);
+    document.getElementById("azioniTag").textContent = currentLang==="it"?"Analisi settimanale":"Wochenanalyse";
+  } catch (e) {
+    document.getElementById("azioniBody").innerHTML = '<div class="az-error">⚠️ ' + (currentLang==="it"?"Azioni AI non disponibili. Verifica il Worker.":"KI-Aktionen nicht verfügbar.") + '</div>';
   }
+}
+function renderAzioni(azioni) {
+  if (!Array.isArray(azioni)) { azioni = []; }
+  window._azioni = azioni;
+  document.getElementById("azioniBody").innerHTML = azioni.map(function(a, i) {
+    const titolo = a.titolo || a.title || ("Azione " + (i+1));
+    const testo = a.testo || a.descrizione || a.text || "";
+    return '<div class="az-item"><div class="az-check" id="check' + i + '" onclick="toggleAzione(' + i + ')"></div>' +
+      '<div class="az-body"><div class="az-title" id="aztitle' + i + '">' + titolo + '</div>' +
+      '<div class="az-text">' + testo + '</div></div></div>';
+  }).join("");
+  azioniDone = azioni.map(function(){ return false; });
+  updateProgress();
+}
+function toggleAzione(i) {
+  azioniDone[i] = !azioniDone[i];
+  document.getElementById("check" + i).classList.toggle("done", azioniDone[i]);
+  document.getElementById("check" + i).innerHTML = azioniDone[i] ? "✓" : "";
+  document.getElementById("aztitle" + i).classList.toggle("done", azioniDone[i]);
+  updateProgress();
+}
+function updateProgress() {
+  const done = azioniDone.filter(Boolean).length;
+  const tot = azioniDone.length || 3;
+  document.getElementById("progressLabel").textContent = done + "/" + tot;
+  document.getElementById("progressFill").style.width = (done/tot*100) + "%";
+  document.getElementById("progressDone").style.display = (done === tot && tot > 0) ? "block" : "none";
+}
+function condividiWhatsApp() {
+  const azioni = window._azioni || [];
+  let txt = currentLang==="it" ? "🏔️ Ticino Tourism Radar — Azioni della settimana:\n\n" : "🏔️ Ticino Tourism Radar — Aktionen der Woche:\n\n";
+  azioni.forEach(function(a, i) { txt += (i+1) + ". " + (a.titolo || a.title || "") + "\n"; });
+  window.open("https://wa.me/?text=" + encodeURIComponent(txt), "_blank");
+}
 
-  function renderCityCard(city, data) {
-    const el = document.getElementById('city-' + city.id);
-    const isLoc = city.isDestination;
-    el.className = 'g-city-card' + (isLoc ? ' gcc-highlight' : '');
-    el.innerHTML =
-      '<div class="gcc-city">' + city.name + (isLoc ? ' ★' : '') + '</div>' +
-      '<div class="gcc-icon">' + (WMO_ICONS[data.code] || '🌡️') + '</div>' +
-      '<div class="gcc-temp">' + Math.round(data.temp) + '°</div>' +
-      '<div class="gcc-desc">' + wmoDesc(data.code) + '</div>' +
-      (data.precip > 0 ? '<div class="gcc-precip">💧 ' + data.precip.toFixed(1) + ' mm</div>' : '');
-  }
+/* ===== LEAD ===== */
+function submitLead(tipo) {
+  const msg = currentLang==="it"
+    ? "Grazie! Per attivare la richiesta scrivici a info@traveltechdata.ch indicando il nome del tuo hotel."
+    : "Danke! Schreiben Sie an info@traveltechdata.ch mit dem Namen Ihres Hotels.";
+  alert(msg);
+}
 
-  function renderFactors(factors) {
-    const el = document.getElementById('gottardoFactors');
-    el.innerHTML = factors.map(function(f) {
-      return '<span class="g-factor gf-' + f.type + '">' + f.label + '</span>';
-    }).join('');
-  }
-
-  async function fetchCityWeather(city) {
-    const url = 'https://api.open-meteo.com/v1/forecast' +
-      '?latitude=' + city.lat +
-      '&longitude=' + city.lon +
-      '&current=temperature_2m,precipitation,weather_code' +
-      '&hourly=temperature_2m' +
-      '&forecast_days=1' +
-      '&timezone=Europe%2FZurich';
-    const r = await fetch(url);
-    const d = await r.json();
-    return {
-      temp:   d.current.temperature_2m,
-      precip: d.current.precipitation,
-      code:   d.current.weather_code
-    };
-  }
-
-  async function loadGotthardIndex() {
-    // ── Variabili calendario — aggiornare ogni settimana manualmente
-    // true se la settimana corrente coincide con vacanze scolastiche
-    const isHolidayCH = false;  // es: true durante ponti primaverili ZH/LU
-    const isHolidayDE = false;  // es: true durante estate Baviera/Baden-WÜ
-
-    try {
-      const results = await Promise.all(CITIES.map(fetchCityWeather));
-      const weather = {};
-      CITIES.forEach(function(c, i) { weather[c.id] = results[i]; });
-
-      // Render city cards
-      CITIES.forEach(function(c, i) { renderCityCard(c, results[i]); });
-
-      // Calculate index
-      const idx = calculateGotthardIndex(weather, isHolidayCH, isHolidayDE);
-
-      // Animate needle
-      let current = 0;
-      const target = idx.score;
-      const step = function() {
-        current = Math.min(current + 2, target);
-        setNeedle(current);
-        if (current < target) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-
-      document.getElementById('gottardoVerdict').textContent = idx.verdict;
-      document.getElementById('gottardoReason').textContent = idx.reason;
-      renderFactors(idx.factors);
-
-      const now = new Date();
-      document.getElementById('gottardoMeta').textContent =
-        'OpenMeteo API · aggiornato ' +
-        now.toLocaleTimeString('it-CH', {hour:'2-digit', minute:'2-digit'});
-
-      // Esponi score e weather per il Worker AI
-      window.isHolidayCH = isHolidayCH;
-      window.isHolidayDE = isHolidayDE;
-      // Chiama le azioni AI con i dati meteo reali
-      loadAzioniAI(idx.score, idx.verdict, weather);
-
-    } catch(e) {
-      document.getElementById('gottardoVerdict').textContent = 'Dati meteo non disponibili';
-      document.getElementById('gottardoReason').textContent = 'Verificare la connessione. I dati OpenMeteo sono gratuiti e non richiedono API key.';
-      document.getElementById('gottardoMeta').textContent = 'OpenMeteo API · errore';
-    }
-  }
-
-  loadGotthardIndex();
-
-
-
-  /* ── DATA DINAMICA HEADER ── */
-  function aggiornaBadgeData() {
-    const now = new Date();
-    const oggi = now.toLocaleDateString('it-CH', { weekday: 'long', day: 'numeric', month: 'long' });
-    const ore  = now.toLocaleTimeString('it-CH', { hour: '2-digit', minute: '2-digit' });
-    document.getElementById('badgeAggiornato').textContent = '↻ Oggi, ' + oggi;
-  }
-  aggiornaBadgeData();
-
-  /* ── WORKER URL — sostituire con il proprio dopo il deploy ── */
-  const WORKER_URL = 'https://ticino-radar.crimson-fire-7c19.workers.dev';
-
-  /* ── COSTRUISCE IL PAYLOAD DA PASSARE AL WORKER ── */
-  function buildWorkerPayload(gottardoScore, gottardoVerdict, weatherData) {
-    // Calcola statistiche cluster da allHotels
-    const validP7  = allHotels.filter(h => h.priceWeekend7).map(h => h.priceWeekend7);
-    const validP14 = allHotels.filter(h => h.priceWeekend14).map(h => h.priceWeekend14);
-    const soldOut  = allHotels.filter(h => h.fullyBooked14).map(h => h.name);
-    const avg = arr => arr.length ? Math.round(arr.reduce((a,b) => a+b, 0) / arr.length) : 0;
-    const avgP7  = avg(validP7);
-    const avgP14 = avg(validP14);
-    const delta  = avgP7 > 0 ? Math.round(((avgP14 - avgP7) / avgP7) * 100) : 0;
-    const scores = allHotels.filter(h => h.rating).map(h => h.rating);
-    const avgScore = scores.length ? (scores.reduce((a,b) => a+b,0) / scores.length).toFixed(1) : 0;
-    const top3 = allHotels.slice(0, 3).map(h => ({ name: h.name, rating: h.rating }));
-
-    // Legge eventi da radar_data.json (window.radarEventi)
-    const eventi = window.radarEventi || { locali: [], nord: [] };
-
-    return {
-      gottardoScore: gottardoScore || 0,
-      gottardoVerdict: gottardoVerdict || 'N/D',
-      meteo: weatherData || {},
-      clusterStats: {
-        totaleHotel: allHotels.length,
-        soldOut14: soldOut,
-        prezzoMedio7: avgP7,
-        prezzoMedio14: avgP14,
-        deltaMedio: delta,
-        scoreMedio: avgScore,
-        top3: top3,
-        isHolidayCH: window.isHolidayCH || false,
-        isHolidayDE: window.isHolidayDE || false
-      },
-      eventi: eventi
-    };
-  }
-
-  /* ── RENDER AZIONI DAL JSON CLAUDE ── */
-  function renderAzioni(data, source) {
-    const catColors = { 1: 'var(--accent)', 2: 'var(--blue)', 3: 'var(--amber)' };
-    let h = '';
-    if (data.contesto) {
-      h += '<div class="az-contesto">&#x1F4CB; ' + data.contesto + '</div>';
-    }
-    h += '<div class="azioni-list">';
-    data.azioni.forEach(function(az) {
-      h += '<div class="azione" id="azione-' + az.numero + '">' +
-        '<div class="az-num" style="background:' + (catColors[az.numero] || 'var(--accent)') + '">' + az.numero + '</div>' +
-        '<div style="flex:1">' +
-          '<div class="az-categoria">' + az.categoria + '</div>' +
-          '<div class="az-title">' + az.titolo + '</div>' +
-          '<div class="az-desc">' + az.descrizione + '</div>' +
-          '<div class="az-fonte">Fonte: ' + az.fonte + '</div>' +
-        '</div>' +
-        '<input type="checkbox" class="az-checkbox" onchange="toggleAzione(' + az.numero + ', this)">' +
-      '</div>';
-    });
-    h += '</div>';
-    h += '<button class="whatsapp-btn" onclick="condividiWhatsApp()">&#x1F4F2; Condividi con il Team (WhatsApp)</button>';
-
-    document.getElementById('azioniBody').innerHTML = h;
-    document.getElementById('azioniTag').textContent = 'Analisi settimanale';
-    document.getElementById('progressWrap').style.display = 'block';
-    aggiornaProgress();
-  }
-
-  /* ── TOGGLE AZIONE COMPLETATA ── */
-  function toggleAzione(num, checkbox) {
-    const el = document.getElementById('azione-' + num);
-    if (checkbox.checked) { el.classList.add('azione-completata'); }
-    else { el.classList.remove('azione-completata'); }
-    aggiornaProgress();
-  }
-
-  /* ── AGGIORNA BARRA PROGRESSO ── */
-  function aggiornaProgress() {
-    const checkboxes = document.querySelectorAll('.az-checkbox');
-    const total = checkboxes.length;
-    if (total === 0) return;
-    const done = Array.from(checkboxes).filter(function(c) { return c.checked; }).length;
-    const pct = Math.round((done / total) * 100);
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressLabel').textContent = 'Progresso settimanale: ' + done + '/' + total + ' completate';
-    const success = document.getElementById('progressSuccess');
-    if (done === total) {
-      success.style.display = 'block';
-      document.getElementById('progressFill').classList.add('complete');
-    } else {
-      success.style.display = 'none';
-      document.getElementById('progressFill').classList.remove('complete');
-    }
-  }
-
-  /* ── CONDIVIDI SU WHATSAPP ── */
-  function condividiWhatsApp() {
-    const titoli = [];
-    [1, 2, 3].forEach(function(n) {
-      const el = document.getElementById('azione-' + n);
-      if (el) {
-        const t = el.querySelector('.az-title');
-        if (t) titoli.push(n + '. ' + t.textContent.trim());
-      }
-    });
-    if (titoli.length === 0) { alert('Le azioni non sono ancora disponibili.'); return; }
-    const testo = 'Ciao! Le priorit\u00e0 del Ticino Tourism Radar di oggi sono:\n\n' + titoli.join('\n') + '\n\n\u2014 Travel Tech Data';
-    window.open('https://wa.me/?text=' + encodeURIComponent(testo), '_blank');
-  }
-
-  /* ── TERMOMETRO PREZZI ── */
-  function calcolaTermometro() {
-    const input = parseFloat(document.getElementById('termometroInput').value);
-    if (!input || input <= 0) {
-      document.getElementById('termometroResult').innerHTML =
-        '<span class="tr-media">Inserisci una tariffa valida.</span>';
-      return;
-    }
-    const prezzi = allHotels.filter(function(h) { return h.priceWeekend7 && h.priceWeekend7 > 0; })
-                             .map(function(h) { return h.priceWeekend7; });
-    if (prezzi.length === 0) {
-      document.getElementById('termometroResult').innerHTML =
-        '<span class="tr-media">Dati cluster non ancora caricati.</span>';
-      return;
-    }
-    const media = Math.round(prezzi.reduce(function(a, b) { return a + b; }, 0) / prezzi.length);
-    const diff = Math.round(((input - media) / media) * 100);
-    const absD = Math.abs(diff);
-    let risultato = '<span class="tr-media">Prezzo medio del cluster: <strong>CHF ' + media + '</strong>. </span>';
-    let consiglio = '';
-    if (diff > 0) {
-      risultato += '<span class="tr-above">Sei posizionato al ' + absD + '% sopra la media.</span>';
-      consiglio = "Posizionamento premium. Mantieni solo se prevedi alta domanda dal Nord (Gottardo alto) o se il tuo score lo giustifica.";
-    } else if (diff < 0) {
-      risultato += '<span class="tr-below">Sei posizionato al ' + absD + '% sotto la media.</span>';
-      consiglio = "Strategia aggressiva. Ottimo per saturare le ultime camere. Se occupazione sopra 60%, valuta un rialzo di CHF 10-20.";
-    } else {
-      risultato += '<span class="tr-par">Sei esattamente in linea con la media del cluster.</span>';
-      consiglio = "Allineamento perfetto. La differenza la fara la visibilita: ottimizza le foto o attiva tariffe mobile.";
-    }
-    risultato += '<div style="margin-top:6px;font-size:11px;color:var(--muted);padding:6px 8px;background:var(--bg);border-radius:5px;border-left:2px solid var(--accent)">' + consiglio + '</div>';
-    document.getElementById('termometroResult').innerHTML = risultato;
-  }
-  /* ── CHIAMA IL WORKER ── */
-  async function loadAzioniAI(gottardoScore, gottardoVerdict, weatherData) {
-    try {
-      const payload = buildWorkerPayload(gottardoScore, gottardoVerdict, weatherData);
-      const res = await fetch(WORKER_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (!res.ok) throw new Error('Worker HTTP ' + res.status);
-      const json = await res.json();
-      if (json.error) throw new Error(json.error);
-      renderAzioni(json.data, json.source);
-    } catch(err) {
-      document.getElementById('azioniBody').innerHTML =
-        '<div class="az-error">&#x26A0; Impossibile caricare le azioni AI: ' + err.message +
-        '. Verifica che il Cloudflare Worker sia attivo e che WORKER_URL sia configurato.</div>';
-      document.getElementById('azioniTag').textContent = 'Analisi settimanale';
-    }
-  }
-
-  /* ── LEAD GEN ── */
-  function submitLead(tipo) {
-    const emailId = tipo === 'audit' ? 'auditEmail' : 'earlyEmail';
-    const hotelId = tipo === 'audit' ? 'auditHotel' : 'earlyHotel';
-    const email = document.getElementById(emailId).value.trim();
-    const hotel = document.getElementById(hotelId).value.trim();
-
-    if (!email || !email.includes('@')) {
-      alert('Inserisci un indirizzo email valido.');
-      return;
-    }
-    if (!hotel) {
-      alert('Inserisci il nome del tuo hotel.');
-      return;
-    }
-
-    const messaggio = tipo === 'audit'
-      ? '✅ Richiesta ricevuta!\n\nTi contatteremo entro 48 ore per fissare il tuo Audit AI gratuito.\n\nHotel: ' + hotel
-      : '✅ Sei in lista!\n\nTi invieremo il Predictive Calendar 2026 non appena disponibile.\n\nHotel: ' + hotel;
-
-    alert(messaggio);
-    document.getElementById(emailId).value = '';
-    document.getElementById(hotelId).value = '';
-    // TODO Fase 4: sostituire con fetch() verso endpoint Make/Supabase per salvare il lead
-  }
-
-
-
-  /* ── MARKETING INTELLIGENCE ── */
-  function renderMarketingTrends(trends) {
-    if (!trends) return;
-
-    var settimana = trends.settimana || '';
-    var keywords = trends.ricerche_top || [];
-    var hashtags = trends.social_hashtags || [];
-
-    // Trend cards
-    var html = '<div class="trend-grid">';
-    keywords.forEach(function(k) {
-      var badgeClass = k.trend === 'up' ? 'trend-up' : k.trend === 'down' ? 'trend-down' : 'trend-stable';
-      html += '<div class="trend-card">' +
-        '<div class="trend-left">' +
-          '<div class="trend-keyword">' + k.keyword + '</div>' +
-          '<div class="trend-note">' + k.note + '</div>' +
-          '<div class="trend-action">' + k.suggerimento_azione + '</div>' +
-        '</div>' +
-        '<div class="trend-badge ' + badgeClass + '">' + k.crescita + '</div>' +
-      '</div>';
-    });
-    html += '</div>';
-
-    // Hashtag toolkit
-    html += '<div class="hashtag-box">' +
-      '<div class="hashtag-box-title">&#x1F4F7; Toolkit Instagram — copia e incolla</div>' +
-      '<div class="hashtag-wrap" id="hashtagWrap">';
-    hashtags.forEach(function(tag) {
-      html += '<span class="hashtag-pill">' + tag + '</span>';
-    });
-    html += '</div>' +
-      '<button class="copy-btn" id="copyBtn" onclick="copiaHashtag()">&#x1F4CB; Copia Hashtag</button>' +
-    '</div>';
-
-    document.getElementById('trendsBody').innerHTML = html;
-    if (settimana) {
-      document.getElementById('trendsMeta').textContent =
-        'Google Trends · ' + trends.mercato + ' · sett. ' + settimana;
-    }
-  }
-
-  function copiaHashtag() {
-    var pills = document.querySelectorAll('#hashtagWrap .hashtag-pill');
-    var testo = Array.from(pills).map(function(p) { return p.textContent; }).join(' ');
-    navigator.clipboard.writeText(testo).then(function() {
-      var btn = document.getElementById('copyBtn');
-      btn.textContent = '✅ Copiati!';
-      btn.classList.add('copied');
-      setTimeout(function() {
-        btn.innerHTML = '&#x1F4CB; Copia Hashtag';
-        btn.classList.remove('copied');
-      }, 2000);
-    }).catch(function() {
-      // Fallback for older browsers
-      var ta = document.createElement('textarea');
-      ta.value = testo;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
-      var btn = document.getElementById('copyBtn');
-      btn.textContent = '✅ Copiati!';
-      btn.classList.add('copied');
-      setTimeout(function() {
-        btn.innerHTML = '&#x1F4CB; Copia Hashtag';
-        btn.classList.remove('copied');
-      }, 2000);
-    });
-  }
-
+/* ===== INIT ===== */
+loadRadarData();
 </script>
+</body>
+</html>

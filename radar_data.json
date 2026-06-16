@@ -5484,213 +5484,132 @@
   "eventi": {
     "locali": [
       {
-        "nome": "Notte Bianca Locarno",
-        "dateLabel": "13 giu 2026",
-        "dataInizio": "2026-06-13",
-        "dataFine": "2026-06-13",
-        "luogo": "Locarno",
-        "impatto": "basso",
-        "note": "Pubblico locale. Pernottamenti marginali, utile per animazione."
-      },
-      {
-        "nome": "Tour de Suisse — 2a tappa",
-        "dateLabel": "18 giu 2026",
-        "dataInizio": "2026-06-18",
-        "dataFine": "2026-06-18",
-        "luogo": "Locarno",
-        "impatto": "basso",
-        "note": "Spettatori prevalentemente giornalieri. Visibilità mediatica regionale."
-      },
-      {
-        "nome": "THE BEACH Ascona",
-        "dateLabel": "19–20 giu 2026",
-        "dataInizio": "2026-06-19",
-        "dataFine": "2026-06-20",
-        "luogo": "Ascona",
-        "impatto": "medio",
-        "note": "Evento estivo sul lago. Buon traino su weekend, pubblico giovane."
-      },
-      {
         "nome": "JazzAscona 2026",
-        "dateLabel": "25 giu – 4 lug 2026",
+        "dateLabel": "25 giu – 4 lug",
         "dataInizio": "2026-06-25",
         "dataFine": "2026-07-04",
         "luogo": "Ascona",
         "impatto": "alto",
-        "note": "75.000 spettatori. Alzare prezzi subito — sold out garantito."
+        "note": "75.000 spettatori. Alzare prezzi subito."
       },
       {
-        "nome": "Vallemaggia Magic Blues 2026",
-        "dateLabel": "10 lug – 6 ago 2026",
+        "nome": "Vallemaggia Magic Blues",
+        "dateLabel": "10 lug – 6 ago",
         "dataInizio": "2026-07-10",
         "dataFine": "2026-08-06",
         "luogo": "Valle Maggia",
         "impatto": "medio",
-        "note": "Festival diffuso nelle valli. Soggiorni medi-lunghi, pubblico fidelizzato."
+        "note": "Festival diffuso valli. Soggiorni medio-lunghi."
       },
       {
         "nome": "Moon & Stars 2026",
-        "dateLabel": "9–19 lug 2026",
+        "dateLabel": "9–19 lug",
         "dataInizio": "2026-07-09",
         "dataFine": "2026-07-19",
         "luogo": "Locarno",
         "impatto": "alto",
-        "note": "100.000+ visitatori. Picco prezzi garantito. Attivare minimum stay."
+        "note": "100.000+ visitatori. Picco prezzi. Minimum stay."
       },
       {
         "nome": "Luci e Ombre",
-        "dateLabel": "24–26 lug 2026",
+        "dateLabel": "24–26 lug",
         "dataInizio": "2026-07-24",
         "dataFine": "2026-07-26",
         "luogo": "Locarno",
         "impatto": "medio",
-        "note": "Festival arte e musica in centro. Riempie bene il midweek di luglio."
+        "note": "Riempie il midweek di luglio."
       },
       {
         "nome": "Rotonda by la Mobiliare",
-        "dateLabel": "30 lug – 15 ago 2026",
+        "dateLabel": "30 lug – 15 ago",
         "dataInizio": "2026-07-30",
         "dataFine": "2026-08-15",
         "luogo": "Locarno",
         "impatto": "medio",
-        "note": "Villaggio Film Festival. Prolunga il picco estivo. Pubblico internazionale."
+        "note": "Villaggio Film Festival. Pubblico internazionale."
       },
       {
         "nome": "Festeggiamenti 1° Agosto",
-        "dateLabel": "1 ago 2026",
+        "dateLabel": "1 ago",
         "dataInizio": "2026-08-01",
         "dataFine": "2026-08-01",
         "luogo": "Ascona / Brissago",
         "impatto": "medio",
-        "note": "Festa nazionale, fuochi d'artificio. Weekend pieno in tutta la regione."
+        "note": "Festa nazionale, fuochi. Weekend pieno."
       },
       {
         "nome": "Locarno Film Festival 2026",
-        "dateLabel": "5–15 ago 2026",
+        "dateLabel": "5–15 ago",
         "dataInizio": "2026-08-05",
         "dataFine": "2026-08-15",
         "luogo": "Locarno",
         "impatto": "alto",
-        "note": "Evento di punta. Sold out diffuso. Pubblico internazionale alto-spendente."
-      },
-      {
-        "nome": "Verzasca Country Festival",
-        "dateLabel": "8 ago 2026",
-        "dataInizio": "2026-08-08",
-        "dataFine": "2026-08-08",
-        "luogo": "Sonogno",
-        "impatto": "basso",
-        "note": "Nicchia country. Pubblico di valle, pernottamenti limitati."
+        "note": "Evento di punta. Sold out diffuso."
       },
       {
         "nome": "Ascona Polo Cup",
-        "dateLabel": "4–6 set 2026",
+        "dateLabel": "4–6 set",
         "dataInizio": "2026-09-04",
         "dataFine": "2026-09-06",
         "luogo": "Ascona",
         "impatto": "medio",
-        "note": "Pubblico molto alto-spendente. Ottimo per strutture premium e boutique."
+        "note": "Pubblico alto-spendente. Strutture premium."
       },
       {
-        "nome": "Triathlon Locarno",
-        "dateLabel": "5–6 set 2026",
-        "dataInizio": "2026-09-05",
-        "dataFine": "2026-09-06",
-        "luogo": "Locarno",
-        "impatto": "medio",
-        "note": "Atleti e famiglie al seguito. Riempie bene il primo weekend di settembre."
-      },
-      {
-        "nome": "CSI Ascona — Concorso Ippico",
-        "dateLabel": "10–13 set 2026",
+        "nome": "CSI Ascona",
+        "dateLabel": "10–13 set",
         "dataInizio": "2026-09-10",
         "dataFine": "2026-09-13",
         "luogo": "Ascona",
         "impatto": "medio",
-        "note": "Clientela internazionale alto-spendente. Riempie strutture medio-alte."
+        "note": "Clientela internazionale alto-spendente."
       },
       {
-        "nome": "Autunno Gastronomico Lago Maggiore",
-        "dateLabel": "15 set – 27 ott 2026",
+        "nome": "Autunno Gastronomico",
+        "dateLabel": "15 set – 27 ott",
         "dataInizio": "2026-09-15",
         "dataFine": "2026-10-27",
         "luogo": "Lago Maggiore e Valli",
         "impatto": "medio",
-        "note": "Rassegna lunga. Driver ottobre sottovalutato. Comunicare pacchetti gourmet."
+        "note": "Driver ottobre. Pacchetti gourmet."
       },
       {
-        "nome": "SunIce Festival",
-        "dateLabel": "17–19 set 2026",
-        "dataInizio": "2026-09-17",
-        "dataFine": "2026-09-19",
-        "luogo": "Ascona",
-        "impatto": "medio",
-        "note": "Festival di nicchia, musica e arte. Prolunga stagione verso fine settembre."
-      },
-      {
-        "nome": "classicAscona 2026",
-        "dateLabel": "18 set – 10 ott 2026",
+        "nome": "classicAscona",
+        "dateLabel": "18 set – 10 ott",
         "dataInizio": "2026-09-18",
         "dataFine": "2026-10-10",
         "luogo": "Ascona",
         "impatto": "medio",
-        "note": "Auto d'epoca, pubblico svizzero-tedesco alto-spendente. Ottobre da presidiare."
-      },
-      {
-        "nome": "Ascona Classic Car Award",
-        "dateLabel": "19–20 set 2026",
-        "dataInizio": "2026-09-19",
-        "dataFine": "2026-09-20",
-        "luogo": "Ascona",
-        "impatto": "medio",
-        "note": "Sovrapposto a classicAscona. Weekend di settembre molto forte."
+        "note": "Auto epoca, pubblico svizzero-tedesco."
       },
       {
         "nome": "Ascona-Locarno Run",
-        "dateLabel": "10–11 ott 2026",
+        "dateLabel": "10–11 ott",
         "dataInizio": "2026-10-10",
         "dataFine": "2026-10-11",
         "luogo": "Locarno / Ascona",
         "impatto": "medio",
-        "note": "Evento podistico importante. Atleti + famiglie. Ottobre da non sottovalutare."
-      },
-      {
-        "nome": "Sagra d'Autunno Ascona",
-        "dateLabel": "3 ott 2026",
-        "dataInizio": "2026-10-03",
-        "dataFine": "2026-10-03",
-        "luogo": "Ascona",
-        "impatto": "basso",
-        "note": "Pubblico locale e di prossimita. Utile per animare inizio ottobre."
-      },
-      {
-        "nome": "Festa delle Castagne Ascona",
-        "dateLabel": "10 ott 2026",
-        "dataInizio": "2026-10-10",
-        "dataFine": "2026-10-10",
-        "luogo": "Ascona",
-        "impatto": "basso",
-        "note": "Tradizione autunnale. Si sovrappone alla Run. Weekend ottobre pieno."
+        "note": "Atleti + famiglie. Ottobre da presidiare."
       }
     ],
     "nord": [
       {
         "nome": "Street Parade Zurigo",
         "luogo": "Zurigo",
-        "dateLabel": "8 ago 2026",
+        "dateLabel": "8 ago",
         "dataInizio": "2026-08-08",
         "dataFine": "2026-08-08",
         "peso": "alto",
-        "note": "1 milione di partecipanti. Esodo inverso: il mercato zurighese non scende in Ticino."
+        "note": "1 milione di partecipanti. Esodo inverso: Zurigo non scende in Ticino."
       },
       {
         "nome": "Zurich Film Festival",
         "luogo": "Zurigo",
-        "dateLabel": "24 set – 4 ott 2026",
+        "dateLabel": "24 set – 4 ott",
         "dataInizio": "2026-09-24",
         "dataFine": "2026-10-04",
         "peso": "medio",
-        "note": "Trattiene pubblico internazionale a Zurigo. Riduce afflusso verso il Ticino."
+        "note": "Trattiene pubblico a Zurigo."
       }
     ]
   },
@@ -5768,6 +5687,390 @@
       "#TicinoMoments",
       "#Locarnese",
       "#VallemaggiaMagicBlues"
+    ]
+  },
+  "ustat": {
+    "aggiornato": "2026-06-16",
+    "fonte": "USTAT Ticino — HESTA",
+    "kpi": {
+      "pernottamenti_2025": 1197870,
+      "pernottamenti_delta": "+5.4%",
+      "arrivi_2025": 498525,
+      "arrivi_delta": "+6.9%",
+      "esteri_2025": 307664,
+      "esteri_delta": "+13.7%",
+      "soggiorno_medio": 2.4,
+      "occupazione_letti_2025": 47.4,
+      "occupazione_media_ch": 46.0,
+      "gap_ch": -3.0
+    },
+    "stagionalita_arrivi": {
+      "labels": [
+        "Gen",
+        "Feb",
+        "Mar",
+        "Apr",
+        "Mag",
+        "Giu",
+        "Lug",
+        "Ago",
+        "Set",
+        "Ott",
+        "Nov",
+        "Dic"
+      ],
+      "2024": [
+        8831,
+        12882,
+        25359,
+        44586,
+        51020,
+        53795,
+        69291,
+        63834,
+        60165,
+        42702,
+        18384,
+        15339
+      ],
+      "2025": [
+        8665,
+        12149,
+        25294,
+        43749,
+        51709,
+        58915,
+        80885,
+        68970,
+        59077,
+        52673,
+        17510,
+        18929
+      ],
+      "2026": [
+        9066,
+        14795,
+        27682,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "occupazione_letti": {
+      "labels": [
+        "Gen",
+        "Feb",
+        "Mar",
+        "Apr",
+        "Mag",
+        "Giu",
+        "Lug",
+        "Ago",
+        "Set",
+        "Ott",
+        "Nov",
+        "Dic"
+      ],
+      "2024": [
+        17.1,
+        22.7,
+        28.9,
+        44.9,
+        47.5,
+        52.9,
+        63.6,
+        61.8,
+        56.0,
+        41.9,
+        23.3,
+        20.8
+      ],
+      "2025": [
+        15.0,
+        20.0,
+        31.0,
+        44.0,
+        47.2,
+        55.4,
+        75.5,
+        65.9,
+        56.1,
+        49.7,
+        23.2,
+        27.2
+      ],
+      "2026": [
+        16.0,
+        25.9,
+        33.5,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "mercati_esteri": {
+      "labels": [
+        "Italia",
+        "Germania",
+        "USA",
+        "Francia",
+        "UK",
+        "Olanda",
+        "Spagna",
+        "Russia"
+      ],
+      "values": [
+        32396,
+        23456,
+        8176,
+        5133,
+        3507,
+        2374,
+        2224,
+        1038
+      ],
+      "nota": "Pernottamenti gen-mar 2026. Italia include probabilmente frontalieri — da verificare."
+    },
+    "trend_storico": {
+      "labels": [
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "values": [
+        2280339,
+        2455099,
+        2270801,
+        2309518,
+        1933673,
+        2934445,
+        2555243,
+        2457836,
+        2420801,
+        2510079
+      ]
+    },
+    "insights": [
+      {
+        "tipo": "positivo",
+        "testo_it": "Luglio 2025 al 75.5% di occupazione letti — +12 punti vs 2024. Le tariffe di luglio vanno impostate al massimo con 4-6 settimane di anticipo.",
+        "testo_de": "Juli 2025: 75,5% Bettenauslastung — +12 Punkte vs. 2024. Juli-Preise 4–6 Wochen im Voraus auf Maximum setzen."
+      },
+      {
+        "tipo": "attenzione",
+        "testo_it": "Ottobre 2025: +23% arrivi vs 2024. Chi abbassa i prezzi in ottobre per abitudine lascia soldi sul tavolo.",
+        "testo_de": "Oktober 2025: +23% Ankünfte vs. 2024. Wer die Preise im Oktober aus Gewohnheit senkt, verschenkt Umsatz."
+      },
+      {
+        "tipo": "positivo",
+        "testo_it": "Febbraio 2026: +22% arrivi vs 2025. La stagione si anticipa. I prezzi di bassa stagione vanno rivisti al rialzo.",
+        "testo_de": "Februar 2026: +22% Ankünfte vs. 2025. Die Saison beginnt früher. Nebensaisonpreise nach oben anpassen."
+      },
+      {
+        "tipo": "info",
+        "testo_it": "Soggiorno medio 2.40 giorni — prenotazioni last-minute dominanti. Il revenue si fa sui prezzi nei picchi.",
+        "testo_de": "Durchschnittliche Aufenthaltsdauer 2,40 Tage — Last-Minute dominiert. Umsatz entsteht durch Spitzenpreise."
+      },
+      {
+        "tipo": "info",
+        "testo_it": "Mercati esteri: Germania e Svizzera centrale sono il target da acquisire. Italia: dato distorto da frontalieri.",
+        "testo_de": "Auslandsmärkte: Deutschland und Deutschschweiz aktiv akquirieren. Italien: durch Grenzgänger verzerrt."
+      }
+    ]
+  },
+  "predictive_calendar": {
+    "aggiornato": "2026-06-16",
+    "settimane": [
+      {
+        "settimana": 25,
+        "label": "23–29 giu",
+        "livello": "picco",
+        "eventi": [
+          "JazzAscona (25 giu–4 lug)"
+        ],
+        "vacanze_ch": [
+          "ZH",
+          "BE",
+          "LU",
+          "BS"
+        ],
+        "motivazione_it": "JazzAscona + vacanze estive Svizzera centrale. Domanda massima.",
+        "motivazione_de": "JazzAscona + Sommerferien Deutschschweiz. Maximale Nachfrage."
+      },
+      {
+        "settimana": 26,
+        "label": "30 giu–6 lug",
+        "livello": "picco",
+        "eventi": [
+          "JazzAscona (fino 4 lug)"
+        ],
+        "vacanze_ch": [
+          "ZH",
+          "BE",
+          "LU",
+          "SG"
+        ],
+        "motivazione_it": "JazzAscona in pieno svolgimento. Tutti i cantoni principali in vacanza.",
+        "motivazione_de": "JazzAscona läuft. Alle Hauptkantone in den Ferien."
+      },
+      {
+        "settimana": 27,
+        "label": "7–13 lug",
+        "livello": "picco",
+        "eventi": [],
+        "vacanze_ch": [
+          "ZH",
+          "BE",
+          "LU",
+          "AG"
+        ],
+        "motivazione_it": "Estate piena. Occupazione luglio 2025: 75.5%. Tariffe massime.",
+        "motivazione_de": "Hochsommer. Auslastung Juli 2025: 75,5%. Höchstpreise."
+      },
+      {
+        "settimana": 28,
+        "label": "14–20 lug",
+        "livello": "picco",
+        "eventi": [
+          "Moon+Stars (9–19 lug)"
+        ],
+        "vacanze_ch": [
+          "ZH",
+          "BE",
+          "LU"
+        ],
+        "motivazione_it": "Moon+Stars ultima settimana. 100.000 visitatori. Massima domanda.",
+        "motivazione_de": "Moon+Stars letzte Woche. 100.000 Besucher. Maximale Nachfrage."
+      },
+      {
+        "settimana": 29,
+        "label": "21–27 lug",
+        "livello": "picco",
+        "eventi": [],
+        "vacanze_ch": [
+          "ZH",
+          "BE",
+          "LU",
+          "NW"
+        ],
+        "motivazione_it": "Luglio pieno. Domanda strutturalmente alta.",
+        "motivazione_de": "Hochsommer. Strukturell hohe Nachfrage."
+      },
+      {
+        "settimana": 30,
+        "label": "28 lug–3 ago",
+        "livello": "picco",
+        "eventi": [],
+        "vacanze_ch": [
+          "ZH",
+          "BE",
+          "LU"
+        ],
+        "motivazione_it": "Agosto inizia. Turisti italiani al massimo. Occupazione 79% nel 2025.",
+        "motivazione_de": "August beginnt. Italienische Touristen auf Höchststand. 79% in 2025."
+      },
+      {
+        "settimana": 31,
+        "label": "4–10 ago",
+        "livello": "picco",
+        "eventi": [
+          "Locarno Film Festival (5–15 ago)"
+        ],
+        "vacanze_ch": [
+          "ZH",
+          "BE",
+          "LU",
+          "TI"
+        ],
+        "motivazione_it": "Film Festival + agosto pieno + Ferragosto imminente. Tutto esaurito.",
+        "motivazione_de": "Film Festival + Hochsommer + Ferragosto. Ausgebucht."
+      },
+      {
+        "settimana": 32,
+        "label": "11–17 ago",
+        "livello": "alta",
+        "eventi": [
+          "Locarno Film Festival (fino 15 ago)"
+        ],
+        "vacanze_ch": [
+          "ZH",
+          "BE"
+        ],
+        "motivazione_it": "Film Festival ultima settimana. Lieve calo dopo il picco.",
+        "motivazione_de": "Film Festival letzte Woche. Leichter Rückgang."
+      }
+    ],
+    "moltiplicatori": {
+      "picco": 1.3,
+      "alta": 1.15,
+      "media": 1.0,
+      "spalla": 0.9,
+      "bassa": 0.8,
+      "bassa+": 0.85
+    },
+    "vacanze_scolastiche_2026": [
+      {
+        "cantoni": [
+          "ZH",
+          "BE",
+          "LU",
+          "NW",
+          "OW",
+          "BS",
+          "BL"
+        ],
+        "da": "2026-06-18",
+        "a": "2026-08-16",
+        "label": "Vacanze estive Svizzera centrale"
+      },
+      {
+        "cantoni": [
+          "TI"
+        ],
+        "da": "2026-06-18",
+        "a": "2026-08-23",
+        "label": "Vacanze estive Ticino"
+      },
+      {
+        "cantoni": [
+          "ZH",
+          "BE",
+          "LU",
+          "BS"
+        ],
+        "da": "2026-09-19",
+        "a": "2026-10-04",
+        "label": "Vacanze autunnali"
+      },
+      {
+        "cantoni": [
+          "ZH",
+          "BE",
+          "LU"
+        ],
+        "da": "2026-12-21",
+        "a": "2027-01-03",
+        "label": "Vacanze natalizie"
+      }
     ]
   }
 }
