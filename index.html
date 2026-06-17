@@ -6,7 +6,7 @@
 <title>Ticino Tourism Radar — Regione Locarnese</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
   :root {
@@ -30,7 +30,7 @@
     --blue-bg: rgba(111,168,220,0.13);
     --radius: 14px;
     --radius-sm: 9px;
-    --serif: 'Fraunces', Georgia, serif;
+    --serif: 'Inter', -apple-system, sans-serif;
     --sans: 'Inter', -apple-system, sans-serif;
     --shadow: 0 2px 8px rgba(0,0,0,0.18);
     --shadow-lg: 0 8px 30px rgba(0,0,0,0.28);
@@ -432,8 +432,10 @@
       <div class="section-body">
         <div class="pc-controls">
           <span class="lbl" data-it="Categoria di riferimento:" data-de="Referenzkategorie:">Categoria di riferimento:</span>
+          <button class="pc-star-btn" onclick="setPcStars(2,this)">2★</button>
           <button class="pc-star-btn" onclick="setPcStars(3,this)">3★</button>
           <button class="pc-star-btn active" onclick="setPcStars(4,this)">4★</button>
+          <button class="pc-star-btn" onclick="setPcStars(5,this)">5★</button>
           <button class="pc-star-btn" onclick="setPcStars(0,this)" data-it="Tutte" data-de="Alle">Tutte</button>
         </div>
         <div id="pcGuide"></div>
@@ -469,7 +471,7 @@
                 <circle cx="140" cy="150" r="9" fill="var(--text)"/>
                 <circle cx="140" cy="150" r="4" fill="var(--bg)"/>
               </g>
-              <text x="140" y="128" text-anchor="middle" id="gaugeValue" font-family="Fraunces" font-size="46" fill="var(--text)">—</text>
+              <text x="140" y="128" text-anchor="middle" id="gaugeValue" font-family="Inter" font-size="46" fill="var(--text)">—</text>
               <text x="30" y="168" text-anchor="middle" font-size="10" fill="var(--muted)">0</text>
               <text x="250" y="168" text-anchor="middle" font-size="10" fill="var(--muted)">100</text>
             </svg>
@@ -731,16 +733,15 @@ function switchChart(type, btn) {
     setChartNote(currentLang === "it" ? "Occupazione letti %. Picco luglio 2025: 75.5%." : "Bettenauslastung %. Spitze Juli 2025: 75,5%.");
   } else if (type === "mercati") {
     const me = u.mercati_esteri;
-    const labels = (currentLang === "de" && me.labels_de) ? me.labels_de : me.labels;
-    const colors = me.values.map(function(v, i) {
-      if (me.is_domestic && me.is_domestic[i]) return chartColors.c2025;
-      if (labels[i].indexOf("Ital", 0) === 0 || labels[i].indexOf("Italien") === 0) return chartColors.c2026;
-      return "#8B9099";
-    });
+    const baseLabels = (currentLang === "de" && me.labels_de) ? me.labels_de : me.labels;
+    const labels = baseLabels.map(function(l, i){ return (me.flags && me.flags[i] ? me.flags[i] + "  " : "") + l; });
+    // distinct color per country, Switzerland highlighted as domestic
+    const palette = ["#4FB286", "#6FA8DC", "#E0A458", "#C99BD4", "#7FB3A0", "#D98352", "#9DAAB8"];
+    const colors = me.values.map(function(v, i) { return me.is_domestic && me.is_domestic[i] ? "#4FB286" : palette[i % palette.length]; });
     config = {
       type: "bar",
       data: { labels: labels, datasets: [
-        { label: currentLang==="it"?"Pernottamenti 2025":"Logiernächte 2025", data: me.values, backgroundColor: colors, borderRadius: 4 }
+        { label: currentLang==="it"?"Pernottamenti 2025":"Logiernächte 2025", data: me.values, backgroundColor: colors, borderRadius: 5 }
       ]},
       options: Object.assign(chartOpts(false), { indexAxis: "y" })
     };
@@ -961,6 +962,7 @@ function clusterAvg(stars) {
   let pool = allHotels.filter(function(h){ return h.priceWeekend7; });
   if (stars > 0) pool = pool.filter(function(h){ return h.stars === stars; });
   if (!pool.length) pool = allHotels.filter(function(h){ return h.priceWeekend7; });
+  window._pcSample = pool.length;
   return Math.round(pool.reduce(function(a,h){return a+h.priceWeekend7;},0) / pool.length);
 }
 function renderPredictiveCalendar() {
@@ -985,11 +987,14 @@ function renderPredictiveCalendar() {
   });
 
   // GUIDE
+  const sampleNote = (window._pcSample && window._pcSample < 6)
+    ? (currentLang==="it" ? " <em style=\'color:var(--amber)\'>(campione " + pcStars + "\u2605 limitato: " + window._pcSample + " hotel, stima indicativa)</em>" : " <em style=\'color:var(--amber)\'>(kleine Stichprobe: " + window._pcSample + " Hotels)</em>")
+    : "";
   document.getElementById("pcGuide").className = "pc-guide";
   document.getElementById("pcGuide").innerHTML =
     (currentLang === "it"
       ? "<div><strong>Come leggere la timeline:</strong> ogni blocco \u00e8 una settimana. Pi\u00f9 \u00e8 caldo il colore (rosso/arancio), pi\u00f9 la domanda \u00e8 alta e pi\u00f9 puoi alzare la tariffa. Nei blocchi verdi/grigi la domanda \u00e8 debole: conviene riempire con tariffe pi\u00f9 morbide. Tocca un blocco per vedere il dettaglio e il prezzo consigliato.</div>"
-      : "<div><strong>So liest du die Timeline:</strong> Jeder Block ist eine Woche. Je w\u00e4rmer die Farbe (rot/orange), desto h\u00f6her die Nachfrage und desto mehr kannst du den Preis anheben. Bei gr\u00fcn/grau ist die Nachfrage schwach. Tippe auf einen Block f\u00fcr Details.</div>");
+      : "<div><strong>So liest du die Timeline:</strong> Jeder Block ist eine Woche. Je w\u00e4rmer die Farbe (rot/orange), desto h\u00f6her die Nachfrage. Tippe auf einen Block f\u00fcr Details." + sampleNote + "</div>");
 
   // TIMELINE
   document.getElementById("pcTimeline").innerHTML = weeks.map(function(d, i) {
@@ -1042,13 +1047,23 @@ function showPcDetail(i) {
   if (!badges) badges = '<span class="pc-badge">' + (currentLang==="it"?"Nessun evento":"Keine Events") + '</span>';
 
   const motiv = currentLang === "it" ? d.w.motivazione_it : d.w.motivazione_de;
+  let deltaBadge;
+  if (d.delta > 0) {
+    deltaBadge = '<span style="color:#4FB286;font-weight:700">+CHF ' + d.delta + '</span>';
+  } else if (d.delta < 0) {
+    deltaBadge = '<span style="color:#9DA3AC;font-weight:700">CHF ' + d.delta + '</span>';
+  } else {
+    deltaBadge = '<span style="color:#9DA3AC;font-weight:700">= 0</span>';
+  }
   const deltaTxt = d.delta > 0
-    ? (currentLang==="it" ? "alza di <strong>CHF " + d.delta + "</strong> sulla media cluster " + window._pcStarLabel : "um <strong>CHF " + d.delta + "</strong> erh\u00f6hen")
-    : (currentLang==="it" ? "mantieni intorno alla media cluster" : "um den Cluster-Schnitt halten");
+    ? (currentLang==="it" ? "alza di " + deltaBadge + " sulla media cluster " + window._pcStarLabel : "um " + deltaBadge + " erh\u00f6hen")
+    : (d.delta < 0
+        ? (currentLang==="it" ? "riduci di " + deltaBadge + " sulla media cluster" : deltaBadge + " unter Cluster-Schnitt")
+        : (currentLang==="it" ? "mantieni sulla media cluster" : "am Cluster-Schnitt halten"));
 
   const ctaText = currentLang === "it"
-    ? "Tariffa consigliata: <strong>CHF " + d.target + "</strong> — " + deltaTxt + " (CHF " + base + ")."
-    : "Empfohlener Preis: <strong>CHF " + d.target + "</strong> — " + deltaTxt + " (CHF " + base + ").";
+    ? "Tariffa consigliata: <strong>CHF " + d.target + "</strong> — " + deltaTxt + " (base CHF " + base + ")."
+    : "Empfohlener Preis: <strong>CHF " + d.target + "</strong> — " + deltaTxt + " (Basis CHF " + base + ").";
 
   document.getElementById("pcDetail").innerHTML =
     '<div class="pc-detail-title">' + (currentLang==="it"?"Dettaglio settimana selezionata":"Detail ausgew\u00e4hlte Woche") + '</div>' +
