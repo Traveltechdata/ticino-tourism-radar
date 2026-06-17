@@ -5623,7 +5623,8 @@
         "trend": "up",
         "geo": "CH",
         "note": "Alta intent turistica, pubblico pronto a prenotare",
-        "suggerimento_azione": "Onda di interesse alta: pubblica foto del lago al tramonto con questa keyword nel caption"
+        "suggerimento_azione": "Pubblica un reel su Instagram/Facebook con una vista del lungolago al tramonto. Caption in tedesco: \"Sommerabende am Lago Maggiore\" + hashtag #LagoMaggiore #Tessin. È la parola che sta crescendo di più: cavalcala ora.",
+        "suggerimento_azione_de": "Poste ein Reel mit Seeblick bei Sonnenuntergang. Caption: \"Sommerabende am Lago Maggiore\" + #LagoMaggiore #Tessin."
       },
       {
         "keyword": "Locarno",
@@ -5631,7 +5632,8 @@
         "trend": "up",
         "geo": "CH",
         "note": "Picco legato al Film Festival — prenotazioni anticipate",
-        "suggerimento_azione": "Interesse in aumento: menziona il Film Festival nei post per intercettare l'intent"
+        "suggerimento_azione": "Fai un post che ricorda le date del Locarno Film Festival (5–15 ago) con una foto della Piazza Grande. Caption: \"Filmfestival-Zeit in Locarno – jetzt buchen\". Intercetti chi sta già pianificando agosto.",
+        "suggerimento_azione_de": "Poste die Daten des Locarno Film Festival (5.–15. Aug) mit Foto der Piazza Grande. Caption: \"Filmfestival-Zeit in Locarno\"."
       },
       {
         "keyword": "Ascona",
@@ -5639,7 +5641,8 @@
         "trend": "stable",
         "geo": "CH",
         "note": "Brand forte, ricercato da pubblico alto-spendente svizzero-tedesco",
-        "suggerimento_azione": "Brand stabile: ottimo momento per consolidare le recensioni e la reputazione online"
+        "suggerimento_azione": "Brand stabile e forte: pubblica una foto del lungolago di Ascona e invita a lasciare una recensione chi ha già soggiornato. Consolidare la reputazione conta più di rincorrere il volume.",
+        "suggerimento_azione_de": "Stabile Marke: Poste ein Foto der Seepromenade von Ascona und bitte frühere Gäste um eine Bewertung."
       },
       {
         "keyword": "Tessin",
@@ -5647,7 +5650,8 @@
         "trend": "down",
         "geo": "CH",
         "note": "Termine ombrello — cattura tutto il mercato DACH verso il cantone",
-        "suggerimento_azione": "Ricerche in calo: la domanda si sposta su termini più specifici, punta su 'Lago Maggiore' o sulla tua località"
+        "suggerimento_azione": "Ricerche in calo: NON spingere questa parola ora. Usala solo come hashtag secondario. Concentra i post sulle parole in crescita (Lago Maggiore, Locarno).",
+        "suggerimento_azione_de": "Suchanfragen rückläufig: Begriff jetzt nicht pushen. Nur als sekundären Hashtag verwenden."
       },
       {
         "keyword": "Brissago",
@@ -5655,38 +5659,39 @@
         "trend": "down",
         "geo": "CH",
         "note": "Nicchia premium, bassa competizione, alta conversione",
-        "suggerimento_azione": "Ricerche in calo: punta sulla nicchia, evita campagne ampie poco efficienti in questa fase"
+        "suggerimento_azione": "Nicchia premium in lieve calo: evita campagne ampie. Punta su un post mirato alle Isole di Brissago per chi cerca tranquillità ed esclusività.",
+        "suggerimento_azione_de": "Premium-Nische leicht rückläufig: gezielter Post zu den Brissago-Inseln für Ruhesuchende."
       }
     ],
     "social_hashtags": [
-      "#Tessin",
-      "#Ticino",
       "#LagoMaggiore",
-      "#LaggoMaggiore",
-      "#Ascona",
       "#Locarno",
+      "#Ascona",
       "#Brissago",
-      "#Losone",
-      "#TessinUrlaub",
-      "#SchweizerSommer",
-      "#VisitTicino",
       "#JazzAscona",
       "#LocarnoFilmFestival",
       "#MoonAndStars",
-      "#HotelTicino",
-      "#UrlasubAmSee",
+      "#VisitTicino",
+      "#LakeView",
+      "#SwissSummer",
+      "#TessinUrlaub",
       "#SeeUrlaub",
-      "#Ferienhaus",
-      "#SchweizUrlaub",
-      "#Lago",
       "#ItalianSwitzerland",
       "#SwissLakes",
-      "#SwissSummer",
-      "#LakeView",
+      "#HotelTicino",
       "#SwissHotel",
       "#TicinoMoments",
       "#Locarnese",
-      "#VallemaggiaMagicBlues"
+      "#Losone",
+      "#SchweizerSommer",
+      "#UrlasubAmSee",
+      "#Ferienhaus",
+      "#SchweizUrlaub",
+      "#Lago",
+      "#VallemaggiaMagicBlues",
+      "#Ticino",
+      "#Tessin",
+      "#LaggoMaggiore"
     ]
   },
   "ustat": {

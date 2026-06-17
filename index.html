@@ -6,7 +6,7 @@
 <title>Ticino Tourism Radar — Regione Locarnese</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
   :root {
@@ -30,8 +30,8 @@
     --blue-bg: rgba(111,168,220,0.13);
     --radius: 14px;
     --radius-sm: 9px;
-    --serif: 'DM Serif Display', Georgia, serif;
-    --sans: 'DM Sans', -apple-system, sans-serif;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
     --shadow: 0 2px 8px rgba(0,0,0,0.18);
     --shadow-lg: 0 8px 30px rgba(0,0,0,0.28);
   }
@@ -199,27 +199,39 @@
   .city-ico { font-size: 17px; margin-top: 3px; }
   @media (max-width: 560px) { .city-cards { grid-template-columns: repeat(2,1fr); } }
 
-  /* PREDICTIVE CALENDAR */
-  .pc-controls { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+  /* PREDICTIVE CALENDAR — TIMELINE */
+  .pc-controls { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
   .pc-controls .lbl { font-size: 12px; color: var(--muted); }
   .pc-star-btn { padding: 6px 14px; font-size: 12px; font-weight: 600; border-radius: 18px; border: 0.5px solid var(--border-hi); background: var(--bg-deep); color: var(--muted); cursor: pointer; font-family: var(--sans); transition: all 0.15s; }
   .pc-star-btn.active { background: var(--accent); color: #11231b; border-color: var(--accent); }
-  .pc-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
-  .pc-card { flex: 0 0 230px; background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 15px; }
-  .pc-week { font-size: 11px; color: var(--muted); font-weight: 600; }
-  .pc-dates { font-size: 14px; color: var(--text); font-weight: 600; margin-bottom: 10px; }
-  .pc-level { display: inline-block; padding: 3px 10px; border-radius: 14px; font-size: 11px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
-  .pc-prices { display: flex; flex-direction: column; gap: 5px; margin-bottom: 11px; }
-  .pc-price-row { display: flex; justify-content: space-between; font-size: 12px; }
-  .pc-price-row .k { color: var(--muted); }
-  .pc-price-row .v { font-weight: 600; color: var(--text); }
-  .pc-target { font-family: var(--serif); font-size: 24px; color: var(--accent); }
-  .pc-delta { font-size: 12px; font-weight: 600; }
-  .pc-badges { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0; }
-  .pc-badge { font-size: 10px; padding: 2px 7px; border-radius: 5px; background: var(--card-hi); color: var(--text-soft); }
+  .pc-guide { display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; color: var(--text-soft); line-height: 1.5; background: var(--bg-deep); border-left: 3px solid var(--accent); border-radius: 8px; padding: 12px 14px; margin-bottom: 18px; }
+  .pc-guide strong { color: var(--text); font-weight: 600; }
+  .pc-timeline { display: flex; width: 100%; border-radius: 10px; overflow: hidden; margin-bottom: 6px; height: 86px; }
+  .pc-seg { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: filter 0.15s, transform 0.15s; position: relative; border-right: 1px solid rgba(0,0,0,0.18); }
+  .pc-seg:last-child { border-right: none; }
+  .pc-seg:hover { filter: brightness(1.12); }
+  .pc-seg.active { transform: scaleY(1.06); z-index: 2; box-shadow: 0 0 0 2px var(--text) inset; }
+  .pc-seg-val { font-family: var(--serif); font-size: 16px; color: #fff; font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+  .pc-seg-delta { font-size: 10px; color: rgba(255,255,255,0.92); font-weight: 600; margin-top: 1px; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+  .pc-axis { display: flex; width: 100%; margin-bottom: 18px; }
+  .pc-axis-tick { flex: 1; text-align: center; font-size: 10px; color: var(--muted); }
+  .pc-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .pc-legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
+  .pc-legend-dot { width: 11px; height: 11px; border-radius: 3px; }
+  .pc-detail-title { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 10px; }
+  .pc-detail-card { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 10px; border-left: 4px solid var(--accent); }
+  .pc-detail-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .pc-detail-week { font-size: 15px; font-weight: 700; color: var(--text); }
+  .pc-detail-level { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 12px; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; }
+  .pc-detail-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .pc-badge { font-size: 11px; padding: 3px 9px; border-radius: 6px; background: var(--card-hi); color: var(--text-soft); display: inline-flex; align-items: center; gap: 4px; }
   .pc-badge.event { background: var(--red-bg); color: var(--red); }
   .pc-badge.holiday { background: var(--blue-bg); color: var(--blue); }
-  .pc-motiv { font-size: 11.5px; color: var(--muted); line-height: 1.45; border-top: 0.5px solid var(--border); padding-top: 9px; }
+  .pc-detail-motiv { font-size: 12.5px; color: var(--text-soft); line-height: 1.5; margin-bottom: 12px; }
+  .pc-cta { display: flex; align-items: center; gap: 10px; background: var(--accent-light); border: 0.5px solid rgba(79,178,134,0.3); border-radius: 9px; padding: 11px 13px; }
+  .pc-cta-ico { color: var(--accent); flex-shrink: 0; }
+  .pc-cta-text { font-size: 13px; color: var(--text); }
+  .pc-cta-text strong { color: var(--accent); font-weight: 700; }
 
   /* TREND CARDS */
   .trend-intro { font-size: 12.5px; color: var(--text-soft); line-height: 1.55; background: var(--bg-deep); border-left: 3px solid var(--accent); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px; }
@@ -235,7 +247,8 @@
   .trend-up { background: var(--accent-light); color: var(--accent); }
   .trend-stable { background: var(--amber-bg); color: var(--amber); }
   .trend-down { background: var(--red-bg); color: var(--red); }
-  .hashtag-box { margin-top: 14px; padding: 15px; background: var(--bg-deep); border-radius: var(--radius-sm); border: 0.5px solid var(--border); }
+  .hashtag-usage { font-size: 12px; color: var(--text-soft); line-height: 1.5; margin-top: 16px; margin-bottom: 8px; }
+  .hashtag-box { margin-top: 4px; padding: 15px; background: var(--bg-deep); border-radius: var(--radius-sm); border: 0.5px solid var(--border); }
   .hashtag-box-title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 11px; }
   .hashtag-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 13px; }
   .hashtag-pill { font-size: 12px; color: var(--accent); background: var(--accent-light); padding: 4px 11px; border-radius: 13px; }
@@ -299,7 +312,7 @@
       </div>
     </div>
     <div class="meta-line">
-      <span><span class="dot"></span><span data-it="In aggiornamento" data-de="Wird aktualisiert">In aggiornamento</span></span>
+      <span><span class="dot"></span><span data-it="Aggiornato oggi" data-de="Heute aktualisiert" id="metaOggi">Aggiornato oggi</span></span>
       <span id="metaSettimana">—</span>
       <span id="metaHotels">—</span>
       <span>Booking.com · USTAT · OpenMeteo · Google Trends</span>
@@ -309,11 +322,11 @@
   <!-- TABS -->
   <nav class="tabs">
     <div class="tabs-inner">
-      <button class="tab active" onclick="switchTab('mercato',this)"><span class="tab-ico">📊</span><span data-it="Mercato" data-de="Markt">Mercato</span></button>
-      <button class="tab" onclick="switchTab('competizione',this)"><span class="tab-ico">🏨</span><span data-it="Competizione" data-de="Wettbewerb">Competizione</span></button>
-      <button class="tab" onclick="switchTab('previsioni',this)"><span class="tab-ico">📅</span><span data-it="Previsioni" data-de="Prognosen">Previsioni</span></button>
-      <button class="tab" onclick="switchTab('marketing',this)"><span class="tab-ico">📈</span><span data-it="Marketing" data-de="Marketing">Marketing</span></button>
-      <button class="tab" onclick="switchTab('contatti',this)"><span class="tab-ico">✉️</span><span data-it="Contatti" data-de="Kontakt">Contatti</span></button>
+      <button class="tab active" onclick="switchTab('mercato',this)"><span class="tab-ico" id="ico-mercato"></span><span data-it="Mercato" data-de="Markt">Mercato</span></button>
+      <button class="tab" onclick="switchTab('competizione',this)"><span class="tab-ico" id="ico-comp"></span><span data-it="Competizione" data-de="Wettbewerb">Competizione</span></button>
+      <button class="tab" onclick="switchTab('previsioni',this)"><span class="tab-ico" id="ico-prev"></span><span data-it="Previsioni" data-de="Prognosen">Previsioni</span></button>
+      <button class="tab" onclick="switchTab('marketing',this)"><span class="tab-ico" id="ico-mkt"></span><span data-it="Marketing" data-de="Marketing">Marketing</span></button>
+      <button class="tab" onclick="switchTab('contatti',this)"><span class="tab-ico" id="ico-cont"></span><span data-it="Contatti" data-de="Kontakt">Contatti</span></button>
     </div>
   </nav>
 
@@ -423,7 +436,11 @@
           <button class="pc-star-btn active" onclick="setPcStars(4,this)">4★</button>
           <button class="pc-star-btn" onclick="setPcStars(0,this)" data-it="Tutte" data-de="Alle">Tutte</button>
         </div>
-        <div class="pc-scroll" id="pcScroll"><div class="loading-state"><span class="loading-spinner"></span></div></div>
+        <div id="pcGuide"></div>
+        <div class="pc-timeline" id="pcTimeline"></div>
+        <div class="pc-axis" id="pcAxis"></div>
+        <div class="pc-legend" id="pcLegend"></div>
+        <div id="pcDetail"></div>
       </div>
     </div>
 
@@ -452,7 +469,7 @@
                 <circle cx="140" cy="150" r="9" fill="var(--text)"/>
                 <circle cx="140" cy="150" r="4" fill="var(--bg)"/>
               </g>
-              <text x="140" y="128" text-anchor="middle" id="gaugeValue" font-family="DM Serif Display" font-size="46" fill="var(--text)">—</text>
+              <text x="140" y="128" text-anchor="middle" id="gaugeValue" font-family="Fraunces" font-size="46" fill="var(--text)">—</text>
               <text x="30" y="168" text-anchor="middle" font-size="10" fill="var(--muted)">0</text>
               <text x="250" y="168" text-anchor="middle" font-size="10" fill="var(--muted)">100</text>
             </svg>
@@ -510,7 +527,7 @@
           <div class="progress-done" id="progressDone" data-it="✓ Strategia completata" data-de="✓ Strategie abgeschlossen">✓ Strategia completata</div>
         </div>
         <div id="azioniBody"><div class="loading-state"><span class="loading-spinner"></span></div></div>
-        <button class="whatsapp-btn" onclick="condividiWhatsApp()"><span>📲</span><span data-it="Condividi il piano su WhatsApp" data-de="Plan auf WhatsApp teilen">Condividi il piano su WhatsApp</span></button>
+        <button class="whatsapp-btn" onclick="condividiWhatsApp()"><span id="ico-wa"></span><span data-it="Condividi il piano su WhatsApp" data-de="Plan auf WhatsApp teilen">Condividi il piano su WhatsApp</span></button>
       </div>
     </div>
 
@@ -534,14 +551,14 @@
       <div class="section-body">
         <div class="lead-grid">
           <div class="lead-card">
-            <div class="lead-tag" data-it="🔍 Gratuito · 30 minuti" data-de="🔍 Kostenlos · 30 Minuten">🔍 Gratuito · 30 minuti</div>
+            <div class="lead-tag" data-it="Gratuito · 30 minuti" data-de="Kostenlos · 30 Minuten">Gratuito · 30 minuti</div>
             <div class="lead-title" data-it="Audit AI: come l'intelligenza artificiale legge il tuo hotel" data-de="KI-Audit: Wie die KI Ihr Hotel sieht">Audit AI: come l'intelligenza artificiale legge il tuo hotel</div>
             <div class="lead-desc" data-it="Analizziamo profilo Booking, recensioni e posizionamento nel cluster. Ti diciamo cosa vede un algoritmo quando cerca un hotel nel Locarnese." data-de="Wir analysieren Booking-Profil, Bewertungen und Cluster-Positionierung. Wir zeigen, was ein Algorithmus sieht.">Analizziamo profilo Booking, recensioni e posizionamento nel cluster. Ti diciamo cosa vede un algoritmo quando cerca un hotel nel Locarnese.</div>
             <button class="lead-btn" onclick="submitLead('audit')" data-it="Prenota il mio Audit gratuito →" data-de="Kostenloses Audit buchen →">Prenota il mio Audit gratuito →</button>
             <div class="lead-fine" data-it="Nessuno spam. Risposta entro 48 ore." data-de="Kein Spam. Antwort innert 48 Std.">Nessuno spam. Risposta entro 48 ore.</div>
           </div>
           <div class="lead-card">
-            <div class="lead-tag" data-it="📅 Early Access · Edizione limitata" data-de="📅 Early Access · Limitiert">📅 Early Access · Edizione limitata</div>
+            <div class="lead-tag" data-it="Early Access · Edizione limitata" data-de="Early Access · Limitiert">Early Access · Edizione limitata</div>
             <div class="lead-title" data-it="Predictive Calendar 2026: le finestre di alta domanda" data-de="Predictive Calendar 2026: Hochsaison-Fenster">Predictive Calendar 2026: le finestre di alta domanda</div>
             <div class="lead-desc" data-it="Il nostro modello incrocia eventi, vacanze scolastiche CH/DE e pattern meteo. Ottieni le date esatte in cui spuntare il massimo." data-de="Unser Modell kombiniert Events, Schulferien CH/DE und Wettermuster. Erhalten Sie die genauen Hochpreis-Daten.">Il nostro modello incrocia eventi, vacanze scolastiche CH/DE e pattern meteo. Ottieni le date esatte in cui spuntare il massimo.</div>
             <button class="lead-btn" onclick="submitLead('calendar')" data-it="Voglio l'accesso anticipato →" data-de="Früher Zugang anfordern →">Voglio l'accesso anticipato →</button>
@@ -554,12 +571,48 @@
 
   <footer class="footer">
     <strong>Ticino Tourism Radar</strong> — Travel Tech Data<br>
-    <span data-it="Aggiornato ogni lunedì mattina" data-de="Jeden Montagmorgen aktualisiert">Aggiornato ogni lunedì mattina</span> · <a href="mailto:info@traveltechdata.ch">info@traveltechdata.ch</a>
+    <a href="mailto:info@traveltechdata.ch">info@traveltechdata.ch</a>
   </footer>
 
 </div>
 <script>
 const WORKER_URL = "https://ticino-radar.crimson-fire-7c19.workers.dev";
+
+/* ===== ICON LIBRARY (premium line icons, stroke-based) ===== */
+const ICONS = {
+  market: '<path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/>',
+  hotel: '<path d="M3 21V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v16"/><path d="M3 21h18"/><path d="M8 7h.01M12 7h.01M16 7h.01M8 11h.01M12 11h.01M16 11h.01"/><path d="M10 21v-4h4v4"/>',
+  calendar: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  trend: '<path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/>',
+  mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/>',
+  tag: '<path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/>',
+  music: '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+  school: '<path d="m22 9-10-5L2 9l10 5 10-5z"/><path d="M6 10.5V16c0 1 2.5 3 6 3s6-2 6-3v-5.5"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  cloud: '<path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.7 1.5A3.5 3.5 0 0 0 6 19z"/>',
+  cloudsun: '<path d="M12 2v2M5 5l1 1M2 12h2M19 5l-1 1"/><circle cx="9" cy="9" r="3"/><path d="M17.5 19a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.7 1"/>',
+  rain: '<path d="M16 13a4 4 0 0 0 0-8 5 5 0 0 0-9.7 1.3A3.3 3.3 0 0 0 6 13z"/><path d="M8 17l-1 3M12 17l-1 3M16 17l-1 3"/>',
+  snow: '<path d="M16 13a4 4 0 0 0 0-8 5 5 0 0 0-9.7 1.3A3.3 3.3 0 0 0 6 13z"/><path d="M8 17h.01M12 18h.01M16 17h.01"/>',
+  storm: '<path d="M16 12a4 4 0 0 0 0-8 5 5 0 0 0-9.7 1.3A3.3 3.3 0 0 0 6 12z"/><path d="m12 12-2 5h3l-2 5"/>',
+  fog: '<path d="M4 9h16M4 13h16M6 17h12"/>',
+  copy: '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5 8.6 10.5"/>',
+  camera: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/>',
+  info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+  alert: '<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>',
+  arrowDown: '<path d="M12 5v14M19 12l-7 7-7-7"/>',
+  film: '<rect x="2" y="3" width="20" height="18" rx="2"/><path d="M7 3v18M17 3v18M2 9h5M2 15h5M17 9h5M17 15h5"/>',
+  trophy: '<path d="M6 9a6 6 0 0 0 12 0V3H6z"/><path d="M6 5H3v2a3 3 0 0 0 3 3M18 5h3v2a3 3 0 0 0-3 3M9 21h6M12 17v4"/>',
+  edit: '<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.1 2.1 0 0 1 3 3L12 15l-4 1 1-4z"/>'
+};
+function svgIcon(name, size, color) {
+  const p = ICONS[name]; if (!p) return "";
+  const s = size || 16;
+  const c = color || "currentColor";
+  return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="' + c + '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;display:inline-block">' + p + '</svg>';
+}
+const WMO_ICON = { 0:"sun",1:"sun",2:"cloudsun",3:"cloud",45:"fog",48:"fog",51:"rain",53:"rain",55:"rain",61:"rain",63:"rain",65:"rain",71:"snow",73:"snow",75:"snow",80:"rain",81:"rain",82:"storm",95:"storm",96:"storm" };
 let radarData = null;
 let allHotels = [];
 let currentLang = "it";
@@ -603,8 +656,7 @@ async function loadRadarData() {
     const m = radarData.meta || {};
     document.getElementById("metaSettimana").textContent = "Settimana " + (m.settimana || "—");
     document.getElementById("metaHotels").textContent = (m.totalHotels || allHotels.length) + " strutture";
-    document.querySelector(".meta-line .dot").parentElement.querySelector("span:last-child").textContent =
-      currentLang === "it" ? "Aggiornato " + (m.aggiornato || "") : "Aktualisiert " + (m.aggiornato || "");
+    // header dot label stays "Aggiornato oggi" (set via data-it/data-de)
 
     renderKpi();
     initChart();
@@ -652,7 +704,7 @@ function switchChart(type, btn) {
   if (ustatChart) ustatChart.destroy();
 
   Chart.defaults.color = chartColors.text;
-  Chart.defaults.font.family = "DM Sans";
+  Chart.defaults.font.family = "Inter";
   let config;
 
   if (type === "arrivi") {
@@ -720,9 +772,9 @@ function setChartNote(t) { document.getElementById("chartNote").textContent = t;
 
 /* ===== INSIGHTS ===== */
 function renderInsights() {
-  const ico = { positivo: "📈", attenzione: "⚠️", info: "ℹ️" };
+  const ico = { positivo: svgIcon("trend",16), attenzione: svgIcon("alert",16), info: svgIcon("info",16) };
   document.getElementById("insightsBox").innerHTML = radarData.ustat.insights.map(function(i) {
-    return '<div class="insight ' + i.tipo + '"><div class="insight-ico">' + (ico[i.tipo]||"•") +
+    return '<div class="insight ' + i.tipo + '"><div class="insight-ico">' + (ico[i.tipo]||"") +
       '</div><div class="insight-text">' + (currentLang==="it"?i.testo_it:i.testo_de) + '</div></div>';
   }).join("");
 }
@@ -892,7 +944,7 @@ function renderEventi() {
   const nord = radarData.eventi.nord || [];
   if (nord.length) {
     document.getElementById("nordBox").innerHTML = nord.map(function(n) {
-      return '<div class="nord-note"><strong>🔻 ' + n.nome + '</strong> (' + n.dateLabel + ') — ' + n.note + '</div>';
+      return '<div class="nord-note"><strong>' + svgIcon("arrowDown",14) + ' ' + n.nome + '</strong> (' + n.dateLabel + ') — ' + n.note + '</div>';
     }).join("");
   }
 }
@@ -916,38 +968,100 @@ function renderPredictiveCalendar() {
   if (!pc) return;
   const base = clusterAvg(pcStars);
   const mult = pc.moltiplicatori;
-  const levelColor = { picco: "#085041", alta: "#1D6B4A", media: "#5DCAA5", spalla: "#6FA8DC", bassa: "#8B9099", "bassa+": "#8B9099" };
+  const levelColor = { picco: "#C0584F", alta: "#D98352", media: "#4FB286", spalla: "#5A9BC4", bassa: "#6B7280", "bassa+": "#6B7280" };
   const levelLabel = {
     picco: currentLang==="it"?"Picco":"Spitze", alta: currentLang==="it"?"Alta":"Hoch",
     media: "Media", spalla: currentLang==="it"?"Spalla":"Schulter", bassa: currentLang==="it"?"Bassa":"Niedrig"
   };
-  document.getElementById("pcScroll").innerHTML = pc.settimane.map(function(w) {
+  const starLabel = pcStars > 0 ? pcStars + "\u2605" : (currentLang==="it"?"tutte":"alle");
+
+  // compute per-week data
+  const weeks = pc.settimane.map(function(w) {
     const mDomanda = mult[w.livello] || 1.0;
-    const mEvento = w.eventi && w.eventi.length ? 1.10 : 1.0;
-    const mVac = w.vacanze_ch && w.vacanze_ch.length ? 1.15 : 1.0;
+    const mEvento = (w.eventi && w.eventi.length) ? 1.10 : 1.0;
+    const mVac = (w.vacanze_ch && w.vacanze_ch.length) ? 1.15 : 1.0;
     const target = Math.round(base * mDomanda * mEvento * mVac);
-    const delta = target - base;
-    const deltaStr = (delta >= 0 ? "+" : "") + "CHF " + delta;
-    const deltaColor = delta > 0 ? "var(--accent)" : (delta < 0 ? "var(--red)" : "var(--muted)");
-    let badges = "";
-    (w.eventi||[]).forEach(function(ev){ badges += '<span class="pc-badge event">🎵 ' + ev + '</span>'; });
-    if (w.vacanze_ch && w.vacanze_ch.length) badges += '<span class="pc-badge holiday">🏫 ' + w.vacanze_ch.join(" ") + '</span>';
-    const motiv = currentLang === "it" ? w.motivazione_it : w.motivazione_de;
-    return '<div class="pc-card">' +
-      '<div class="pc-week">SETT ' + w.settimana + '</div>' +
-      '<div class="pc-dates">' + w.label + '</div>' +
-      '<span class="pc-level" style="background:' + (levelColor[w.livello]||"#8B9099") + '">' + (levelLabel[w.livello]||w.livello) + '</span>' +
-      '<div class="pc-prices">' +
-        '<div class="pc-price-row"><span class="k">' + (currentLang==="it"?"Media cluster":"Cluster-Schnitt") + ' ' + (pcStars>0?pcStars+"★":(currentLang==="it"?"tutte":"alle")) + '</span><span class="v">CHF ' + base + '</span></div>' +
-        '<div class="pc-price-row"><span class="k">' + (currentLang==="it"?"Variazione":"Anpassung") + '</span><span class="pc-delta" style="color:' + deltaColor + '">' + deltaStr + '</span></div>' +
-      '</div>' +
-      '<div class="pc-target">CHF ' + target + '</div>' +
-      '<div class="pc-badges">' + badges + '</div>' +
-      '<div class="pc-motiv">' + motiv + '</div>' +
+    return { w: w, target: target, delta: target - base, color: levelColor[w.livello] || "#6B7280" };
+  });
+
+  // GUIDE
+  document.getElementById("pcGuide").className = "pc-guide";
+  document.getElementById("pcGuide").innerHTML =
+    (currentLang === "it"
+      ? "<div><strong>Come leggere la timeline:</strong> ogni blocco \u00e8 una settimana. Pi\u00f9 \u00e8 caldo il colore (rosso/arancio), pi\u00f9 la domanda \u00e8 alta e pi\u00f9 puoi alzare la tariffa. Nei blocchi verdi/grigi la domanda \u00e8 debole: conviene riempire con tariffe pi\u00f9 morbide. Tocca un blocco per vedere il dettaglio e il prezzo consigliato.</div>"
+      : "<div><strong>So liest du die Timeline:</strong> Jeder Block ist eine Woche. Je w\u00e4rmer die Farbe (rot/orange), desto h\u00f6her die Nachfrage und desto mehr kannst du den Preis anheben. Bei gr\u00fcn/grau ist die Nachfrage schwach. Tippe auf einen Block f\u00fcr Details.</div>");
+
+  // TIMELINE
+  document.getElementById("pcTimeline").innerHTML = weeks.map(function(d, i) {
+    const deltaStr = (d.delta >= 0 ? "+" : "") + d.delta;
+    return '<div class="pc-seg" style="background:' + d.color + '" onclick="showPcDetail(' + i + ')" id="pcSeg' + i + '">' +
+      '<div class="pc-seg-val">' + d.target + '</div>' +
+      '<div class="pc-seg-delta">' + (d.delta !== 0 ? deltaStr : "—") + '</div>' +
     '</div>';
   }).join("");
+
+  // AXIS (week dates)
+  document.getElementById("pcAxis").innerHTML = weeks.map(function(d) {
+    return '<div class="pc-axis-tick">' + d.w.label.split("\u2013")[0].trim() + '</div>';
+  }).join("");
+
+  // LEGEND
+  const legendItems = [
+    { c: "#C0584F", l: currentLang==="it"?"Picco — alza molto":"Spitze" },
+    { c: "#D98352", l: currentLang==="it"?"Alta — alza":"Hoch" },
+    { c: "#4FB286", l: "Media" },
+    { c: "#5A9BC4", l: currentLang==="it"?"Spalla — riempi":"Schulter" }
+  ];
+  document.getElementById("pcLegend").innerHTML = legendItems.map(function(x) {
+    return '<div class="pc-legend-item"><span class="pc-legend-dot" style="background:' + x.c + '"></span>' + x.l + '</div>';
+  }).join("");
+
+  // store for detail
+  window._pcWeeks = weeks;
+  window._pcBase = base;
+  window._pcStarLabel = starLabel;
+  window._pcLevelLabel = levelLabel;
+
+  // default: show first PICCO week, else first week
+  let defIdx = weeks.findIndex(function(d){ return d.w.livello === "picco"; });
+  if (defIdx < 0) defIdx = 0;
+  showPcDetail(defIdx);
 }
 
+function showPcDetail(i) {
+  const weeks = window._pcWeeks; if (!weeks) return;
+  const d = weeks[i];
+  const base = window._pcBase;
+  const levelLabel = window._pcLevelLabel;
+  document.querySelectorAll(".pc-seg").forEach(function(s){ s.classList.remove("active"); });
+  const seg = document.getElementById("pcSeg" + i); if (seg) seg.classList.add("active");
+
+  let badges = "";
+  (d.w.eventi || []).forEach(function(ev){ badges += '<span class="pc-badge event">' + svgIcon("music", 12) + ev + '</span>'; });
+  if (d.w.vacanze_ch && d.w.vacanze_ch.length) badges += '<span class="pc-badge holiday">' + svgIcon("school", 12) + (currentLang==="it"?"Vacanze ":"Ferien ") + d.w.vacanze_ch.join(" ") + '</span>';
+  if (!badges) badges = '<span class="pc-badge">' + (currentLang==="it"?"Nessun evento":"Keine Events") + '</span>';
+
+  const motiv = currentLang === "it" ? d.w.motivazione_it : d.w.motivazione_de;
+  const deltaTxt = d.delta > 0
+    ? (currentLang==="it" ? "alza di <strong>CHF " + d.delta + "</strong> sulla media cluster " + window._pcStarLabel : "um <strong>CHF " + d.delta + "</strong> erh\u00f6hen")
+    : (currentLang==="it" ? "mantieni intorno alla media cluster" : "um den Cluster-Schnitt halten");
+
+  const ctaText = currentLang === "it"
+    ? "Tariffa consigliata: <strong>CHF " + d.target + "</strong> — " + deltaTxt + " (CHF " + base + ")."
+    : "Empfohlener Preis: <strong>CHF " + d.target + "</strong> — " + deltaTxt + " (CHF " + base + ").";
+
+  document.getElementById("pcDetail").innerHTML =
+    '<div class="pc-detail-title">' + (currentLang==="it"?"Dettaglio settimana selezionata":"Detail ausgew\u00e4hlte Woche") + '</div>' +
+    '<div class="pc-detail-card" style="border-left-color:' + d.color + '">' +
+      '<div class="pc-detail-head">' +
+        '<span class="pc-detail-week">' + (currentLang==="it"?"Settimana ":"Woche ") + d.w.settimana + ' \u00b7 ' + d.w.label + '</span>' +
+        '<span class="pc-detail-level" style="background:' + d.color + '">' + (levelLabel[d.w.livello]||d.w.livello) + '</span>' +
+      '</div>' +
+      '<div class="pc-detail-badges">' + badges + '</div>' +
+      '<div class="pc-detail-motiv">' + motiv + '</div>' +
+      '<div class="pc-cta"><span class="pc-cta-ico">' + svgIcon("tag", 18) + '</span><span class="pc-cta-text">' + ctaText + '</span></div>' +
+    '</div>';
+}
 /* ===== TRENDS ===== */
 function renderTrends() {
   const mt = radarData.marketing_trends;
@@ -963,13 +1077,14 @@ function renderTrends() {
     html += '<div class="trend-card"><div class="trend-left">' +
       '<div class="trend-keyword">' + k.keyword + '</div>' +
       '<div class="trend-note">' + k.note + '</div>' +
-      '<div class="trend-action">' + k.suggerimento_azione + '</div></div>' +
+      '<div class="trend-action">' + ((currentLang==="de" && k.suggerimento_azione_de) ? k.suggerimento_azione_de : k.suggerimento_azione) + '</div></div>' +
       '<div class="trend-badge ' + bc + '">' + k.crescita + '</div></div>';
   });
   html += '</div>';
-  html += '<div class="hashtag-box"><div class="hashtag-box-title">📷 Toolkit Instagram — ' + (currentLang==="it"?"copia e incolla":"kopieren") + '</div><div class="hashtag-wrap" id="hashtagWrap">';
+  html += '<div class="hashtag-usage">' + (currentLang==="it" ? "Copia questo blocco e incollalo nella descrizione di un post o reel su Instagram e Facebook. Sono ordinati per rilevanza di questa settimana: i primi intercettano le ricerche in crescita." : "Kopiere diesen Block in die Beschreibung eines Posts oder Reels auf Instagram und Facebook. Nach Relevanz dieser Woche sortiert.") + '</div>';
+  html += '<div class="hashtag-box"><div class="hashtag-box-title">' + svgIcon("camera",14) + ' Toolkit Instagram — ' + (currentLang==="it"?"copia e incolla":"kopieren") + '</div><div class="hashtag-wrap" id="hashtagWrap">';
   mt.social_hashtags.forEach(function(t){ html += '<span class="hashtag-pill">' + t + '</span>'; });
-  html += '</div><button class="copy-btn" id="copyBtn" onclick="copiaHashtag()">📋 ' + (currentLang==="it"?"Copia Hashtag":"Hashtags kopieren") + '</button></div>';
+  html += '</div><button class="copy-btn" id="copyBtn" onclick="copiaHashtag()">' + svgIcon("copy",14) + ' ' + (currentLang==="it"?"Copia Hashtag":"Hashtags kopieren") + '</button></div>';
   document.getElementById("trendsBody").innerHTML = html;
 }
 function copiaHashtag() {
@@ -977,9 +1092,9 @@ function copiaHashtag() {
   const txt = Array.from(pills).map(function(p){ return p.textContent; }).join(" ");
   const done = function() {
     const b = document.getElementById("copyBtn");
-    b.textContent = "✅ " + (currentLang==="it"?"Copiati!":"Kopiert!");
+    b.innerHTML = svgIcon("check",14) + " " + (currentLang==="it"?"Copiati!":"Kopiert!");
     b.classList.add("copied");
-    setTimeout(function(){ b.textContent = "📋 " + (currentLang==="it"?"Copia Hashtag":"Hashtags kopieren"); b.classList.remove("copied"); }, 2000);
+    setTimeout(function(){ b.innerHTML = svgIcon("copy",14) + " " + (currentLang==="it"?"Copia Hashtag":"Hashtags kopieren"); b.classList.remove("copied"); }, 2000);
   };
   navigator.clipboard.writeText(txt).then(done).catch(function() {
     const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select();
@@ -994,7 +1109,6 @@ const CITIES = [
   { name: "Basilea", lat: 47.56, lon: 7.59 },
   { name: "Berna", lat: 46.95, lon: 7.44 }
 ];
-const WMO = { 0:"☀️",1:"🌤️",2:"⛅",3:"☁️",45:"🌫️",48:"🌫️",51:"🌦️",53:"🌦️",55:"🌧️",61:"🌧️",63:"🌧️",65:"🌧️",71:"🌨️",73:"🌨️",75:"❄️",80:"🌦️",81:"🌧️",82:"⛈️",95:"⛈️",96:"⛈️" };
 
 async function loadGottardo() {
   try {
@@ -1013,38 +1127,38 @@ async function loadGottardo() {
     const factors = [];
     const delta = locarno.temp - nordAvg;
     const deltaR = Math.round(delta);
-    if (delta >= 8) { score += 25; factors.push({t: (currentLang==="it"?"Delta termico":"Temp.-Delta") + " +" + deltaR + "°", k:"pos", i:"🌡️"}); }
-    else if (delta >= 4) { score += 12; factors.push({t: (currentLang==="it"?"Delta termico":"Temp.-Delta") + " +" + deltaR + "°", k:"pos", i:"🌡️"}); }
-    else if (delta < 0) { score -= 10; factors.push({t: (currentLang==="it"?"Nord più caldo":"Norden wärmer") + " " + deltaR + "°", k:"neg", i:"🌡️"}); }
-    else { factors.push({t: (currentLang==="it"?"Delta termico minimo":"Geringes Delta"), k:"", i:"🌡️"}); }
+    if (delta >= 8) { score += 25; factors.push({t: (currentLang==="it"?"Delta termico":"Temp.-Delta") + " +" + deltaR + "°", k:"pos", i:""}); }
+    else if (delta >= 4) { score += 12; factors.push({t: (currentLang==="it"?"Delta termico":"Temp.-Delta") + " +" + deltaR + "°", k:"pos", i:""}); }
+    else if (delta < 0) { score -= 10; factors.push({t: (currentLang==="it"?"Nord più caldo":"Norden wärmer") + " " + deltaR + "°", k:"neg", i:""}); }
+    else { factors.push({t: (currentLang==="it"?"Delta termico minimo":"Geringes Delta"), k:"", i:""}); }
 
-    if (nordRain) { factors.push({t: currentLang==="it"?"Pioggia a Nord":"Regen im Norden", k:"pos", i:"🌧️"}); }
+    if (nordRain) { factors.push({t: currentLang==="it"?"Pioggia a Nord":"Regen im Norden", k:"pos", i:""}); }
     if (locarno.temp > 20 && locarno.code <= 2 && nordRain) score = Math.max(score, 85);
     if (nordAvg < 15 && locarno.temp > 18 && locarno.code <= 2) score = Math.max(score, 74);
-    if (locarno.code <= 1) { factors.push({t: currentLang==="it"?"Sole a Locarno":"Sonne in Locarno", k:"pos", i:"☀️"}); }
-    if (locarno.temp > 32 && nordAvg > 32) { score -= 15; factors.push({t: currentLang==="it"?"Canicola diffusa":"Hitze überall", k:"neg", i:"🥵"}); }
-    if (locarnoRain) { score -= 20; factors.push({t: currentLang==="it"?"Pioggia a Locarno":"Regen in Locarno", k:"neg", i:"🌧️"}); }
+    if (locarno.code <= 1) { factors.push({t: currentLang==="it"?"Sole a Locarno":"Sonne in Locarno", k:"pos", i:""}); }
+    if (locarno.temp > 32 && nordAvg > 32) { score -= 15; factors.push({t: currentLang==="it"?"Canicola diffusa":"Hitze überall", k:"neg", i:""}); }
+    if (locarnoRain) { score -= 20; factors.push({t: currentLang==="it"?"Pioggia a Locarno":"Regen in Locarno", k:"neg", i:""}); }
     score = Math.max(0, Math.min(100, Math.round(score)));
 
     let verdict, color, subtitle;
     if (score >= 80) {
-      verdict = currentLang==="it"?"🔴 Alta pressione — Esodo in corso":"🔴 Hoher Druck — Abwanderung";
+      verdict = currentLang==="it"?"Alta pressione — Esodo in corso":"Hoher Druck — Abwanderung";
       color = "#E0726B";
       subtitle = currentLang==="it"?"Forte spinta dal Nord verso il lago. Alza le tariffe e prepara le ultime camere: è il momento di massimizzare.":"Starker Sog vom Norden zum See. Preise erhöhen — jetzt maximieren.";
     } else if (score >= 65) {
-      verdict = currentLang==="it"?"🟠 Pressione elevata":"🟠 Erhöhter Druck";
+      verdict = currentLang==="it"?"Pressione elevata":"Erhöhter Druck";
       color = "#E0A458";
       subtitle = currentLang==="it"?"Condizioni favorevoli a un afflusso dal Nord. Buon momento per tariffe sostenute nel weekend.":"Günstige Bedingungen für Zustrom aus dem Norden. Gute Gelegenheit für höhere Wochenendpreise.";
     } else if (score >= 45) {
-      verdict = currentLang==="it"?"🟡 Pressione media":"🟡 Mittlerer Druck";
+      verdict = currentLang==="it"?"Pressione media":"Mittlerer Druck";
       color = "#E0A458";
       subtitle = currentLang==="it"?"Nessun driver meteo forte. Settimana nella norma stagionale: mantieni la strategia di base.":"Kein starker Wettertreiber. Saisonübliche Woche: Basisstrategie beibehalten.";
     } else if (score >= 25) {
-      verdict = currentLang==="it"?"🟢 Pressione bassa":"🟢 Niedriger Druck";
+      verdict = currentLang==="it"?"Pressione bassa":"Niedriger Druck";
       color = "#4FB286";
       subtitle = currentLang==="it"?"Meteo simile o migliore a Nord. Poca spinta verso il lago: punta su domanda locale ed eventi.":"Wetter im Norden ähnlich oder besser. Wenig Sog zum See: auf lokale Nachfrage und Events setzen.";
     } else {
-      verdict = currentLang==="it"?"🔵 Pressione minima":"🔵 Minimaler Druck";
+      verdict = currentLang==="it"?"Pressione minima":"Minimaler Druck";
       color = "#6FA8DC";
       subtitle = currentLang==="it"?"Condizioni sfavorevoli all'afflusso dal Nord. Valuta tariffe flessibili per riempire.":"Ungünstig für Zustrom. Flexible Preise zur Auslastung erwägen.";
     }
@@ -1061,13 +1175,13 @@ async function loadGottardo() {
     document.getElementById("gottardoMeta").textContent = "OpenMeteo · " + new Date().toLocaleTimeString("it-CH", {hour:"2-digit",minute:"2-digit"});
 
     document.getElementById("gaugeFactors").innerHTML = factors.map(function(f) {
-      return '<span class="gauge-factor ' + f.k + '"><span class="gf-ico">' + f.i + '</span>' + f.t + '</span>';
+      return '<span class="gauge-factor ' + f.k + '">' + f.t + '</span>';
     }).join("");
 
     document.getElementById("cityCards").innerHTML = results.map(function(c, idx) {
       const star = idx === 0 ? ' ★' : '';
       const hl = idx === 0 ? ' style="border-color:var(--accent)"' : '';
-      return '<div class="city-card"' + hl + '><div class="city-name">' + c.name + star + '</div><div class="city-temp">' + c.temp + '°</div><div class="city-ico">' + (WMO[c.code]||"•") + '</div></div>';
+      return '<div class="city-card"' + hl + '><div class="city-name">' + c.name + star + '</div><div class="city-temp">' + c.temp + '°</div><div class="city-ico">' + svgIcon(WMO_ICON[c.code]||"cloud", 20) + '</div></div>';
     }).join("");
   } catch (e) {
     document.getElementById("gaugeVerdict").textContent = currentLang==="it"?"Meteo non disponibile":"Wetter nicht verfügbar";
@@ -1129,7 +1243,7 @@ function updateProgress() {
 }
 function condividiWhatsApp() {
   const azioni = window._azioni || [];
-  let txt = currentLang==="it" ? "🏔️ Ticino Tourism Radar — Azioni della settimana:\n\n" : "🏔️ Ticino Tourism Radar — Aktionen der Woche:\n\n";
+  let txt = currentLang==="it" ? "Ticino Tourism Radar — Azioni della settimana:\n\n" : "Ticino Tourism Radar — Aktionen der Woche:\n\n";
   azioni.forEach(function(a, i) { txt += (i+1) + ". " + (a.titolo || a.title || "") + "\n"; });
   window.open("https://wa.me/?text=" + encodeURIComponent(txt), "_blank");
 }
@@ -1143,6 +1257,14 @@ function submitLead(tipo) {
 }
 
 /* ===== INIT ===== */
+function paintStaticIcons() {
+  const map = { "ico-mercato":"market", "ico-comp":"hotel", "ico-prev":"calendar", "ico-mkt":"trend", "ico-cont":"mail", "ico-wa":"share" };
+  Object.keys(map).forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = svgIcon(map[id], 16);
+  });
+}
+paintStaticIcons();
 loadRadarData();
 </script>
 </body>
