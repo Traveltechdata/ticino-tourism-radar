@@ -5821,27 +5821,50 @@
       ]
     },
     "mercati_esteri": {
+      "titolo_it": "Mercati di provenienza",
+      "titolo_de": "Herkunftsmärkte",
       "labels": [
-        "Italia",
+        "Svizzera",
         "Germania",
+        "Italia*",
         "USA",
+        "Paesi Bassi",
+        "Regno Unito",
         "Francia",
-        "UK",
-        "Olanda",
-        "Spagna",
-        "Russia"
+        "Belgio"
+      ],
+      "labels_de": [
+        "Schweiz",
+        "Deutschland",
+        "Italien*",
+        "USA",
+        "Niederlande",
+        "Vereinigtes Königreich",
+        "Frankreich",
+        "Belgien"
       ],
       "values": [
-        32396,
-        23456,
-        8176,
-        5133,
-        3507,
-        2374,
-        2224,
-        1038
+        1514410,
+        250087,
+        156636,
+        107207,
+        50651,
+        41267,
+        38500,
+        21800
       ],
-      "nota": "Pernottamenti gen-mar 2026. Italia include probabilmente frontalieri — da verificare."
+      "is_domestic": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "nota_it": "Pernottamenti 2025. La Svizzera (mercato interno) genera oltre il 60% del totale. *Italia: dato gonfiato dai frontalieri (~60.000/giorno), non rappresenta turismo reale — da interpretare con cautela.",
+      "nota_de": "Logiernächte 2025. Die Schweiz (Inlandsmarkt) erzeugt über 60% des Totals. *Italien: durch Grenzgänger verzerrt (~60.000/Tag) — mit Vorsicht zu interpretieren."
     },
     "trend_storico": {
       "labels": [
@@ -5892,8 +5915,8 @@
       },
       {
         "tipo": "info",
-        "testo_it": "Mercati esteri: Germania e Svizzera centrale sono il target da acquisire. Italia: dato distorto da frontalieri.",
-        "testo_de": "Auslandsmärkte: Deutschland und Deutschschweiz aktiv akquirieren. Italien: durch Grenzgänger verzerrt."
+        "testo_it": "Il mercato domestico svizzero genera oltre il 60% dei pernottamenti: è la base da fidelizzare. La Germania è il primo mercato estero reale (+6.9%). Il dato Italia è gonfiato dai frontalieri — non confondere con turismo.",
+        "testo_de": "Der Schweizer Inlandsmarkt erzeugt über 60% der Logiernächte: die zu bindende Basis. Deutschland ist der erste echte Auslandsmarkt (+6,9%). Italien-Daten durch Grenzgänger verzerrt."
       }
     ]
   },
