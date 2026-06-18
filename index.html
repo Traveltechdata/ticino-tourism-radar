@@ -204,17 +204,19 @@
   .pc-controls .lbl { font-size: 12px; color: var(--muted); }
   .pc-star-btn { padding: 6px 14px; font-size: 12px; font-weight: 600; border-radius: 18px; border: 0.5px solid var(--border-hi); background: var(--bg-deep); color: var(--muted); cursor: pointer; font-family: var(--sans); transition: all 0.15s; }
   .pc-star-btn.active { background: var(--accent); color: #11231b; border-color: var(--accent); }
+  .pc-zone-btn { padding: 6px 13px; font-size: 12px; font-weight: 600; border-radius: 18px; border: 0.5px solid var(--border-hi); background: var(--bg-deep); color: var(--muted); cursor: pointer; font-family: var(--sans); transition: all 0.15s; }
+  .pc-zone-btn.active { background: var(--accent); color: #11231b; border-color: var(--accent); }
   .pc-guide { display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; color: var(--text-soft); line-height: 1.5; background: var(--bg-deep); border-left: 3px solid var(--accent); border-radius: 8px; padding: 12px 14px; margin-bottom: 18px; }
   .pc-guide strong { color: var(--text); font-weight: 600; }
-  .pc-timeline { display: flex; width: 100%; border-radius: 10px; overflow: hidden; margin-bottom: 6px; height: 86px; }
-  .pc-seg { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: filter 0.15s, transform 0.15s; position: relative; border-right: 1px solid rgba(0,0,0,0.18); }
-  .pc-seg:last-child { border-right: none; }
+  .pc-timeline { display: flex; gap: 3px; border-radius: 10px; overflow-x: auto; overflow-y: hidden; margin-bottom: 6px; height: 92px; padding-bottom: 2px; scrollbar-width: thin; scroll-behavior: smooth; }
+  .pc-seg { flex: 0 0 76px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: filter 0.15s, transform 0.15s; position: relative; border-radius: 7px; }
+
   .pc-seg:hover { filter: brightness(1.12); }
-  .pc-seg.active { transform: scaleY(1.06); z-index: 2; box-shadow: 0 0 0 2px var(--text) inset; }
-  .pc-seg-val { font-family: var(--serif); font-size: 16px; color: #fff; font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+  .pc-seg.active { z-index: 2; box-shadow: 0 0 0 2px var(--text) inset; }
+  .pc-seg-val { font-family: var(--serif); font-size: 17px; color: #fff; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.45); }
   .pc-seg-delta { font-size: 10px; color: rgba(255,255,255,0.92); font-weight: 600; margin-top: 1px; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
-  .pc-axis { display: flex; width: 100%; margin-bottom: 18px; }
-  .pc-axis-tick { flex: 1; text-align: center; font-size: 10px; color: var(--muted); }
+  .pc-axis { display: flex; gap: 3px; overflow-x: auto; margin-bottom: 18px; scrollbar-width: none; }
+  .pc-axis-tick { flex: 0 0 76px; text-align: center; font-size: 10px; color: var(--muted); }
   .pc-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
   .pc-legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
   .pc-legend-dot { width: 11px; height: 11px; border-radius: 3px; }
@@ -228,6 +230,13 @@
   .pc-badge.event { background: var(--red-bg); color: var(--red); }
   .pc-badge.holiday { background: var(--blue-bg); color: var(--blue); }
   .pc-detail-motiv { font-size: 12.5px; color: var(--text-soft); line-height: 1.5; margin-bottom: 12px; }
+  .pc-price-visual { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 14px; background: var(--bg-deep); border-radius: 10px; margin-bottom: 11px; }
+  .pcv-block { text-align: center; }
+  .pcv-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+  .pcv-base { font-size: 20px; font-weight: 600; color: var(--muted); }
+  .pcv-target { font-family: var(--serif); font-size: 30px; font-weight: 800; color: var(--text); }
+  .pcv-arrow { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .pcv-arrow-delta { font-size: 12px; font-weight: 700; }
   .pc-cta { display: flex; align-items: center; gap: 10px; background: var(--accent-light); border: 0.5px solid rgba(79,178,134,0.3); border-radius: 9px; padding: 11px 13px; }
   .pc-cta-ico { color: var(--accent); flex-shrink: 0; }
   .pc-cta-text { font-size: 13px; color: var(--text); }
@@ -431,12 +440,21 @@
       </div>
       <div class="section-body">
         <div class="pc-controls">
-          <span class="lbl" data-it="Categoria di riferimento:" data-de="Referenzkategorie:">Categoria di riferimento:</span>
+          <span class="lbl" data-it="Categoria:" data-de="Kategorie:">Categoria:</span>
           <button class="pc-star-btn" onclick="setPcStars(2,this)">2★</button>
           <button class="pc-star-btn" onclick="setPcStars(3,this)">3★</button>
           <button class="pc-star-btn active" onclick="setPcStars(4,this)">4★</button>
           <button class="pc-star-btn" onclick="setPcStars(5,this)">5★</button>
           <button class="pc-star-btn" onclick="setPcStars(0,this)" data-it="Tutte" data-de="Alle">Tutte</button>
+        </div>
+        <div class="pc-controls">
+          <span class="lbl" data-it="Zona:" data-de="Zone:">Zona:</span>
+          <button class="pc-zone-btn active" onclick="setPcZone('tutte',this)" data-it="Tutte" data-de="Alle">Tutte</button>
+          <button class="pc-zone-btn" onclick="setPcZone('locarno',this)">Locarno</button>
+          <button class="pc-zone-btn" onclick="setPcZone('ascona',this)">Ascona &amp; Losone</button>
+          <button class="pc-zone-btn" onclick="setPcZone('brissago',this)">Brissago</button>
+          <button class="pc-zone-btn" onclick="setPcZone('cannobio',this)">Cannobio 🇮🇹</button>
+          <button class="pc-zone-btn" onclick="setPcZone('valli',this)" data-it="Valli" data-de="Täler">Valli</button>
         </div>
         <div id="pcGuide"></div>
         <div class="pc-timeline" id="pcTimeline"></div>
@@ -952,6 +970,20 @@ function renderEventi() {
 
 /* ===== PREDICTIVE CALENDAR ===== */
 let pcStars = 4;
+let pcZone = "tutte";
+const PC_ZONES = {
+  locarno: /locarno|minusio|muralto|orselina|tenero|gordola/i,
+  ascona: /ascona|losone/i,
+  brissago: /brissago/i,
+  cannobio: /cannobio/i,
+  valli: /maggia|cevio|fusio|bignasco|coglio|aurigeno|gordevio|bosco gurin|san carlo|campo|intragna|tegna/i
+};
+function setPcZone(z, btn) {
+  pcZone = z;
+  document.querySelectorAll(".pc-zone-btn").forEach(function(b){ b.classList.remove("active"); });
+  btn.classList.add("active");
+  renderPredictiveCalendar();
+}
 function setPcStars(s, btn) {
   pcStars = s;
   document.querySelectorAll(".pc-star-btn").forEach(function(b){ b.classList.remove("active"); });
@@ -961,6 +993,10 @@ function setPcStars(s, btn) {
 function clusterAvg(stars) {
   let pool = allHotels.filter(function(h){ return h.priceWeekend7; });
   if (stars > 0) pool = pool.filter(function(h){ return h.stars === stars; });
+  if (pcZone !== "tutte" && PC_ZONES[pcZone]) {
+    var zoned = pool.filter(function(h){ return PC_ZONES[pcZone].test((h.address||"") + " " + (h.city||"")); });
+    if (zoned.length) pool = zoned;  // se la zona+stelle dà 0, ripiego sulle sole stelle
+  }
   if (!pool.length) pool = allHotels.filter(function(h){ return h.priceWeekend7; });
   window._pcSample = pool.length;
   return Math.round(pool.reduce(function(a,h){return a+h.priceWeekend7;},0) / pool.length);
@@ -987,14 +1023,18 @@ function renderPredictiveCalendar() {
   });
 
   // GUIDE
-  const sampleNote = (window._pcSample && window._pcSample < 6)
-    ? (currentLang==="it" ? " <em style=\'color:var(--amber)\'>(campione " + pcStars + "\u2605 limitato: " + window._pcSample + " hotel, stima indicativa)</em>" : " <em style=\'color:var(--amber)\'>(kleine Stichprobe: " + window._pcSample + " Hotels)</em>")
+  const zoneLabels = { tutte: currentLang==="it"?"tutte le zone":"alle Zonen", locarno:"Locarno", ascona:"Ascona & Losone", brissago:"Brissago", cannobio:"Cannobio", valli: currentLang==="it"?"Valli":"Taeler" };
+  const baseRef = (currentLang==="it"
+    ? "<div style='margin-top:8px;color:var(--text-soft)'>Base di calcolo: media reale dei <strong>" + (pcStars>0?pcStars+"\u2605":"tutti gli hotel") + "</strong> in <strong>" + (zoneLabels[pcZone]||pcZone) + "</strong> = <strong>CHF " + base + "</strong> (" + window._pcSample + " strutture).</div>"
+    : "<div style='margin-top:8px;color:var(--text-soft)'>Berechnungsbasis: " + (pcStars>0?pcStars+"\u2605":"alle") + " in " + (zoneLabels[pcZone]||pcZone) + " = CHF " + base + " (" + window._pcSample + ").</div>");
+  const sampleNote = (window._pcSample && window._pcSample < 5)
+    ? (currentLang==="it" ? "<em style='color:var(--amber)'>Campione ridotto (" + window._pcSample + " strutture): stima indicativa, non un prezzo assoluto.</em>" : "<em style='color:var(--amber)'>Kleine Stichprobe (" + window._pcSample + "): nur Richtwert.</em>")
     : "";
   document.getElementById("pcGuide").className = "pc-guide";
   document.getElementById("pcGuide").innerHTML =
     (currentLang === "it"
-      ? "<div><strong>Come leggere la timeline:</strong> ogni blocco \u00e8 una settimana. Pi\u00f9 \u00e8 caldo il colore (rosso/arancio), pi\u00f9 la domanda \u00e8 alta e pi\u00f9 puoi alzare la tariffa. Nei blocchi verdi/grigi la domanda \u00e8 debole: conviene riempire con tariffe pi\u00f9 morbide. Tocca un blocco per vedere il dettaglio e il prezzo consigliato.</div>"
-      : "<div><strong>So liest du die Timeline:</strong> Jeder Block ist eine Woche. Je w\u00e4rmer die Farbe (rot/orange), desto h\u00f6her die Nachfrage. Tippe auf einen Block f\u00fcr Details." + sampleNote + "</div>");
+      ? "<div><strong>Come leggere la timeline:</strong> ogni blocco \u00e8 una settimana. Pi\u00f9 \u00e8 caldo il colore (rosso/arancio), pi\u00f9 la domanda \u00e8 alta e pi\u00f9 puoi alzare la tariffa. Tocca un blocco per il dettaglio.</div>" + baseRef + (sampleNote ? "<div>" + sampleNote + "</div>" : "")
+      : "<div><strong>So liest du die Timeline:</strong> Jeder Block ist eine Woche. Je w\u00e4rmer die Farbe, desto h\u00f6her die Nachfrage.</div>" + baseRef + (sampleNote ? "<div>" + sampleNote + "</div>" : ""));
 
   // TIMELINE
   document.getElementById("pcTimeline").innerHTML = weeks.map(function(d, i) {
@@ -1020,6 +1060,13 @@ function renderPredictiveCalendar() {
   document.getElementById("pcLegend").innerHTML = legendItems.map(function(x) {
     return '<div class="pc-legend-item"><span class="pc-legend-dot" style="background:' + x.c + '"></span>' + x.l + '</div>';
   }).join("");
+
+  // sync horizontal scroll between timeline and axis
+  var tl = document.getElementById("pcTimeline");
+  var ax = document.getElementById("pcAxis");
+  if (tl && ax) {
+    tl.onscroll = function(){ ax.scrollLeft = tl.scrollLeft; };
+  }
 
   // store for detail
   window._pcWeeks = weeks;
@@ -1065,6 +1112,16 @@ function showPcDetail(i) {
     ? "Tariffa consigliata: <strong>CHF " + d.target + "</strong> — " + deltaTxt + " (base CHF " + base + ")."
     : "Empfohlener Preis: <strong>CHF " + d.target + "</strong> — " + deltaTxt + " (Basis CHF " + base + ").";
 
+  var arrowColor = d.delta > 0 ? "#4FB286" : (d.delta < 0 ? "#9DA3AC" : "#9DA3AC");
+  var arrowIcon = d.delta > 0 ? svgIcon("trend", 22, arrowColor) : (d.delta < 0 ? svgIcon("arrowDown", 22, arrowColor) : "");
+  var arrowDeltaStr = (d.delta > 0 ? "+CHF " + d.delta : (d.delta < 0 ? "CHF " + d.delta : "= 0"));
+  var priceVisual =
+    '<div class="pc-price-visual">' +
+      '<div class="pcv-block"><div class="pcv-label">' + (currentLang==="it"?"Media cluster":"Cluster-Schnitt") + '</div><div class="pcv-base">CHF ' + base + '</div></div>' +
+      '<div class="pcv-arrow">' + arrowIcon + '<span class="pcv-arrow-delta" style="color:' + arrowColor + '">' + arrowDeltaStr + '</span></div>' +
+      '<div class="pcv-block"><div class="pcv-label">' + (currentLang==="it"?"Consigliato":"Empfohlen") + '</div><div class="pcv-target">CHF ' + d.target + '</div></div>' +
+    '</div>';
+
   document.getElementById("pcDetail").innerHTML =
     '<div class="pc-detail-title">' + (currentLang==="it"?"Dettaglio settimana selezionata":"Detail ausgew\u00e4hlte Woche") + '</div>' +
     '<div class="pc-detail-card" style="border-left-color:' + d.color + '">' +
@@ -1074,6 +1131,7 @@ function showPcDetail(i) {
       '</div>' +
       '<div class="pc-detail-badges">' + badges + '</div>' +
       '<div class="pc-detail-motiv">' + motiv + '</div>' +
+      priceVisual +
       '<div class="pc-cta"><span class="pc-cta-ico">' + svgIcon("tag", 18) + '</span><span class="pc-cta-text">' + ctaText + '</span></div>' +
     '</div>';
 }
@@ -1128,10 +1186,22 @@ const CITIES = [
 async function loadGottardo() {
   try {
     const results = await Promise.all(CITIES.map(function(c) {
-      return fetch("https://api.open-meteo.com/v1/forecast?latitude=" + c.lat + "&longitude=" + c.lon + "&current=temperature_2m,weather_code&timezone=Europe/Zurich")
-        .then(function(r){ return r.json(); })
-        .then(function(d){ return { name: c.name, temp: Math.round(d.current.temperature_2m), code: d.current.weather_code }; });
+      return fetch("https://api.open-meteo.com/v1/forecast?latitude=" + c.lat + "&longitude=" + c.lon + "&current=temperature_2m,weather_code&timezone=Europe%2FZurich")
+        .then(function(r){ if (!r.ok) throw new Error("meteo " + r.status); return r.json(); })
+        .then(function(d){
+          var cur = d.current || d.current_weather || {};
+          var t = (cur.temperature_2m !== undefined) ? cur.temperature_2m : cur.temperature;
+          var code = (cur.weather_code !== undefined) ? cur.weather_code : cur.weathercode;
+          return { name: c.name, temp: Math.round(t), code: (code === undefined ? 3 : code) };
+        })
+        .catch(function(){ return { name: c.name, temp: null, code: 3 }; });
     }));
+    // se tutte le città sono fallite, esci con messaggio
+    if (results.every(function(r){ return r.temp === null; })) throw new Error("meteo tutto ko");
+    // sostituisci eventuali temp null con la media delle valide
+    var valid = results.filter(function(r){ return r.temp !== null; });
+    var avgValid = Math.round(valid.reduce(function(a,r){ return a + r.temp; }, 0) / valid.length);
+    results.forEach(function(r){ if (r.temp === null) r.temp = avgValid; });
     const locarno = results[0];
     const nord = results.slice(1);
     const nordAvg = nord.reduce(function(a,c){ return a + c.temp; }, 0) / nord.length;
