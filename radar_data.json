@@ -5707,7 +5707,9 @@
       "soggiorno_medio": 2.4,
       "occupazione_letti_2025": 47.4,
       "occupazione_media_ch": 46.0,
-      "gap_ch": -3.0
+      "gap_ch": -3.0,
+      "rank_ticino_ch": 7,
+      "turisti_ch_interni": 706261
     },
     "stagionalita_arrivi": {
       "labels": [
@@ -5725,38 +5727,38 @@
         "Dic"
       ],
       "2024": [
-        8831,
-        12882,
-        25359,
-        44586,
-        51020,
-        53795,
-        69291,
-        63834,
-        60165,
-        42702,
-        18384,
-        15339
+        32115,
+        41930,
+        67322,
+        102388,
+        124381,
+        133919,
+        163992,
+        155826,
+        142132,
+        106259,
+        57466,
+        50720
       ],
       "2025": [
-        8665,
-        12149,
-        25294,
-        43749,
-        51709,
-        58915,
-        80885,
-        68970,
-        59077,
-        52673,
-        17510,
-        18929
+        33086,
+        40262,
+        65018,
+        100884,
+        128147,
+        137252,
+        181798,
+        162042,
+        140650,
+        119982,
+        53453,
+        56356
       ],
       "2026": [
-        9066,
-        14795,
-        27682,
-        null,
+        33420,
+        46271,
+        67037,
+        111727,
         null,
         null,
         null,
@@ -5765,7 +5767,8 @@
         null,
         null,
         null
-      ]
+      ],
+      "nota": "Arrivi mensili Ticino. Aprile 2026: 111.727 (+11% vs 2025)."
     },
     "occupazione_letti": {
       "labels": [
@@ -5928,7 +5931,65 @@
         "testo_it": "Il mercato domestico svizzero genera oltre il 60% dei pernottamenti: è la base da fidelizzare. La Germania è il primo mercato estero reale (+6.9%). Il dato Italia è gonfiato dai frontalieri — non confondere con turismo.",
         "testo_de": "Der Schweizer Inlandsmarkt erzeugt über 60% der Logiernächte: die zu bindende Basis. Deutschland ist der erste echte Auslandsmarkt (+6,9%). Italien-Daten durch Grenzgänger verzerrt."
       }
-    ]
+    ],
+    "pernottamenti_mensili": {
+      "labels": [
+        "Gen",
+        "Feb",
+        "Mar",
+        "Apr",
+        "Mag",
+        "Giu",
+        "Lug",
+        "Ago",
+        "Set",
+        "Ott",
+        "Nov",
+        "Dic"
+      ],
+      "2024": [
+        60763,
+        76553,
+        135089,
+        218002,
+        251516,
+        273097,
+        347880,
+        339868,
+        291455,
+        228846,
+        105376,
+        92356
+      ],
+      "2025": [
+        62270,
+        74016,
+        128873,
+        214064,
+        260064,
+        286139,
+        394389,
+        349646,
+        288545,
+        252495,
+        97155,
+        102423
+      ],
+      "2026": [
+        65907,
+        83998,
+        133788,
+        242649,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
   },
   "predictive_calendar": {
     "aggiornato": "2026-06-16",
@@ -6274,6 +6335,123 @@
         "da": "2026-12-21",
         "a": "2027-01-03",
         "label": "Vacanze natalizie"
+      }
+    ]
+  },
+  "ustat_cantoni": {
+    "fonte": "USTAT/HESTA 2025 — Offerta e domanda per Cantone",
+    "ranking_2025": [
+      {
+        "cantone": "Zurigo",
+        "pern": 6944112
+      },
+      {
+        "cantone": "Berna",
+        "pern": 6316388
+      },
+      {
+        "cantone": "Grigioni",
+        "pern": 5679939
+      },
+      {
+        "cantone": "Vallese",
+        "pern": 4532842
+      },
+      {
+        "cantone": "Ginevra",
+        "pern": 3851477
+      },
+      {
+        "cantone": "Vaud",
+        "pern": 3114208
+      },
+      {
+        "cantone": "Lucerna",
+        "pern": 2511517
+      },
+      {
+        "cantone": "Ticino",
+        "pern": 2510079
+      },
+      {
+        "cantone": "Basilea Città",
+        "pern": 1686289
+      },
+      {
+        "cantone": "San Gallo",
+        "pern": 1103557
+      },
+      {
+        "cantone": "Argovia",
+        "pern": 938095
+      },
+      {
+        "cantone": "Svitto",
+        "pern": 621519
+      }
+    ],
+    "occupazione_2025": [
+      {
+        "cantone": "Ginevra",
+        "occ": 55.1
+      },
+      {
+        "cantone": "Zurigo",
+        "occ": 53.6
+      },
+      {
+        "cantone": "Lucerna",
+        "occ": 51.5
+      },
+      {
+        "cantone": "Berna",
+        "occ": 50.7
+      },
+      {
+        "cantone": "Vallese",
+        "occ": 47.4
+      },
+      {
+        "cantone": "Media CH",
+        "occ": 46.0
+      },
+      {
+        "cantone": "Grigioni",
+        "occ": 44.1
+      },
+      {
+        "cantone": "Ticino",
+        "occ": 43.0
+      },
+      {
+        "cantone": "Vaud",
+        "occ": 41.1
+      }
+    ],
+    "bacini_domanda": [
+      {
+        "cantone": "Zurigo",
+        "stima_pern": 195000
+      },
+      {
+        "cantone": "Berna",
+        "stima_pern": 142000
+      },
+      {
+        "cantone": "Lucerna",
+        "stima_pern": 98000
+      },
+      {
+        "cantone": "Svitto + Nidv.",
+        "stima_pern": 62000
+      },
+      {
+        "cantone": "Argovia",
+        "stima_pern": 54000
+      },
+      {
+        "cantone": "San Gallo",
+        "stima_pern": 41000
       }
     ]
   }
