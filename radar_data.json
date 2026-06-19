@@ -5623,8 +5623,8 @@
         "trend": "up",
         "geo": "CH",
         "note": "Alta intent turistica, pubblico pronto a prenotare",
-        "suggerimento_azione": "Pubblica un reel su Instagram/Facebook con una vista del lungolago al tramonto. Caption in tedesco: \"Sommerabende am Lago Maggiore\" + hashtag #LagoMaggiore #Tessin. È la parola che sta crescendo di più: cavalcala ora.",
-        "suggerimento_azione_de": "Poste ein Reel mit Seeblick bei Sonnenuntergang. Caption: \"Sommerabende am Lago Maggiore\" + #LagoMaggiore #Tessin."
+        "suggerimento_azione": "Pubblica un reel su Instagram/Facebook con una vista del lungolago al tramonto. Caption in tedesco: \"Sommerabende am Lago Maggiore\" + hashtag #LagoMaggiore #Ascona. È la parola che sta crescendo di più: cavalcala ora.",
+        "suggerimento_azione_de": "Poste ein Reel mit Seeblick bei Sonnenuntergang. Caption: \"Sommerabende am Lago Maggiore\" + #LagoMaggiore #Ascona."
       },
       {
         "keyword": "Locarno",
@@ -5696,20 +5696,18 @@
   },
   "ustat": {
     "aggiornato": "2026-06-16",
-    "fonte": "USTAT Ticino — HESTA",
+    "fonte": "USTAT Ticino — HESTA 2025 (dati cantonali)",
     "kpi": {
-      "pernottamenti_2025": 1197870,
-      "pernottamenti_delta": "+5.4%",
-      "arrivi_2025": 498525,
-      "arrivi_delta": "+6.9%",
-      "esteri_2025": 307664,
-      "esteri_delta": "+13.7%",
-      "soggiorno_medio": 2.4,
-      "occupazione_letti_2025": 47.4,
+      "pernottamenti_2025": 2510079,
+      "pernottamenti_delta": "+3.7%",
+      "arrivi_2025": 1218930,
+      "arrivi_delta": "+3.4%",
+      "esteri_2025": 995669,
+      "esteri_delta": "+8.0%",
+      "soggiorno_medio": 2.06,
+      "occupazione_letti_2025": 43.0,
       "occupazione_media_ch": 46.0,
-      "gap_ch": -3.0,
-      "rank_ticino_ch": 7,
-      "turisti_ch_interni": 706261
+      "gap_ch": -3.0
     },
     "stagionalita_arrivi": {
       "labels": [
@@ -5867,8 +5865,8 @@
         false,
         false
       ],
-      "nota_it": "Pernottamenti 2025. La Svizzera (mercato interno) genera oltre il 60% del totale. Germania primo mercato estero. Dato Italia escluso perché distorto dai frontalieri.",
-      "nota_de": "Logiernächte 2025. Die Schweiz (Inlandsmarkt) erzeugt über 60% des Totals. Deutschland ist der erste Auslandsmarkt. Italien ausgeschlossen (Grenzgänger-Verzerrung).",
+      "nota_it": "Pernottamenti 2025 per provenienza. La Svizzera (mercato interno) genera oltre il 60% del totale. La Germania è il primo mercato estero.",
+      "nota_de": "Logiernächte 2025 nach Herkunft. Die Schweiz (Inlandsmarkt) erzeugt über 60% des Totals. Deutschland ist der erste Auslandsmarkt.",
       "flags": [
         "🇨🇭",
         "🇩🇪",
@@ -5928,8 +5926,8 @@
       },
       {
         "tipo": "info",
-        "testo_it": "Il mercato domestico svizzero genera oltre il 60% dei pernottamenti: è la base da fidelizzare. La Germania è il primo mercato estero reale (+6.9%). Il dato Italia è gonfiato dai frontalieri — non confondere con turismo.",
-        "testo_de": "Der Schweizer Inlandsmarkt erzeugt über 60% der Logiernächte: die zu bindende Basis. Deutschland ist der erste echte Auslandsmarkt (+6,9%). Italien-Daten durch Grenzgänger verzerrt."
+        "testo_it": "Il mercato domestico svizzero genera oltre il 60% dei pernottamenti: è la base da fidelizzare. La Germania è il primo mercato estero (+8,0%) e va presidiata con contenuti in tedesco.",
+        "testo_de": "Der Schweizer Inlandsmarkt erzeugt über 60% der Logiernächte: die zu bindende Basis. Deutschland ist der erste Auslandsmarkt (+8,0%)."
       }
     ],
     "pernottamenti_mensili": {
