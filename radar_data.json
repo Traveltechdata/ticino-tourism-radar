@@ -5997,7 +5997,7 @@
         "label": "22–28 giu",
         "dataInizio": "2026-06-22",
         "dataFine": "2026-06-28",
-        "livello": "picco",
+        "livello": "alta",
         "eventi": [
           "JazzAscona"
         ],
@@ -6006,15 +6006,15 @@
           "BE",
           "LU"
         ],
-        "motivazione_it": "JazzAscona. Domanda massima. Tariffe ai livelli più alti della stagione.",
-        "motivazione_de": "JazzAscona. Maximale Nachfrage. Höchstpreise der Saison."
+        "motivazione_it": "JazzAscona. Alta stagione: tariffe sostenute ma sotto il picco-evento.",
+        "motivazione_de": "Hochsaison. Gute Preise, aber unter dem Event-Peak."
       },
       {
         "settimana": 27,
         "label": "29 giu – 5 lug",
         "dataInizio": "2026-06-29",
         "dataFine": "2026-07-05",
-        "livello": "picco",
+        "livello": "alta",
         "eventi": [
           "JazzAscona"
         ],
@@ -6023,8 +6023,8 @@
           "BE",
           "LU"
         ],
-        "motivazione_it": "JazzAscona. Domanda massima. Tariffe ai livelli più alti della stagione.",
-        "motivazione_de": "JazzAscona. Maximale Nachfrage. Höchstpreise der Saison."
+        "motivazione_it": "JazzAscona. Alta stagione: tariffe sostenute ma sotto il picco-evento.",
+        "motivazione_de": "Hochsaison. Gute Preise, aber unter dem Event-Peak."
       },
       {
         "settimana": 28,
@@ -6033,7 +6033,7 @@
         "dataFine": "2026-07-12",
         "livello": "picco",
         "eventi": [
-          "Moon+Stars",
+          "Moon & Stars",
           "Vallemaggia Magic Blues"
         ],
         "vacanze_ch": [
@@ -6041,8 +6041,8 @@
           "BE",
           "LU"
         ],
-        "motivazione_it": "Moon+Stars, Vallemaggia Magic Blues. Domanda massima. Tariffe ai livelli più alti della stagione.",
-        "motivazione_de": "Moon+Stars, Vallemaggia Magic Blues. Maximale Nachfrage. Höchstpreise der Saison."
+        "motivazione_it": "Moon & Stars in corso. Domanda al massimo: tariffe top, minimum stay.",
+        "motivazione_de": "Moon & Stars läuft. Höchstpreise."
       },
       {
         "settimana": 29,
@@ -6051,7 +6051,7 @@
         "dataFine": "2026-07-19",
         "livello": "picco",
         "eventi": [
-          "Moon+Stars",
+          "Moon & Stars",
           "Vallemaggia Magic Blues"
         ],
         "vacanze_ch": [
@@ -6059,15 +6059,15 @@
           "BE",
           "LU"
         ],
-        "motivazione_it": "Moon+Stars, Vallemaggia Magic Blues. Domanda massima. Tariffe ai livelli più alti della stagione.",
-        "motivazione_de": "Moon+Stars, Vallemaggia Magic Blues. Maximale Nachfrage. Höchstpreise der Saison."
+        "motivazione_it": "Moon & Stars in corso. Domanda al massimo: tariffe top, minimum stay.",
+        "motivazione_de": "Moon & Stars läuft. Höchstpreise."
       },
       {
         "settimana": 30,
         "label": "20–26 lug",
         "dataInizio": "2026-07-20",
         "dataFine": "2026-07-26",
-        "livello": "picco",
+        "livello": "alta",
         "eventi": [
           "Vallemaggia Magic Blues"
         ],
@@ -6076,15 +6076,15 @@
           "BE",
           "LU"
         ],
-        "motivazione_it": "Vallemaggia Magic Blues. Domanda massima. Tariffe ai livelli più alti della stagione.",
-        "motivazione_de": "Vallemaggia Magic Blues. Maximale Nachfrage. Höchstpreise der Saison."
+        "motivazione_it": "Vallemaggia Magic Blues. Alta stagione: tariffe sostenute ma sotto il picco-evento.",
+        "motivazione_de": "Hochsaison. Gute Preise, aber unter dem Event-Peak."
       },
       {
         "settimana": 31,
         "label": "27 lug – 2 ago",
         "dataInizio": "2026-07-27",
         "dataFine": "2026-08-02",
-        "livello": "picco",
+        "livello": "alta",
         "eventi": [
           "Vallemaggia Magic Blues"
         ],
@@ -6093,8 +6093,8 @@
           "BE",
           "LU"
         ],
-        "motivazione_it": "Vallemaggia Magic Blues. Domanda massima. Tariffe ai livelli più alti della stagione.",
-        "motivazione_de": "Vallemaggia Magic Blues. Maximale Nachfrage. Höchstpreise der Saison."
+        "motivazione_it": "Vallemaggia Magic Blues. Alta stagione: tariffe sostenute ma sotto il picco-evento.",
+        "motivazione_de": "Hochsaison. Gute Preise, aber unter dem Event-Peak."
       },
       {
         "settimana": 32,
@@ -6103,16 +6103,16 @@
         "dataFine": "2026-08-09",
         "livello": "picco",
         "eventi": [
-          "Vallemaggia Magic Blues",
-          "Locarno Film Festival"
+          "Locarno Film Festival",
+          "Vallemaggia Magic Blues"
         ],
         "vacanze_ch": [
           "ZH",
           "BE",
           "LU"
         ],
-        "motivazione_it": "Vallemaggia Magic Blues, Locarno Film Festival. Domanda massima. Tariffe ai livelli più alti della stagione.",
-        "motivazione_de": "Vallemaggia Magic Blues, Locarno Film Festival. Maximale Nachfrage. Höchstpreise der Saison."
+        "motivazione_it": "Locarno Film Festival in corso. Domanda al massimo: tariffe top, minimum stay.",
+        "motivazione_de": "Locarno Film Festival läuft. Höchstpreise."
       },
       {
         "settimana": 33,
@@ -6128,8 +6128,8 @@
           "BE",
           "LU"
         ],
-        "motivazione_it": "Locarno Film Festival. Domanda massima. Tariffe ai livelli più alti della stagione.",
-        "motivazione_de": "Locarno Film Festival. Maximale Nachfrage. Höchstpreise der Saison."
+        "motivazione_it": "Locarno Film Festival in corso. Domanda al massimo: tariffe top, minimum stay.",
+        "motivazione_de": "Locarno Film Festival läuft. Höchstpreise."
       },
       {
         "settimana": 34,
@@ -6139,19 +6139,19 @@
         "livello": "alta",
         "eventi": [],
         "vacanze_ch": [],
-        "motivazione_it": "Domanda elevata. Buon momento per tariffe sostenute.",
-        "motivazione_de": "Hohe Nachfrage. Gute Gelegenheit für höhere Preise."
+        "motivazione_it": "Alta stagione estiva senza grande evento. Tariffe buone ma non da picco assoluto.",
+        "motivazione_de": "Hochsaison. Gute Preise, aber unter dem Event-Peak."
       },
       {
         "settimana": 35,
         "label": "24–30 ago",
         "dataInizio": "2026-08-24",
         "dataFine": "2026-08-30",
-        "livello": "alta",
+        "livello": "media",
         "eventi": [],
         "vacanze_ch": [],
-        "motivazione_it": "Domanda elevata. Buon momento per tariffe sostenute.",
-        "motivazione_de": "Hohe Nachfrage. Gute Gelegenheit für höhere Preise."
+        "motivazione_it": "Domanda nella norma stagionale. Mantieni la strategia di base.",
+        "motivazione_de": "Saisonübliche Nachfrage."
       },
       {
         "settimana": 36,
@@ -6163,8 +6163,8 @@
           "Ascona Polo Cup"
         ],
         "vacanze_ch": [],
-        "motivazione_it": "Ascona Polo Cup. Domanda elevata. Buon momento per tariffe sostenute.",
-        "motivazione_de": "Ascona Polo Cup. Hohe Nachfrage. Gute Gelegenheit für höhere Preise."
+        "motivazione_it": "Ascona Polo Cup. Alta stagione: tariffe sostenute ma sotto il picco-evento.",
+        "motivazione_de": "Hochsaison. Gute Preise, aber unter dem Event-Peak."
       },
       {
         "settimana": 37,
@@ -6176,71 +6176,66 @@
           "CSI Ascona"
         ],
         "vacanze_ch": [],
-        "motivazione_it": "CSI Ascona. Domanda elevata. Buon momento per tariffe sostenute.",
-        "motivazione_de": "CSI Ascona. Hohe Nachfrage. Gute Gelegenheit für höhere Preise."
+        "motivazione_it": "CSI Ascona. Alta stagione: tariffe sostenute ma sotto il picco-evento.",
+        "motivazione_de": "Hochsaison. Gute Preise, aber unter dem Event-Peak."
       },
       {
         "settimana": 38,
         "label": "14–20 set",
         "dataInizio": "2026-09-14",
         "dataFine": "2026-09-20",
-        "livello": "media",
+        "livello": "alta",
         "eventi": [
-          "Autunno Gastronomico",
           "classicAscona"
         ],
         "vacanze_ch": [],
-        "motivazione_it": "Autunno Gastronomico, classicAscona. Domanda nella norma stagionale. Mantieni la strategia di base.",
-        "motivazione_de": "Autunno Gastronomico, classicAscona. Saisonübliche Nachfrage. Basisstrategie beibehalten."
+        "motivazione_it": "classicAscona. Alta stagione: tariffe sostenute ma sotto il picco-evento.",
+        "motivazione_de": "Hochsaison. Gute Preise, aber unter dem Event-Peak."
       },
       {
         "settimana": 39,
         "label": "21–27 set",
         "dataInizio": "2026-09-21",
         "dataFine": "2026-09-27",
-        "livello": "media",
+        "livello": "alta",
         "eventi": [
-          "Autunno Gastronomico",
           "classicAscona"
         ],
         "vacanze_ch": [
           "ZH",
           "BE"
         ],
-        "motivazione_it": "Autunno Gastronomico, classicAscona. Domanda nella norma stagionale. Mantieni la strategia di base.",
-        "motivazione_de": "Autunno Gastronomico, classicAscona. Saisonübliche Nachfrage. Basisstrategie beibehalten."
+        "motivazione_it": "classicAscona. Alta stagione: tariffe sostenute ma sotto il picco-evento.",
+        "motivazione_de": "Hochsaison. Gute Preise, aber unter dem Event-Peak."
       },
       {
         "settimana": 40,
         "label": "28 set – 4 ott",
         "dataInizio": "2026-09-28",
         "dataFine": "2026-10-04",
-        "livello": "media",
+        "livello": "alta",
         "eventi": [
-          "Autunno Gastronomico",
           "classicAscona"
         ],
         "vacanze_ch": [
           "ZH",
           "BE"
         ],
-        "motivazione_it": "Autunno Gastronomico, classicAscona. Domanda nella norma stagionale. Mantieni la strategia di base.",
-        "motivazione_de": "Autunno Gastronomico, classicAscona. Saisonübliche Nachfrage. Basisstrategie beibehalten."
+        "motivazione_it": "classicAscona. Alta stagione: tariffe sostenute ma sotto il picco-evento.",
+        "motivazione_de": "Hochsaison. Gute Preise, aber unter dem Event-Peak."
       },
       {
         "settimana": 41,
         "label": "5–11 ott",
         "dataInizio": "2026-10-05",
         "dataFine": "2026-10-11",
-        "livello": "media",
+        "livello": "alta",
         "eventi": [
-          "Autunno Gastronomico",
-          "classicAscona",
-          "Ascona-Locarno Run"
+          "classicAscona"
         ],
         "vacanze_ch": [],
-        "motivazione_it": "Autunno Gastronomico, classicAscona. Domanda nella norma stagionale. Mantieni la strategia di base.",
-        "motivazione_de": "Autunno Gastronomico, classicAscona. Saisonübliche Nachfrage. Basisstrategie beibehalten."
+        "motivazione_it": "classicAscona. Alta stagione: tariffe sostenute ma sotto il picco-evento.",
+        "motivazione_de": "Hochsaison. Gute Preise, aber unter dem Event-Peak."
       },
       {
         "settimana": 42,
@@ -6248,12 +6243,10 @@
         "dataInizio": "2026-10-12",
         "dataFine": "2026-10-18",
         "livello": "spalla",
-        "eventi": [
-          "Autunno Gastronomico"
-        ],
+        "eventi": [],
         "vacanze_ch": [],
-        "motivazione_it": "Autunno Gastronomico. Stagione in calo. Punta a riempire con tariffe competitive.",
-        "motivazione_de": "Autunno Gastronomico. Nachsaison. Mit wettbewerbsfähigen Preisen füllen."
+        "motivazione_it": "Stagione in calo. Tariffe competitive per riempire.",
+        "motivazione_de": "Nachsaison. Wettbewerbsfähige Preise."
       },
       {
         "settimana": 43,
@@ -6261,12 +6254,10 @@
         "dataInizio": "2026-10-19",
         "dataFine": "2026-10-25",
         "livello": "spalla",
-        "eventi": [
-          "Autunno Gastronomico"
-        ],
+        "eventi": [],
         "vacanze_ch": [],
-        "motivazione_it": "Autunno Gastronomico. Stagione in calo. Punta a riempire con tariffe competitive.",
-        "motivazione_de": "Autunno Gastronomico. Nachsaison. Mit wettbewerbsfähigen Preisen füllen."
+        "motivazione_it": "Stagione in calo. Tariffe competitive per riempire.",
+        "motivazione_de": "Nachsaison. Wettbewerbsfähige Preise."
       },
       {
         "settimana": 44,
@@ -6274,21 +6265,18 @@
         "dataInizio": "2026-10-26",
         "dataFine": "2026-11-01",
         "livello": "spalla",
-        "eventi": [
-          "Autunno Gastronomico"
-        ],
+        "eventi": [],
         "vacanze_ch": [],
-        "motivazione_it": "Autunno Gastronomico. Stagione in calo. Punta a riempire con tariffe competitive.",
-        "motivazione_de": "Autunno Gastronomico. Nachsaison. Mit wettbewerbsfähigen Preisen füllen."
+        "motivazione_it": "Stagione in calo. Tariffe competitive per riempire.",
+        "motivazione_de": "Nachsaison. Wettbewerbsfähige Preise."
       }
     ],
     "moltiplicatori": {
-      "picco": 1.3,
+      "picco": 1.45,
       "alta": 1.15,
       "media": 1.0,
-      "spalla": 0.9,
-      "bassa": 0.8,
-      "bassa+": 0.85
+      "spalla": 0.88,
+      "bassa": 0.8
     },
     "vacanze_scolastiche_2026": [
       {

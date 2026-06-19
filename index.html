@@ -199,25 +199,40 @@
   .gauge-factor.neg { border-color: rgba(224,114,107,0.3); color: var(--red); }
   .city-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-top: 16px; width: 100%; }
   .city-card { position: relative; border: 0.5px solid var(--border); border-radius: 12px; padding: 14px 11px 13px; text-align: center; overflow: hidden; min-height: 112px; display: flex; flex-direction: column; align-items: center; justify-content: center; isolation: isolate; }
-  .city-card .wx-bg { position: absolute; inset: 0; z-index: -2; opacity: 0.55; }
-  .city-card .wx-overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(43,46,51,0.15) 0%, rgba(43,46,51,0.78) 100%); }
-  .city-name { font-size: 11px; color: var(--text-soft); margin-bottom: 5px; font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.5); position: relative; }
-  .city-temp { font-family: var(--serif); font-size: 24px; color: #fff; font-weight: 700; text-shadow: 0 1px 4px rgba(0,0,0,0.55); position: relative; line-height: 1; }
-  .city-desc { font-size: 9.5px; color: rgba(255,255,255,0.82); margin-top: 4px; text-shadow: 0 1px 2px rgba(0,0,0,0.5); position: relative; }
-  /* meteo gradients (tenui, premium dark) */
-  .wx-sun { background: linear-gradient(160deg, #4A7BA8 0%, #6FA8C4 45%, #E0B96A 100%); }
-  .wx-cloudsun { background: linear-gradient(160deg, #3E5A78 0%, #5A7894 55%, #9DAAB8 100%); }
-  .wx-cloud { background: linear-gradient(160deg, #3A4452 0%, #525E6E 60%, #6E7A88 100%); }
-  .wx-rain { background: linear-gradient(160deg, #2E3A4A 0%, #3E5068 55%, #5A6E84 100%); }
-  .wx-storm { background: linear-gradient(160deg, #262C38 0%, #353F52 55%, #4A5468 100%); }
-  .wx-snow { background: linear-gradient(160deg, #4A5868 0%, #6E7E90 55%, #AEB8C4 100%); }
-  .wx-fog { background: linear-gradient(160deg, #3E4650 0%, #565E68 55%, #757D86 100%); }
-  /* sun disc */
-  .wx-sundisc { position: absolute; top: 10px; right: 12px; width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle, #FFE9A8 0%, #F5C661 60%, rgba(245,198,97,0) 72%); z-index: -1; box-shadow: 0 0 14px 4px rgba(245,198,97,0.4); animation: sunGlow 4s ease-in-out infinite; }
-  @keyframes sunGlow { 0%,100%{ transform: scale(1); opacity:0.9; } 50%{ transform: scale(1.08); opacity:1; } }
-  /* rain drops */
-  .wx-drop { position: absolute; width: 1.5px; height: 9px; background: linear-gradient(rgba(180,210,240,0), rgba(180,210,240,0.7)); border-radius: 1px; z-index: -1; animation: dropFall linear infinite; }
-  @keyframes dropFall { 0%{ transform: translateY(-12px); opacity:0; } 30%{ opacity:0.8; } 100%{ transform: translateY(60px); opacity:0; } }
+  .city-card .wx-bg { position: absolute; inset: 0; z-index: -3; opacity: 0.92; }
+  .city-card .wx-overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(43,46,51,0.05) 0%, rgba(43,46,51,0.55) 100%); }
+  /* === GRADIENTI METEO — giorno === */
+  .wx-sun { background: linear-gradient(165deg, #5B8FC9 0%, #7FB0D8 40%, #C9DCEA 100%); }
+  .wx-cloudsun { background: linear-gradient(165deg, #5E7E9E 0%, #7E96AE 50%, #B0BEC9 100%); }
+  .wx-cloud { background: linear-gradient(165deg, #6A7888 0%, #828E9C 50%, #A6B0BC 100%); }
+  .wx-rain { background: linear-gradient(165deg, #44566A 0%, #5A6E84 50%, #7C8C9C 100%); }
+  .wx-storm { background: linear-gradient(165deg, #313A48 0%, #444F62 55%, #5C6878 100%); }
+  .wx-snow { background: linear-gradient(165deg, #7E8E9E 0%, #9EAEBC 50%, #CED8E0 100%); }
+  .wx-fog { background: linear-gradient(165deg, #6E7680 0%, #868E98 50%, #AAB2BA 100%); }
+  /* === variante notte (più scura, blu profondo) === */
+  .wx-night.wx-sun { background: linear-gradient(165deg, #1A2740 0%, #2B3D5C 50%, #44597C 100%); }
+  .wx-night.wx-cloudsun { background: linear-gradient(165deg, #1E2838 0%, #313E52 50%, #4A5868 100%); }
+  .wx-night.wx-cloud { background: linear-gradient(165deg, #252C36 0%, #353E4A 50%, #4C5662 100%); }
+  .wx-night.wx-rain { background: linear-gradient(165deg, #1C2530 0%, #2C3A48 50%, #41525F 100%); }
+  .wx-night.wx-storm { background: linear-gradient(165deg, #161C26 0%, #262F3C 55%, #3A4350 100%); }
+  .wx-night.wx-snow { background: linear-gradient(165deg, #2A3340 0%, #3E4A58 50%, #5E6A78 100%); }
+  .wx-night.wx-fog { background: linear-gradient(165deg, #282E36 0%, #3A424C 50%, #545C66 100%); }
+  /* sole / luna */
+  .wx-sundisc { position: absolute; top: 9px; right: 11px; width: 28px; height: 28px; border-radius: 50%; background: radial-gradient(circle, #FFF0C0 0%, #FFD56A 58%, rgba(255,213,106,0) 72%); z-index: -2; box-shadow: 0 0 16px 5px rgba(255,213,106,0.45); animation: sunGlow 4s ease-in-out infinite; }
+  .wx-night .wx-sundisc { background: radial-gradient(circle, #EAF0FA 0%, #C4D2E8 60%, rgba(196,210,232,0) 74%); box-shadow: 0 0 12px 3px rgba(196,210,232,0.35); }
+  @keyframes sunGlow { 0%,100%{ transform: scale(1); opacity:0.92; } 50%{ transform: scale(1.08); opacity:1; } }
+  /* nuvole (forme morbide bianche) */
+  .wx-cloudshape { position: absolute; z-index: -2; background: rgba(255,255,255,0.85); border-radius: 50%; filter: blur(0.5px); }
+  .wx-cloudshape::before, .wx-cloudshape::after { content: ""; position: absolute; background: inherit; border-radius: 50%; }
+  .wx-cloud1 { width: 30px; height: 12px; top: 16px; left: 14px; border-radius: 10px; opacity: 0.88; }
+  .wx-cloud1::before { width: 14px; height: 14px; top: -7px; left: 6px; }
+  .wx-cloud1::after { width: 11px; height: 11px; top: -5px; left: 16px; }
+  .wx-cloud2 { width: 22px; height: 9px; top: 26px; right: 16px; border-radius: 8px; opacity: 0.6; }
+  .wx-cloud2::before { width: 10px; height: 10px; top: -5px; left: 5px; }
+  .wx-night .wx-cloudshape { background: rgba(200,210,225,0.5); }
+  /* pioggia */
+  .wx-drop { position: absolute; width: 1.5px; height: 9px; background: linear-gradient(rgba(200,222,245,0), rgba(200,222,245,0.85)); border-radius: 1px; z-index: -2; animation: dropFall linear infinite; }
+  @keyframes dropFall { 0%{ transform: translateY(-12px); opacity:0; } 30%{ opacity:0.85; } 100%{ transform: translateY(64px); opacity:0; } }
   @media (max-width: 560px) { .city-cards { grid-template-columns: repeat(2,1fr); } }
 
   /* PREDICTIVE CALENDAR — KPI + TIMELINE */
@@ -242,6 +257,7 @@
   .pc-seg.active { z-index: 2; box-shadow: 0 0 0 2px var(--text) inset; }
   .pc-seg-week { font-size: 10px; color: rgba(255,255,255,0.95); font-weight: 600; margin-bottom: 4px; text-shadow: 0 1px 2px rgba(0,0,0,0.45); white-space: nowrap; }
   .pc-seg-val { font-family: var(--serif); font-size: 15px; color: #fff; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.45); }
+  .pc-seg-we { font-size: 8px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 1px; }
   .pc-seg-delta { font-size: 10px; color: rgba(255,255,255,0.92); font-weight: 600; margin-top: 1px; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
   .pc-axis { display: flex; gap: 3px; overflow-x: auto; margin-bottom: 18px; scrollbar-width: none; }
   .pc-axis-tick { flex: 0 0 76px; text-align: center; font-size: 10px; color: var(--muted); }
@@ -263,6 +279,16 @@
   .pcv-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
   .pcv-base { font-size: 20px; font-weight: 600; color: var(--muted); }
   .pcv-target { font-family: var(--serif); font-size: 30px; font-weight: 800; color: var(--text); }
+  .pc-price-split { display: flex; align-items: stretch; background: var(--bg-deep); border-radius: 10px; margin-bottom: 11px; overflow: hidden; }
+  .pc-price-col { flex: 1; text-align: center; padding: 14px 10px; }
+  .pc-price-col-we { background: rgba(79,178,134,0.07); }
+  .pc-price-divider { width: 1px; background: var(--border); }
+  .pcs-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+  .pcs-value { font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--text-soft); line-height: 1; }
+  .pcs-value-hi { color: var(--text); font-size: 27px; }
+  .pcs-delta { font-size: 11px; margin-top: 4px; }
+  .pc-zone-note { font-size: 11.5px; color: var(--amber); line-height: 1.45; margin-bottom: 11px; padding: 9px 11px; background: var(--amber-bg); border-radius: 8px; display: flex; gap: 7px; align-items: flex-start; }
+  .pc-zone-note svg { flex-shrink: 0; margin-top: 1px; }
   .pcv-arrow { display: flex; flex-direction: column; align-items: center; gap: 2px; }
   .pcv-arrow-delta { font-size: 12px; font-weight: 700; }
   .pc-cta { display: flex; align-items: center; gap: 10px; background: var(--accent-light); border: 0.5px solid rgba(79,178,134,0.3); border-radius: 9px; padding: 11px 13px; }
@@ -1109,13 +1135,43 @@ function renderPredictiveCalendar() {
   };
   const starLabel = pcStars > 0 ? pcStars + "\u2605" : (currentLang==="it"?"tutte":"alle");
 
-  // compute per-week data
+  // fattore "vasi comunicanti": zone periferiche si riempiono per ultime.
+  // Brissago e Valli attenuano i picchi-evento (un evento a Locarno non riempie Brissago agli stessi prezzi).
+  function zoneEventDamping(zone, livello) {
+    // zone periferiche: il picco-evento arriva attenuato (vasi comunicanti),
+    // ma l'attenuazione è sempre <= effetto sui livelli inferiori per non invertire l'ordine
+    if (zone === "brissago" || zone === "valli") {
+      if (livello === "picco") return 0.85;
+      if (livello === "alta") return 0.93;
+    }
+    if (zone === "cannobio") {
+      if (livello === "picco") return 0.90;
+      if (livello === "alta") return 0.95;
+    }
+    return 1.0;
+  }
+
+  // compute per-week data — weekday e weekend separati
   const weeks = pc.settimane.map(function(w) {
     const mDomanda = mult[w.livello] || 1.0;
-    const mEvento = (w.eventi && w.eventi.length) ? 1.10 : 1.0;
-    const mVac = (w.vacanze_ch && w.vacanze_ch.length) ? 1.15 : 1.0;
-    const target = Math.round(base * mDomanda * mEvento * mVac);
-    return { w: w, target: target, delta: target - base, color: levelColor[w.livello] || "#6B7280" };
+    const hasVac = (w.vacanze_ch && w.vacanze_ch.length) ? true : false;
+    const damp = zoneEventDamping(pcZone, w.livello);
+    // weekend: guidato dal livello di domanda (ordinamento garantito) + micro-effetto vacanze
+    const vacWe = hasVac ? 1.04 : 1.0;
+    const weekendMult = mDomanda * vacWe * damp;
+    // weekday: ~60% dell'incremento weekend rispetto alla base, sempre sotto al weekend
+    const weekdayMult = (1 + (mDomanda * vacWe - 1) * 0.60) * damp;
+    const targetWeekend = Math.round(base * weekendMult);
+    const targetWeekday = Math.round(base * weekdayMult);
+    return {
+      w: w,
+      target: targetWeekend,            // il blocco mostra il weekend (riferimento alto)
+      targetWeekday: targetWeekday,
+      targetWeekend: targetWeekend,
+      delta: targetWeekend - base,
+      deltaWeekday: targetWeekday - base,
+      color: levelColor[w.livello] || "#6B7280"
+    };
   });
 
   // KPI RIEPILOGO
@@ -1131,6 +1187,7 @@ function renderPredictiveCalendar() {
 
   // GUIDE
   const zoneLabels = { tutte: currentLang==="it"?"tutte le zone":"alle Zonen", locarno:"Locarno", ascona:"Ascona & Losone", brissago:"Brissago", cannobio:"Cannobio", valli: currentLang==="it"?"Valli":"Taeler" };
+  window._pcZoneLabels = zoneLabels;
   const baseRef = (currentLang==="it"
     ? "<div style='margin-top:8px;color:var(--text-soft)'>Base di calcolo: media reale dei <strong>" + (pcStars>0?pcStars+"\u2605":"tutti gli hotel") + "</strong> in <strong>" + (zoneLabels[pcZone]||pcZone) + "</strong> = <strong>CHF " + base + "</strong> (" + window._pcSample + " strutture).</div>"
     : "<div style='margin-top:8px;color:var(--text-soft)'>Berechnungsbasis: " + (pcStars>0?pcStars+"\u2605":"alle") + " in " + (zoneLabels[pcZone]||pcZone) + " = CHF " + base + " (" + window._pcSample + ").</div>");
@@ -1140,7 +1197,7 @@ function renderPredictiveCalendar() {
   document.getElementById("pcGuide").className = "pc-guide";
   document.getElementById("pcGuide").innerHTML =
     (currentLang === "it"
-      ? "<div><strong>Come leggere la timeline:</strong> ogni blocco \u00e8 una settimana. Pi\u00f9 \u00e8 caldo il colore (rosso/arancio), pi\u00f9 la domanda \u00e8 alta e pi\u00f9 puoi alzare la tariffa. Tocca un blocco per il dettaglio.</div>" + baseRef + (sampleNote ? "<div>" + sampleNote + "</div>" : "")
+      ? "<div><strong>Come leggere la timeline:</strong> ogni blocco \u00e8 una settimana e mostra la <strong>tariffa weekend</strong> consigliata. Il rosso indica solo le settimane dei grandi eventi (Moon&amp;Stars, Film Festival), dove la domanda esplode. Arancio = alta stagione, verde = media, azzurro = spalla. Tocca un blocco per vedere prezzo infrasettimanale e weekend separati.</div>" + baseRef + (sampleNote ? "<div>" + sampleNote + "</div>" : "")
       : "<div><strong>So liest du die Timeline:</strong> Jeder Block ist eine Woche. Je w\u00e4rmer die Farbe, desto h\u00f6her die Nachfrage.</div>" + baseRef + (sampleNote ? "<div>" + sampleNote + "</div>" : ""));
 
   // TIMELINE — ogni blocco mostra la settimana completa (es. 20–27 giu)
@@ -1149,6 +1206,7 @@ function renderPredictiveCalendar() {
     return '<div class="pc-seg" style="background:' + d.color + '" onclick="showPcDetail(' + i + ')" id="pcSeg' + i + '">' +
       '<div class="pc-seg-week">' + d.w.label + '</div>' +
       '<div class="pc-seg-val">CHF ' + d.target + '</div>' +
+      '<div class="pc-seg-we">' + (currentLang==="it"?"weekend":"WE") + '</div>' +
       '<div class="pc-seg-delta">' + (d.delta !== 0 ? deltaStr : "—") + '</div>' +
     '</div>';
   }).join("");
@@ -1206,25 +1264,38 @@ function showPcDetail(i) {
   } else {
     deltaBadge = '<span style="color:#9DA3AC;font-weight:700">= 0</span>';
   }
-  const deltaTxt = d.delta > 0
-    ? (currentLang==="it" ? "alza di " + deltaBadge + " sulla media cluster " + window._pcStarLabel : "um " + deltaBadge + " erh\u00f6hen")
-    : (d.delta < 0
-        ? (currentLang==="it" ? "riduci di " + deltaBadge + " sulla media cluster" : deltaBadge + " unter Cluster-Schnitt")
-        : (currentLang==="it" ? "mantieni sulla media cluster" : "am Cluster-Schnitt halten"));
+  // blocco prezzi: weekday vs weekend
+  var wdDelta = d.deltaWeekday, weDelta = d.delta;
+  function deltaPill(val) {
+    if (val > 0) return '<span style="color:#4FB286;font-weight:700">+CHF ' + val + '</span>';
+    if (val < 0) return '<span style="color:#9DA3AC;font-weight:700">CHF ' + val + '</span>';
+    return '<span style="color:#9DA3AC;font-weight:700">= base</span>';
+  }
+  var priceVisual =
+    '<div class="pc-price-split">' +
+      '<div class="pc-price-col">' +
+        '<div class="pcs-label">' + (currentLang==="it"?"Infrasettimanale":"Wochentags") + '</div>' +
+        '<div class="pcs-value">CHF ' + d.targetWeekday + '</div>' +
+        '<div class="pcs-delta">' + deltaPill(wdDelta) + '</div>' +
+      '</div>' +
+      '<div class="pc-price-divider"></div>' +
+      '<div class="pc-price-col pc-price-col-we">' +
+        '<div class="pcs-label">' + (currentLang==="it"?"Weekend":"Wochenende") + '</div>' +
+        '<div class="pcs-value pcs-value-hi">CHF ' + d.targetWeekend + '</div>' +
+        '<div class="pcs-delta">' + deltaPill(weDelta) + '</div>' +
+      '</div>' +
+    '</div>';
+
+  var zoneNote = "";
+  if ((pcZone === "brissago" || pcZone === "valli") && (d.w.livello === "picco" || d.w.livello === "alta")) {
+    zoneNote = currentLang==="it"
+      ? '<div class="pc-zone-note">' + svgIcon("info",13) + ' Zona periferica: il picco-evento arriva attenuato. ' + (zoneLabels[pcZone]||pcZone) + ' si riempie dopo Ascona e Locarno (principio dei vasi comunicanti).</div>'
+      : '<div class="pc-zone-note">' + svgIcon("info",13) + ' Randzone: Event-Peak kommt gedämpft an. Füllt sich nach Ascona und Locarno.</div>';
+  }
 
   const ctaText = currentLang === "it"
-    ? "Tariffa consigliata: <strong>CHF " + d.target + "</strong> — " + deltaTxt + " (base CHF " + base + ")."
-    : "Empfohlener Preis: <strong>CHF " + d.target + "</strong> — " + deltaTxt + " (Basis CHF " + base + ").";
-
-  var arrowColor = d.delta > 0 ? "#4FB286" : (d.delta < 0 ? "#9DA3AC" : "#9DA3AC");
-  var arrowIcon = d.delta > 0 ? svgIcon("trend", 22, arrowColor) : (d.delta < 0 ? svgIcon("arrowDown", 22, arrowColor) : "");
-  var arrowDeltaStr = (d.delta > 0 ? "+CHF " + d.delta : (d.delta < 0 ? "CHF " + d.delta : "= 0"));
-  var priceVisual =
-    '<div class="pc-price-visual">' +
-      '<div class="pcv-block"><div class="pcv-label">' + (currentLang==="it"?"Media cluster":"Cluster-Schnitt") + '</div><div class="pcv-base">CHF ' + base + '</div></div>' +
-      '<div class="pcv-arrow">' + arrowIcon + '<span class="pcv-arrow-delta" style="color:' + arrowColor + '">' + arrowDeltaStr + '</span></div>' +
-      '<div class="pcv-block"><div class="pcv-label">' + (currentLang==="it"?"Consigliato":"Empfohlen") + '</div><div class="pcv-target">CHF ' + d.target + '</div></div>' +
-    '</div>';
+    ? "Base cluster " + window._pcStarLabel + ": <strong>CHF " + base + "</strong>. Spingi le tariffe nel weekend, tieni l'infrasettimanale una fascia sotto."
+    : "Cluster-Basis: <strong>CHF " + base + "</strong>. Wochenendpreise anheben, Wochentags eine Stufe darunter.";
 
   document.getElementById("pcDetail").innerHTML =
     '<div class="pc-detail-title">' + (currentLang==="it"?"Dettaglio settimana selezionata":"Detail ausgew\u00e4hlte Woche") + '</div>' +
@@ -1236,6 +1307,7 @@ function showPcDetail(i) {
       '<div class="pc-detail-badges">' + badges + '</div>' +
       '<div class="pc-detail-motiv">' + motiv + '</div>' +
       priceVisual +
+      zoneNote +
       '<div class="pc-cta"><span class="pc-cta-ico">' + svgIcon("tag", 18) + '</span><span class="pc-cta-text">' + ctaText + '</span></div>' +
     '</div>';
 }
@@ -1378,21 +1450,26 @@ async function loadGottardo() {
       return '<span class="gauge-factor ' + f.k + '">' + f.t + '</span>';
     }).join("");
 
+    var nowHour = new Date().getHours();
+    var isNight = (nowHour >= 20 || nowHour < 6);
     document.getElementById("cityCards").innerHTML = results.map(function(c, idx) {
       const star = idx === 0 ? ' ★' : '';
       const hl = idx === 0 ? ' style="border-color:var(--accent)"' : '';
       // mappa codice WMO → classe sfondo + descrizione + effetto
       var wxClass, wxDesc, effect = "";
       var code = c.code;
-      if (code <= 1) { wxClass = "wx-sun"; wxDesc = currentLang==="it"?"Sereno":"Klar"; effect = '<div class="wx-sundisc"></div>'; }
-      else if (code === 2) { wxClass = "wx-cloudsun"; wxDesc = currentLang==="it"?"Poco nuvoloso":"Leicht bewölkt"; effect = '<div class="wx-sundisc" style="opacity:0.7"></div>'; }
-      else if (code === 3) { wxClass = "wx-cloud"; wxDesc = currentLang==="it"?"Coperto":"Bedeckt"; }
-      else if (code >= 45 && code <= 48) { wxClass = "wx-fog"; wxDesc = currentLang==="it"?"Nebbia":"Nebel"; }
-      else if (code >= 71 && code <= 77) { wxClass = "wx-snow"; wxDesc = currentLang==="it"?"Neve":"Schnee"; }
-      else if (code >= 95) { wxClass = "wx-storm"; wxDesc = currentLang==="it"?"Temporale":"Gewitter"; effect = buildDrops(5); }
-      else if (code >= 51) { wxClass = "wx-rain"; wxDesc = currentLang==="it"?"Pioggia":"Regen"; effect = buildDrops(6); }
-      else { wxClass = "wx-cloud"; wxDesc = currentLang==="it"?"Nuvoloso":"Bewölkt"; }
-      return '<div class="city-card"' + hl + '>' +
+      var clouds1 = '<div class="wx-cloudshape wx-cloud1"></div>';
+      var clouds2 = '<div class="wx-cloudshape wx-cloud1"></div><div class="wx-cloudshape wx-cloud2"></div>';
+      if (code <= 1) { wxClass = "wx-sun"; wxDesc = currentLang==="it"?(isNight?"Sereno":"Sereno"):"Klar"; effect = '<div class="wx-sundisc"></div>'; }
+      else if (code === 2) { wxClass = "wx-cloudsun"; wxDesc = currentLang==="it"?"Poco nuvoloso":"Leicht bewölkt"; effect = '<div class="wx-sundisc" style="opacity:0.75"></div>' + clouds1; }
+      else if (code === 3) { wxClass = "wx-cloud"; wxDesc = currentLang==="it"?"Coperto":"Bedeckt"; effect = clouds2; }
+      else if (code >= 45 && code <= 48) { wxClass = "wx-fog"; wxDesc = currentLang==="it"?"Nebbia":"Nebel"; effect = clouds1; }
+      else if (code >= 71 && code <= 77) { wxClass = "wx-snow"; wxDesc = currentLang==="it"?"Neve":"Schnee"; effect = clouds2; }
+      else if (code >= 95) { wxClass = "wx-storm"; wxDesc = currentLang==="it"?"Temporale":"Gewitter"; effect = clouds2 + buildDrops(5); }
+      else if (code >= 51) { wxClass = "wx-rain"; wxDesc = currentLang==="it"?"Pioggia":"Regen"; effect = clouds2 + buildDrops(6); }
+      else { wxClass = "wx-cloud"; wxDesc = currentLang==="it"?"Nuvoloso":"Bewölkt"; effect = clouds2; }
+      var nightCls = isNight ? " wx-night" : "";
+      return '<div class="city-card' + nightCls + '"' + hl + '>' +
         '<div class="wx-bg ' + wxClass + '"></div>' +
         '<div class="wx-overlay"></div>' +
         effect +
