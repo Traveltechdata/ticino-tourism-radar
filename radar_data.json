@@ -5614,53 +5614,48 @@
     ]
   },
   "marketing_trends": {
-    "settimana": "2026-06-15",
+    "settimana": "2026-06-22",
     "mercato": "DACH (CH-DE-AT)",
     "ricerche_top": [
       {
-        "keyword": "Lago Maggiore",
-        "crescita": "+84%",
+        "keyword": "Tessin",
+        "crescita": "+20%",
         "trend": "up",
-        "geo": "CH",
-        "note": "Alta intent turistica, pubblico pronto a prenotare",
-        "suggerimento_azione": "Pubblica un reel su Instagram/Facebook con una vista del lungolago al tramonto. Caption in tedesco: \"Sommerabende am Lago Maggiore\" + hashtag #LagoMaggiore #Ascona. È la parola che sta crescendo di più: cavalcala ora.",
-        "suggerimento_azione_de": "Poste ein Reel mit Seeblick bei Sonnenuntergang. Caption: \"Sommerabende am Lago Maggiore\" + #LagoMaggiore #Ascona."
+        "geo": "DE",
+        "note": "Termine ombrello — cattura tutto il mercato DACH verso il cantone",
+        "suggerimento_azione": "Ricerche in crescita: spingi questa keyword nei titoli di post e newsletter ora"
       },
       {
-        "keyword": "Locarno",
-        "crescita": "+18%",
+        "keyword": "Lago Maggiore",
+        "crescita": "+14%",
         "trend": "up",
-        "geo": "CH",
-        "note": "Picco legato al Film Festival — prenotazioni anticipate",
-        "suggerimento_azione": "Fai un post che ricorda le date del Locarno Film Festival (5–15 ago) con una foto della Piazza Grande. Caption: \"Filmfestival-Zeit in Locarno – jetzt buchen\". Intercetti chi sta già pianificando agosto.",
-        "suggerimento_azione_de": "Poste die Daten des Locarno Film Festival (5.–15. Aug) mit Foto der Piazza Grande. Caption: \"Filmfestival-Zeit in Locarno\"."
+        "geo": "DE",
+        "note": "Alta intent turistica, pubblico pronto a prenotare",
+        "suggerimento_azione": "Onda di interesse alta: pubblica foto del lago al tramonto con questa keyword nel caption"
       },
       {
         "keyword": "Ascona",
-        "crescita": "Stabile",
-        "trend": "stable",
-        "geo": "CH",
+        "crescita": "+34%",
+        "trend": "up",
+        "geo": "DE",
         "note": "Brand forte, ricercato da pubblico alto-spendente svizzero-tedesco",
-        "suggerimento_azione": "Brand stabile e forte: pubblica una foto del lungolago di Ascona e invita a lasciare una recensione chi ha già soggiornato. Consolidare la reputazione conta più di rincorrere il volume.",
-        "suggerimento_azione_de": "Stabile Marke: Poste ein Foto der Seepromenade von Ascona und bitte frühere Gäste um eine Bewertung."
-      },
-      {
-        "keyword": "Tessin",
-        "crescita": "-6%",
-        "trend": "down",
-        "geo": "CH",
-        "note": "Termine ombrello — cattura tutto il mercato DACH verso il cantone",
-        "suggerimento_azione": "Ricerche in calo: NON spingere questa parola ora. Usala solo come hashtag secondario. Concentra i post sulle parole in crescita (Lago Maggiore, Locarno).",
-        "suggerimento_azione_de": "Suchanfragen rückläufig: Begriff jetzt nicht pushen. Nur als sekundären Hashtag verwenden."
+        "suggerimento_azione": "Domanda in salita: controlla disponibilità Booking e valuta un rialzo tariffario"
       },
       {
         "keyword": "Brissago",
-        "crescita": "-5%",
-        "trend": "down",
+        "crescita": "+21%",
+        "trend": "up",
         "geo": "CH",
         "note": "Nicchia premium, bassa competizione, alta conversione",
-        "suggerimento_azione": "Nicchia premium in lieve calo: evita campagne ampie. Punta su un post mirato alle Isole di Brissago per chi cerca tranquillità ed esclusività.",
-        "suggerimento_azione_de": "Premium-Nische leicht rückläufig: gezielter Post zu den Brissago-Inseln für Ruhesuchende."
+        "suggerimento_azione": "Trend positivo: lancia una campagna micro-targeting FB/IG verso utenti ZH/DE"
+      },
+      {
+        "keyword": "Locarno",
+        "crescita": "-6%",
+        "trend": "down",
+        "geo": "DE",
+        "note": "Picco legato al Film Festival — prenotazioni anticipate",
+        "suggerimento_azione": "Interesse in flessione: prepara i contenuti per il picco Film Festival, non spingere ora"
       }
     ],
     "social_hashtags": [
