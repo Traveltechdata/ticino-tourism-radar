@@ -5614,12 +5614,12 @@
     ]
   },
   "marketing_trends": {
-    "settimana": "2026-06-22",
+    "settimana": "2026-06-29",
     "mercato": "DACH (CH-DE-AT)",
     "ricerche_top": [
       {
         "keyword": "Tessin",
-        "crescita": "+20%",
+        "crescita": "+22%",
         "trend": "up",
         "geo": "DE",
         "note": "Termine ombrello — cattura tutto il mercato DACH verso il cantone",
@@ -5627,7 +5627,7 @@
       },
       {
         "keyword": "Lago Maggiore",
-        "crescita": "+14%",
+        "crescita": "+12%",
         "trend": "up",
         "geo": "DE",
         "note": "Alta intent turistica, pubblico pronto a prenotare",
@@ -5635,27 +5635,27 @@
       },
       {
         "keyword": "Ascona",
-        "crescita": "+34%",
+        "crescita": "+16%",
         "trend": "up",
         "geo": "DE",
         "note": "Brand forte, ricercato da pubblico alto-spendente svizzero-tedesco",
         "suggerimento_azione": "Domanda in salita: controlla disponibilità Booking e valuta un rialzo tariffario"
       },
       {
+        "keyword": "Locarno",
+        "crescita": "+6%",
+        "trend": "up",
+        "geo": "DE",
+        "note": "Picco legato al Film Festival — prenotazioni anticipate",
+        "suggerimento_azione": "Interesse in aumento: menziona il Film Festival nei post per intercettare l'intent"
+      },
+      {
         "keyword": "Brissago",
-        "crescita": "+21%",
+        "crescita": "+12%",
         "trend": "up",
         "geo": "CH",
         "note": "Nicchia premium, bassa competizione, alta conversione",
         "suggerimento_azione": "Trend positivo: lancia una campagna micro-targeting FB/IG verso utenti ZH/DE"
-      },
-      {
-        "keyword": "Locarno",
-        "crescita": "-6%",
-        "trend": "down",
-        "geo": "DE",
-        "note": "Picco legato al Film Festival — prenotazioni anticipate",
-        "suggerimento_azione": "Interesse in flessione: prepara i contenuti per il picco Film Festival, non spingere ora"
       }
     ],
     "social_hashtags": [
