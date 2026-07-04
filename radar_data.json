@@ -8,7 +8,8 @@
     "checkOut14": "2026-07-19",
     "fonte": "Booking.com via Apify — prezzo per notte (soggiorno 2 notti)",
     "totalHotels": 151,
-    "nota_prezzi": "Prezzi per notte, calcolati su soggiorno di 2 notti in alta stagione."
+    "nota_prezzi": "Prezzi per notte, calcolati su soggiorno di 2 notti in alta stagione.",
+    "ustat_ultimo_mese": "maggio 2026"
   },
   "hotels": [
     {
@@ -7029,7 +7030,7 @@
         46271,
         67037,
         111727,
-        null,
+        132130,
         null,
         null,
         null,
@@ -7038,7 +7039,7 @@
         null,
         null
       ],
-      "nota": "Arrivi mensili Ticino. Aprile 2026: 111.727 (+11% vs 2025)."
+      "nota": "Arrivi mensili Ticino. Ultimo dato: maggio 2026 (132.130)."
     },
     "occupazione_letti": {
       "labels": [
@@ -7056,39 +7057,39 @@
         "Dic"
       ],
       "2024": [
-        17.1,
-        22.7,
+        18.3,
+        23.0,
         28.9,
-        44.9,
-        47.5,
-        52.9,
-        63.6,
-        61.8,
-        56.0,
-        41.9,
-        23.3,
-        20.8
+        41.2,
+        45.3,
+        50.3,
+        60.4,
+        58.8,
+        52.3,
+        40.8,
+        24.9,
+        22.9
       ],
       "2025": [
-        15.0,
-        20.0,
-        31.0,
-        44.0,
-        47.2,
-        55.4,
-        75.5,
-        65.9,
-        56.1,
-        49.7,
-        23.2,
-        27.2
+        17.8,
+        21.9,
+        28.9,
+        40.4,
+        45.7,
+        51.6,
+        68.3,
+        60.6,
+        52.3,
+        45.5,
+        24.0,
+        26.4
       ],
       "2026": [
-        16.0,
+        18.4,
         25.9,
-        33.5,
-        null,
-        null,
+        29.6,
+        46.0,
+        47.8,
         null,
         null,
         null,
@@ -7096,7 +7097,8 @@
         null,
         null,
         null
-      ]
+      ],
+      "nota": "Tassi di occupazione letti, dati USTAT ufficiali. Ultimo: maggio 2026 (47.8%)."
     },
     "mercati_esteri": {
       "titolo_it": "Mercati di provenienza",
@@ -7188,8 +7190,8 @@
       },
       {
         "tipo": "positivo",
-        "testo_it": "Febbraio 2026: +22% arrivi vs 2025. La stagione si anticipa. I prezzi di bassa stagione vanno rivisti al rialzo.",
-        "testo_de": "Februar 2026: +22% Ankünfte vs. 2025. Die Saison beginnt früher. Nebensaisonpreise nach oben anpassen."
+        "testo_it": "Maggio 2026: 132.130 arrivi (+3,1% vs 2025) e 267.794 pernottamenti (+3,0%). La stagione parte solida e in crescita costante sul 2025.",
+        "testo_de": "Mai 2026: 132.130 Ankünfte (+3,1% vs 2025) und 267.794 Logiernächte (+3,0%). Solider Saisonstart."
       },
       {
         "tipo": "info",
@@ -7250,7 +7252,7 @@
         83998,
         133788,
         242649,
-        null,
+        267794,
         null,
         null,
         null,
