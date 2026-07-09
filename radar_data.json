@@ -6885,48 +6885,53 @@
     ]
   },
   "marketing_trends": {
-    "settimana": "2026-07-06",
+    "settimana": "2026-06-15",
     "mercato": "DACH (CH-DE-AT)",
     "ricerche_top": [
       {
-        "keyword": "Tessin",
-        "crescita": "N/D",
-        "trend": "stable",
-        "geo": "N/D",
-        "note": "Termine ombrello — cattura tutto il mercato DACH verso il cantone",
-        "suggerimento_azione": "Domanda stabile: mantieni presenza costante, usa come keyword di base nei contenuti"
-      },
-      {
         "keyword": "Lago Maggiore",
-        "crescita": "N/D",
-        "trend": "stable",
-        "geo": "N/D",
+        "crescita": "+84%",
+        "trend": "up",
+        "geo": "CH",
         "note": "Alta intent turistica, pubblico pronto a prenotare",
-        "suggerimento_azione": "Interesse costante: keyword affidabile per contenuti sempreverdi e SEO di base"
-      },
-      {
-        "keyword": "Ascona",
-        "crescita": "N/D",
-        "trend": "stable",
-        "geo": "N/D",
-        "note": "Brand forte, ricercato da pubblico alto-spendente svizzero-tedesco",
-        "suggerimento_azione": "Brand stabile: ottimo momento per consolidare le recensioni e la reputazione online"
+        "suggerimento_azione": "Pubblica un reel su Instagram/Facebook con una vista del lungolago al tramonto. Caption in tedesco: \"Sommerabende am Lago Maggiore\" + hashtag #LagoMaggiore #Tessin. È la parola che sta crescendo di più: cavalcala ora.",
+        "suggerimento_azione_de": "Poste ein Reel mit Seeblick bei Sonnenuntergang. Caption: \"Sommerabende am Lago Maggiore\" + #LagoMaggiore #Tessin."
       },
       {
         "keyword": "Locarno",
-        "crescita": "N/D",
-        "trend": "stable",
-        "geo": "N/D",
+        "crescita": "+18%",
+        "trend": "up",
+        "geo": "CH",
         "note": "Picco legato al Film Festival — prenotazioni anticipate",
-        "suggerimento_azione": "Domanda costante: mantieni i contenuti aggiornati in vista dei picchi stagionali"
+        "suggerimento_azione": "Fai un post che ricorda le date del Locarno Film Festival (5–15 ago) con una foto della Piazza Grande. Caption: \"Filmfestival-Zeit in Locarno – jetzt buchen\". Intercetti chi sta già pianificando agosto.",
+        "suggerimento_azione_de": "Poste die Daten des Locarno Film Festival (5.–15. Aug) mit Foto der Piazza Grande. Caption: \"Filmfestival-Zeit in Locarno\"."
+      },
+      {
+        "keyword": "Ascona",
+        "crescita": "Stabile",
+        "trend": "stable",
+        "geo": "CH",
+        "note": "Brand forte, ricercato da pubblico alto-spendente svizzero-tedesco",
+        "suggerimento_azione": "Brand stabile e forte: pubblica una foto del lungolago di Ascona e invita a lasciare una recensione chi ha già soggiornato. Consolidare la reputazione conta più di rincorrere il volume.",
+        "suggerimento_azione_de": "Stabile Marke: Poste ein Foto der Seepromenade von Ascona und bitte frühere Gäste um eine Bewertung."
+      },
+      {
+        "keyword": "Tessin",
+        "crescita": "-6%",
+        "trend": "down",
+        "geo": "CH",
+        "note": "Termine ombrello — cattura tutto il mercato DACH verso il cantone",
+        "suggerimento_azione": "Ricerche in calo: NON spingere questa parola ora. Usala solo come hashtag secondario. Concentra i post sulle parole in crescita (Lago Maggiore, Locarno).",
+        "suggerimento_azione_de": "Suchanfragen rückläufig: Begriff jetzt nicht pushen. Nur als sekundären Hashtag verwenden."
       },
       {
         "keyword": "Brissago",
-        "crescita": "N/D",
-        "trend": "stable",
-        "geo": "N/D",
+        "crescita": "-5%",
+        "trend": "down",
+        "geo": "CH",
         "note": "Nicchia premium, bassa competizione, alta conversione",
-        "suggerimento_azione": "Nicchia stabile: punta sulla qualità e sulla conversione, non sul volume"
+        "suggerimento_azione": "Nicchia premium in lieve calo: evita campagne ampie. Punta su un post mirato alle Isole di Brissago per chi cerca tranquillità ed esclusività.",
+        "suggerimento_azione_de": "Premium-Nische leicht rückläufig: gezielter Post zu den Brissago-Inseln für Ruhesuchende."
       }
     ],
     "social_hashtags": [
