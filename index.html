@@ -583,16 +583,23 @@
   <div class="panel" id="panel-contatti">
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">★</span><span data-it="Contatti — Travel Tech Data" data-de="Kontakt — Travel Tech Data">Contatti — Travel Tech Data</span></h2>
+        <h2><span class="section-num">★</span><span data-it="Accesso anticipato — Locarnese 2026" data-de="Früher Zugang — Locarno 2026">Accesso anticipato — Locarnese 2026</span></h2>
       </div>
       <div class="section-body">
-        <div class="lead-grid" style="grid-template-columns:1fr;">
+        <div class="lead-grid">
           <div class="lead-card">
-            <div class="lead-tag" data-it="Locarnese · Ticino" data-de="Locarnese · Tessin">Locarnese · Ticino</div>
-            <div class="lead-title" data-it="Vuoi approfondire i dati del tuo territorio?" data-de="Möchten Sie Ihre Marktdaten vertiefen?">Vuoi approfondire i dati del tuo territorio?</div>
-            <div class="lead-desc" data-it="Il Ticino Tourism Radar e il Predictive Calendar sono strumenti gratuiti e aperti a tutti gli operatori del Locarnese. Se vuoi scoprire come i motori generativi descrivono la tua struttura o approfondire le dinamiche del tuo mercato, scrivici." data-de="Der Ticino Tourism Radar und der Predictive Calendar sind kostenlose Tools für alle Betriebe im Locarnese. Wenn Sie mehr über die Sichtbarkeit Ihrer Unterkunft auf KI-Motoren erfahren möchten, kontaktieren Sie uns.">Il Ticino Tourism Radar e il Predictive Calendar sono strumenti gratuiti e aperti a tutti gli operatori del Locarnese. Se vuoi scoprire come i motori generativi descrivono la tua struttura o approfondire le dinamiche del tuo mercato, scrivici.</div>
-            <a class="lead-btn" href="mailto:info@traveltechdata.com" data-it="Scrivici → info@traveltechdata.com" data-de="Schreiben Sie uns → info@traveltechdata.com">Scrivici → info@traveltechdata.com</a>
-            <div class="lead-fine" data-it="Risposta entro 24 ore nei giorni lavorativi." data-de="Antwort innert 24 Std. an Werktagen.">Risposta entro 24 ore nei giorni lavorativi.</div>
+            <div class="lead-tag" data-it="Gratuito · 30 minuti" data-de="Kostenlos · 30 Minuten">Gratuito · 30 minuti</div>
+            <div class="lead-title" data-it="Audit AI: come l'intelligenza artificiale legge il tuo hotel" data-de="KI-Audit: Wie die KI Ihr Hotel sieht">Audit AI: come l'intelligenza artificiale legge il tuo hotel</div>
+            <div class="lead-desc" data-it="Analizziamo profilo Booking, recensioni e posizionamento nel cluster. Ti diciamo cosa vede un algoritmo quando cerca un hotel nel Locarnese." data-de="Wir analysieren Booking-Profil, Bewertungen und Cluster-Positionierung. Wir zeigen, was ein Algorithmus sieht.">Analizziamo profilo Booking, recensioni e posizionamento nel cluster. Ti diciamo cosa vede un algoritmo quando cerca un hotel nel Locarnese.</div>
+            <button class="lead-btn" onclick="submitLead('audit')" data-it="Prenota il mio Audit gratuito →" data-de="Kostenloses Audit buchen →">Prenota il mio Audit gratuito →</button>
+            <div class="lead-fine" data-it="Nessuno spam. Risposta entro 48 ore." data-de="Kein Spam. Antwort innert 48 Std.">Nessuno spam. Risposta entro 48 ore.</div>
+          </div>
+          <div class="lead-card">
+            <div class="lead-tag" data-it="Early Access · Edizione limitata" data-de="Early Access · Limitiert">Early Access · Edizione limitata</div>
+            <div class="lead-title" data-it="Predictive Calendar 2026: le finestre di alta domanda" data-de="Predictive Calendar 2026: Hochsaison-Fenster">Predictive Calendar 2026: le finestre di alta domanda</div>
+            <div class="lead-desc" data-it="Il nostro modello incrocia eventi, vacanze scolastiche CH/DE e pattern meteo. Ottieni le date esatte in cui spuntare il massimo." data-de="Unser Modell kombiniert Events, Schulferien CH/DE und Wettermuster. Erhalten Sie die genauen Hochpreis-Daten.">Il nostro modello incrocia eventi, vacanze scolastiche CH/DE e pattern meteo. Ottieni le date esatte in cui spuntare il massimo.</div>
+            <button class="lead-btn" onclick="submitLead('calendar')" data-it="Voglio l'accesso anticipato →" data-de="Früher Zugang anfordern →">Voglio l'accesso anticipato →</button>
+            <div class="lead-fine" data-it="Disponibile per i primi 15 operatori." data-de="Für die ersten 15 Betriebe.">Disponibile per i primi 15 operatori.</div>
           </div>
         </div>
       </div>
@@ -601,7 +608,7 @@
 
   <footer class="footer">
     <strong>Ticino Tourism Radar</strong> — Travel Tech Data<br>
-    <a href="mailto:info@traveltechdata.com">info@traveltechdata.com</a>
+    <a href="mailto:info@traveltechdata.ch">info@traveltechdata.ch</a>
   </footer>
 
 </div>
@@ -920,7 +927,7 @@ function renderRankingTable() {
       '<td class="hotel-name-cell" onclick="selectHotel(' + gi + ')">' + h.name + flag + '</td>' +
       '<td><span class="rating-pill ' + getRatingClass(h.rating) + '">' + h.rating.toFixed(1) + '</span></td>' +
       '<td style="color:var(--muted)">' + h.reviews.toLocaleString("it") + '</td>' +
-      '<td style="font-weight:600">' + (h.priceWeekend7 ? 'CHF ' + h.priceWeekend7 : '<span style="color:var(--muted)">N.D.</span>') + '</td>' +
+      '<td style="font-weight:600">CHF ' + h.priceWeekend7 + '</td>' +
       '<td>' + p14 + delta + '</td></tr>';
   });
   html += '</tbody></table></div>';
@@ -972,7 +979,7 @@ function updateHotelDetail(i) {
   document.getElementById("hotelDetail").innerHTML =
     '<div class="metric-row">' +
       '<div class="metric-card"><div class="m-label">Ranking cluster</div><div class="m-value">#' + h.rank + '</div><div class="m-sub">' + h.city + '</div></div>' +
-      '<div class="metric-card"><div class="m-label">Prezzo +7gg</div><div class="m-value">' + (h.priceWeekend7 ? 'CHF ' + h.priceWeekend7 : '—') + '</div><div class="m-sub">check-in ' + radarData.meta.checkIn + '</div></div>' +
+      '<div class="metric-card"><div class="m-label">Prezzo +7gg</div><div class="m-value">CHF ' + h.priceWeekend7 + '</div><div class="m-sub">check-in ' + radarData.meta.checkIn + '</div></div>' +
       p14card +
     '</div>' +
     '<div class="metric-row" style="grid-template-columns:1fr 1fr">' +
@@ -1208,10 +1215,6 @@ function showPcDetail(i) {
 /* ===== TRENDS ===== */
 function renderTrends() {
   const mt = radarData.marketing_trends;
-  if (!mt || !mt.ricerche_top || mt.ricerche_top.length === 0) {
-    document.getElementById("trendsBody").innerHTML = '<div style="padding:20px;color:var(--muted);font-size:13px;text-align:center;">Dati Google Trends temporaneamente non disponibili. Aggiornamento previsto nella prossima settimana.</div>';
-    return;
-  }
   if (!mt) return;
   document.getElementById("trendsMeta").textContent = "Google Trends · " + mt.mercato + " · " + mt.settimana;
   const introTxt = currentLang === "it"
