@@ -920,7 +920,7 @@ function renderRankingTable() {
       '<td class="hotel-name-cell" onclick="selectHotel(' + gi + ')">' + h.name + flag + '</td>' +
       '<td><span class="rating-pill ' + getRatingClass(h.rating) + '">' + h.rating.toFixed(1) + '</span></td>' +
       '<td style="color:var(--muted)">' + h.reviews.toLocaleString("it") + '</td>' +
-      '<td style="font-weight:600">CHF ' + h.priceWeekend7 + '</td>' +
+      '<td style="font-weight:600">' + (h.priceWeekend7 ? 'CHF ' + h.priceWeekend7 : '<span style="color:var(--muted)">N.D.</span>') + '</td>' +
       '<td>' + p14 + delta + '</td></tr>';
   });
   html += '</tbody></table></div>';
@@ -972,7 +972,7 @@ function updateHotelDetail(i) {
   document.getElementById("hotelDetail").innerHTML =
     '<div class="metric-row">' +
       '<div class="metric-card"><div class="m-label">Ranking cluster</div><div class="m-value">#' + h.rank + '</div><div class="m-sub">' + h.city + '</div></div>' +
-      '<div class="metric-card"><div class="m-label">Prezzo +7gg</div><div class="m-value">CHF ' + h.priceWeekend7 + '</div><div class="m-sub">check-in ' + radarData.meta.checkIn + '</div></div>' +
+      '<div class="metric-card"><div class="m-label">Prezzo +7gg</div><div class="m-value">' + (h.priceWeekend7 ? 'CHF ' + h.priceWeekend7 : '—') + '</div><div class="m-sub">check-in ' + radarData.meta.checkIn + '</div></div>' +
       p14card +
     '</div>' +
     '<div class="metric-row" style="grid-template-columns:1fr 1fr">' +
@@ -1208,6 +1208,10 @@ function showPcDetail(i) {
 /* ===== TRENDS ===== */
 function renderTrends() {
   const mt = radarData.marketing_trends;
+  if (!mt || !mt.ricerche_top || mt.ricerche_top.length === 0) {
+    document.getElementById("trendsBody").innerHTML = '<div style="padding:20px;color:var(--muted);font-size:13px;text-align:center;">Dati Google Trends temporaneamente non disponibili. Aggiornamento previsto nella prossima settimana.</div>';
+    return;
+  }
   if (!mt) return;
   document.getElementById("trendsMeta").textContent = "Google Trends · " + mt.mercato + " · " + mt.settimana;
   const introTxt = currentLang === "it"
