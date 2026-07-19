@@ -7726,5 +7726,189 @@
         "stima_pern": 41000
       }
     ]
+  },
+  "visibilita_ai": {
+    "DEMO": true,
+    "avviso_demo_it": "DATI DIMOSTRATIVI — struttura di esempio in attesa della prima rilevazione reale.",
+    "avviso_demo_de": "DEMODATEN — Beispielstruktur bis zur ersten echten Erhebung.",
+    "rilevazione": "2026-07-19",
+    "motori": [
+      "ChatGPT",
+      "Gemini",
+      "Perplexity",
+      "Claude"
+    ],
+    "n_query": 20,
+    "n_risposte": 80,
+    "mix_lingue": {
+      "de": 10,
+      "en": 6,
+      "it": 4
+    },
+    "queries": [
+      {
+        "q": "Wo übernachten am Lago Maggiore Schweiz?",
+        "lang": "de",
+        "area": "geografica"
+      },
+      {
+        "q": "Hotels in Locarno Tessin",
+        "lang": "de",
+        "area": "geografica"
+      },
+      {
+        "q": "Unterkunft in der Nähe von Ascona",
+        "lang": "de",
+        "area": "geografica"
+      },
+      {
+        "q": "Where to stay on Lake Maggiore Switzerland",
+        "lang": "en",
+        "area": "geografica"
+      },
+      {
+        "q": "Best area to stay in Ticino",
+        "lang": "en",
+        "area": "geografica"
+      },
+      {
+        "q": "Dove dormire sul Lago Maggiore svizzero",
+        "lang": "it",
+        "area": "geografica"
+      },
+      {
+        "q": "Hotel mit Seeblick Tessin",
+        "lang": "de",
+        "area": "esperienziale"
+      },
+      {
+        "q": "Hundefreundliches Hotel Lago Maggiore",
+        "lang": "de",
+        "area": "esperienziale"
+      },
+      {
+        "q": "Familienhotel Tessin mit Kindern",
+        "lang": "de",
+        "area": "esperienziale"
+      },
+      {
+        "q": "Quiet lakeside hotel Ticino",
+        "lang": "en",
+        "area": "esperienziale"
+      },
+      {
+        "q": "Wellness hotel Lake Maggiore Switzerland",
+        "lang": "en",
+        "area": "esperienziale"
+      },
+      {
+        "q": "Hotel tranquillo vista lago Locarnese",
+        "lang": "it",
+        "area": "esperienziale"
+      },
+      {
+        "q": "Hotel Tessin mit kostenlosem Parkplatz",
+        "lang": "de",
+        "area": "pratica"
+      },
+      {
+        "q": "Hotel Locarno Frühstück inklusive",
+        "lang": "de",
+        "area": "pratica"
+      },
+      {
+        "q": "Hotel Lake Maggiore with parking included",
+        "lang": "en",
+        "area": "pratica"
+      },
+      {
+        "q": "Hotel con parcheggio gratuito Locarno",
+        "lang": "it",
+        "area": "pratica"
+      },
+      {
+        "q": "Hotel während Locarno Film Festival",
+        "lang": "de",
+        "area": "stagionale"
+      },
+      {
+        "q": "Wo schlafen Moon and Stars Locarno",
+        "lang": "de",
+        "area": "stagionale"
+      },
+      {
+        "q": "Where to stay during Locarno Film Festival",
+        "lang": "en",
+        "area": "stagionale"
+      },
+      {
+        "q": "Hotel per weekend autunnale Lago Maggiore",
+        "lang": "it",
+        "area": "stagionale"
+      }
+    ],
+    "kpi": {
+      "strutture_citate": 23,
+      "strutture_totali_zona": 151,
+      "quota_prime_tre": 61,
+      "errori_fattuali_pct": 18
+    },
+    "concentrazione": {
+      "labels_it": [
+        "1ª struttura",
+        "2ª–3ª",
+        "4ª–10ª",
+        "Altre citate",
+        "Mai citate"
+      ],
+      "labels_de": [
+        "1. Betrieb",
+        "2.–3.",
+        "4.–10.",
+        "Weitere genannte",
+        "Nie genannt"
+      ],
+      "values": [
+        24,
+        37,
+        22,
+        17,
+        0
+      ],
+      "n_strutture": [
+        1,
+        2,
+        7,
+        13,
+        128
+      ]
+    },
+    "lingue": {
+      "labels": [
+        "DE",
+        "EN",
+        "IT"
+      ],
+      "strutture_citate": [
+        19,
+        14,
+        9
+      ],
+      "n_query": [
+        10,
+        6,
+        4
+      ]
+    },
+    "andamento": {
+      "mesi": [
+        "lug 2026"
+      ],
+      "strutture_citate": [
+        23
+      ],
+      "nota_it": "Prima rilevazione. L'andamento mese su mese sarà disponibile dalla prossima.",
+      "nota_de": "Erste Erhebung. Monatsvergleich ab der nächsten Erhebung verfügbar."
+    }
   }
 }

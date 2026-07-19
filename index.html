@@ -95,6 +95,29 @@
   .kpi-delta.down { color: var(--red); }
   .kpi-delta.flat { color: var(--muted); }
   @media (max-width: 720px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  /* VISIBILITA AI */
+  .vis-demo-banner { font-size: 12px; color: var(--amber); background: var(--amber-bg); border: 0.5px solid rgba(224,164,88,0.3); border-radius: 8px; padding: 10px 13px; margin-bottom: 12px; display: flex; gap: 8px; align-items: flex-start; line-height: 1.45; }
+  .vis-demo-banner svg { flex-shrink: 0; margin-top: 1px; }
+  .vis-intro { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
+  .vis-intro strong { color: var(--text); font-weight: 600; }
+  .vis-meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .vis-chip { font-size: 11px; padding: 4px 11px; border-radius: 14px; background: var(--bg-deep); border: 0.5px solid var(--border); color: var(--muted); }
+  .vis-kpi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+  @media (max-width: 720px) { .vis-kpi-grid { grid-template-columns: 1fr; } }
+  .vis-kpi { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 11px; padding: 16px; text-align: center; }
+  .vis-kpi-value { font-family: var(--serif); font-size: 34px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+  .vis-kpi-label { font-size: 12px; color: var(--text-soft); line-height: 1.4; margin-bottom: 4px; }
+  .vis-kpi-sub { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .vis-andamento-single { display: flex; align-items: center; gap: 14px; background: var(--bg-deep); border-radius: 10px; padding: 16px; }
+  .vis-and-dot { width: 46px; height: 46px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 19px; font-weight: 800; flex-shrink: 0; }
+  .vis-and-txt { font-size: 12.5px; color: var(--text-soft); line-height: 1.5; }
+  .vis-and-txt strong { color: var(--text); }
+  .vis-cta { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; background: linear-gradient(135deg, rgba(79,178,134,0.12), rgba(79,178,134,0.04)); border: 0.5px solid rgba(79,178,134,0.28); border-radius: 11px; padding: 16px 18px; }
+  .vis-cta-txt { font-size: 13.5px; color: var(--text); line-height: 1.5; flex: 1; min-width: 220px; }
+  .vis-cta-txt small { display: block; color: var(--muted); font-size: 11.5px; margin-top: 3px; }
+  .vis-cta-btn { padding: 10px 18px; border-radius: 8px; border: none; background: var(--accent); color: #11231b; font-family: var(--sans); font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+  .vis-cta-btn:hover { background: var(--accent-deep); }
+
   /* CHART */
   .chart-tabs { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
   .chart-tab { padding: 6px 13px; font-size: 12px; font-weight: 500; border-radius: 18px; border: 0.5px solid var(--border-hi); background: var(--bg-deep); color: var(--muted); cursor: pointer; font-family: var(--sans); transition: all 0.15s; }
@@ -343,7 +366,7 @@
   <nav class="tabs">
     <div class="tabs-inner">
       <button class="tab active" onclick="switchTab('mercato',this)"><span class="tab-ico" id="ico-mercato"></span><span data-it="Mercato" data-de="Markt">Mercato</span></button>
-      <button class="tab" onclick="switchTab('competizione',this)"><span class="tab-ico" id="ico-comp"></span><span data-it="Competizione" data-de="Wettbewerb">Competizione</span></button>
+      <button class="tab" onclick="switchTab('visibilita',this)"><span class="tab-ico" id="ico-comp"></span><span data-it="Visibilità AI" data-de="KI-Sichtbarkeit">Visibilità AI</span></button>
       <button class="tab" onclick="switchTab('previsioni',this)"><span class="tab-ico" id="ico-prev"></span><span data-it="Previsioni" data-de="Prognosen">Previsioni</span></button>
       <button class="tab" onclick="switchTab('marketing',this)"><span class="tab-ico" id="ico-mkt"></span><span data-it="Marketing" data-de="Marketing">Marketing</span></button>
       <button class="tab" onclick="switchTab('contatti',this)"><span class="tab-ico" id="ico-cont"></span><span data-it="Contatti" data-de="Kontakt">Contatti</span></button>
@@ -399,53 +422,67 @@
   </div>
 
   <!-- ===== PANEL: COMPETIZIONE ===== -->
-  <div class="panel" id="panel-competizione">
+  <div class="panel" id="panel-visibilita">
+
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">①</span><span data-it="Ranking cluster Locarnese" data-de="Ranking Cluster Locarno">Ranking cluster Locarnese</span></h2>
-        <span class="section-tag" id="rankingMeta">Booking.com</span>
+        <h2><span class="section-num">①</span><span data-it="Come funziona questo indice" data-de="Wie dieser Index funktioniert">Come funziona questo indice</span></h2>
+        <span class="section-tag" id="visMeta">—</span>
       </div>
       <div class="section-body">
-        <div class="filter-bar" id="filterBar">
-          <button class="filter-pill active" onclick="applyFilter('tutti',this)" data-it="Tutti" data-de="Alle">Tutti</button>
-          <button class="filter-pill" onclick="applyFilter('locarno',this)">Locarno &amp; Dintorni</button>
-          <button class="filter-pill" onclick="applyFilter('ascona',this)">Ascona &amp; Losone</button>
-          <button class="filter-pill" onclick="applyFilter('cannobio',this)">Cannobio 🇮🇹</button>
-          <button class="filter-pill" onclick="applyFilter('valli',this)" data-it="Valli" data-de="Täler">Valli</button>
-          <button class="filter-pill" onclick="applyFilter('brissago',this)">Brissago</button>
-        </div>
-        <input type="text" id="rankingSearch" class="ranking-search" oninput="renderRankingTable()" placeholder="Cerca hotel per nome...">
-        <div id="rankingBody"><div class="loading-state"><span class="loading-spinner"></span></div></div>
-        <div class="section-tag" id="rankingNote" style="margin-top:10px;display:block"></div>
+        <div class="vis-demo-banner" id="visDemoBanner"></div>
+        <div class="vis-intro" id="visIntro"></div>
       </div>
     </div>
 
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">②</span><span data-it="Dettaglio struttura — prezzi e recensioni" data-de="Detailansicht — Preise und Bewertungen">Dettaglio struttura — prezzi e recensioni</span></h2>
-        <span class="section-tag" data-it="Per hotel" data-de="Pro Hotel">Per hotel</span>
+        <h2><span class="section-num">②</span><span data-it="I numeri della visibilità" data-de="Die Sichtbarkeitszahlen">I numeri della visibilità</span></h2>
+        <span class="section-tag" id="visKpiTag">—</span>
       </div>
       <div class="section-body">
-        <select class="struct-select" id="hotelSelect" onchange="selectHotel(this.value)"><option data-it="— in caricamento —" data-de="— wird geladen —">— in caricamento —</option></select>
-        <div id="hotelDetail"></div>
+        <div class="vis-kpi-grid" id="visKpiGrid"></div>
       </div>
     </div>
 
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">③</span><span data-it="Termometro prezzi" data-de="Preis-Thermometer">Termometro prezzi</span></h2>
-        <span class="section-tag" data-it="Confronto col cluster" data-de="Cluster-Vergleich">Confronto col cluster</span>
+        <h2><span class="section-num">③</span><span data-it="Come si distribuisce la visibilità" data-de="Verteilung der Sichtbarkeit">Come si distribuisce la visibilità</span></h2>
+        <span class="section-tag" data-it="Dati aggregati" data-de="Aggregierte Daten">Dati aggregati</span>
       </div>
       <div class="section-body">
-        <div class="termo-wrap">
-          <div class="termo-input-row">
-            <input type="number" class="termo-input" id="termoInput" placeholder="La tua tariffa weekend (CHF)">
-            <button class="termo-btn" onclick="calcolaTermometro()" data-it="Verifica posizione" data-de="Position prüfen">Verifica posizione</button>
-          </div>
-          <div class="termo-result" id="termoResult"></div>
-        </div>
+        <div class="chart-box" style="height:280px"><canvas id="visConcChart"></canvas></div>
+        <div class="chart-note" id="visConcNote"></div>
       </div>
     </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">④</span><span data-it="Divario tra le lingue" data-de="Sprachunterschiede">Divario tra le lingue</span></h2>
+        <span class="section-tag">DE · EN · IT</span>
+      </div>
+      <div class="section-body">
+        <div class="chart-box" style="height:250px"><canvas id="visLangChart"></canvas></div>
+        <div class="chart-note" id="visLangNote"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">⑤</span><span data-it="Andamento mensile" data-de="Monatliche Entwicklung">Andamento mensile</span></h2>
+        <span class="section-tag" data-it="Storico" data-de="Verlauf">Storico</span>
+      </div>
+      <div class="section-body">
+        <div id="visAndamento"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-body">
+        <div class="vis-cta" id="visCta"></div>
+      </div>
+    </div>
+
   </div>
   <!-- ===== PANEL: PREVISIONI ===== -->
   <div class="panel" id="panel-previsioni">
@@ -660,6 +697,7 @@ function setLang(lang) {
   document.documentElement.lang = lang;
   if (radarData) {
     renderInsights();
+    renderVisibilita();
     renderEventi();
     renderPredictiveCalendar();
     renderTrends();
@@ -674,6 +712,10 @@ function switchTab(name, btn) {
   btn.classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
   if (name === "mercato" && ustatChart) setTimeout(function(){ ustatChart.resize(); }, 50);
+  if (name === "visibilita") setTimeout(function(){
+    if (visConcChart) visConcChart.resize();
+    if (visLangChart) visLangChart.resize();
+  }, 50);
 }
 
 /* ===== LOAD DATA ===== */
@@ -691,8 +733,7 @@ async function loadRadarData() {
     renderKpi();
     initChart();
     renderInsights();
-    buildHotelSelect();
-    renderRankingTable();
+    renderVisibilita();
     renderEventi();
     renderPredictiveCalendar();
     renderTrends();
@@ -1205,6 +1246,200 @@ function showPcDetail(i) {
       '<div class="pc-cta"><span class="pc-cta-ico">' + svgIcon("tag", 18) + '</span><span class="pc-cta-text">' + ctaText + '</span></div>' +
     '</div>';
 }
+/* ===== VISIBILITA AI ===== */
+let visConcChart = null;
+let visLangChart = null;
+
+function renderVisibilita() {
+  const v = radarData.visibilita_ai;
+  if (!v) return;
+  const it = (currentLang === "it");
+
+  // --- Banner DEMO (solo se dati dimostrativi) ---
+  const banner = document.getElementById("visDemoBanner");
+  if (v.DEMO) {
+    banner.style.display = "flex";
+    banner.innerHTML = svgIcon("alert", 15) + "<span>" + (it ? v.avviso_demo_it : v.avviso_demo_de) + "</span>";
+  } else {
+    banner.style.display = "none";
+  }
+
+  // --- Meta + intro ---
+  document.getElementById("visMeta").textContent =
+    (it ? "Rilevazione " : "Erhebung ") + formatDataBreve(v.rilevazione);
+
+  const introTxt = it
+    ? "Ogni mese poniamo <strong>" + v.n_query + " domande di ricerca</strong> a " + v.motori.join(", ") +
+      " — le stesse che farebbe un turista che cerca dove dormire sul Lago Maggiore. " +
+      "Questo indice misura <strong>quante strutture del Locarnese vengono effettivamente nominate</strong> nelle risposte."
+    : "Jeden Monat stellen wir <strong>" + v.n_query + " Suchfragen</strong> an " + v.motori.join(", ") +
+      " — dieselben, die ein Reisender stellen würde. Der Index misst, <strong>wie viele Betriebe der Region tatsächlich genannt werden</strong>.";
+
+  const chips =
+    '<div class="vis-meta-row">' +
+      '<span class="vis-chip">' + v.n_query + (it ? " domande" : " Fragen") + '</span>' +
+      '<span class="vis-chip">' + v.n_risposte + (it ? " risposte analizzate" : " Antworten") + '</span>' +
+      '<span class="vis-chip">DE ' + v.mix_lingue.de + ' · EN ' + v.mix_lingue.en + ' · IT ' + v.mix_lingue.it + '</span>' +
+      '<span class="vis-chip">' + v.motori.length + (it ? " motori AI" : " KI-Modelle") + '</span>' +
+    '</div>';
+  document.getElementById("visIntro").innerHTML = introTxt + chips;
+
+  // --- KPI ---
+  const k = v.kpi;
+  document.getElementById("visKpiTag").textContent =
+    it ? "Su " + v.n_risposte + " risposte" : "Von " + v.n_risposte + " Antworten";
+
+  const kpis = [
+    {
+      value: k.strutture_citate + '<span style="font-size:18px;color:var(--muted)">/' + k.strutture_totali_zona + '</span>',
+      color: "var(--accent)",
+      label: it ? "Strutture del Locarnese citate almeno una volta" : "Mindestens einmal genannte Betriebe",
+      sub: it ? "Le altre non compaiono in nessuna risposta" : "Die übrigen erscheinen in keiner Antwort"
+    },
+    {
+      value: k.quota_prime_tre + "%",
+      color: "var(--amber)",
+      label: it ? "Quota di citazioni raccolta dalle prime 3 strutture" : "Anteil der Top-3-Betriebe an allen Nennungen",
+      sub: it ? "La visibilità è concentrata in pochissime mani" : "Sichtbarkeit stark konzentriert"
+    },
+    {
+      value: k.errori_fattuali_pct + "%",
+      color: "var(--red)",
+      label: it ? "Risposte contenenti un errore fattuale" : "Antworten mit sachlichem Fehler",
+      sub: it ? "Verificati manualmente, uno per uno" : "Manuell einzeln überprüft"
+    }
+  ];
+  document.getElementById("visKpiGrid").innerHTML = kpis.map(function(x) {
+    return '<div class="vis-kpi">' +
+      '<div class="vis-kpi-value" style="color:' + x.color + '">' + x.value + '</div>' +
+      '<div class="vis-kpi-label">' + x.label + '</div>' +
+      '<div class="vis-kpi-sub">' + x.sub + '</div>' +
+    '</div>';
+  }).join("");
+
+  // --- Grafico concentrazione ---
+  const c = v.concentrazione;
+  const labels = it ? c.labels_it : c.labels_de;
+  if (visConcChart) visConcChart.destroy();
+  visConcChart = new Chart(document.getElementById("visConcChart"), {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [{
+        label: it ? "% delle citazioni totali" : "% aller Nennungen",
+        data: c.values,
+        backgroundColor: ["#C0584F", "#D98352", "#E0A458", "#6FA8DC", "#5A6068"],
+        borderRadius: 5
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { afterLabel: function(ctx) {
+          const n = c.n_strutture[ctx.dataIndex];
+          return n + (it ? " struttur" + (n === 1 ? "a" : "e") : " Betriebe");
+        }}}
+      },
+      scales: {
+        x: { grid: { color: chartColors.grid }, ticks: { font: { size: 11 } } },
+        y: { grid: { color: chartColors.grid }, beginAtZero: true,
+             ticks: { font: { size: 11 }, callback: function(val){ return val + "%"; } } }
+      }
+    }
+  });
+  const mai = c.n_strutture[c.n_strutture.length - 1];
+  document.getElementById("visConcNote").textContent = it
+    ? "Le prime 3 strutture raccolgono il " + k.quota_prime_tre + "% di tutte le citazioni. " + mai + " strutture non vengono mai nominate. Dati aggregati: nessuna struttura è identificata."
+    : mai + " Betriebe werden nie genannt. Aggregierte Daten, keine Namensnennung.";
+
+  // --- Grafico lingue ---
+  const L = v.lingue;
+  if (visLangChart) visLangChart.destroy();
+  visLangChart = new Chart(document.getElementById("visLangChart"), {
+    type: "bar",
+    data: {
+      labels: L.labels,
+      datasets: [{
+        label: it ? "Strutture citate" : "Genannte Betriebe",
+        data: L.strutture_citate,
+        backgroundColor: ["#4FB286", "#6FA8DC", "#E0A458"],
+        borderRadius: 5
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { afterLabel: function(ctx) {
+          return (it ? "su " : "aus ") + L.n_query[ctx.dataIndex] + (it ? " domande" : " Fragen");
+        }}}
+      },
+      scales: {
+        x: { grid: { color: chartColors.grid }, ticks: { font: { size: 12 } } },
+        y: { grid: { color: chartColors.grid }, beginAtZero: true, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+  document.getElementById("visLangNote").textContent = it
+    ? "Numero di strutture diverse citate per lingua. Il tedesco è il mercato principale del Locarnese: se una struttura non emerge nelle risposte in tedesco, è invisibile al suo pubblico più importante."
+    : "Anzahl unterschiedlicher Betriebe pro Sprache. Deutsch ist der Hauptmarkt der Region.";
+
+  // --- Andamento ---
+  const a = v.andamento;
+  if (a.mesi.length < 2) {
+    document.getElementById("visAndamento").innerHTML =
+      '<div class="vis-andamento-single">' +
+        '<div class="vis-and-dot">' + a.strutture_citate[0] + '</div>' +
+        '<div class="vis-and-txt"><strong>' + a.mesi[0] + '</strong><br>' + (it ? a.nota_it : a.nota_de) + '</div>' +
+      '</div>';
+  } else {
+    document.getElementById("visAndamento").innerHTML = '<div class="chart-box" style="height:230px"><canvas id="visTrendChart"></canvas></div>';
+    new Chart(document.getElementById("visTrendChart"), {
+      type: "line",
+      data: { labels: a.mesi, datasets: [{
+        label: it ? "Strutture citate" : "Genannte Betriebe",
+        data: a.strutture_citate, borderColor: "#4FB286",
+        backgroundColor: "rgba(79,178,134,0.12)", fill: true, tension: 0.3, pointRadius: 4
+      }]},
+      options: { responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { x: { grid: { color: chartColors.grid } },
+                  y: { grid: { color: chartColors.grid }, beginAtZero: true } } }
+    });
+  }
+
+  // --- CTA ---
+  document.getElementById("visCta").innerHTML =
+    '<div class="vis-cta-txt">' +
+      (it ? "<strong>Il tuo hotel è tra quelli citati?</strong>" : "<strong>Ist Ihr Hotel dabei?</strong>") +
+      '<small>' + (it ? "Analizziamo il tuo caso specifico e ti diciamo cosa rispondono i motori AI su di te."
+                      : "Wir analysieren Ihren Fall und zeigen, was die KI-Modelle über Sie sagen.") + '</small>' +
+    '</div>' +
+    '<button class="vis-cta-btn" onclick="goToContatti()">' +
+      (it ? "Richiedi la verifica →" : "Prüfung anfragen →") +
+    '</button>';
+}
+
+function formatDataBreve(iso) {
+  if (!iso) return "—";
+  const p = iso.split("-");
+  const mIt = ["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"];
+  const mDe = ["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+  const m = (currentLang === "it" ? mIt : mDe)[parseInt(p[1],10) - 1];
+  return parseInt(p[2],10) + " " + m + " " + p[0];
+}
+
+function goToContatti() {
+  const btns = document.querySelectorAll(".tab");
+  for (var i = 0; i < btns.length; i++) {
+    if (btns[i].getAttribute("onclick") && btns[i].getAttribute("onclick").indexOf("contatti") !== -1) {
+      switchTab("contatti", btns[i]);
+      return;
+    }
+  }
+}
+
 /* ===== TRENDS ===== */
 function renderTrends() {
   const mt = radarData.marketing_trends;
@@ -1384,14 +1619,18 @@ function azioniFallback() {
       descrizione: up[0].suggerimento_azione || ""
     });
   }
-  // 2. Operatività — sold out nel cluster
-  var soldout = (radarData.hotels||[]).filter(function(h){ return h.fullyBooked14; }).length;
-  if (soldout > 0) {
-    var pct = Math.round(soldout / radarData.hotels.length * 100);
+  // 2. Visibilità AI — dato autoprodotto, nessuna dipendenza esterna
+  var vis = radarData.visibilita_ai;
+  if (vis && vis.kpi) {
+    var nonCitate = vis.kpi.strutture_totali_zona - vis.kpi.strutture_citate;
     az.push({
-      categoria: currentLang==="it"?"Operatività":"Betrieb",
-      titolo: currentLang==="it" ? (soldout + " strutture su " + radarData.hotels.length + " già sold out fra 14 giorni") : (soldout + " Häuser ausgebucht in 14 Tagen"),
-      descrizione: currentLang==="it" ? ("Il " + pct + "% del cluster è pieno per la settimana del " + radarData.meta.checkIn14 + ". Se hai ancora camere libere puoi alzare la tariffa sulle ultime disponibilità.") : ("" + pct + "% des Clusters ausgebucht. Restzimmer-Preise erhöhen.")
+      categoria: currentLang==="it"?"Visibilità AI":"KI-Sichtbarkeit",
+      titolo: currentLang==="it"
+        ? (nonCitate + " strutture della zona non compaiono nelle risposte AI")
+        : (nonCitate + " Betriebe erscheinen in keiner KI-Antwort"),
+      descrizione: currentLang==="it"
+        ? ("Su " + vis.n_risposte + " risposte analizzate, solo " + vis.kpi.strutture_citate + " strutture vengono nominate. Verifica come i motori AI descrivono la tua: apri il tab Visibilità AI.")
+        : ("Nur " + vis.kpi.strutture_citate + " Betriebe werden genannt. Siehe Tab KI-Sichtbarkeit.")
     });
   }
   // 3. Eventi — prossimo evento ad alto impatto
@@ -1463,7 +1702,7 @@ function submitLead(tipo) {
 
 /* ===== INIT ===== */
 function paintStaticIcons() {
-  const map = { "ico-mercato":"market", "ico-comp":"hotel", "ico-prev":"calendar", "ico-mkt":"trend", "ico-cont":"mail", "ico-wa":"share" };
+  const map = { "ico-mercato":"market", "ico-comp":"info", "ico-prev":"calendar", "ico-mkt":"trend", "ico-cont":"mail", "ico-wa":"share" };
   Object.keys(map).forEach(function(id) {
     const el = document.getElementById(id);
     if (el) el.innerHTML = svgIcon(map[id], 16);
