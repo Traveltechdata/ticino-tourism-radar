@@ -6967,20 +6967,18 @@
   },
   "ustat": {
     "aggiornato": "2026-06-16",
-    "fonte": "USTAT Ticino — HESTA",
+    "fonte": "USTAT/HESTA — settore alberghiero, Cantone Ticino",
     "kpi": {
-      "pernottamenti_2025": 1197870,
-      "pernottamenti_delta": "+5.4%",
-      "arrivi_2025": 498525,
-      "arrivi_delta": "+6.9%",
-      "esteri_2025": 307664,
-      "esteri_delta": "+13.7%",
-      "soggiorno_medio": 2.4,
-      "occupazione_letti_2025": 47.4,
+      "pernottamenti_2025": 2510079,
+      "pernottamenti_delta": "+3.7%",
+      "arrivi_2025": 1218930,
+      "arrivi_delta": "+3.4%",
+      "esteri_2025": 995669,
+      "esteri_delta": "+8.0%",
+      "soggiorno_medio": 2.06,
+      "occupazione_letti_2025": 43.0,
       "occupazione_media_ch": 46.0,
-      "gap_ch": -3.0,
-      "rank_ticino_ch": 7,
-      "turisti_ch_interni": 706261
+      "gap_ch": -3.0
     },
     "stagionalita_arrivi": {
       "labels": [
@@ -7910,5 +7908,192 @@
       "nota_it": "Prima rilevazione. L'andamento mese su mese sarà disponibile dalla prossima.",
       "nota_de": "Erste Erhebung. Monatsvergleich ab der nächsten Erhebung verfügbar."
     }
+  },
+  "provenienza": {
+    "fonte": "USTAT — Pernottamenti per paese di domicilio (13C)",
+    "anni": [
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+    ],
+    "domestico_estero": {
+      "svizzera": [
+        1566915,
+        2427411,
+        1730867,
+        1548764,
+        1499143,
+        1514410
+      ],
+      "estero": [
+        366758,
+        507034,
+        824376,
+        909072,
+        921658,
+        995669
+      ],
+      "quota_estero_pct": [
+        19.0,
+        17.3,
+        32.3,
+        37.0,
+        38.1,
+        39.7
+      ]
+    },
+    "top_mercati": {
+      "paesi": [
+        "Germania",
+        "Italia",
+        "Stati Uniti",
+        "Paesi Bassi",
+        "Francia",
+        "Regno Unito"
+      ],
+      "serie": {
+        "Germania": [
+          121082,
+          186987,
+          239645,
+          236347,
+          233965,
+          250087
+        ],
+        "Italia": [
+          107837,
+          99487,
+          149946,
+          155445,
+          147161,
+          156636
+        ],
+        "Stati Uniti": [
+          8456,
+          24014,
+          73090,
+          88006,
+          96347,
+          107207
+        ],
+        "Paesi Bassi": [
+          21171,
+          27991,
+          51997,
+          49308,
+          46946,
+          50651
+        ],
+        "Francia": [
+          22638,
+          34032,
+          43362,
+          45881,
+          45560,
+          44921
+        ],
+        "Regno Unito": [
+          8980,
+          8803,
+          28020,
+          37810,
+          36078,
+          41267
+        ]
+      }
+    },
+    "crescita_2025": [
+      {
+        "paese": "Germania",
+        "val2025": 250087,
+        "var_2024": 6.9,
+        "var_2020": 106.5
+      },
+      {
+        "paese": "Italia",
+        "val2025": 156636,
+        "var_2024": 6.4,
+        "var_2020": 45.3
+      },
+      {
+        "paese": "Stati Uniti",
+        "val2025": 107207,
+        "var_2024": 11.3,
+        "var_2020": 1167.8
+      },
+      {
+        "paese": "Paesi Bassi",
+        "val2025": 50651,
+        "var_2024": 7.9,
+        "var_2020": 139.2
+      },
+      {
+        "paese": "Francia",
+        "val2025": 44921,
+        "var_2024": -1.4,
+        "var_2020": 98.4
+      },
+      {
+        "paese": "Regno Unito",
+        "val2025": 41267,
+        "var_2024": 14.4,
+        "var_2020": 359.5
+      },
+      {
+        "paese": "Belgio",
+        "val2025": 19814,
+        "var_2024": 4.9,
+        "var_2020": 126.5
+      },
+      {
+        "paese": "Austria",
+        "val2025": 16920,
+        "var_2024": 15.2,
+        "var_2020": 125.8
+      }
+    ],
+    "insight_it": "La quota di ospiti stranieri è passata dal 19% del 2020 al 39,7% del 2025: in cinque anni il Ticino è tornato una destinazione internazionale. Il mercato svizzero resta la base (60%) ma non cresce più; la crescita arriva da fuori.",
+    "insight_de": "Der Auslandsanteil stieg von 19% (2020) auf 39,7% (2025). Der Schweizer Markt bleibt die Basis (60%), wächst aber nicht mehr — das Wachstum kommt aus dem Ausland."
+  },
+  "offerta_regione": {
+    "fonte": "USTAT — Panoramica Turismo, agosto 2025 (T.10.2 e T.10.5), dati 2024",
+    "regione": "Lago Maggiore e Valli",
+    "stabilimenti_censiti": 190,
+    "classi": {
+      "labels_it": [
+        "1–20 letti",
+        "21–50 letti",
+        "51+ letti"
+      ],
+      "labels_de": [
+        "1–20 Betten",
+        "21–50 Betten",
+        "51+ Betten"
+      ],
+      "lago_maggiore": [
+        70,
+        67,
+        54
+      ],
+      "ticino": [
+        152,
+        131,
+        115
+      ]
+    },
+    "regione_2024": {
+      "stabilimenti_aperti": 148,
+      "letti": 7325,
+      "arrivi": 466188,
+      "pernottamenti": 1135933,
+      "pernottamenti_esteri": 270504,
+      "durata_media": 2.4,
+      "quota_su_ticino_pct": 46.9
+    },
+    "insight_it": "Nel Lago Maggiore e Valli ci sono 190 strutture alberghiere censite. 137 hanno meno di 50 letti: sono hotel a conduzione familiare, la spina dorsale dell'offerta regionale. La regione genera il 46,9% dei pernottamenti alberghieri di tutto il Ticino.",
+    "insight_de": "In der Region Lago Maggiore und Täler gibt es 190 Hotelbetriebe. 137 davon haben weniger als 50 Betten — familiengeführte Häuser bilden das Rückgrat des Angebots."
   }
 }

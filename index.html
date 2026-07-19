@@ -95,6 +95,16 @@
   .kpi-delta.down { color: var(--red); }
   .kpi-delta.flat { color: var(--muted); }
   @media (max-width: 720px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  /* PROVENIENZA */
+  .prov-insight { font-size: 12.5px; color: var(--text-soft); line-height: 1.6; background: var(--bg-deep); border-left: 3px solid var(--accent); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px; }
+  .prov-insight strong { color: var(--text); font-weight: 600; }
+
+  .off-kpi-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 14px; }
+  @media (max-width: 700px) { .off-kpi-row { grid-template-columns: repeat(2,1fr); } }
+  .off-kpi { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 9px; padding: 12px; text-align: center; }
+  .off-kpi-val { font-family: var(--serif); font-size: 22px; font-weight: 800; color: var(--text); line-height: 1; }
+  .off-kpi-lab { font-size: 10.5px; color: var(--muted); margin-top: 5px; line-height: 1.35; }
+
   /* VISIBILITA AI */
   .vis-demo-banner { font-size: 12px; color: var(--amber); background: var(--amber-bg); border: 0.5px solid rgba(224,164,88,0.3); border-radius: 8px; padding: 10px 13px; margin-bottom: 12px; display: flex; gap: 8px; align-items: flex-start; line-height: 1.45; }
   .vis-demo-banner svg { flex-shrink: 0; margin-top: 1px; }
@@ -419,6 +429,36 @@
         </div>
       </div>
     </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">④</span><span data-it="Chi viene in Ticino" data-de="Wer kommt ins Tessin">Chi viene in Ticino</span></h2>
+        <span class="section-tag" id="provFonte">USTAT</span>
+      </div>
+      <div class="section-body">
+        <div class="prov-insight" id="provInsight"></div>
+        <div class="chart-tabs" id="provTabs">
+          <button class="chart-tab active" onclick="switchProvChart('quota',this)" data-it="Svizzeri vs stranieri" data-de="Inland vs Ausland">Svizzeri vs stranieri</button>
+          <button class="chart-tab" onclick="switchProvChart('mercati',this)" data-it="Mercati nel tempo" data-de="Märkte im Zeitverlauf">Mercati nel tempo</button>
+          <button class="chart-tab" onclick="switchProvChart('crescita',this)" data-it="Chi cresce di più" data-de="Stärkstes Wachstum">Chi cresce di più</button>
+        </div>
+        <div class="chart-box" style="height:290px"><canvas id="provChart"></canvas></div>
+        <div class="chart-note" id="provNote"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">⑤</span><span data-it="L'offerta del Locarnese" data-de="Das Angebot der Region">L'offerta del Locarnese</span></h2>
+        <span class="section-tag" id="offFonte">USTAT 2024</span>
+      </div>
+      <div class="section-body">
+        <div class="prov-insight" id="offInsight"></div>
+        <div class="off-kpi-row" id="offKpiRow"></div>
+        <div class="chart-box" style="height:250px"><canvas id="offChart"></canvas></div>
+        <div class="chart-note" id="offNote"></div>
+      </div>
+    </div>
   </div>
 
   <!-- ===== PANEL: COMPETIZIONE ===== -->
@@ -697,6 +737,9 @@ function setLang(lang) {
   document.documentElement.lang = lang;
   if (radarData) {
     renderInsights();
+    renderProvenienza();
+    renderProvenienza();
+    renderOfferta();
     renderVisibilita();
     renderEventi();
     renderPredictiveCalendar();
@@ -711,7 +754,7 @@ function switchTab(name, btn) {
   document.getElementById("panel-" + name).classList.add("active");
   btn.classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
-  if (name === "mercato" && ustatChart) setTimeout(function(){ ustatChart.resize(); }, 50);
+  if (name === "mercato") setTimeout(function(){ if (ustatChart) ustatChart.resize(); if (provChart) provChart.resize(); if (offChart) offChart.resize(); }, 50);
   if (name === "visibilita") setTimeout(function(){
     if (visConcChart) visConcChart.resize();
     if (visLangChart) visLangChart.resize();
@@ -733,6 +776,8 @@ async function loadRadarData() {
     renderKpi();
     initChart();
     renderInsights();
+    renderProvenienza();
+    renderOfferta();
     renderVisibilita();
     renderEventi();
     renderPredictiveCalendar();
@@ -1246,6 +1291,190 @@ function showPcDetail(i) {
       '<div class="pc-cta"><span class="pc-cta-ico">' + svgIcon("tag", 18) + '</span><span class="pc-cta-text">' + ctaText + '</span></div>' +
     '</div>';
 }
+/* ===== PROVENIENZA — CHI VIENE IN TICINO ===== */
+let provChart = null;
+let provTipo = "quota";
+
+function switchProvChart(tipo, btn) {
+  provTipo = tipo;
+  if (btn) {
+    document.querySelectorAll("#provTabs .chart-tab").forEach(function(b){ b.classList.remove("active"); });
+    btn.classList.add("active");
+  }
+  renderProvChart();
+}
+
+function renderProvenienza() {
+  const p = radarData.provenienza;
+  if (!p) return;
+  const it = (currentLang === "it");
+  document.getElementById("provFonte").textContent = it ? "USTAT 2020–2025" : "USTAT 2020–2025";
+  document.getElementById("provInsight").innerHTML = it ? p.insight_it : p.insight_de;
+  renderProvChart();
+}
+
+function renderProvChart() {
+  const p = radarData.provenienza;
+  if (!p) return;
+  const it = (currentLang === "it");
+  const ctx = document.getElementById("provChart");
+  if (provChart) provChart.destroy();
+
+  let config, nota;
+
+  if (provTipo === "quota") {
+    const de = p.domestico_estero;
+    config = {
+      type: "bar",
+      data: {
+        labels: p.anni,
+        datasets: [
+          { label: it ? "Svizzera (mercato interno)" : "Schweiz (Inland)", data: de.svizzera,
+            backgroundColor: "#4FB286", borderRadius: 4, stack: "s" },
+          { label: it ? "Estero" : "Ausland", data: de.estero,
+            backgroundColor: "#6FA8DC", borderRadius: 4, stack: "s" }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { boxWidth: 12, padding: 12, font: { size: 11 } } },
+          tooltip: { callbacks: { afterBody: function(items) {
+            const i = items[0].dataIndex;
+            return (it ? "Quota estero: " : "Auslandsanteil: ") + de.quota_estero_pct[i] + "%";
+          }}}
+        },
+        scales: {
+          x: { stacked: true, grid: { color: chartColors.grid }, ticks: { font: { size: 11 } } },
+          y: { stacked: true, grid: { color: chartColors.grid },
+               ticks: { font: { size: 10 }, callback: function(v){ return (v/1000000).toFixed(1) + "M"; } } }
+        }
+      }
+    };
+    const q = p.domestico_estero.quota_estero_pct;
+    nota = it
+      ? "Pernottamenti totali divisi per provenienza. La quota estera è passata dal " + q[0] + "% al " + q[q.length-1] + "%: il pubblico internazionale pesa sempre di più."
+      : "Logiernächte nach Herkunft. Auslandsanteil von " + q[0] + "% auf " + q[q.length-1] + "% gestiegen.";
+  }
+
+  else if (provTipo === "mercati") {
+    const palette = ["#4FB286", "#E0A458", "#6FA8DC", "#C99BD4", "#D98352", "#7FB3A0"];
+    config = {
+      type: "line",
+      data: {
+        labels: p.anni,
+        datasets: p.top_mercati.paesi.map(function(paese, i) {
+          return {
+            label: paese,
+            data: p.top_mercati.serie[paese],
+            borderColor: palette[i % palette.length],
+            backgroundColor: "transparent",
+            tension: 0.3, borderWidth: 2, pointRadius: 3
+          };
+        })
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { labels: { boxWidth: 12, padding: 10, font: { size: 11 } } } },
+        scales: {
+          x: { grid: { color: chartColors.grid }, ticks: { font: { size: 11 } } },
+          y: { grid: { color: chartColors.grid }, beginAtZero: true,
+               ticks: { font: { size: 10 }, callback: function(v){ return (v/1000).toFixed(0) + "k"; } } }
+        }
+      }
+    };
+    nota = it
+      ? "Pernottamenti per paese di provenienza. La Germania resta il primo mercato estero; gli Stati Uniti sono la crescita più marcata del periodo."
+      : "Logiernächte nach Herkunftsland. Deutschland bleibt der wichtigste Auslandsmarkt.";
+  }
+
+  else { // crescita
+    const cr = p.crescita_2025;
+    config = {
+      type: "bar",
+      data: {
+        labels: cr.map(function(c){ return c.paese; }),
+        datasets: [{
+          label: it ? "Variazione 2025 vs 2024 (%)" : "Veränderung 2025 vs 2024 (%)",
+          data: cr.map(function(c){ return c.var_2024; }),
+          backgroundColor: cr.map(function(c){ return c.var_2024 >= 0 ? "#4FB286" : "#E0726B"; }),
+          borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, indexAxis: "y",
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { afterLabel: function(ctx) {
+            const c = cr[ctx.dataIndex];
+            return (it ? "Pernottamenti 2025: " : "Logiernächte 2025: ") + c.val2025.toLocaleString("it");
+          }}}
+        },
+        scales: {
+          x: { grid: { color: chartColors.grid },
+               ticks: { font: { size: 10 }, callback: function(v){ return v + "%"; } } },
+          y: { grid: { color: chartColors.grid }, ticks: { font: { size: 11 } } }
+        }
+      }
+    };
+    nota = it
+      ? "Crescita dei pernottamenti 2025 rispetto al 2024, per i principali mercati esteri. I mercati in forte crescita sono quelli su cui vale la pena investire in contenuti nella loro lingua."
+      : "Wachstum der Logiernächte 2025 vs 2024 nach Auslandsmarkt.";
+  }
+
+  provChart = new Chart(ctx, config);
+  document.getElementById("provNote").textContent = nota;
+}
+
+/* ===== OFFERTA REGIONE ===== */
+let offChart = null;
+
+function renderOfferta() {
+  const o = radarData.offerta_regione;
+  if (!o) return;
+  const it = (currentLang === "it");
+  document.getElementById("offFonte").textContent = "USTAT 2024";
+  document.getElementById("offInsight").innerHTML = it ? o.insight_it : o.insight_de;
+
+  const r = o.regione_2024;
+  const piccole = o.classi.lago_maggiore[0] + o.classi.lago_maggiore[1];
+  const kpis = [
+    { v: o.stabilimenti_censiti, l: it ? "Strutture censite" : "Erfasste Betriebe" },
+    { v: piccole, l: it ? "Con meno di 50 letti" : "Unter 50 Betten" },
+    { v: (r.pernottamenti/1000000).toFixed(2) + "M", l: it ? "Pernottamenti 2024" : "Logiernächte 2024" },
+    { v: r.quota_su_ticino_pct + "%", l: it ? "Quota sul Ticino" : "Anteil am Tessin" }
+  ];
+  document.getElementById("offKpiRow").innerHTML = kpis.map(function(x) {
+    return '<div class="off-kpi"><div class="off-kpi-val">' + x.v + '</div><div class="off-kpi-lab">' + x.l + '</div></div>';
+  }).join("");
+
+  const labels = it ? o.classi.labels_it : o.classi.labels_de;
+  if (offChart) offChart.destroy();
+  offChart = new Chart(document.getElementById("offChart"), {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [
+        { label: it ? "Lago Maggiore e Valli" : "Lago Maggiore und Täler",
+          data: o.classi.lago_maggiore, backgroundColor: "#4FB286", borderRadius: 5 },
+        { label: it ? "Totale Ticino" : "Tessin gesamt",
+          data: o.classi.ticino, backgroundColor: "#5A6068", borderRadius: 5 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { boxWidth: 12, padding: 12, font: { size: 11 } } } },
+      scales: {
+        x: { grid: { color: chartColors.grid }, ticks: { font: { size: 11 } } },
+        y: { grid: { color: chartColors.grid }, beginAtZero: true, ticks: { font: { size: 10 } } }
+      }
+    }
+  });
+  document.getElementById("offNote").textContent = it
+    ? "Numero di strutture per dimensione. Il Locarnese ha la quota più alta di piccole strutture del cantone: è un mercato di hotel familiari, non di grandi catene."
+    : "Anzahl Betriebe nach Grösse. Die Region hat den höchsten Anteil kleiner Häuser im Kanton.";
+}
+
 /* ===== VISIBILITA AI ===== */
 let visConcChart = null;
 let visLangChart = null;
