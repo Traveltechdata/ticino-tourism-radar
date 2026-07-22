@@ -300,7 +300,23 @@
   .trend-up { background: var(--accent-light); color: var(--accent); }
   .trend-stable { background: var(--amber-bg); color: var(--amber); }
   .trend-down { background: var(--red-bg); color: var(--red); }
-  .hashtag-usage { font-size: 12px; color: var(--text-soft); line-height: 1.5; margin-top: 16px; margin-bottom: 8px; }
+  /* COSA CERCANO I TURISTI */
+  .tema-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin: 14px 0; }
+  @media (max-width: 720px) { .tema-grid { grid-template-columns: 1fr; } }
+  .tema-card { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 11px; padding: 14px; }
+  .tema-head { display: flex; align-items: center; gap: 8px; margin-bottom: 11px; }
+  .tema-title { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+  .tema-peso { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 11px; text-transform: uppercase; letter-spacing: 0.4px; }
+  .peso-alto { background: var(--accent-light); color: var(--accent); }
+  .peso-cresce { background: rgba(224,164,88,0.15); color: var(--amber); }
+  .peso-stabile { background: rgba(111,168,220,0.15); color: var(--blue); }
+  .tema-queries { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 11px; }
+  .tema-q { font-size: 11.5px; color: var(--text-soft); background: var(--card); border: 0.5px solid var(--border); padding: 3px 9px; border-radius: 6px; font-family: ui-monospace, monospace; }
+  .tema-lettura { font-size: 12px; color: var(--text-soft); line-height: 1.5; }
+  .tema-insight { display: flex; gap: 9px; align-items: flex-start; background: var(--accent-light); border-radius: 9px; padding: 13px 15px; margin: 14px 0; font-size: 12.5px; color: var(--text); line-height: 1.55; }
+  .tema-insight svg { flex-shrink: 0; margin-top: 1px; }
+  .hashtag-usage
+ { font-size: 12px; color: var(--text-soft); line-height: 1.5; margin-top: 16px; margin-bottom: 8px; }
   .hashtag-box { margin-top: 4px; padding: 15px; background: var(--bg-deep); border-radius: var(--radius-sm); border: 0.5px solid var(--border); }
   .hashtag-box-title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 11px; }
   .hashtag-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 13px; }
@@ -647,7 +663,7 @@
 
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">②</span><span data-it="Marketing Intelligence — trend DACH" data-de="Marketing Intelligence — DACH-Trends">Marketing Intelligence — trend DACH</span></h2>
+        <h2><span class="section-num">②</span><span data-it="Cosa cercano i turisti" data-de="Wonach Touristen suchen">Cosa cercano i turisti</span></h2>
         <span class="section-tag" id="trendsMeta">Google Trends</span>
       </div>
       <div class="section-body">
@@ -1671,31 +1687,49 @@ function goToContatti() {
 
 /* ===== TRENDS ===== */
 function renderTrends() {
+  const rt = radarData.ricerche_turisti;
   const mt = radarData.marketing_trends;
-  if (!mt || !mt.ricerche_top || mt.ricerche_top.length === 0) {
-    document.getElementById("trendsBody").innerHTML = '<div style="padding:20px;color:var(--muted);font-size:13px;text-align:center;">Dati Google Trends temporaneamente non disponibili. Aggiornamento previsto nella prossima settimana.</div>';
+  if (!rt) {
+    document.getElementById("trendsBody").innerHTML = '<div style="padding:20px;color:var(--muted);font-size:13px;text-align:center;">Dati non ancora disponibili.</div>';
     return;
   }
-  if (!mt) return;
-  document.getElementById("trendsMeta").textContent = "Google Trends · " + mt.mercato + " · " + mt.settimana;
-  const introTxt = currentLang === "it"
-    ? "Cosa cercano <strong>questa settimana</strong> i turisti di Germania, Austria e Svizzera tedesca (mercato DACH) su Google. La percentuale indica se le ricerche per quella parola stanno <strong>salendo o scendendo</strong> rispetto ai giorni precedenti. Usa le parole in crescita nei tuoi post, email e descrizioni: intercetti la domanda mentre si forma."
-    : "Wonach Touristen aus Deutschland, Österreich und der Deutschschweiz (DACH) <strong>diese Woche</strong> auf Google suchen. Der Prozentwert zeigt, ob die Suchanfragen <strong>steigen oder fallen</strong>. Nutze die steigenden Begriffe in Posts, E-Mails und Beschreibungen.";
+  const it = (currentLang === "it");
+  document.getElementById("trendsMeta").textContent = "Google Trends · " + (it ? "ultimi 12 mesi" : "letzte 12 Monate");
+
+  const introTxt = it
+    ? "Le <strong>parole reali</strong> che i turisti digitano su Google per le località del Locarnese, raccolte dai dati pubblici di Google Trends. Non mostrano quanto cercano, ma <strong>cosa</strong> cercano — ed è questo che conta per farsi trovare."
+    : "Die <strong>echten Suchbegriffe</strong>, die Touristen für die Region bei Google eingeben. Sie zeigen, <strong>wonach</strong> gesucht wird.";
   let html = '<div class="trend-intro">' + introTxt + '</div>';
-  html += '<div class="trend-grid">';
-  mt.ricerche_top.forEach(function(k) {
-    const bc = k.trend === "up" ? "trend-up" : (k.trend === "down" ? "trend-down" : "trend-stable");
-    html += '<div class="trend-card"><div class="trend-left">' +
-      '<div class="trend-keyword">' + k.keyword + '</div>' +
-      '<div class="trend-note">' + k.note + '</div>' +
-      '<div class="trend-action">' + ((currentLang==="de" && k.suggerimento_azione_de) ? k.suggerimento_azione_de : k.suggerimento_azione) + '</div></div>' +
-      '<div class="trend-badge ' + bc + '">' + k.crescita + '</div></div>';
+
+  // blocchi per tema
+  html += '<div class="tema-grid">';
+  rt.temi.forEach(function(t) {
+    var pesoClass = t.peso === "dominante" ? "peso-alto" : (t.peso === "alto" ? "peso-alto" : (t.peso === "in crescita" ? "peso-cresce" : "peso-stabile"));
+    var pesoLabel = it
+      ? (t.peso === "dominante" ? "Tema dominante" : (t.peso === "alto" ? "Molto cercato" : (t.peso === "in crescita" ? "In crescita" : "Stabile")))
+      : (t.peso === "dominante" ? "Dominant" : (t.peso === "alto" ? "Stark gesucht" : (t.peso === "in crescita" ? "Wachsend" : "Stabil")));
+    html += '<div class="tema-card">';
+    html += '<div class="tema-head">' + svgIcon(t.icona || "search", 18, "var(--accent)") +
+            '<span class="tema-title">' + (it ? t.label_it : t.label_de) + '</span>' +
+            '<span class="tema-peso ' + pesoClass + '">' + pesoLabel + '</span></div>';
+    html += '<div class="tema-queries">';
+    t.queries.forEach(function(q) { html += '<span class="tema-q">' + q + '</span>'; });
+    html += '</div>';
+    html += '<div class="tema-lettura">' + (it ? t.lettura_it : t.lettura_de) + '</div>';
+    html += '</div>';
   });
   html += '</div>';
-  html += '<div class="hashtag-usage">' + (currentLang==="it" ? "Copia questo blocco e incollalo nella descrizione di un post o reel su Instagram e Facebook. Sono ordinati per rilevanza di questa settimana: i primi intercettano le ricerche in crescita." : "Kopiere diesen Block in die Beschreibung eines Posts oder Reels auf Instagram und Facebook. Nach Relevanz dieser Woche sortiert.") + '</div>';
-  html += '<div class="hashtag-box"><div class="hashtag-box-title">' + svgIcon("camera",14) + ' Toolkit Instagram — ' + (currentLang==="it"?"copia e incolla":"kopieren") + '</div><div class="hashtag-wrap" id="hashtagWrap">';
-  mt.social_hashtags.forEach(function(t){ html += '<span class="hashtag-pill">' + t + '</span>'; });
-  html += '</div><button class="copy-btn" id="copyBtn" onclick="copiaHashtag()">' + svgIcon("copy",14) + ' ' + (currentLang==="it"?"Copia Hashtag":"Hashtags kopieren") + '</button></div>';
+
+  // insight finale
+  html += '<div class="tema-insight">' + svgIcon("info", 15, "var(--accent)") + '<span>' + (it ? rt.insight_finale_it : rt.insight_finale_de) + '</span></div>';
+
+  // toolkit hashtag (mantenuto)
+  if (mt && mt.social_hashtags && mt.social_hashtags.length) {
+    html += '<div class="hashtag-usage">' + (it ? "Copia questo blocco e incollalo nella descrizione di un post o reel su Instagram e Facebook." : "Kopiere diesen Block in die Beschreibung eines Posts oder Reels.") + '</div>';
+    html += '<div class="hashtag-box"><div class="hashtag-box-title">' + svgIcon("camera",14) + ' Toolkit Instagram — ' + (it?"copia e incolla":"kopieren") + '</div><div class="hashtag-wrap" id="hashtagWrap">';
+    mt.social_hashtags.forEach(function(t){ html += '<span class="hashtag-pill">' + t + '</span>'; });
+    html += '</div><button class="copy-btn" id="copyBtn" onclick="copiaHashtag()">' + svgIcon("copy",14) + ' ' + (it?"Copia Hashtag":"Hashtags kopieren") + '</button></div>';
+  }
   document.getElementById("trendsBody").innerHTML = html;
 }
 function copiaHashtag() {

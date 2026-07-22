@@ -8095,5 +8095,84 @@
     },
     "insight_it": "Nel Lago Maggiore e Valli ci sono 190 strutture alberghiere censite. 137 hanno meno di 50 letti: sono hotel a conduzione familiare, la spina dorsale dell'offerta regionale. La regione genera il 46,9% dei pernottamenti alberghieri di tutto il Ticino.",
     "insight_de": "In der Region Lago Maggiore und Täler gibt es 190 Hotelbetriebe. 137 davon haben weniger als 50 Betten — familiengeführte Häuser bilden das Rückgrat des Angebots."
+  },
+  "ricerche_turisti": {
+    "fonte": "Google Trends — Svizzera, ultimi 12 mesi",
+    "rilevazione": "2026-07-22",
+    "nota_metodo_it": "Query reali digitate su Google da chi cerca le località del Locarnese. Raccolte dai pannelli 'Query più frequenti' di Google Trends. Mostrano cosa cerca davvero il potenziale ospite, non quanto.",
+    "nota_metodo_de": "Echte Google-Suchanfragen zu den Orten der Region. Zeigen, wonach der potenzielle Gast tatsächlich sucht.",
+    "temi": [
+      {
+        "tema": "meteo",
+        "label_it": "Meteo",
+        "label_de": "Wetter",
+        "icona": "sun",
+        "peso": "dominante",
+        "queries": [
+          "locarno wetter",
+          "wetter locarno",
+          "wetter ascona",
+          "brissago wetter",
+          "wetter tessin",
+          "16 tage wetter locarno"
+        ],
+        "lettura_it": "Il meteo è la ricerca più frequente per ogni località. Chi pianifica una gita in Ticino guarda prima il tempo: è la leva decisionale numero uno.",
+        "lettura_de": "Das Wetter ist die häufigste Suche. Wer einen Ausflug plant, prüft zuerst die Wettervorhersage."
+      },
+      {
+        "tema": "alloggio",
+        "label_it": "Dove dormire",
+        "label_de": "Unterkunft",
+        "icona": "hotel",
+        "peso": "alto",
+        "queries": [
+          "locarno hotel",
+          "hotel locarno",
+          "hotel ascona",
+          "ascona hotel",
+          "brissago hotel",
+          "hotel brissago",
+          "hotel tessin",
+          "tessin hotel"
+        ],
+        "lettura_it": "La ricerca di alloggio è forte e diretta, ma sempre col nome della località — non con formule generiche. Chi cerca 'hotel + nome del paese' è un ospite a un passo dalla prenotazione.",
+        "lettura_de": "Die Unterkunftssuche ist stark, aber immer mit Ortsnamen. Wer 'Hotel + Ort' sucht, steht kurz vor der Buchung."
+      },
+      {
+        "tema": "eventi",
+        "label_it": "Eventi",
+        "label_de": "Veranstaltungen",
+        "icona": "trophy",
+        "peso": "in crescita",
+        "queries": [
+          "locarno film festival 2026",
+          "moon and stars locarno 2026",
+          "jazz ascona 2026",
+          "naturklang ascona 2026",
+          "notte bianca locarno 2026",
+          "kastanienfest ascona"
+        ],
+        "lettura_it": "Gli eventi sono le ricerche che crescono di più (impennate del +2.750% per Moon&Stars, +3.400% per Jazz Ascona). Sono il motore che porta picchi di domanda concentrati.",
+        "lettura_de": "Veranstaltungen sind die am stärksten wachsenden Suchen. Sie erzeugen konzentrierte Nachfragespitzen."
+      },
+      {
+        "tema": "territorio",
+        "label_it": "Territorio e attrazioni",
+        "label_de": "Region und Sehenswürdigkeiten",
+        "icona": "market",
+        "peso": "stabile",
+        "queries": [
+          "isole di brissago",
+          "isole brissago",
+          "brissago inseln",
+          "mario botta kirche tessin",
+          "suisse miniature tessin"
+        ],
+        "lettura_it": "Le attrazioni del territorio hanno ricerche stabili tutto l'anno. Per Brissago le Isole sono il richiamo principale: un asset da valorizzare nei contenuti.",
+        "lettura_de": "Die Sehenswürdigkeiten haben ganzjährig stabile Suchen. Für Brissago sind die Inseln der Hauptanziehungspunkt."
+      }
+    ],
+    "insight_finale_it": "La sequenza è chiara: prima il meteo, poi dove dormire, poi gli eventi. Un hotel che vuole essere trovato deve presidiare questi tre momenti — non basta esistere su Booking. Il meteo si collega all'Indice Gottardo del Radar; gli eventi al Calendario Predittivo.",
+    "insight_finale_de": "Die Reihenfolge ist klar: zuerst Wetter, dann Unterkunft, dann Veranstaltungen."
   }
 }
