@@ -2,6 +2,9 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ticino Tourism Radar — Regione Locarnese</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -786,7 +789,16 @@ async function loadRadarData() {
     const m = radarData.meta || {};
     document.getElementById("metaSettimana").textContent = "Settimana " + (m.settimana || "—");
     document.getElementById("metaHotels").textContent = (m.totalHotels || allHotels.length) + " strutture";
-    // header dot label stays "Aggiornato oggi" (set via data-it/data-de)
+    // Data di aggiornamento + marcatore versione (per verificare la cache)
+    var aggEl = document.getElementById("metaOggi");
+    if (aggEl && m.aggiornato) {
+      var p = m.aggiornato.split("-");
+      var mesiIt = ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+      var mesiDe = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+      var gg = parseInt(p[2],10), mm = parseInt(p[1],10)-1, yy = p[0];
+      var lbl = currentLang==="it" ? ("Aggiornato il " + gg + " " + mesiIt[mm] + " " + yy) : ("Aktualisiert am " + gg + ". " + mesiDe[mm] + " " + yy);
+      aggEl.textContent = lbl + " · v4";
+    }
 
     renderKpi();
     initChart();
@@ -1873,27 +1885,11 @@ async function loadGottardo() {
 /* ===== AI ACTIONS ===== */
 let azioniDone = [false, false, false];
 async function loadAzioniAI() {
-  try {
-    const payload = { meta: radarData.meta, gottardo: null, eventi: radarData.eventi, marketing: radarData.marketing_trends };
-    const res = await fetch(WORKER_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-    if (!res.ok) throw new Error("Worker HTTP " + res.status);
-    const json = await res.json();
-    if (json.error) throw new Error(json.error);
-    var azioniArr = [];
-    if (json.data && Array.isArray(json.data.azioni)) azioniArr = json.data.azioni;
-    else if (Array.isArray(json.azioni)) azioniArr = json.azioni;
-    else if (Array.isArray(json.data)) azioniArr = json.data;
-    else if (Array.isArray(json)) azioniArr = json;
-    if (!azioniArr.length) azioniArr = azioniFallback();
-    renderAzioni(azioniArr);
-    document.getElementById("azioniTag").textContent = currentLang==="it"?"Analisi settimanale":"Wochenanalyse";
-    document.getElementById("progressWrap").style.display = "block";
-  } catch (e) {
-    // Fallback locale: genera 3 azioni dai dati del radar se il Worker non risponde
-    renderAzioni(azioniFallback());
-    document.getElementById("azioniTag").textContent = currentLang==="it"?"Analisi locale":"Lokale Analyse";
-    document.getElementById("progressWrap").style.display = "block";
-  }
+  // Worker AI disattivato: generava azioni sui vecchi dati marketing_trends.
+  // Usiamo sempre il fallback locale, allineato a ricerche_turisti e visibilita_ai.
+  renderAzioni(azioniFallback());
+  document.getElementById("azioniTag").textContent = currentLang==="it"?"Analisi dati Radar":"Radar-Datenanalyse";
+  document.getElementById("progressWrap").style.display = "block";
 }
 
 function azioniFallback() {
