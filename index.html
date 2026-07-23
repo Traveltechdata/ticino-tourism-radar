@@ -253,14 +253,14 @@
   .pc-guide { display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; color: var(--text-soft); line-height: 1.5; background: var(--bg-deep); border-left: 3px solid var(--accent); border-radius: 8px; padding: 12px 14px; margin-bottom: 18px; }
   .pc-guide strong { color: var(--text); font-weight: 600; }
   .pc-timeline { display: flex; gap: 3px; border-radius: 10px; overflow-x: auto; overflow-y: hidden; margin-bottom: 6px; height: 92px; padding-bottom: 2px; scrollbar-width: thin; scroll-behavior: smooth; }
-  .pc-seg { flex: 0 0 76px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: filter 0.15s, transform 0.15s; position: relative; border-radius: 7px; }
+  .pc-seg { flex: 0 0 92px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: filter 0.15s, transform 0.15s; position: relative; border-radius: 7px; }
 
   .pc-seg:hover { filter: brightness(1.12); }
   .pc-seg.active { z-index: 2; box-shadow: 0 0 0 2px var(--text) inset; }
   .pc-seg-val { font-family: var(--serif); font-size: 17px; color: #fff; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.45); }
   .pc-seg-delta { font-size: 10px; color: rgba(255,255,255,0.92); font-weight: 600; margin-top: 1px; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
   .pc-axis { display: flex; gap: 3px; overflow-x: auto; margin-bottom: 18px; scrollbar-width: none; }
-  .pc-axis-tick { flex: 0 0 76px; text-align: center; font-size: 10px; color: var(--muted); }
+  .pc-axis-tick { flex: 0 0 92px; text-align: center; font-size: 10.5px; color: var(--text-soft); font-weight: 600; line-height: 1.3; white-space: nowrap; }
   .pc-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
   .pc-legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
   .pc-legend-dot { width: 11px; height: 11px; border-radius: 3px; }
@@ -315,6 +315,7 @@
   .tema-lettura { font-size: 12px; color: var(--text-soft); line-height: 1.5; }
   .tema-insight { display: flex; gap: 9px; align-items: flex-start; background: var(--accent-light); border-radius: 9px; padding: 13px 15px; margin: 14px 0; font-size: 12.5px; color: var(--text); line-height: 1.55; }
   .tema-insight svg { flex-shrink: 0; margin-top: 1px; }
+  .hashtag-groups { display: flex; flex-direction: column; gap: 10px; }
   .hashtag-usage
  { font-size: 12px; color: var(--text-soft); line-height: 1.5; margin-top: 16px; margin-bottom: 8px; }
   .hashtag-box { margin-top: 4px; padding: 15px; background: var(--bg-deep); border-radius: var(--radius-sm); border: 0.5px solid var(--border); }
@@ -403,7 +404,7 @@
   <div class="panel active" id="panel-mercato">
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">①</span><span data-it="Contesto mercato — Lago Maggiore e Valli" data-de="Marktkontext — Lago Maggiore und Täler">Contesto mercato — Lago Maggiore e Valli</span></h2>
+        <h2><span class="section-num">①</span><span data-it="Contesto mercato — Ticino" data-de="Marktkontext — Tessin">Contesto mercato — Ticino</span></h2>
         <span class="section-tag" id="ustatFonte">USTAT</span>
       </div>
       <div class="section-body">
@@ -563,8 +564,6 @@
           <button class="pc-zone-btn" onclick="setPcZone('locarno',this)">Locarno</button>
           <button class="pc-zone-btn" onclick="setPcZone('ascona',this)">Ascona &amp; Losone</button>
           <button class="pc-zone-btn" onclick="setPcZone('brissago',this)">Brissago</button>
-          <button class="pc-zone-btn" onclick="setPcZone('cannobio',this)">Cannobio 🇮🇹</button>
-          <button class="pc-zone-btn" onclick="setPcZone('valli',this)" data-it="Valli" data-de="Täler">Valli</button>
         </div>
         <div id="pcGuide"></div>
         <div class="pc-timeline" id="pcTimeline"></div>
@@ -647,7 +646,7 @@
   <div class="panel" id="panel-marketing">
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">①</span><span data-it="3 azioni prioritarie — questa settimana" data-de="3 Prioritäten — diese Woche">3 azioni prioritarie — questa settimana</span></h2>
+        <h2><span class="section-num">①</span><span data-it="3 azioni prioritarie" data-de="3 Prioritäten">3 azioni prioritarie</span></h2>
         <span class="section-tag" id="azioniTag">AI</span>
       </div>
       <div class="section-body">
@@ -1135,9 +1134,7 @@ let pcZone = "tutte";
 const PC_ZONES = {
   locarno: /locarno|minusio|muralto|orselina|tenero|gordola/i,
   ascona: /ascona|losone/i,
-  brissago: /brissago/i,
-  cannobio: /cannobio/i,
-  valli: /maggia|cevio|fusio|bignasco|coglio|aurigeno|gordevio|bosco gurin|san carlo|campo|intragna|tegna/i
+  brissago: /brissago/i
 };
 function setPcZone(z, btn) {
   pcZone = z;
@@ -1195,7 +1192,7 @@ function renderPredictiveCalendar() {
     '<div class="pc-kpi"><div class="pc-kpi-label">' + (currentLang==="it"?"Prezzo max":"Max-Preis") + '</div><div class="pc-kpi-value" style="color:var(--accent)">CHF ' + maxW.target + '</div><div class="pc-kpi-sub">' + maxW.w.label + '</div></div>';
 
   // GUIDE
-  const zoneLabels = { tutte: currentLang==="it"?"tutte le zone":"alle Zonen", locarno:"Locarno", ascona:"Ascona & Losone", brissago:"Brissago", cannobio:"Cannobio", valli: currentLang==="it"?"Valli":"Taeler" };
+  const zoneLabels = { tutte: currentLang==="it"?"tutte le zone":"alle Zonen", locarno:"Locarno", ascona:"Ascona & Losone", brissago:"Brissago" };
   const baseRef = (currentLang==="it"
     ? "<div style='margin-top:8px;color:var(--text-soft)'>Base di calcolo: media reale dei <strong>" + (pcStars>0?pcStars+"\u2605":"tutti gli hotel") + "</strong> in <strong>" + (zoneLabels[pcZone]||pcZone) + "</strong> = <strong>CHF " + base + "</strong> (" + window._pcSample + " strutture).</div>"
     : "<div style='margin-top:8px;color:var(--text-soft)'>Berechnungsbasis: " + (pcStars>0?pcStars+"\u2605":"alle") + " in " + (zoneLabels[pcZone]||pcZone) + " = CHF " + base + " (" + window._pcSample + ").</div>");
@@ -1217,9 +1214,9 @@ function renderPredictiveCalendar() {
     '</div>';
   }).join("");
 
-  // AXIS (week dates)
+  // AXIS (week dates) — etichetta completa es. "20–26 lug", "27 lug – 02 ago"
   document.getElementById("pcAxis").innerHTML = weeks.map(function(d) {
-    return '<div class="pc-axis-tick">' + d.w.label.split("\u2013")[0].trim() + '</div>';
+    return '<div class="pc-axis-tick">' + d.w.label + '</div>';
   }).join("");
 
   // LEGEND
@@ -1723,14 +1720,42 @@ function renderTrends() {
   // insight finale
   html += '<div class="tema-insight">' + svgIcon("info", 15, "var(--accent)") + '<span>' + (it ? rt.insight_finale_it : rt.insight_finale_de) + '</span></div>';
 
-  // toolkit hashtag (mantenuto)
-  if (mt && mt.social_hashtags && mt.social_hashtags.length) {
-    html += '<div class="hashtag-usage">' + (it ? "Copia questo blocco e incollalo nella descrizione di un post o reel su Instagram e Facebook." : "Kopiere diesen Block in die Beschreibung eines Posts oder Reels.") + '</div>';
-    html += '<div class="hashtag-box"><div class="hashtag-box-title">' + svgIcon("camera",14) + ' Toolkit Instagram — ' + (it?"copia e incolla":"kopieren") + '</div><div class="hashtag-wrap" id="hashtagWrap">';
-    mt.social_hashtags.forEach(function(t){ html += '<span class="hashtag-pill">' + t + '</span>'; });
-    html += '</div><button class="copy-btn" id="copyBtn" onclick="copiaHashtag()">' + svgIcon("copy",14) + ' ' + (it?"Copia Hashtag":"Hashtags kopieren") + '</button></div>';
+  // toolkit hashtag — raggruppato per tema, allineato a cosa cercano i turisti
+  var hg = mt && mt.hashtag_gruppi;
+  if (hg) {
+    html += '<div class="hashtag-usage">' + (it
+      ? "Hashtag pronti, raggruppati come cercano i turisti. Combina un gruppo <strong>Località</strong> con uno <strong>Eventi</strong> o <strong>Esperienza</strong> e incollali nei tuoi post."
+      : "Fertige Hashtags, gruppiert wie die Touristen suchen.") + '</div>';
+    var gruppi = [
+      { key: "localita", desc: it ? hg.localita_it : hg.localita_de, ico: "market" },
+      { key: "eventi", desc: it ? hg.eventi_it : hg.eventi_de, ico: "trophy" },
+      { key: "esperienza", desc: it ? hg.esperienza_it : hg.esperienza_de, ico: "sun" }
+    ];
+    html += '<div class="hashtag-groups">';
+    gruppi.forEach(function(g, gi) {
+      html += '<div class="hashtag-box"><div class="hashtag-box-title">' + svgIcon(g.ico,14) + ' ' + g.desc + '</div>';
+      html += '<div class="hashtag-wrap" id="hg' + gi + '">';
+      (hg[g.key] || []).forEach(function(t){ html += '<span class="hashtag-pill">' + t + '</span>'; });
+      html += '</div><button class="copy-btn" onclick="copiaGruppo(\'hg' + gi + '\',this)">' + svgIcon("copy",14) + ' ' + (it?"Copia gruppo":"Gruppe kopieren") + '</button></div>';
+    });
+    html += '</div>';
   }
   document.getElementById("trendsBody").innerHTML = html;
+}
+
+function copiaGruppo(id, btn) {
+  var pills = document.querySelectorAll("#" + id + " .hashtag-pill");
+  var txt = Array.from(pills).map(function(p){ return p.textContent; }).join(" ");
+  var done = function() {
+    var orig = btn.innerHTML;
+    btn.innerHTML = svgIcon("check",14) + " " + (currentLang==="it"?"Copiati!":"Kopiert!");
+    btn.classList.add("copied");
+    setTimeout(function(){ btn.innerHTML = orig; btn.classList.remove("copied"); }, 2000);
+  };
+  navigator.clipboard.writeText(txt).then(done).catch(function(){
+    var ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta);
+    ta.select(); try { document.execCommand("copy"); done(); } catch(e){} document.body.removeChild(ta);
+  });
 }
 function copiaHashtag() {
   const pills = document.querySelectorAll("#hashtagWrap .hashtag-pill");
@@ -1873,44 +1898,76 @@ async function loadAzioniAI() {
 
 function azioniFallback() {
   var az = [];
-  // 1. Marketing — trend in crescita
-  var up = (radarData.marketing_trends && radarData.marketing_trends.ricerche_top || []).filter(function(k){ return k.trend === "up"; });
-  if (up.length) {
-    az.push({
-      categoria: currentLang==="it"?"Marketing":"Marketing",
-      titolo: currentLang==="it" ? ("Cavalca il trend \"" + up[0].keyword + "\" (" + up[0].crescita + ")") : ("Trend nutzen: " + up[0].keyword + " (" + up[0].crescita + ")"),
-      descrizione: up[0].suggerimento_azione || ""
-    });
+  var it = (currentLang === "it");
+
+  // 1. Cosa cercano i turisti — sfrutta il tema in crescita (eventi) o dominante (meteo)
+  var rt = radarData.ricerche_turisti;
+  if (rt && rt.temi && rt.temi.length) {
+    var temaCresce = rt.temi.filter(function(t){ return t.peso === "in crescita"; })[0];
+    var temaDom = rt.temi.filter(function(t){ return t.peso === "dominante"; })[0];
+    if (temaCresce) {
+      az.push({
+        categoria: it ? "Cosa cercano i turisti" : "Suchtrends",
+        titolo: it ? ("Gli eventi guidano le ricerche in crescita") : ("Events treiben die Suche"),
+        descrizione: it
+          ? ("La gente cerca \"" + temaCresce.queries[0] + "\" e simili. Pubblica ora un post o una pagina che colleghi il tuo hotel a questo evento: intercetti la domanda mentre sale.")
+          : ("Menschen suchen \"" + temaCresce.queries[0] + "\". Verbinde jetzt dein Hotel mit diesem Event.")
+      });
+    } else if (temaDom) {
+      az.push({
+        categoria: it ? "Cosa cercano i turisti" : "Suchtrends",
+        titolo: it ? "Il meteo guida le decisioni di viaggio" : "Wetter treibt Reiseentscheidungen",
+        descrizione: it
+          ? "La ricerca più frequente sulla zona è il meteo. Tieni sul tuo sito una pagina 'che tempo fa a Brissago' con webcam o previsioni: intercetti chi decide all'ultimo."
+          : "Die häufigste Suche ist das Wetter. Biete eine Wetterseite mit Webcam an."
+      });
+    }
   }
-  // 2. Visibilità AI — dato autoprodotto, nessuna dipendenza esterna
+
+  // 2. Visibilità AI — dato autoprodotto
   var vis = radarData.visibilita_ai;
   if (vis && vis.kpi) {
     var nonCitate = vis.kpi.strutture_totali_zona - vis.kpi.strutture_citate;
     az.push({
-      categoria: currentLang==="it"?"Visibilità AI":"KI-Sichtbarkeit",
-      titolo: currentLang==="it"
+      categoria: it ? "Visibilità AI" : "KI-Sichtbarkeit",
+      titolo: it
         ? (nonCitate + " strutture della zona non compaiono nelle risposte AI")
         : (nonCitate + " Betriebe erscheinen in keiner KI-Antwort"),
-      descrizione: currentLang==="it"
+      descrizione: it
         ? ("Su " + vis.n_risposte + " risposte analizzate, solo " + vis.kpi.strutture_citate + " strutture vengono nominate. Verifica come i motori AI descrivono la tua: apri il tab Visibilità AI.")
         : ("Nur " + vis.kpi.strutture_citate + " Betriebe werden genannt. Siehe Tab KI-Sichtbarkeit.")
     });
   }
-  // 3. Eventi — prossimo evento ad alto impatto
+
+  // 3. Alloggio — sfrutta il fatto che chi cerca "hotel + località" è pronto a prenotare
+  if (rt && rt.temi) {
+    var temaAll = rt.temi.filter(function(t){ return t.tema === "alloggio"; })[0];
+    if (temaAll) {
+      az.push({
+        categoria: it ? "Conversione" : "Conversion",
+        titolo: it ? "Chi cerca \"hotel + località\" è pronto a prenotare" : "\"Hotel + Ort\"-Suchende sind buchbereit",
+        descrizione: it
+          ? "Le ricerche di alloggio usano sempre il nome del paese (\"" + temaAll.queries[0] + "\"). Assicurati che il nome della tua località sia nel titolo del sito e nelle descrizioni: è così che le AI e Google ti collegano alla domanda."
+          : "Unterkunftssuchen nutzen den Ortsnamen. Stelle sicher, dass dein Ort im Seitentitel steht."
+      });
+    }
+  }
+
+  // riempi se mancano
   var oggi = new Date(); oggi.setHours(0,0,0,0);
   var evAlti = (radarData.eventi && radarData.eventi.locali || []).filter(function(e){ return e.impatto === "alto" && new Date(e.dataFine) >= oggi; });
-  if (evAlti.length) {
+  if (az.length < 3 && evAlti.length) {
     az.push({
-      categoria: currentLang==="it"?"Eventi":"Events",
-      titolo: currentLang==="it" ? (evAlti[0].nome + " in arrivo") : (evAlti[0].nome + " steht an"),
+      categoria: it ? "Eventi" : "Events",
+      titolo: it ? (evAlti[0].nome + " in arrivo") : (evAlti[0].nome + " steht an"),
       descrizione: (evAlti[0].dateLabel + " — " + evAlti[0].note)
     });
   }
   while (az.length < 3) {
     az.push({
-      categoria: currentLang==="it"?"Strategia":"Strategie",
-      titolo: currentLang==="it"?"Controlla il Predictive Calendar":"Predictive Calendar prüfen",
-      descrizione: currentLang==="it"?"Apri il tab Previsioni per vedere le settimane di alta domanda e impostare le tariffe in anticipo.":"Im Tab Prognosen die Hochsaison-Wochen prüfen."
+      categoria: it ? "Strategia" : "Strategie",
+      titolo: it ? "Controlla il Predictive Calendar" : "Predictive Calendar prüfen",
+      descrizione: it ? "Apri il tab Previsioni per vedere le settimane di alta domanda e impostare le tariffe in anticipo." : "Im Tab Prognosen die Hochsaison-Wochen prüfen."
     });
   }
   return az.slice(0,3);
