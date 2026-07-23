@@ -318,7 +318,16 @@
   .tema-lettura { font-size: 12px; color: var(--text-soft); line-height: 1.5; }
   .tema-insight { display: flex; gap: 9px; align-items: flex-start; background: var(--accent-light); border-radius: 9px; padding: 13px 15px; margin: 14px 0; font-size: 12.5px; color: var(--text); line-height: 1.55; }
   .tema-insight svg { flex-shrink: 0; margin-top: 1px; }
-  .hashtag-groups { display: flex; flex-direction: column; gap: 10px; }
+  .vis-elenco-box { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 10px; padding: 14px; margin-top: 14px; }
+  .vis-elenco-title { display: flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+  .vis-elenco-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 9px; }
+  .vis-elenco-pill { font-size: 11.5px; color: var(--text-soft); background: var(--card); border: 0.5px solid var(--border); padding: 4px 10px; border-radius: 13px; }
+  .vis-elenco-note { font-size: 11px; color: var(--muted); line-height: 1.45; }
+  .trend-chart-block
+ { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 11px; padding: 14px; margin: 14px 0; }
+  .trend-chart-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+  .hashtag-groups
+ { display: flex; flex-direction: column; gap: 10px; }
   .hashtag-usage
  { font-size: 12px; color: var(--text-soft); line-height: 1.5; margin-top: 16px; margin-bottom: 8px; }
   .hashtag-box { margin-top: 4px; padding: 15px; background: var(--bg-deep); border-radius: var(--radius-sm); border: 0.5px solid var(--border); }
@@ -513,6 +522,7 @@
       <div class="section-body">
         <div class="chart-box" style="height:280px"><canvas id="visConcChart"></canvas></div>
         <div class="chart-note" id="visConcNote"></div>
+        <div id="visElenco"></div>
       </div>
     </div>
 
@@ -773,6 +783,7 @@ function switchTab(name, btn) {
   btn.classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
   if (name === "mercato") setTimeout(function(){ if (ustatChart) ustatChart.resize(); if (provChart) provChart.resize(); if (offChart) offChart.resize(); }, 50);
+  if (name === "marketing") setTimeout(function(){ if (typeof renderTrendCharts === "function") renderTrendCharts(); }, 60);
   if (name === "visibilita") setTimeout(function(){
     if (visConcChart) visConcChart.resize();
     if (visLangChart) visLangChart.resize();
@@ -797,7 +808,7 @@ async function loadRadarData() {
       var mesiDe = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
       var gg = parseInt(p[2],10), mm = parseInt(p[1],10)-1, yy = p[0];
       var lbl = currentLang==="it" ? ("Aggiornato il " + gg + " " + mesiIt[mm] + " " + yy) : ("Aktualisiert am " + gg + ". " + mesiDe[mm] + " " + yy);
-      aggEl.textContent = lbl + " · v4";
+      aggEl.textContent = lbl + " · v5";
     }
 
     renderKpi();
@@ -1604,8 +1615,26 @@ function renderVisibilita() {
   });
   const mai = c.n_strutture[c.n_strutture.length - 1];
   document.getElementById("visConcNote").textContent = it
-    ? "Le prime 3 strutture raccolgono il " + k.quota_prime_tre + "% di tutte le citazioni. " + mai + " strutture non vengono mai nominate. Dati aggregati: nessuna struttura è identificata."
-    : mai + " Betriebe werden nie genannt. Aggregierte Daten, keine Namensnennung.";
+    ? "Le prime 3 strutture raccolgono il " + k.quota_prime_tre + "% di tutte le citazioni. " + mai + " strutture non vengono mai nominate."
+    : mai + " Betriebe werden nie genannt.";
+
+  // --- Elenco strutture citate (alfabetico, NON classifica) ---
+  var el = document.getElementById("visElenco");
+  if (el) {
+    var ec = v.strutture_citate_elenco;
+    if (ec && ec.nomi && ec.nomi.length) {
+      var nomi = ec.nomi.slice().sort(function(a,b){ return a.localeCompare(b); });
+      var h = '<div class="vis-elenco-box">';
+      h += '<div class="vis-elenco-title">' + svgIcon("check",14,"var(--accent)") + ' ' +
+           (it ? "Strutture che emergono nelle risposte AI" : "Betriebe, die in KI-Antworten erscheinen") + '</div>';
+      h += '<div class="vis-elenco-wrap">';
+      nomi.forEach(function(n){ h += '<span class="vis-elenco-pill">' + n + '</span>'; });
+      h += '</div><div class="vis-elenco-note">' + (it ? ec.nota_it : ec.nota_de) + '</div></div>';
+      el.innerHTML = h;
+    } else {
+      el.innerHTML = '';
+    }
+  }
 
   // --- Grafico lingue ---
   const L = v.lingue;
@@ -1706,9 +1735,16 @@ function renderTrends() {
   document.getElementById("trendsMeta").textContent = "Google Trends · " + (it ? "ultimi 12 mesi" : "letzte 12 Monate");
 
   const introTxt = it
-    ? "Le <strong>parole reali</strong> che i turisti digitano su Google per le località del Locarnese, raccolte dai dati pubblici di Google Trends. Non mostrano quanto cercano, ma <strong>cosa</strong> cercano — ed è questo che conta per farsi trovare."
+    ? "Le <strong>parole reali</strong> che i turisti digitano su Google per le località del Locarnese. Non mostrano quanto cercano, ma <strong>cosa</strong> cercano — ed è questo che conta per farsi trovare."
     : "Die <strong>echten Suchbegriffe</strong>, die Touristen für die Region bei Google eingeben. Sie zeigen, <strong>wonach</strong> gesucht wird.";
   let html = '<div class="trend-intro">' + introTxt + '</div>';
+
+  // GRAFICO 1 — distribuzione temi
+  html += '<div class="trend-chart-block">';
+  html += '<div class="trend-chart-title">' + (it ? "Di cosa parlano le ricerche" : "Worum geht es bei den Suchen") + '</div>';
+  html += '<div class="chart-box" style="height:210px"><canvas id="rtDistChart"></canvas></div>';
+  html += '<div class="chart-note">' + (it ? rt.distribuzione.nota_it : rt.distribuzione.nota_de) + '</div>';
+  html += '</div>';
 
   // blocchi per tema
   html += '<div class="tema-grid">';
@@ -1729,10 +1765,24 @@ function renderTrends() {
   });
   html += '</div>';
 
+  // GRAFICO 2 — stagionalità (quando cercano)
+  html += '<div class="trend-chart-block">';
+  html += '<div class="trend-chart-title">' + (it ? "Quando cercano la nostra regione" : "Wann die Region gesucht wird") + '</div>';
+  html += '<div class="chart-box" style="height:250px"><canvas id="rtStagChart"></canvas></div>';
+  html += '<div class="chart-note">' + (it ? rt.stagionalita.nota_it : rt.stagionalita.nota_de) + '</div>';
+  html += '</div>';
+
+  // GRAFICO 3 — crescita annua
+  html += '<div class="trend-chart-block">';
+  html += '<div class="trend-chart-title">' + (it ? "Come cambia l'interesse rispetto all'anno scorso" : "Veränderung gegenüber dem Vorjahr") + '</div>';
+  html += '<div class="chart-box" style="height:180px"><canvas id="rtCrescChart"></canvas></div>';
+  html += '<div class="chart-note">' + (it ? rt.crescita_annua.nota_it : rt.crescita_annua.nota_de) + '</div>';
+  html += '</div>';
+
   // insight finale
   html += '<div class="tema-insight">' + svgIcon("info", 15, "var(--accent)") + '<span>' + (it ? rt.insight_finale_it : rt.insight_finale_de) + '</span></div>';
 
-  // toolkit hashtag — raggruppato per tema, allineato a cosa cercano i turisti
+  // toolkit hashtag raggruppato
   var hg = mt && mt.hashtag_gruppi;
   if (hg) {
     html += '<div class="hashtag-usage">' + (it
@@ -1753,7 +1803,102 @@ function renderTrends() {
     html += '</div>';
   }
   document.getElementById("trendsBody").innerHTML = html;
+
+  // disegna i grafici dopo l'inserimento nel DOM
+  setTimeout(function(){ renderTrendCharts(); }, 30);
 }
+
+let rtDistChart = null, rtStagChart = null, rtCrescChart = null;
+
+function renderTrendCharts() {
+  const rt = radarData.ricerche_turisti;
+  if (!rt || typeof Chart === "undefined") return;
+  const it = (currentLang === "it");
+
+  // 1) distribuzione temi — ciambella
+  var elD = document.getElementById("rtDistChart");
+  if (elD) {
+    if (rtDistChart) rtDistChart.destroy();
+    rtDistChart = new Chart(elD, {
+      type: "doughnut",
+      data: {
+        labels: it ? rt.distribuzione.labels_it : rt.distribuzione.labels_de,
+        datasets: [{
+          data: rt.distribuzione.valori,
+          backgroundColor: ["#6FA8DC", "#4FB286", "#E0A458", "#C99BD4"],
+          borderColor: "#2B2E33", borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, cutout: "58%",
+        plugins: {
+          legend: { position: "right", labels: { boxWidth: 12, padding: 12, font: { size: 12 }, color: "#C9CDD4" } },
+          tooltip: { callbacks: { label: function(c){ return c.label + ": " + c.parsed + "%"; } } }
+        }
+      }
+    });
+  }
+
+  // 2) stagionalità — linee
+  var elS = document.getElementById("rtStagChart");
+  if (elS) {
+    if (rtStagChart) rtStagChart.destroy();
+    var palette = { "Locarno": "#4FB286", "Ascona": "#E0A458", "Brissago": "#6FA8DC", "Tessin": "#C99BD4" };
+    rtStagChart = new Chart(elS, {
+      type: "line",
+      data: {
+        labels: it ? rt.stagionalita.mesi_it : rt.stagionalita.mesi_de,
+        datasets: Object.keys(rt.stagionalita.serie).map(function(k) {
+          return {
+            label: k, data: rt.stagionalita.serie[k],
+            borderColor: palette[k] || "#9DA3AC", backgroundColor: "transparent",
+            tension: 0.35, borderWidth: 2, pointRadius: 2.5
+          };
+        })
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { labels: { boxWidth: 12, padding: 10, font: { size: 11 } } } },
+        scales: {
+          x: { grid: { color: chartColors.grid }, ticks: { font: { size: 10 } } },
+          y: { grid: { color: chartColors.grid }, beginAtZero: true, max: 100,
+               ticks: { font: { size: 10 } },
+               title: { display: true, text: it ? "indice 0–100" : "Index 0–100", font: { size: 10 }, color: "#9DA3AC" } }
+        }
+      }
+    });
+  }
+
+  // 3) crescita annua — barre orizzontali
+  var elC = document.getElementById("rtCrescChart");
+  if (elC) {
+    if (rtCrescChart) rtCrescChart.destroy();
+    rtCrescChart = new Chart(elC, {
+      type: "bar",
+      data: {
+        labels: rt.crescita_annua.labels,
+        datasets: [{
+          data: rt.crescita_annua.valori,
+          backgroundColor: rt.crescita_annua.valori.map(function(v){ return v >= 0 ? "#4FB286" : "#E0726B"; }),
+          borderRadius: 5
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, indexAxis: "y",
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: function(c){ return (c.parsed.x >= 0 ? "+" : "") + c.parsed.x + "%"; } } }
+        },
+        scales: {
+          x: { grid: { color: chartColors.grid }, beginAtZero: true,
+               ticks: { font: { size: 10 }, callback: function(v){ return (v>=0?"+":"") + v + "%"; } } },
+          y: { grid: { color: chartColors.grid }, ticks: { font: { size: 11 } } }
+        }
+      }
+    });
+  }
+}
+
 
 function copiaGruppo(id, btn) {
   var pills = document.querySelectorAll("#" + id + " .hashtag-pill");

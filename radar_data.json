@@ -4864,6 +4864,11 @@
       ],
       "nota_it": "Prima rilevazione. L'andamento mese su mese sarà disponibile dalla prossima.",
       "nota_de": "Erste Erhebung. Monatsvergleich ab der nächsten Erhebung verfügbar."
+    },
+    "strutture_citate_elenco": {
+      "nota_it": "Strutture del Locarnese che compaiono almeno una volta nelle risposte dei motori AI. Elenco in ordine alfabetico: non è una classifica.",
+      "nota_de": "Betriebe der Region, die mindestens einmal in KI-Antworten genannt werden. Alphabetisch, keine Rangliste.",
+      "nomi": []
     }
   },
   "provenienza": {
@@ -5130,6 +5135,134 @@
       }
     ],
     "insight_finale_it": "La sequenza è chiara: prima il meteo, poi dove dormire, poi gli eventi. Un hotel che vuole essere trovato deve presidiare questi tre momenti — non basta esistere su Booking. Il meteo si collega all'Indice Gottardo del Radar; gli eventi al Calendario Predittivo.",
-    "insight_finale_de": "Die Reihenfolge ist klar: zuerst Wetter, dann Unterkunft, dann Veranstaltungen."
+    "insight_finale_de": "Die Reihenfolge ist klar: zuerst Wetter, dann Unterkunft, dann Veranstaltungen.",
+    "distribuzione": {
+      "labels_it": [
+        "Meteo",
+        "Dove dormire",
+        "Eventi",
+        "Territorio"
+      ],
+      "labels_de": [
+        "Wetter",
+        "Unterkunft",
+        "Events",
+        "Region"
+      ],
+      "valori": [
+        42,
+        31,
+        16,
+        11
+      ],
+      "nota_it": "Peso stimato dei temi sulle query principali delle località del Locarnese (Locarno, Ascona, Brissago, Tessin).",
+      "nota_de": "Geschätzte Gewichtung der Themen bei den Hauptsuchanfragen der Region."
+    },
+    "stagionalita": {
+      "mesi_it": [
+        "Ago",
+        "Set",
+        "Ott",
+        "Nov",
+        "Dic",
+        "Gen",
+        "Feb",
+        "Mar",
+        "Apr",
+        "Mag",
+        "Giu",
+        "Lug"
+      ],
+      "mesi_de": [
+        "Aug",
+        "Sep",
+        "Okt",
+        "Nov",
+        "Dez",
+        "Jan",
+        "Feb",
+        "Mär",
+        "Apr",
+        "Mai",
+        "Jun",
+        "Jul"
+      ],
+      "serie": {
+        "Locarno": [
+          95,
+          58,
+          55,
+          51,
+          62,
+          45,
+          41,
+          40,
+          53,
+          60,
+          55,
+          85
+        ],
+        "Ascona": [
+          88,
+          52,
+          50,
+          46,
+          58,
+          36,
+          28,
+          25,
+          47,
+          58,
+          54,
+          64
+        ],
+        "Brissago": [
+          97,
+          37,
+          33,
+          31,
+          40,
+          22,
+          18,
+          16,
+          30,
+          36,
+          33,
+          45
+        ],
+        "Tessin": [
+          98,
+          50,
+          52,
+          48,
+          56,
+          30,
+          27,
+          26,
+          47,
+          58,
+          50,
+          65
+        ]
+      },
+      "nota_it": "Interesse di ricerca su Google negli ultimi 12 mesi (indice relativo 0–100). Il picco è ad agosto, il minimo tra febbraio e marzo.",
+      "nota_de": "Suchinteresse der letzten 12 Monate (relativer Index 0–100). Höhepunkt im August."
+    },
+    "crescita_annua": {
+      "labels": [
+        "Brissago",
+        "Tessin",
+        "Ascona",
+        "Locarno"
+      ],
+      "valori": [
+        8,
+        7,
+        5,
+        4
+      ],
+      "nota_it": "Variazione dell'interesse di ricerca rispetto all'anno precedente. Tutta la regione cresce; Brissago è la località con la crescita più marcata.",
+      "nota_de": "Veränderung des Suchinteresses gegenüber dem Vorjahr."
+    }
   }
 }
