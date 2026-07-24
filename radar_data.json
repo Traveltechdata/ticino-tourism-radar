@@ -4729,19 +4729,6 @@
     "n_hotel_citati": 56,
     "n_hotel_mai_citati": 29,
     "quota_top4_pct": 28.2,
-    "finding_chiuso": {
-      "n_occorrenze": 58,
-      "esempi_nomi": [
-        "Giardino Lago",
-        "Hotel La Perla Ascona",
-        "Hotel La Palma au Lac",
-        "Hotel & Lounge Lago Maggiore",
-        "Habitat Lago Maggiore",
-        "Castello del Sole Beach Resort & SPA",
-        "Hotel Belvedere Locarno",
-        "Boutique-Hotel Remorino"
-      ]
-    },
     "domande_per_area": {
       "geografica": {
         "label_it": "Geografiche",
