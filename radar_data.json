@@ -4684,8 +4684,6 @@
   },
   "visibilita_ai": {
     "DEMO": false,
-    "avviso_it": "Prima rilevazione reale (3 motori: GPT-4o, Gemini, Perplexity). Claude si aggiungerà come quarto motore al prossimo ciclo (stimato tra 2-3 mesi); da quel momento i cicli a 3 e 4 motori vanno considerati serie non direttamente comparabili.",
-    "avviso_de": "Erste echte Erhebung (3 KI-Modelle: GPT-4o, Gemini, Perplexity). Claude wird beim nächsten Zyklus als viertes Modell ergänzt (in ca. 2-3 Monaten); ab dann sind 3er- und 4er-Zyklen nicht direkt vergleichbar.",
     "rilevazione": "2026-07-23",
     "motori": [
       "GPT-4o",
@@ -4801,49 +4799,25 @@
         "area": "stagionale_eventi"
       }
     ],
-    "podio": {
-      "nota_it": "Le uniche 3 strutture nominate esplicitamente in questa rilevazione: quelle con il maggior numero di citazioni nelle risposte AI su query di scoperta (non brand). Tutte le altre strutture del cluster non vengono elencate per nome.",
-      "nota_de": "Die einzigen 3 namentlich genannten Betriebe dieser Erhebung: jene mit den meisten KI-Nennungen bei Discovery-Anfragen. Alle anderen Betriebe werden nicht namentlich aufgeführt.",
-      "strutture": [
-        {
-          "posizione": 1,
-          "nome": "Hotel Belvedere Locarno",
-          "n_citazioni": 21
-        },
-        {
-          "posizione": 2,
-          "nome": "Hotel Eden Roc",
-          "n_citazioni": 15
-        },
-        {
-          "posizione": 3,
-          "nome": "Giardino Ascona",
-          "n_citazioni": 12
-        }
-      ]
-    },
     "kpi": {
-      "strutture_citate_totale": 56,
-      "strutture_mai_citate": 29,
+      "strutture_citate": 56,
       "strutture_totali_zona": 85,
-      "quota_prime_tre_pct": 23,
-      "errori_fattuali_pct": null
+      "quota_prime_tre": 23,
+      "errori_fattuali_pct": 0
     },
-    "errori_fattuali_nota_it": "Non calcolabile automaticamente — richiede verifica manuale confrontando le risposte AI con i dati reali degli hotel.",
-    "messaggio_commerciale_it": "29 strutture su 85 non sono MAI state citate dalle AI in questo ciclo. Le prime 3 strutture assorbono da sole il 23% di tutte le citazioni raccolte: le altre 53 strutture citate si dividono il resto.",
-    "messaggio_commerciale_de": "29 von 85 Betrieben wurden in diesem Zyklus NIE von KI-Modellen genannt. Die ersten 3 Betriebe vereinen 23% aller Nennungen auf sich.",
+    "errori_fattuali_nota_it": "Placeholder a 0 in attesa di verifica manuale (nessun controllo automatico possibile senza confronto coi dati reali degli hotel) — aggiornare dopo revisione a campione.",
     "concentrazione": {
       "labels_it": [
-        "1ª struttura",
-        "2ª–3ª",
-        "4ª–10ª",
+        "Hotel Belvedere Locarno",
+        "Hotel Eden Roc + Giardino Ascona",
+        "4ª–10ª struttura",
         "Altre citate",
         "Mai citate"
       ],
       "labels_de": [
-        "1. Betrieb",
-        "2.–3.",
-        "4.–10.",
+        "Hotel Belvedere Locarno",
+        "Hotel Eden Roc + Giardino Ascona",
+        "4.–10. Betrieb",
         "Weitere genannte",
         "Nie genannt"
       ],
@@ -4886,9 +4860,29 @@
       "strutture_citate": [
         56
       ],
-      "nota_it": "Prima rilevazione reale, a 3 motori. Il prossimo ciclo (tra 2-3 mesi) aggiungerà Claude come quarto motore: da trattare come serie break, non confrontare direttamente il valore.",
-      "nota_de": "Erste echte Erhebung, mit 3 KI-Modellen. Der nächste Zyklus (in 2-3 Monaten) fügt Claude als viertes Modell hinzu: als Serienbruch behandeln."
-    }
+      "nota_it": "Prima rilevazione reale, a 3 motori. Il prossimo ciclo (tra 2-3 mesi) aggiungerà Claude come quarto motore: da trattare come serie break.",
+      "nota_de": "Erste echte Erhebung, mit 3 KI-Modellen. Nächster Zyklus in 2-3 Monaten mit Claude als viertem Modell."
+    },
+    "esempi_domande_risposte": {
+      "nota_it": "Esempi reali e integrali delle risposte raccolte. I nomi delle strutture del podio restano visibili; tutte le altre strutture citate sono state anonimizzate.",
+      "nota_de": "Echte, ungekürzte Beispielantworten. Die Namen der Podiumsbetriebe bleiben sichtbar; alle anderen genannten Betriebe wurden anonymisiert.",
+      "esempi": [
+        {
+          "motore": "GPT-4o",
+          "domanda": "Familienhotel Locarno mit Pool",
+          "lingua": "DE",
+          "risposta_estratto": "In Locarno gibt es mehrere familienfreundliche Hotels mit Pool, die sich ideal für einen Aufenthalt mit Kindern eignen. Hier sind einige Empfehlungen:\n\n**[Hotel non del podio]**  \n**Geschlossen · Bed & breakfast · 4.5 (281 Bewertungen)**  \n_Lungolago Giuseppe Motta 12, 6600 Locarno, Switzerland_  \nDirekt am Ufer des Lago Maggiore gelegen, verfügt dieses Hotel über einen Garten mit Pool und Liegestühlen. Es bietet komfortable Unterkünfte und ein gesundes, vielfältiges Frühstück, ideal für Familien, die Entspannung und Aktivitäten am Wasser suchen.\n\n**Hotel Belvedere Locarno**  \n**Geschlossen · Hotel · 4.7 (836 Bewertungen)**  \n_Via ai Monti 44, 6600 Locarno, Switzerland_  \nDieses Hotel bietet"
+        },
+        {
+          "motore": "GPT-4o",
+          "domanda": "Hotel Ascona Locarno Empfehlung",
+          "lingua": "DE",
+          "risposta_estratto": "Ascona und Locarno am Lago Maggiore bieten eine Vielzahl an Hotels für unterschiedliche Bedürfnisse und Budgets. Hier sind einige Empfehlungen:\n\n**Hotel Eden Roc**\n_Ascona, Schweiz_\nEin mehrfach ausgezeichnetes 5-Sterne-Hotel direkt am Seeufer mit luxuriösen Zimmern, einem erstklassigen Spa und privatem Strand.\n\n**[Hotel non del podio]**\n_Ascona, Schweiz_\nEin charmantes Hotel in zentraler Lage, bekannt für seinen mediterranen Garten und die Nähe zur Seepromenade.\n\n**[Hotel non del podio]**\n_Ascona, Schweiz_\nEin historisches Schloss-Hotel mit romantischem Ambiente, direkt am See gelegen und ideal für Paare.\n\n**Hotel Belvedere Locarno**\n_Locarno, Schweiz_\nEin 4-Sterne-Hotel mit Panoramablick auf den Lago Maggiore, modernen Zimmern und einem Wellnessbereich.\n\n**[Hotel non del podio]**\n_Locarno, Schweiz_\nEin modernes Hotel in zentraler Lage, ideal für Reisende, die die Stadt erkunden möchten"
+        }
+      ]
+    },
+    "avviso_demo_it": "Prima rilevazione reale (3 motori: GPT-4o, Gemini, Perplexity). Claude si aggiungerà come quarto motore al prossimo ciclo (stimato tra 2-3 mesi): da quel momento i cicli a 3 e 4 motori vanno trattati come serie non direttamente comparabili.",
+    "avviso_demo_de": "Erste echte Erhebung (3 KI-Modelle: GPT-4o, Gemini, Perplexity). Claude wird beim nächsten Zyklus als viertes Modell ergänzt (in ca. 2-3 Monaten)."
   },
   "provenienza": {
     "fonte": "USTAT — Pernottamenti per paese di domicilio (13C)",

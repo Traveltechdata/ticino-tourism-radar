@@ -323,6 +323,16 @@
   .vis-elenco-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 9px; }
   .vis-elenco-pill { font-size: 11.5px; color: var(--text-soft); background: var(--card); border: 0.5px solid var(--border); padding: 4px 10px; border-radius: 13px; }
   .vis-elenco-note { font-size: 11px; color: var(--muted); line-height: 1.45; }
+  .vis-example-box { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 10px; padding: 14px; margin-top: 14px; }
+  .vis-example-title { display: flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+  .vis-example-card { background: var(--card); border: 0.5px solid var(--border); border-radius: 9px; padding: 12px 14px; margin-bottom: 10px; }
+  .vis-example-card:last-child { margin-bottom: 0; }
+  .vis-example-meta { display: flex; gap: 8px; align-items: center; font-size: 10.5px; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .vis-example-tag { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 5px; padding: 2px 7px; }
+  .vis-example-q { font-size: 12.5px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .vis-example-a { font-size: 12px; color: var(--text-soft); line-height: 1.55; white-space: pre-wrap; max-height: 220px; overflow-y: auto; }
+  .vis-example-a strong { color: var(--accent); }
+  .vis-example-note { font-size: 11px; color: var(--muted); line-height: 1.45; margin-top: 10px; }
   .trend-chart-block
  { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 11px; padding: 14px; margin: 14px 0; }
   .trend-chart-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
@@ -1618,18 +1628,28 @@ function renderVisibilita() {
     ? "Le prime 3 strutture raccolgono il " + k.quota_prime_tre + "% di tutte le citazioni. " + mai + " strutture non vengono mai nominate."
     : mai + " Betriebe werden nie genannt.";
 
-  // --- Elenco strutture citate (alfabetico, NON classifica) ---
+  // --- Esempi reali domanda/risposta (nomi podio in chiaro, altri anonimizzati) ---
   var el = document.getElementById("visElenco");
   if (el) {
-    var ec = v.strutture_citate_elenco;
-    if (ec && ec.nomi && ec.nomi.length) {
-      var nomi = ec.nomi.slice().sort(function(a,b){ return a.localeCompare(b); });
-      var h = '<div class="vis-elenco-box">';
-      h += '<div class="vis-elenco-title">' + svgIcon("check",14,"var(--accent)") + ' ' +
-           (it ? "Strutture che emergono nelle risposte AI" : "Betriebe, die in KI-Antworten erscheinen") + '</div>';
-      h += '<div class="vis-elenco-wrap">';
-      nomi.forEach(function(n){ h += '<span class="vis-elenco-pill">' + n + '</span>'; });
-      h += '</div><div class="vis-elenco-note">' + (it ? ec.nota_it : ec.nota_de) + '</div></div>';
+    var ex = v.esempi_domande_risposte;
+    if (ex && ex.esempi && ex.esempi.length) {
+      var h = '<div class="vis-example-box">';
+      h += '<div class="vis-example-title">' + svgIcon("check",14,"var(--accent)") + ' ' +
+           (it ? "Cosa rispondono davvero le AI" : "Was die KI-Modelle wirklich antworten") + '</div>';
+      ex.esempi.forEach(function(e){
+        var risposta = (e.risposta_estratto || "")
+          .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+          .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+        h += '<div class="vis-example-card">' +
+               '<div class="vis-example-meta">' +
+                 '<span class="vis-example-tag">' + e.motore + '</span>' +
+                 '<span class="vis-example-tag">' + e.lingua + '</span>' +
+               '</div>' +
+               '<div class="vis-example-q">' + (it ? "Domanda: " : "Frage: ") + '“' + e.domanda + '”</div>' +
+               '<div class="vis-example-a">' + risposta + '</div>' +
+             '</div>';
+      });
+      h += '<div class="vis-example-note">' + (it ? ex.nota_it : ex.nota_de) + '</div></div>';
       el.innerHTML = h;
     } else {
       el.innerHTML = '';
