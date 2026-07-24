@@ -1,6 +1,6 @@
 {
   "meta": {
-    "aggiornato": "2026-07-23",
+    "aggiornato": "2026-07-24",
     "settimana": 27,
     "checkIn": "2026-07-29",
     "checkOut": "2026-07-31",
@@ -4684,6 +4684,8 @@
   },
   "visibilita_ai": {
     "DEMO": false,
+    "avviso_demo_it": "Prima rilevazione reale (3 motori: GPT-4o, Gemini, Perplexity). Claude si aggiungerà come quarto motore al prossimo ciclo (tra 2-3 mesi): da quel momento i cicli a 3 e 4 motori vanno trattati come serie non direttamente comparabili.",
+    "avviso_demo_de": "Erste echte Erhebung (3 KI-Modelle). Claude wird beim nächsten Zyklus als viertes Modell ergänzt (in 2-3 Monaten).",
     "rilevazione": "2026-07-23",
     "motori": [
       "GPT-4o",
@@ -4697,144 +4699,534 @@
       "en": 6,
       "it": 4
     },
-    "queries": [
+    "classifica": [
       {
-        "q": "Bestes Hotel am Lago Maggiore Tessin",
-        "lang": "de",
-        "area": "geografica"
+        "posizione": 1,
+        "nome": "Hotel Belvedere Locarno",
+        "n_citazioni": 21,
+        "quota_pct": 10.0
       },
       {
-        "q": "Hotel Ascona Locarno Empfehlung",
-        "lang": "de",
-        "area": "geografica"
+        "posizione": 2,
+        "nome": "Hotel Eden Roc",
+        "n_citazioni": 15,
+        "quota_pct": 7.2
       },
       {
-        "q": "best hotel Lake Maggiore Switzerland",
-        "lang": "en",
-        "area": "geografica"
+        "posizione": 3,
+        "nome": "Giardino Ascona",
+        "n_citazioni": 12,
+        "quota_pct": 5.7
       },
       {
-        "q": "hotel consigliati Locarno Ascona",
-        "lang": "it",
-        "area": "geografica"
-      },
-      {
-        "q": "Hotel Tessin See Empfehlung",
-        "lang": "de",
-        "area": "geografica"
-      },
-      {
-        "q": "where to stay near Locarno Switzerland",
-        "lang": "en",
-        "area": "geografica"
-      },
-      {
-        "q": "Romantisches Hotel Lago Maggiore",
-        "lang": "de",
-        "area": "esperienziale"
-      },
-      {
-        "q": "Familienhotel Locarno mit Pool",
-        "lang": "de",
-        "area": "esperienziale"
-      },
-      {
-        "q": "pet friendly hotel Lake Maggiore",
-        "lang": "en",
-        "area": "esperienziale"
-      },
-      {
-        "q": "hotel con vista lago Ascona",
-        "lang": "it",
-        "area": "esperienziale"
-      },
-      {
-        "q": "Wellness Hotel Tessin See",
-        "lang": "de",
-        "area": "esperienziale"
-      },
-      {
-        "q": "boutique hotel Ascona Switzerland",
-        "lang": "en",
-        "area": "esperienziale"
-      },
-      {
-        "q": "Hotel Locarno mit kostenlosem Parkplatz",
-        "lang": "de",
-        "area": "pratica"
-      },
-      {
-        "q": "Hotel Ascona Frühstück inklusive",
-        "lang": "de",
-        "area": "pratica"
-      },
-      {
-        "q": "hotel near Locarno train station",
-        "lang": "en",
-        "area": "pratica"
-      },
-      {
-        "q": "hotel Locarno con parcheggio gratuito",
-        "lang": "it",
-        "area": "pratica"
-      },
-      {
-        "q": "Hotel Locarno für Festivals und Veranstaltungen",
-        "lang": "de",
-        "area": "stagionale_eventi"
-      },
-      {
-        "q": "Hotel Ascona Herbstferien Wanderurlaub",
-        "lang": "de",
-        "area": "stagionale_eventi"
-      },
-      {
-        "q": "hotel Locarno for summer events and festivals",
-        "lang": "en",
-        "area": "stagionale_eventi"
-      },
-      {
-        "q": "hotel Locarno per eventi e manifestazioni",
-        "lang": "it",
-        "area": "stagionale_eventi"
+        "posizione": 4,
+        "nome": "Castello del Sole Beach Resort & SPA",
+        "n_citazioni": 11,
+        "quota_pct": 5.3
       }
     ],
-    "kpi": {
-      "strutture_citate": 56,
-      "strutture_totali_zona": 85,
-      "quota_prime_tre": 23,
-      "errori_fattuali_pct": 0
-    },
-    "errori_fattuali_nota_it": "Placeholder a 0 in attesa di verifica manuale (nessun controllo automatico possibile senza confronto coi dati reali degli hotel) — aggiornare dopo revisione a campione.",
-    "concentrazione": {
-      "labels_it": [
+    "n_hotel_totali": 85,
+    "n_hotel_citati": 56,
+    "n_hotel_mai_citati": 29,
+    "quota_top4_pct": 28.2,
+    "finding_chiuso": {
+      "n_occorrenze": 58,
+      "esempi_nomi": [
+        "Giardino Lago",
+        "Hotel La Perla Ascona",
+        "Hotel La Palma au Lac",
+        "Hotel & Lounge Lago Maggiore",
+        "Habitat Lago Maggiore",
+        "Castello del Sole Beach Resort & SPA",
         "Hotel Belvedere Locarno",
-        "Hotel Eden Roc + Giardino Ascona",
-        "4ª–10ª struttura",
-        "Altre citate",
-        "Mai citate"
-      ],
-      "labels_de": [
-        "Hotel Belvedere Locarno",
-        "Hotel Eden Roc + Giardino Ascona",
-        "4.–10. Betrieb",
-        "Weitere genannte",
-        "Nie genannt"
-      ],
-      "values": [
-        10,
-        13,
-        29,
-        48,
-        0
-      ],
-      "n_strutture": [
-        1,
-        2,
-        7,
-        46,
-        29
+        "Boutique-Hotel Remorino"
       ]
+    },
+    "domande_per_area": {
+      "geografica": {
+        "label_it": "Geografiche",
+        "label_de": "Geografisch",
+        "domande": [
+          {
+            "id": 1,
+            "area": "geografica",
+            "lingua": "DE",
+            "domanda": "Bestes Hotel am Lago Maggiore Tessin",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Der Lago Maggiore im Tessin bietet eine Vielzahl erstklassiger Hotels, die Ihren Aufenthalt unvergesslich machen können. Hier sind einige Empfehlungen:</p><p><strong>Giardino Lago, Minusio-Locarno, a Member of Design Hotels</strong>  <br><strong>Geschlossen · Hotel · 4.4 (677 Bewertungen)</strong>  <br><em>Via alla Riva 83a, 6648 Minusio, Switzerland</em>  <br>Ein stilvolles Boutique-Hotel direkt am Ufer des Lago Maggiore mit 14 individuellen Zimmern und einer Suite. Das Restaurant Lago und die 400 Quadratmeter große Roof Lounge bieten atemberaubende Ausblicke.</p><p><strong>Hotel La Perla Ascona</strong>  <br><strong>Geschlossen · Hotel · 4.1 (391 Bewertungen)</strong>  <br><em>Str. Collina 14, 6612 Ascona, Switzerland</em>  <br>Ein 3-Sterne-Hotel nur 5 Gehminuten vom See entfernt, bestehend aus dem Hauptgebäude und drei Villen. Es bietet komfortable Zimmer, ein reichhaltiges Frühstücksbuffet und eine Dachterrasse mit Seeblick.</p><p><strong>Hotel La Palma au Lac</strong>  <br><strong>Geschlossen · Hotel · 4.5 (1070 Bewertungen)</strong>  <br><em>Viale Verbano 29, 6600 Muralto, Switzerland</em>  <br>Ein Hotel direkt an der Seepromenade mit modernen Zimmern, hauseigenem Spa &amp; Wellnessbereich und mediterranen Restaurants. Ideal für Gäste, die Komfort und eine zentrale Lage schätzen.</p><p><strong>Hotel &amp; Lounge Lago Maggiore</strong>  <br><strong>Geschlossen · Hotel · 4.7 (748 Bewertungen)</strong>  <br><em>Muralto CH, Viale Verbano 25, 6600 Locarno, Switzerland</em>  <br>Ein 4-Sterne-Hotel mit 44 trendigen Zimmern und Suiten, alle mit Balkon und Seeblick. Es bietet ein Restaurant mit großer Terrasse und legt Wert auf nachhaltige Energiegewinnung.</p><p><strong>Habitat Lago Maggiore</strong>  <br><strong>Geschlossen · Hotel · 5.0 (28 Bewertungen)</strong>  <br><em>Canton Fora 20a, 6579 Piazzogna, Switzerland</em>  <br>Einzigartige Holz- und Glaswohnungen eingebettet zwischen See und Bergen, die eine neue Art des Urlaubs ermöglichen. Nachhaltigkeit und Energieeffizienz stehen im Vordergrund.</p><p>Jedes dieser Hotels bietet ein einzigartiges Erlebnis am Lago Maggiore. Ihre Wahl hängt von Ihren persönlichen Vorlieben und Bedürfnissen ab.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Für Reisende, die das beste Hotelerlebnis am Lago Maggiore im Schweizer Kanton Tessin suchen, gibt es eine Reihe von erstklassigen Optionen, die durchweg hohe Bewertungen und positive Rückmeldungen erhalten haben. Diese Hotels zeichnen sich oft durch ihre luxuriöse Ausstattung, exquisite Küche, hervorragende Lage und ihren erstklassigen Service aus.</p><p>Zu den Top-Hotels im Tessin am Lago Maggiore gehören:</p><p>*   <strong>Hotel Eden Roc Ascona</strong> Das Hotel Eden Roc in Ascona ist ein Fünf-Sterne-Hotel direkt am Seeufer mit eigenem Yachthafen und Badestrand, einem Wellnessbereich und mehreren Restaurants, darunter das Michelin-Stern-ausgezeichnete \"La Brezza\". Es gilt als eines der besten Full-Service-Luxushotels direkt am See.<br>*   <strong>Castello del Sole Beach Resort &amp; SPA Ascona</strong> Dieses luxuriöse Resort in Ascona liegt an einem 300 m langen Privatstrand am Lago Maggiore und ist von einer 140 Hektar grossen Parklandschaft umgeben. Es bietet ein geräumiges Wellnesscenter, Tennisplätze und einen Golfplatz. Es wird oft als \"Best Estate-Style Stay\" und als besonders kinderfreundliches Luxushotel auf der Schweizer Seite des Sees genannt.<br>*   <strong>Giardino Ascona</strong> Das luxuriöse Schweizer Hotel Giardino Ascona ist von einer blühenden Gartenanlage mit Hortensien, Palmen und Zitruspflanzen umgeben. Es bietet einen Pool, stylische Sonnendecks und einen direkten Zugang zu einem 18-Loch-Golfplatz. Auch für jüngere Gäste gibt es Angebote wie einen Dino Kids Club.<br>*   <strong>Art Hotel Riposo Ascona</strong> Das Art Hotel Riposo in Ascona verfügt über einen Aussenpool und eine Sonnenterrasse sowie ein Restaurant. Die Zimmer sind mit TV ausgestattet. Es wird als hervorragend bewertet.<br>*   <strong>Hotel Belvedere Locarno</strong> Dieses Superior 4-Sterne-Hotel in Locarno ist ganzjährig geöffnet und bietet 90 Zimmer und Suiten mit herrlichem Blick auf den Lago Maggiore, die Stadt und die Berge. Es wird als eines der besten Hotels mit Blick auf die Hügel oberhalb von Locarno genannt.<br>*   <strong>Giardino Lago Minusio</strong> In Minusio empfängt das stilvolle Boutique-Hotel Giardino Lago seine Gäste direkt an der Seepromenade mit gehobener Küche und Panoramaterrassen mit Seeblick.<br>*   <strong>Albergo Losone</strong> Umgeben von einem grossen Garten mit Palmen und einem beheizten Aussenpool, bietet dieses familiengeführte 4-Sterne-Hotel am Fluss Maggia in Losone einen eigenen 9-Loch-Golfplatz.<br>*   <strong>Boutique-Hotel La Rocca Porto Ronco</strong> Das Boutique-Hotel La Rocca liegt an einer zauberhaften Lage über dem Lago Maggiore in Porto Ronco und verwöhnt seine Gäste im Panorama-Restaurant mit mediterranen und klassischen Gerichten. Es bietet zudem einen wunderschönen Garten, ein Hallenbad und einen privaten Badestrand.<br>*   <strong>Hotel Casa Berno Ascona</strong> Dieses persönlich geführte 4-Sterne-Haus in Ascona liegt inmitten eines subtropischen Parks über dem Lago Maggiore und bietet Zimmer und Suiten mit modernem Komfort, toller Aussicht und einem Hauch von Luxus sowie einen grossen Pool.<br>*   <strong>Boutique-Hotel Remorino Minusio</strong> In Minusio-Locarno gelegen, ist dies ein charmanter Ort für Geniesser im klassisch-mediterranen Stil, direkt am Lago Maggiore und in Gehdistanz zum Zentrum von Locarno. Es verfügt über stilvolle Zimmer mit Sonnenbalkon und eine prächtige Gartenanlage mit Pool.<br>*   <strong>Hotel Lago Maggiore - Welcome! Locarno</strong> Dieses Hotel befindet sich an der schönen Seepromenade von Locarno, nur wenige Schritte vom Stadtzentrum entfernt und wird von Gästen als \"Wunderbar\" bewertet.<br>*   <strong>Hotel La Campagnola (Vira Gambarogno)</strong> Dieses 3-Sterne-Superior-Hotel, hoch über dem Lago Maggiore gelegen, zwischen Locarno und Ascona, ist als Top-Familienhotel im Tessin anerkannt. Es bietet zwei Aussenpools (einer davon saisonal beheizt), einen Kinderpool, Minigolf, Volleyball, Tischtennis, ein Trampolin und einen Spielplatz.<br>*   <strong>Villa Orselina - Small Luxury Hotel Locarno</strong> Die elegante Villa Orselina bietet eine privilegierte Lage oberhalb von Locarno und verwöhnt Gäste mit einem Aussenpool, der einen Panoramablick über den Lago Maggiore bietet.</p><p>Bei der Auswahl des besten Hotels sollten persönliche Präferenzen hinsichtlich Lage (direkt am See, Hanglage), Art des Urlaubs (Luxus, Familie, Romantik), Ausstattung (Spa, Golf, Privatstrand) und Verpflegung berücksichtigt werden.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Das <strong>beste Hotel am Lago Maggiore im Tessin</strong> hängt davon ab, ob du eher <strong>Luxus, Lage direkt am See oder Design</strong> suchst. Wenn du ein klares Top-Hotel willst, ist das <strong>Hotel Villa e Palazzo Aminta</strong> bei Stresa eine der stärksten Luxusoptionen am Lago Maggiore; wenn du speziell <strong>im Tessin</strong> bleiben möchtest, wird das <strong>Art Hotel Riposo in Ascona</strong> als hochwertiges Hotel mit Pool, Sonnenterrasse und Restaurant hervorgehoben.</p><p>Wenn du nach dem <strong>overall besten Klassiker</strong> am See suchst, zählt auch das <strong>Grand Hotel Des Iles Borromées</strong> in Stresa zu den bekanntesten und luxuriösesten Adressen: Es liegt direkt am Lago Maggiore, hat Spa- und Wellnessbereich, Pools und wird als stilvolle Liberty-Ikone beschrieben.</p><p><strong>Kurzempfehlung je nach Ziel:</strong><br>- <strong>Bestes Luxus-Hotel im Tessin:</strong> Art Hotel Riposo, Ascona.<br>- <strong>Bestes ikonisches Grandhotel am See:</strong> Grand Hotel Des Iles Borromées, Stresa.<br>- <strong>Beste Lage direkt am Wasser:</strong> Hotel Villa Maria in Cannobio wird in einem Ranking als absoluter Favorit genannt, liegt aber nicht im Tessin.</p><p>Wenn du möchtest, kann ich dir daraus auch eine <strong>Top-5-Liste nur für das Tessin</strong> machen, z. B. nach <strong>Luxus, Romantik, Familie oder Preis-Leistung</strong>.</p>"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "area": "geografica",
+            "lingua": "DE",
+            "domanda": "Hotel Ascona Locarno Empfehlung",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Ascona und Locarno am Lago Maggiore bieten eine Vielzahl an Hotels für unterschiedliche Bedürfnisse und Budgets. Hier sind einige Empfehlungen:</p><p><strong>Hotel Eden Roc</strong><br><em>Ascona, Schweiz</em><br>Ein mehrfach ausgezeichnetes 5-Sterne-Hotel direkt am Seeufer mit luxuriösen Zimmern, einem erstklassigen Spa und privatem Strand.</p><p><strong>Hotel Ascovilla</strong><br><em>Ascona, Schweiz</em><br>Ein charmantes Hotel in zentraler Lage, bekannt für seinen mediterranen Garten und die Nähe zur Seepromenade.</p><p><strong>Romantik Hotel Castello-Seeschloss</strong><br><em>Ascona, Schweiz</em><br>Ein historisches Schloss-Hotel mit romantischem Ambiente, direkt am See gelegen und ideal für Paare.</p><p><strong>Hotel Belvedere Locarno</strong><br><em>Locarno, Schweiz</em><br>Ein 4-Sterne-Hotel mit Panoramablick auf den Lago Maggiore, modernen Zimmern und einem Wellnessbereich.</p><p><strong>Hotel Millennium</strong><br><em>Locarno, Schweiz</em><br>Ein modernes Hotel in zentraler Lage, ideal für Reisende, die die Stadt erkunden möchten.</p><p><strong>Hotel Garni Rio</strong><br><em>Locarno, Schweiz</em><br>Ein charmantes Hotel in einer renovierten Villa aus dem 19. Jahrhundert, zentral gelegen und bekannt für seinen persönlichen Service.</p><p>Bitte beachten Sie, dass Ascona tendenziell teurer ist als Locarno, jedoch ein exklusiveres Ambiente bietet. Locarno hingegen ist lebhafter und bietet eine größere Auswahl an Unterkünften für unterschiedliche Budgets. ([gnometrotting.com])</p><p>Ich empfehle, die aktuellen Preise und Verfügbarkeiten direkt auf den Hotelwebsites oder über Buchungsplattformen zu prüfen, um die beste Option für Ihren Aufenthalt zu finden.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Das Hotel Ascona in Locarno wird von Gästen sehr empfohlen und zeichnet sich durch eine ruhige Lage auf dem Monte Verità aus, mit beeindruckendem Blick auf den Lago Maggiore und die umliegenden Berge.</p><p><strong>Highlights des Hotels:</strong></p><p>*   <strong>Lage und Aussicht:</strong> Es liegt auf einem Hügel und bietet Panoramablicke auf den See. Die Hauptattraktionen wie die Altstadt und die Seepromenade sind etwa 10 Autominuten entfernt, und ein Shuttleservice zum Bahnhof Locarno wird angeboten.<br>*   <strong>Ausstattung:</strong> Das Hotel verfügt über einen beheizten Außenpool, kostenlose Parkplätze und kostenfreies WLAN. Zudem gibt es Familienzimmer und es ist tierfreundlich. Für Entspannung sorgen ein Wellnessbereich mit Whirlpool, Sauna und Massageangeboten sowie ein Fitnessbereich.<br>*   <strong>Gastronomie:</strong> Gäste loben das köstliche Essen und das gute Frühstücksbuffet, das auf einer Terrasse mit Aussicht serviert wird. Es gibt auch Optionen für spezielle Ernährungsbedürfnisse, wie z.B. Laktoseintoleranz. Das Hotel besitzt ein eigenes Restaurant und bietet Zimmerservice an.<br>*   <strong>Zimmer:</strong> Die Zimmer werden als geräumig und sauber beschrieben, viele bieten einen Balkon und Seeblick. Einige Gäste empfanden die Zimmerausstattung als etwas \"in die Jahre gekommen\", aber insgesamt war der Aufenthalt sehr angenehm.<br>*   <strong>Aktivitäten:</strong> Das Hotel bietet Leihfahrräder an, um die Umgebung zu erkunden. In der Nähe befinden sich Wanderwege, ein Golfplatz (das Hotel ist Partner eines Golfclubs mit 13 Plätzen in der Umgebung), Tischtennisplatten und der Zugang zu den Lidos und Stränden von Ascona und Locarno.</p><p>Insgesamt wird das Hotel Ascona für seinen freundlichen und hilfsbereiten Personal, die Sauberkeit und das gute Preis-Leistungs-Verhältnis gelobt.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Wenn Sie ein <strong>Hotel in Ascona/Locarno</strong> suchen, ist das <strong>Hotel Ascona</strong> eine gute Empfehlung, besonders wegen der <strong>Lage mit Blick auf den Lago Maggiore</strong>, dem <strong>freundlichen Personal</strong> und dem <strong>Poolbereich</strong>.</p><p>Wichtige Punkte:<br>- <strong>Sehr gute Lage:</strong> Auf Booking wird die Lage als ausgezeichnet bewertet; Paare geben ihr besonders hohe Werte.<br>- <strong>Gute Gästebewertungen:</strong> HolidayCheck nennt für das Hotel Ascona eine Bewertung von <strong>5,2/6</strong> bei <strong>601 Bewertungen</strong> und <strong>92% Weiterempfehlung</strong>.<br>- <strong>Stärken laut Gästen:</strong> schöner Pool, gepflegtes Hotel, freundliches Personal, gute Aussicht und gutes Frühstück.<br>- <strong>Für wen es passt:</strong> vor allem für Reisende, die <strong>Ruhe, Aussicht und Erholung</strong> suchen.</p><p>Wenn Sie eher <strong>mehr Luxus</strong> möchten, wird das <strong>Hotel Giardino Ascona</strong> sehr stark bewertet, mit <strong>6,0/6</strong> und <strong>100% Weiterempfehlung</strong> auf HolidayCheck, allerdings mit entsprechend höherem Preisniveau.</p><p>Wenn Sie möchten, kann ich Ihnen auch <strong>3 konkrete Hotelempfehlungen in Ascona/Locarno nach Budget</strong> zusammenstellen: <strong>günstig, mittel, gehoben</strong>.</p>"
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "area": "geografica",
+            "lingua": "EN",
+            "domanda": "best hotel Lake Maggiore Switzerland",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Lake Maggiore, straddling the border between Switzerland and Italy, offers a selection of exceptional hotels on its Swiss shores, particularly in the towns of Ascona and Locarno. Here are some top recommendations:</p><p><strong>Castello del Sole Beach Resort &amp; SPA</strong>  <br><strong>Closed · Hotel · 4.8 (372 reviews)</strong>  <br><em>Via Muraccio 142, 6612 Ascona, Switzerland</em>  <br>Set on a 150-hectare private estate with the longest private beach on the Swiss side of Lake Maggiore. Offers multiple restaurants, including the gourmet Locanda Barbarossa, and extensive facilities like tennis courts and equestrian amenities.</p><p><strong>Hotel Belvedere Locarno</strong>  <br><strong>Closed · Hotel · 4.7 (836 reviews)</strong>  <br><em>Via ai Monti 44, 6600 Locarno, Switzerland</em>  <br>Situated above Locarno, this hotel provides panoramic views of Lake Maggiore. It features a spa with a heated pool, sauna, Turkish bath, and a fitness area, offering a serene retreat with easy access to the town's attractions.</p><p><strong>Boutique-Hotel Remorino</strong>  <br><strong>Closed · Hotel · 4.7 (196 reviews)</strong>  <br><em>Via Verbano 29, 6648 Minusio, Switzerland</em>  <br>A charming boutique hotel located near Locarno, offering elegant rooms with lake views, a garden, and a swimming pool. Ideal for travelers seeking a more intimate and personalized stay.</p><p>These hotels provide a range of luxurious amenities and unique experiences, ensuring a memorable stay on the Swiss shores of Lake Maggiore.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>For travelers seeking the best hotels on the Swiss side of Lake Maggiore, the towns of Ascona and Locarno offer a selection of highly-rated and luxurious accommodations. These areas are often noted for their charm, pristine environment, and excellent dining options, providing a distinct experience compared to the Italian side of the lake.</p><p>Here are some of the top hotels on Lake Maggiore's Swiss shore:</p><p>*   <strong>Hotel Eden Roc Ascona</strong> is highly regarded for its full-service lakefront luxury. It features a private beach, a swimming jetty, two pools, a comprehensive spa, and three restaurants, including the Michelin-starred La Brezza.<br>*   <strong>Castello del Sole</strong> in Ascona is another excellent choice, particularly for those seeking an estate-style stay with a private beach. It's also recognized for its child-friendly luxury programs.<br>*   <strong>Hotel Belvedere Locarno</strong> stands out for its elevated hillside views above Locarno, offering panoramic vistas across the northern end of the lake. This 4-star superior hotel is open year-round and is ideal for couples, design-focused travelers, or those preferring an alternative to direct lake access. It boasts a guest rating of 9.1 out of 10.<br>*   Other well-regarded hotels in Locarno include <strong>Hotel Lago Maggiore - Welcome!</strong> (guest rating 9.4) and <strong>Hotel Millennium</strong> (guest rating 9.1).<br>*   In Ascona, <strong>Charme Hotel al Torchio</strong> (guest rating 9.2) and <strong>Art Hotel Riposo</strong> are also notable options.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>For <strong>Lake Maggiore in Switzerland</strong>, the best hotel depends on whether you want a <strong>luxury lakeside stay</strong>, a <strong>spa resort</strong>, or a <strong>budget-friendly base</strong> in the Ticino region. Since no search results were provided, I can’t verify current rankings or recent guest ratings, but I can suggest the most likely top choices based on general reputation.</p><p>If you want, I can narrow this down by <strong>budget</strong>, <strong>town</strong>, or <strong>style</strong>. Commonly recommended areas on the Swiss side of Lake Maggiore include:</p><p>- <strong>Ascona</strong> for upscale lakeside charm and boutique hotels  <br>- <strong>Locarno</strong> for more hotel variety and easy transport  <br>- <strong>Brissago</strong> for a quieter, more scenic stay  </p><p>A few hotels that are often considered among the strongest options in the area are:</p><p>- <strong>Castello del Sole Beach Resort &amp; SPA</strong> in Ascona — usually the top luxury pick<br>- <strong>Hotel Eden Roc</strong> in Ascona — another highly regarded lakeside luxury option<br>- <strong>Giardino Lago</strong> in Minusio/Locarno — smaller, stylish, and design-oriented<br>- <strong>Hotel La Palma au Lac</strong> in Muralto/Locarno — popular for lake views and convenience</p><p>If you want the *single best recommendation*, <strong>Castello del Sole Beach Resort &amp; SPA</strong> is often the safest luxury choice on the Swiss side of Lake Maggiore.</p><p>If you want, I can give you:<br>- the <strong>best hotel for luxury</strong><br>- the <strong>best hotel for couples</strong><br>- the <strong>best hotel for families</strong><br>- the <strong>best hotel under a specific budget</strong></p>"
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "area": "geografica",
+            "lingua": "IT",
+            "domanda": "hotel consigliati Locarno Ascona",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Ecco alcuni hotel consigliati nelle zone di Locarno e Ascona:</p><p><strong>Hotel Eden Roc Ascona</strong>  <br><strong>Chiuso · Hotel · 4.7 (619 recensioni)</strong>  <br><em>Via Albarelle 16, 6612 Ascona, Switzerland</em>  <br>Hotel 5 stelle situato direttamente sul Lago Maggiore, offre un lussuoso centro benessere, una spiaggia privata e una varietà di ristoranti gourmet.</p><p><strong>Hotel Ascovilla</strong>  <br><strong>Chiuso · Hotel · 4.8 (291 recensioni)</strong>  <br><em>Via Lido 20, 6612 Ascona, Switzerland</em>  <br>Hotel 4 stelle immerso in un parco subtropicale, offre piscina all'aperto, centro benessere e ristorante gourmet.</p><p><strong>Hotel &amp; Lounge Lago Maggiore</strong>  <br><strong>Chiuso · Hotel · $183 · 4.7 (748 recensioni)</strong>  <br><em>Muralto CH, Viale Verbano 25, 6600 Locarno, Switzerland</em>  <br>Hotel 4 stelle situato sul lungolago, offre camere spaziose con balcone, lounge bar, terrazza panoramica e palestra.</p><p>Per ulteriori opzioni e dettagli, puoi consultare il sito ufficiale di Ascona-Locarno, che offre una vasta gamma di alloggi nella regione. ([ascona-locarno.com])</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Ecco alcuni hotel consigliati a Locarno e Ascona:</p><p><strong>Hotel a Locarno:</strong></p><p>*   <strong>Giardino Lago:</strong> Questo hotel, situato direttamente sulle rive del Lago Maggiore, offre camere luminose e colorate con uno stile chic e comfort casalinghi. Propone inoltre sport acquatici e un ottimo ristorante.<br>*   <strong>Smart-HOTEL MINUSIO, a Swiss Quality Hotel:</strong> Circondato da un giardino con piscina all'aperto riscaldata, si trova a 2 minuti d'auto dal centro di Locarno e dal Lago Maggiore.<br>*   <strong>Boutique-Hotel REMORINO, a Lago Maggiore GARDEN RESORT:</strong> Offre un giardino, una sala comune, una terrazza e un bar.<br>*   <strong>Hotel Belvedere Locarno:</strong> Un altro hotel ben recensito a Locarno.<br>*   <strong>Riva Boutique Hotel I Lake Lodge I Beach Club I Restaurant:</strong> Questo hotel offre un'esperienza boutique con un lounge sulla spiaggia e un ristorante.<br>*   <strong>Parkhotel Delta, Wellbeing Resort:</strong> Menzionato come opzione a Locarno.<br>*   <strong>Castello del Sole Beach Resort&amp;SPA:</strong> Sebbene menzionato anche per Ascona, appare tra le opzioni con navetta aeroportuale a Locarno.<br>*   <strong>Boutique Hotel Albergo Brione:</strong> Situato a Brione Sopra Minusio, a 15 minuti di auto dal centro di Locarno, offre WiFi gratuito e un ristorante.<br>*   <strong>Hotel Lago Maggiore:</strong> Uno degli hotel più popolari a Locarno.<br>*   <strong>Hotel la Palma au Lac:</strong> Un'altra opzione popolare a Locarno.<br>*   <strong>Corippo Hotel Diffuso:</strong> Un hotel unico a Locarno.<br>*   Altri hotel includono Albergo Ristorante Belcantone, Orselina Hotel Stella, Villa Sempreverde, Orselina Hotel La Barca Blu, Hotel Casa Da Vinci e Orselina Villa Orselina - Small Luxury Hotel.</p><p><strong>Hotel a Ascona:</strong></p><p>*   <strong>Giardino Ascona:</strong> Questo hotel di lusso offre piscine interne ed esterne ed è ideale per vacanze attive con golf, vela e mountain bike disponibili. Il ristorante Ecco Ascona ha ricevuto due stelle Michelin.<br>*   <strong>Art Hotel Riposo:</strong> Situato ad Ascona, nel Canton Ticino, offre una piscina all'aperto, una terrazza solarium e un ristorante in loco.<br>*   <strong>Hotel Eden Roc - The Leading Hotels of the World:</strong> Un rinomato hotel di lusso ad Ascona.<br>*   <strong>Castello del Sole Beach Resort&amp;SPA:</strong> Un hotel di lusso con spiaggia privata e spa, spesso citato tra i migliori di Ascona.<br>*   <strong>Hotel Ascovilla Charming Hideway:</strong> Un hotel a 4 stelle situato a pochi passi dalla Piazza Giuseppe Motta.<br>*   <strong>Charme Hotel al Torchio:</strong> Situato ad Ascona, a 3,1 km da Piazza Grande di Locarno.<br>*   <strong>Hotel Garni dei fiori:</strong> Un'altra opzione di soggiorno ad Ascona.<br>*   <strong>Hotel Luna Garni:</strong> Questo hotel è elencato tra i migliori di Ascona.<br>*   <strong>Boutique-Hotel Antica Posta:</strong> Un boutique hotel ad Ascona.<br>*   <strong>Hotel Tobler:</strong> Questo hotel è apprezzato per la sua posizione e le recensioni positive.<br>*   <strong>Albergo Mirador Ascona:</strong> Un'altra opzione con buone recensioni.<br>*   <strong>Delta Resort Apartments:</strong> Un'alternativa tra gli hotel di lusso ad Ascona.<br>*   <strong>Casa Berno Panorama Resort:</strong> Un hotel di lusso con vista panoramica.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Per <strong>Locarno e Ascona</strong>, alcuni degli hotel più consigliati sono <strong>Hotel Eden Roc</strong>, <strong>Castello del Sole Beach Resort &amp; SPA</strong>, <strong>Hotel Belvedere Locarno</strong>, <strong>Seven Boutique Hotel</strong> e <strong>Giardino Ascona</strong>.</p><p>Se vuoi una selezione più mirata, ecco le opzioni più solide per stile di viaggio:</p><p>- <strong>Lusso / resort</strong>: <strong>Hotel Eden Roc</strong> e <strong>Castello del Sole Beach Resort &amp; SPA</strong> sono tra gli hotel più citati e apprezzati nell’area.<br>- <strong>Comodo per Locarno centro</strong>: <strong>Hotel Belvedere Locarno</strong> è tra le strutture più popolari nella regione.<br>- <strong>Boutique / romantico</strong>: <strong>Seven Boutique Hotel</strong> ha recensioni molto positive e si trova in posizione centrale ad Ascona.<br>- <strong>Charme e atmosfera</strong>: <strong>Giardino Ascona</strong> e <strong>Hotel Art Boutique Riposo</strong> sono spesso menzionati tra i migliori hotel di charme.<br>- <strong>Buon rapporto qualità-prezzo</strong>: <strong>Hotel City Locarno, Design &amp; Hospitality</strong> e <strong>Hotel Polo</strong> ricevono ottime valutazioni dagli ospiti.</p><p>In sintesi:<br>- Se cerchi il top assoluto: <strong>Eden Roc</strong> o <strong>Castello del Sole</strong>.<br>- Se preferisci stare più vicino a <strong>Locarno</strong>: <strong>Hotel Belvedere Locarno</strong> o <strong>Hotel City Locarno</strong>.<br>- Se vuoi un soggiorno più intimo ad <strong>Ascona</strong>: <strong>Seven Boutique Hotel</strong> o <strong>Hotel Polo</strong>.</p><p>Se vuoi, posso anche consigliarti i migliori hotel per <strong>budget</strong>, <strong>famiglie</strong>, <strong>vista lago</strong> o <strong>zona migliore tra Locarno e Ascona</strong>.</p>"
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "area": "geografica",
+            "lingua": "DE",
+            "domanda": "Hotel Tessin See Empfehlung",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Wenn Sie ein Hotel im Tessin direkt am See suchen, gibt es mehrere empfehlenswerte Optionen:</p><p><strong>Tresa Bay Hotel</strong>  <br><strong>Geschlossen · Hotel · 4.4 (361 Bewertungen)</strong>  <br><em>Via Lugano 18, 6988 Ponte Tresa, Switzerland</em>  <br>Ein familiengeführtes 3-Sterne-Hotel direkt am Luganersee. Alle Zimmer verfügen über Balkone mit direktem Seeblick. Das Hotel bietet ein Hallenbad, einen Wellnessbereich und das Restaurant BAIA mit Panoramafenstern und Seeterrasse.</p><p><strong>Best Western Hotel Bellevue au Lac</strong>  <br><strong>Geschlossen · Hotel · 4.1 (427 Bewertungen)</strong>  <br><em>Riva Antonio Caccia 10, 6900 Lugano, Switzerland</em>  <br>Ein romantisches Hotel mit 126-jähriger Tradition am Ufer des Luganersees. Es bietet moderne Annehmlichkeiten, ein beheiztes Außenschwimmbad und liegt in der Nähe des historischen Zentrums von Lugano.</p><p>Diese Hotels bieten jeweils einzigartige Erlebnisse direkt am Wasser und sind ideale Ausgangspunkte, um die Schönheit des Tessins zu entdecken.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Für Ihre Hotelempfehlung im Tessin mit Seeblick finden Sie zahlreiche attraktive Optionen sowohl am Luganersee als auch am Lago Maggiore. Diese Region ist bekannt für ihr mediterranes Flair, luxuriöse Unterkünfte und atemberaubende Aussichten.</p><p><strong>Am Luganersee:</strong></p><p>*   <strong>Grand Hotel Villa Castagnola, Lugano</strong> Ein Fünf-Sterne-Luxushotel in einem subtropischen Park direkt am Ufer des Luganersees. Es bietet luxuriöse Zimmer, Michelin-Sterne-Küche und ist ideal für Gäste, die sich am See verwöhnen lassen möchten.<br>*   <strong>The View Lugano, Lugano</strong> Dieses Hotel in Paradiso bietet atemberaubende Ausblicke auf den Luganersee und den Monte San Salvatore. Es verfügt über einen Wellnessbereich und ein Restaurant.<br>*   <strong>Villa Principe Leopoldo, Lugano</strong> Eine ehemalige Prinzen-Residenz oberhalb von Lugano, eingebettet in einen grossen Park, bietet sie Panoramaaussichten auf den Luganersee und die Berge. Das Hotel verfügt über einen grosszügigen Aussenpool und einen Spa-Bereich.<br>*   <strong>Kurhaus Cademario Hotel &amp; Spa, Cademario</strong> Majestätisch auf 850 Metern über dem Meeresspiegel gelegen, bietet dieses Hotel einen weitreichenden Blick über den Luganersee. Es verfügt über einen 2200 m² grossen Wellnessbereich mit Solebad, Saunen und beheizten Innen- und Aussenpools.<br>*   <strong>Hotel Lido Seegarten, Lugano</strong> Dieses stilvolle 4-Sterne-Hotel aus dem Jahr 1920 liegt unterhalb des Monte Brè und bietet eine Terrasse sowie einen von Palmen umstandenen Pool direkt am See mit eigenem Bootssteg.</p><p><strong>Am Lago Maggiore:</strong></p><p>*   <strong>Hotel Eden Roc, Ascona</strong> Direkt am Seeufer in Ascona gelegen, bietet dieses Luxushotel einen privaten Badestrand, einen Yachthafen und einen 2000 Quadratmeter grossen Spa-Bereich. Es wurde umfassend renoviert und bietet elegante Zimmer und Suiten.<br>*   <strong>Castello del Sole Beach Resort &amp; Spa, Ascona</strong> Umgeben von einer 140 Hektar grossen Parklandschaft direkt am Lago Maggiore, bietet dieses luxuriöse Resort ein geräumiges Wellnesscenter, Tennisplätze und einen Golfplatz.<br>*   <strong>Giardino Lago, Minusio</strong> Ein stilvolles Boutique-Hotel direkt an der Seepromenade von Minusio, mit gehobener Küche, kostenfreiem WLAN und der Möglichkeit, Fahrräder und Liegestühle zu nutzen.<br>*   <strong>Giardino Ascona, Ascona</strong> Dieses Luxushotel ist von einer blühenden Gartenanlage umgeben und bietet neben Pools auch einen 18-Loch-Golfplatz in direkter Nähe.<br>*   <strong>Art Hotel Riposo, Ascona</strong> Dieses 4-Sterne-Hotel liegt nur 70 Meter vom Lago Maggiore entfernt und bietet einen Aussenpool, eine Sonnenterrasse und ein Restaurant.<br>*   <strong>Boutique-Hotel Remorino, Minusio – Locarno</strong> Ein charmantes 4-Sterne-Hotel direkt am Lago Maggiore, das mit stilvollen Zimmern, Sonnenbalkonen und einer prächtigen Gartenanlage mit Pool überzeugt.</p><p>Viele dieser Hotels bieten nicht nur eine wunderschöne Lage am Wasser, sondern auch exzellente Gastronomie, Wellness-Einrichtungen und einen hohen Standard an Service.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Wenn du ein <strong>Hotel am See im Tessin</strong> suchst, sind besonders <strong>Eden Roc in Ascona</strong>, <strong>Giardino Lago in Minusio</strong>, <strong>Relais Castello di Morcote in Morcote</strong> und <strong>The View Lugano</strong> häufig empfohlene Optionen.</p><p>Je nach Stil würde ich so auswählen:</p><p>- <strong>Luxus direkt am See:</strong> <strong>Eden Roc, Ascona</strong> – laut NZZ Bellevue eine Top-Adresse an bester Lage, direkt am See.<br>- <strong>Ruhig und stilvoll:</strong> <strong>Giardino Lago, Minusio</strong> – ebenfalls von NZZ Bellevue empfohlen.<br>- <strong>Klein und besonders:</strong> <strong>Relais Castello di Morcote</strong> – als eines der schönsten Seehotels im Tessin genannt.<br>- <strong>Stadt + Seeblick:</strong> <strong>The View Lugano</strong> – geeignet, wenn du Lugano bevorzugst.<br>- <strong>Beliebt mit guter Weiterempfehlung:</strong> <strong>Giardino Ascona</strong>, <strong>Grand Hotel Villa Castagnola</strong> und <strong>Hotel Splendide Royal</strong> werden bei TUI mit sehr hohen Weiterempfehlungswerten geführt.</p><p>Wenn du eher nach *günstig* oder *Familie* suchst, sind diese oft interessant:</p><p>- <strong>Hotel Lido Seegarten, Lugano</strong> – direkter Seezugang und Pool, laut einem Reiseartikel mit sehr guter Bewertung.<br>- <strong>Boutique-Hotel Remorino, Locarno</strong> – häufig sehr gut bewertet und mit Pool erwähnt.<br>- <strong>Hotel Campofelice, Tenero</strong> – als preisbewusste Option nahe dem Lago Maggiore genannt.</p><p>Wenn du möchtest, kann ich dir als Nächstes eine <strong>kurze Top-5-Liste nach Budget</strong> machen:<br>- <strong>Luxus</strong><br>- <strong>Mittelklasse</strong><br>- <strong>Günstig</strong><br>- <strong>Mit Kindern</strong><br>- <strong>Romantisch zu zweit</strong></p>"
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "area": "geografica",
+            "lingua": "EN",
+            "domanda": "where to stay near Locarno Switzerland",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Locarno, situated on the northern shore of Lake Maggiore in Switzerland, offers a variety of accommodations to suit different preferences and budgets. Here are some options you might consider:</p><p><strong>ibis Locarno</strong>  <br><strong>Closed · Hotel · 4.3 (985 reviews)</strong>  <br><em>Via Giuseppe Cattori 6, 6600 Locarno, Switzerland</em>  <br>A 3-star hotel featuring a sauna, shared lounge, and proximity to the Plaza Grande.</p><p><strong>Hotel &amp; Lounge Lago Maggiore</strong>  <br><strong>Closed · Hotel · 4.7 (748 reviews)</strong>  <br><em>Muralto CH, Viale Verbano 25, 6600 Locarno, Switzerland</em>  <br>A sustainable hotel located near the lake, offering modern amenities and comfortable accommodations.</p><p><strong>Hotel Arcadia Locarno</strong>  <br><strong>Closed · Hotel · 4.3 (1014 reviews)</strong>  <br><em>Lungolago G. Motta, 6601 Locarno, Switzerland</em>  <br>A family-friendly hotel with a restaurant, pool, sauna, and children's activities, situated near the town center and railway station.</p><p><strong>Hotel Geranio au Lac</strong>  <br><strong>Closed · Hotel · 4.4 (247 reviews)</strong>  <br><em>Muralto CH, Viale Verbano 13, 6600 Locarno, Switzerland</em>  <br>A 3-star hotel located on the lake promenade, offering bright rooms with balconies and a breakfast buffet.</p><p>These options provide a range of choices, from luxury to budget-friendly accommodations, ensuring you can find a place that suits your needs near Locarno.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>When planning a stay near Locarno, Switzerland, several charming towns offer distinct atmospheres and convenient access to Locarno's attractions. The most recommended areas include Ascona, Muralto, and Minusio, each catering to different preferences.</p><p>### Ascona</p><p>Ascona is often described as a more beautiful, romantic, and luxurious alternative to Locarno, boasting a picturesque lakefront, vibrant houses, boutiques, and a lively ambiance. While generally more expensive for accommodation and dining, it provides a unique \"Dolce Vita\" experience.</p><p><strong>Accommodation in Ascona:</strong> You'll find a range of hotels, from luxury resorts like Hotel Eden Roc to various charming hotels and apartments.</p><p><strong>Transportation to Locarno:</strong> Ascona does not have its own train station, but it is very well connected to Locarno by public transport. A bus journey from Ascona, Centro to Locarno can take as little as 7 minutes and costs around CHF 2-3. Alternatively, a scenic ferry ride across Lake Maggiore takes approximately 25 minutes and costs CHF 4-7.</p><p><strong>Things to Do in Ascona:</strong> Enjoy strolling along the palm-lined promenade, exploring the winding alleys of the \"Borgo\" (old town) with its boutiques and art galleries, and dining at lakeside restaurants. Ascona is also an excellent base for boat trips to the Brissago Islands and exploring the Valle Maggia.</p><p>### Muralto</p><p>Muralto is highly convenient, particularly for those arriving by train, as Locarno's railway station is situated within Muralto. It's often considered a part of Locarno due to its close proximity, offering a more functional and accessible base.</p><p><strong>Accommodation in Muralto:</strong> Numerous hotels are located just a few minutes' walk from the train station and close to the lake. Options include Hotel Lago Maggiore, La Palma au Lac, and Hotel Muralto.</p><p><strong>Transportation to Locarno:</strong> Muralto is exceptionally close to Locarno, with the distance being only about 615 meters. Regular bus services run every 10-15 minutes, with a journey time of about 4-5 minutes and a cost of CHF 1-3. Walking to Locarno is also a viable option.</p><p><strong>Things to Do in Muralto:</strong> Explore the lakefront promenade, visit historic sites like the chapel of San Giuseppe or the church of Santa Maria Annunciata, and take advantage of its central location for day trips. Muralto also offers various outdoor activities like cycling and hiking.</p><p>### Minusio</p><p>Minusio provides a quieter, more local, and tranquil atmosphere compared to the bustling center of Locarno, with beautiful views of Lake Maggiore and the surrounding mountains. It's an ideal choice for travelers seeking a more serene escape.</p><p><strong>Accommodation in Minusio:</strong> You'll find charming hotels and apartments in Minusio, some offering stunning lake views and amenities like outdoor pools. Examples include Boutique Hotel Remorino and Smart-HOTEL MINUSIO.</p><p><strong>Transportation to Locarno:</strong> Minusio is well-connected to Locarno by both train and bus. A train ride takes approximately 2-4 minutes and costs CHF 1-2, with services running every 15-20 minutes. Bus services are also frequent, taking about 5-10 minutes and costing CHF 1-3.</p><p><strong>Things to Do in Minusio:</strong> Enjoy leisurely strolls along the lakeside path, family-friendly activities, and exploring hidden gems like Grotto Cavalli for local cuisine. Minusio is also a convenient gateway to natural attractions like the Verzasca Valley and Monte Cardada/Cimetta, accessible via cable car from nearby Orselina.</p><p>In summary, your choice of where to stay near Locarno will depend on your priorities: Ascona for a romantic and upscale lakeside experience, Muralto for ultimate convenience, especially if arriving by train, or Minusio for a peaceful and local ambiance with easy access to nature and Locarno.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>For most visitors, the best places to stay near <strong>Locarno</strong> are <strong>Piazza Grande / city center</strong>, <strong>the lake promenade near Lago Maggiore</strong>, and <strong>Muralto near the train station</strong>. These areas give you the easiest access to the old town, the lake, and transit, and many of the most central hotels are located there.</p><p>- <strong>Piazza Grande / center</strong>: Best for first-time visitors, restaurants, shops, and walking around town. Hotels like <strong>Hotel dell’Angelo</strong>, <strong>EasyRooms dell’Angelo</strong>, and <strong>Seven Town House Boutique Hotel</strong> are in or very near the center.<br>- <strong>Lake promenade / Lago Maggiore</strong>: Best if you want lake views and a more scenic stay. Examples include <strong>H4 Hotel Arcadia Locarno</strong>, <strong>Hotel la Palma au Lac</strong>, and <strong>Hotel Millennium</strong>.<br>- <strong>Muralto / train station area</strong>: Best for convenience if you’re arriving by train or planning day trips. <strong>Hotel Rio Muralto</strong> is right by the station, and <strong>Hotel Garni</strong> is opposite the station.<br>- <strong>Hill above Locarno / Orselina</strong>: Best for views and a quieter setting. <strong>La Barca Blu</strong> and <strong>Hotel Belvedere Locarno</strong> are on the hill above the city with lake and mountain views.<br>- <strong>Minusio / just outside Locarno</strong>: Good for a quieter lakeside stay a short walk or drive from the center. <strong>Boutique-HOTEL REMORINO</strong> is in Minusio and is a short walk from Lake Maggiore.</p><p>If you want the simplest recommendation: <strong>stay near Piazza Grande or the lake promenade</strong> for the best balance of location, walkability, and atmosphere.</p><p>If you want, I can also suggest the <strong>best area by budget</strong> or give you a <strong>3-day itinerary based on where you stay</strong>.</p>"
+              }
+            ]
+          }
+        ]
+      },
+      "esperienziale": {
+        "label_it": "Esperienziali",
+        "label_de": "Erlebnisorientiert",
+        "domande": [
+          {
+            "id": 7,
+            "area": "esperienziale",
+            "lingua": "DE",
+            "domanda": "Romantisches Hotel Lago Maggiore",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Der Lago Maggiore bietet eine Vielzahl romantischer Hotels, die sich ideal für einen unvergesslichen Aufenthalt zu zweit eignen. Hier sind einige Empfehlungen:</p><p><strong>Romantik Hotel Castello Seeschloss</strong>  <br><strong>Geschlossen · Hotel · 4.7 (750 Bewertungen)</strong>  <br><em>Via Circonvallazione 26, 6612 Ascona, Switzerland</em>  <br>Ein historisches Boutique-Hotel direkt an der Seepromenade von Ascona mit mediterranem Garten, beheiztem Pool und einzigartigem Blick auf den Lago Maggiore.</p><p><strong>Camin Hotel Luino</strong>  <br><strong>Geschlossen · Hotel · 4.6 (367 Bewertungen)</strong>  <br><em>Viale Dante Alighieri, 35, 21016 Luino VA, Italy</em>  <br>Eine Villa aus dem späten 19. Jahrhundert mit 14 eleganten Zimmern, die die Atmosphäre der Belle Époque widerspiegeln, ergänzt durch moderne Annehmlichkeiten und ein Gourmet-Restaurant.</p><p><strong>Castello Dal Pozzo</strong>  <br><strong>Geschlossen · Hotel · 4.5 (935 Bewertungen)</strong>  <br><em>Via Visconti, 8, 28040 Oleggio Castello NO, Italy</em>  <br>Ein 5-Sterne-Resort in einem neugotischen Schloss, das historischen Charme mit modernem Komfort verbindet, umgeben von einem Park mit Blick auf den Lago Maggiore.</p><p>Diese Hotels bieten eine perfekte Kombination aus historischem Charme, modernem Komfort und atemberaubenden Ausblicken auf den Lago Maggiore, ideal für einen romantischen Aufenthalt.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Für einen romantischen Aufenthalt am Lago Maggiore gibt es eine Vielzahl an charmanten und luxuriösen Hotels, die eine idyllische Kulisse bieten. Viele dieser Hotels zeichnen sich durch Seeblick, erstklassige Restaurants, Spa-Einrichtungen und elegante Suiten aus.</p><p>Hier sind einige Empfehlungen für romantische Hotels am Lago Maggiore:</p><p><strong>In Stresa und Umgebung (italienische Seite):</strong></p><p>*   <strong>Villa e Palazzo Aminta - A Leading Hotel of the World Stresa</strong> ist ein Deluxe-5-Sterne-Hotel, das mit originalen Fresken geschmückt ist und wichtige Annehmlichkeiten wie einen luxuriösen Spa in einer Höhle bietet. Es ist eine romantische Belle Époque Villa mit atemberaubendem Blick auf den Lago Maggiore, glamourösen Suiten und gehobener Küche. Die Lage gegenüber den Borromäischen Inseln ist besonders bezaubernd.<br>*   <strong>Grand Hotel des Iles Borromées &amp; SPA Stresa</strong> ist ein weiteres 5-Sterne-Hotel im Jugendstil, das direkt am Ufer des Lago Maggiore liegt und einen Blick auf die Borromäischen Inseln bietet. Es verfügt über Innen- und Außenpools sowie ein Spa. Das Hotel besticht durch Belle Époque Eleganz mit Kronleuchtern, Fresken und Samt.<br>*   <strong>Grand Hotel Majestic Verbania</strong> wird als romantisches Hotel in Verbania mit herrlichem Seeblick beschrieben. Es bietet luxuriöse Suiten, ein Restaurant mit exquisiter Speisekarte und spezielle Pakete für Paare. Das Hotel verfügt auch über einen beheizten Innenpool und einen schönen Garten.<br>*   <strong>Hotel Regina Palace Stresa</strong> ist ein 4-Sterne-Hotel, das über einen türkischen Dampfbad und eine Sauna verfügt. Es gehört zu den beliebtesten romantischen Hotels.<br>*   <strong>Boutique Hotel Stresa</strong> bietet Luxus an der unberührten Küste des Lago Maggiore mit einer ruhigen Atmosphäre, kulinarischen Abenteuern, einzigartigen Spa-Erlebnissen und einer atemberaubenden Aussicht von der historischen italienischen Villa. Es verfügt über 32 Suiten mit italienischen Möbeln und See- oder Gartenblick, ein Solarium mit Infinity-Pool und vier private Spa-Suiten.<br>*   <strong>Hotel Splendid in Baveno</strong> liegt direkt am Ufer des Lago Maggiore und bietet die Möglichkeit, Sport, Spa und Romantik zu verbinden.</p><p><strong>In Cannobio (italienische Seite):</strong></p><p>*   <strong>Hotel Cannobio</strong> ist ein romantisches Hotel direkt am Seeufer in Cannobio. Es bietet eine beruhigende Atmosphäre, elegant eingerichtete Zimmer und Suiten, teilweise mit privatem Balkon mit Blick auf die Lagune. Das Hotelrestaurant Porto Vecchio bietet ein magisches Abendessen bei Kerzenschein auf der Panoramaterrasse.</p><p><strong>Auf der Schweizer Seite (Ascona und Locarno):</strong></p><p>*   <strong>Castello Seeschloss</strong> in Ascona, direkt am See gelegen, ist ein ehemaliges Schloss mit Türmen, Fresken und Gewölbedecken. Es bietet einen beheizten Pool, Gärten am See, einen Weinkeller und Kochkurse.<br>*   <strong>Villa Orselina Resort</strong> in Locarno ist ein 5-Sterne-Hotel mit atemberaubendem Blick auf den Lago Maggiore. Es verfügt über 28 individuell gestaltete Zimmer und Suiten, ein Wellnesscenter und Spa sowie zwei Restaurants.<br>*   <strong>Hotel Eden Roc Ascona</strong> ist ein weiteres 5-Sterne-Luxushotel direkt am Seeufer mit Privatstrand. Es ist ein wahres Paradies mit mediterranem Flair und einem 2000 qm großen Wellnessbereich.<br>*   <strong>Hotel Belvedere Locarno</strong> ist ein 4-Sterne-Hotel, das 90 Zimmer und Suiten mit schöner Aussicht auf den Lago Maggiore, die Stadt und die Berge bietet. Es befindet sich oberhalb von Locarno und bietet erhöhte Seeblicke.</p><p>Diese Hotels bieten eine Mischung aus historischem Charme, luxuriöser Ausstattung und der natürlichen Schönheit des Lago Maggiore, um einen unvergesslichen romantischen Aufenthalt zu gewährleisten.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Am <strong>Lago Maggiore</strong> gibt es viele romantische Hotels; Booking nennt <strong>115</strong> romantische Hotels in der Region, und andere Buchungsseiten führen ähnliche Auswahlseiten mit einer großen Zahl an Unterkünften. Besonders oft genannt werden <strong>Hotel Villa &amp; Palazzo Aminta</strong> in Stresa, <strong>Grand Hotel Majestic</strong> sowie <strong>Hotel Cannero</strong>.</p><p>Wenn Sie nach besonders <strong>romantischen Empfehlungen</strong> suchen, werden in den Ergebnissen diese Häuser häufig hervorgehoben:<br>- <strong>Grand Hotel des Iles Borromées &amp; Spa</strong> in Stresa, mit Seeausblick und Spa-Angebot.<br>- <strong>Hotel Villa &amp; Palazzo Aminta</strong> in Stresa, von Tripadvisor-Reisenden als sehr romantisch beschrieben.<br>- <strong>Hotel Cannero</strong> in Cannero Riviera, direkt am See gelegen.<br>- <strong>Hotel Verbano</strong> auf der Isola dei Pescatori, mit Restaurant und Zimmern auf einer Insel; von The Hotel Guru als ideal für eine romantische Auszeit beschrieben.<br>- <strong>Grand Hotel Majestic</strong> in Verbania, mit ruhiger Lage, Seeblick und speziellen Paar-Paketen.</p><p>Wenn Sie möchten, kann ich Ihnen auch eine <strong>Top-5-Liste nach Budget</strong>, <strong>mit Wellness</strong>, oder <strong>für den besten Seeblick</strong> zusammenstellen.</p>"
+              }
+            ]
+          },
+          {
+            "id": 8,
+            "area": "esperienziale",
+            "lingua": "DE",
+            "domanda": "Familienhotel Locarno mit Pool",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>In Locarno gibt es mehrere familienfreundliche Hotels mit Pool, die sich ideal für einen Aufenthalt mit Kindern eignen. Hier sind einige Empfehlungen:</p><p><strong>Aparthotel Al Lago</strong>  <br><strong>Geschlossen · Bed &amp; breakfast · 4.5 (281 Bewertungen)</strong>  <br><em>Lungolago Giuseppe Motta 12, 6600 Locarno, Switzerland</em>  <br>Direkt am Ufer des Lago Maggiore gelegen, verfügt dieses Hotel über einen Garten mit Pool und Liegestühlen. Es bietet komfortable Unterkünfte und ein gesundes, vielfältiges Frühstück, ideal für Familien, die Entspannung und Aktivitäten am Wasser suchen.</p><p><strong>Hotel Belvedere Locarno</strong>  <br><strong>Geschlossen · Hotel · 4.7 (836 Bewertungen)</strong>  <br><em>Via ai Monti 44, 6600 Locarno, Switzerland</em>  <br>Dieses Hotel bietet zahlreiche Aktivitäten für Familien, darunter Zugang zum nahegelegenen Centro Termali Salini &amp; Spa Lido Locarno und dem Splash &amp; Spa Rivera. Es ist ideal für Familien, die Sport, Wellness und Unterhaltung kombinieren möchten.</p><p>Diese Hotels bieten eine Kombination aus komfortablen Unterkünften, Pools und familienfreundlichen Einrichtungen, die Ihren Aufenthalt in Locarno angenehm gestalten.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>In Locarno und Umgebung gibt es mehrere familienfreundliche Hotels mit Pools, die sich gut für einen Urlaub mit Kindern eignen.</p><p>Zu den Top-Empfehlungen gehören:</p><p>*   <strong>H4 Hotel Arcadia Locarno, a Trademark Collection by Wyndham</strong> Dieses Hotel liegt direkt an der Seepromenade des Lago Maggiore und ist nur fünf Gehminuten von der Piazza Grande entfernt. Es verfügt über einen Garten mit einem Aussenpool und bietet kostenlose Leihfahrräder an. Kinder erhalten bei der Ankunft ein kleines Geschenk. Das Hotel ist zudem als familienfreundlich von Hotelleriesuisse ausgezeichnet.<br>*   <strong>Hotel La Campagnola – Familienresort am Lago Maggiore</strong> Hoch über dem Lago Maggiore gelegen, bietet dieses Resort eine fantastische Aussicht auf Locarno, Ascona und die südlichen Alpen. Es gilt als ideales Familienhotel und verfügt über einen beheizten Swimmingpool (April-Oktober), ein Kinderplanschbecken und einen grossen Quellwasser-Pool. Für Kinder gibt es eine \"Western Town\" mit Spiel- und Abenteuerangeboten.<br>*   <strong>Albergo Losone</strong> Dieses Hotel wird explizit als Familienhotel in Locarno genannt und wurde laut Sonntagszeitung sogar als bestes Familienhotel der Schweiz ausgezeichnet.<br>*   <strong>Parkhotel Delta, Wellbeing Resort</strong> sowie dessen zugehörige Unterkünfte wie Villa Delta - Parkhotel Delta, Villa Favorita - Parkhotel Delta und Delta Resort Apartments, werden ebenfalls als familienfreundliche Optionen mit Pools aufgeführt.</p><p>Weitere Hotels mit Pools in Locarno, die für Familien in Betracht kommen könnten, sind:</p><p>*   <strong>Hotel Stella SA</strong><br>*   <strong>Hotel Nessi Locarno</strong><br>*   <strong>Hotel Belvedere Locarno</strong><br>*   <strong>Aparthotel Al Lago</strong><br>*   <strong>Castello del Sole Beach Resort &amp; SPA</strong><br>*   <strong>Dorint Resort &amp; Spa Locarno Riazzino</strong></p><p>Für Gäste, die einen Innenpool bevorzugen, bietet das <strong>Hotel Schloss Locarno - Suites &amp; Apartments</strong> diese Möglichkeit.</p><p>Auch das <strong>Campofelice Camping Village</strong><strong>* in Tenero</strong>, etwa 4,3 km von Locarno entfernt, ist eine 5-Sterne-Option mit Pool, die als familienfreundlich gilt.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Für ein <strong>Familienhotel in Locarno mit Pool</strong> sind diese Optionen aus den Treffern besonders passend:</p><p>- <strong>H4 Hotel Arcadia Locarno</strong> – laut Schweiz Tourismus ein familienfreundliches Hotel direkt an der Seepromenade mit <strong>Park mit Pool und Bar</strong> sowie großen Zimmern.<br>- <strong>Smart-HOTEL MINUSIO</strong> – laut Booking.com von einem Garten mit <strong>beheiztem Außenpool</strong> umgeben und nur wenige Fahrminuten vom Zentrum Locarnos und dem Lago Maggiore entfernt.<br>- <strong>Dorint Resort &amp; Spa Locarno Riazzino</strong> – Hotels.com führt es unter den <strong>familienfreundlichen Hotels mit Pool</strong> in Locarno.<br>- <strong>Hotel Belvedere Locarno</strong> – Booking.com beschreibt es als familiengeeignetes 4-Sterne-Superior-Hotel mit <strong>Indoor-Pool</strong>.<br>- <strong>Aparthotel Al Lago</strong> – Tripadvisor erwähnt ausdrücklich <strong>Pool vorhanden</strong> und familienfreundliche Lage nahe See und Zentrum.</p><p>Wenn du möchtest, kann ich dir daraus auch direkt eine <strong>Top 3 nach Lage, Preis oder Kinderfreundlichkeit</strong> zusammenstellen.</p>"
+              }
+            ]
+          },
+          {
+            "id": 9,
+            "area": "esperienziale",
+            "lingua": "EN",
+            "domanda": "pet friendly hotel Lake Maggiore",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Lake Maggiore offers a variety of pet-friendly accommodations to ensure a comfortable stay for you and your furry companion. Here are some options to consider:</p><p><strong>Hotel La Campagnola - Green Energy Resort</strong><br><em>San Nazzaro, Switzerland</em><br>A comfortable 3-star hotel situated a short walk from Lake Maggiore, offering amenities suitable for guests traveling with pets.</p><p><strong>Hotel Regina Palace</strong><br><em>Stresa, Italy</em><br>A 4-star hotel located within 25 minutes' walk of Isola dei Pescatori Island, providing a peaceful retreat with pet-friendly accommodations.</p><p><strong>Hotel Astoria</strong><br><em>Stresa, Italy</em><br>A 4-star hotel featuring 18 holes of golf and a poolside bar, welcoming pets to accompany their owners during their stay.</p><p><strong>Hotel La Palma</strong><br><em>Stresa, Italy</em><br>A 4-star hotel offering 18 holes of golf and standing close to the Church of Saints Ambrogio and Theodolo, accommodating pets.</p><p><strong>Sheraton Lake Como Hotel</strong><br><em>Lake Como, Italy</em><br>Located approximately 17 miles from Lake Maggiore, this hotel features a park with swimming pools, a spa with indoor pools, and welcomes pets.</p><p><strong>Giardino Ascona, a Member of Design Hotels™</strong><br><em>Ascona, Switzerland</em><br>A Tuscan-style retreat along Switzerland’s Lake Maggiore, offering pet-friendly accommodations.</p><p>Please note that pet policies, fees, and allowances vary by property. It's advisable to review each hotel's specific pet policy directly on their website or contact them before booking to ensure they meet your needs.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Lake Maggiore offers a variety of pet-friendly accommodations, ranging from luxury hotels with extensive services for animals to more standard options. Here are some notable pet-friendly hotels in the area:</p><p><strong>Hotels with Detailed Pet Amenities:</strong></p><p>*   <strong>Villa e Palazzo Aminta</strong> This hotel goes above and beyond to welcome pets, offering several dedicated spaces and services. They can accommodate small, medium, and large dogs, with Villa Amintina providing direct garden access for dogs to run freely. Pets have free access to the lobby and restaurant terrace when on a leash. The hotel provides a \"DOGGYLY corner\" in the room with fresh water, a biscuit, and a comfortable dog bed, along with a special Dog Menu. Veterinary services, dog shopping, and a dog \"coiffeur\" are available upon request.</p><p><strong>Other Pet-Friendly Hotels on Lake Maggiore:</strong></p><p>Many other hotels in the Lake Maggiore region also welcome pets, including:</p><p>*   <strong>Hotel La Campagnola - Green Energy Resort</strong><br>*   <strong>Hotel Regina Palace</strong><br>*   <strong>Hotel Astoria</strong><br>*   <strong>Hotel La Palma</strong><br>*   <strong>Hotel Simplon</strong><br>*   <strong>Grand Hotel Dino</strong><br>*   <strong>Grand Hotel Des Iles Borromees &amp; Spa</strong><br>*   <strong>Castello Dal Pozzo Resort Lago Maggiore - Preferred Hotels &amp; Resorts</strong><br>*   <strong>Hotel Milan Speranza Au Lac Stresa</strong><br>*   <strong>Faber Apartments-Residence Style</strong><br>*   <strong>Hotel Splendid Baveno</strong><br>*   <strong>Hotel Campagna</strong> (in Cannobio)<br>*   <strong>Hotel La Fontana</strong><br>*   <strong>Giardino Lago</strong><br>*   <strong>Hotel Belvedere Locarno</strong><br>*   <strong>Affittacamere Via Mazzini</strong><br>*   <strong>Albergo Carcani</strong><br>*   <strong>Albergo Del Sole</strong><br>*   <strong>Albergo Losone</strong><br>*   <strong>Albergo Mirador</strong><br>*   <strong>Albergo Paradiso</strong><br>*   <strong>Albergo Ristorante San Carlo</strong><br>*   <strong>Resort Antico Verbano</strong><br>*   <strong>Hotel Cannero</strong><br>*   <strong>Hotel Lago Maggiore - Welcome!</strong><br>*   <strong>Hotel Internazionale Luino</strong><br>*   <strong>Hotel Lido La Perla</strong><br>*   <strong>Grand Hotel Majestic</strong></p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Here are some <strong>pet-friendly hotel</strong> options in <strong>Lake Maggiore</strong> that appear frequently in the results:</p><p>- <strong>Hotel Cannobio</strong> in Cannobio, described by the hotel as a <strong>4-star pet-friendly hotel on Lake Maggiore</strong> with access to common areas for pets and pet-focused amenities.<br>- <strong>Villa &amp; Palazzo Aminta</strong> near Lake Maggiore, which says it welcomes small, medium, and even medium/large dogs, with a dog menu, welcome package, and pet access to the lobby and restaurant terrace on a lead.<br>- <strong>Grand Hotel des Iles Borromées &amp; SPA</strong>, <strong>Hotel Cannero</strong>, and <strong>Belvedere</strong> are among the most popular pet-friendly hotels in the Lake Maggiore area according to Booking.com.<br>- <strong>Casa Diverio</strong> is also listed by Booking.com as a popular pet-friendly option in the region.<br>- On Tripadvisor, some of the best-rated pet-friendly hotels in Lake Maggiore include <strong>Hotel de Charme Laveno</strong>, <strong>Relais Villa Porta</strong>, and <strong>Camin Hotel Luino</strong>.</p><p>If you want, I can also narrow this down by:<br>- <strong>budget</strong><br>- <strong>luxury</strong><br>- <strong>lakefront location</strong><br>- <strong>town</strong> like Stresa, Cannobio, or Luino</p>"
+              }
+            ]
+          },
+          {
+            "id": 10,
+            "area": "esperienziale",
+            "lingua": "IT",
+            "domanda": "hotel con vista lago Ascona",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Ecco alcune opzioni di hotel ad Ascona che offrono camere con vista sul lago:</p><p><strong>Hotel Tamaro</strong>  <br><strong>Chiuso · Hotel · 4.2 (294 recensioni)</strong>  <br><em>Piazza Giuseppe Motta 35, 6612 Ascona, Switzerland</em>  <br>Dimora patrizia del XVIII secolo situata sulle rive del Lago Maggiore, offre camere con vista lago o montagna, suite per famiglie e accesso a una piscina immersa nel verde.</p><p><strong>Hotel La Meridiana Lake &amp; SPA</strong>  <br><strong>Chiuso · Hotel · 4.6 (364 recensioni)</strong>  <br><em>Piazza Giuseppe Motta 61, 6612 Ascona, Switzerland</em>  <br>Situato direttamente sul lungolago, offre camere moderne e confortevoli con vista sul Lago Maggiore, una piscina coperta riscaldata, bagno turco e bio sauna.</p><p><strong>Hotel Arancio - Risorante da capo</strong>  <br><strong>Chiuso · Hotel · 4.6 (234 recensioni)</strong>  <br><em>Str. Collinetta 78, 6612 Ascona, Switzerland</em>  <br>Immerso in un parco di palme, offre una magnifica vista sul Lago Maggiore e sulle Isole di Brissago, con una spiaggia privata e un ristorante con terrazza panoramica.</p><p><strong>Boutique Hotel La Rocca</strong>  <br><strong>Chiuso · Hotel · 4.6 (196 recensioni)</strong>  <br><em>Via Ronco 61, 6613 Ronco sopra Ascona, Switzerland</em>  <br>Elegante hotel con tutte le camere vista lago, situato in una tranquilla oasi vicino al Lago Maggiore e alle Isole di Brissago.</p><p><strong>Vista Lakefront Boutique Hotel</strong>  <br><strong>Chiuso · Hotel · 4.4 (90 recensioni)</strong>  <br><em>Piazza Giuseppe Motta 29, 6612 Ascona, Switzerland</em>  <br>Situato nel cuore del borgo di Ascona, offre camere rinnovate con vista sul lago, a pochi passi dalla passeggiata sul lungolago.</p><p>Questi hotel offrono una combinazione di comfort e viste panoramiche sul Lago Maggiore, rendendo il soggiorno ad Ascona un'esperienza indimenticabile.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Ecco alcuni hotel ad Ascona che offrono una splendida vista sul lago:</p><p>*   <strong>Vista Lakefront Boutique Hotel:</strong> Questo hotel è situato direttamente sulle rive del Lago Maggiore e offre camere con viste mozzafiato sul lago e sulle montagne. Alcune suite dispongono anche di balconi con vista sul lago. La colazione viene servita direttamente sul lungolago, offrendo una vista incantevole sulla baia di Ascona.</p><p>*   <strong>Hotel Meridiana:</strong> L'Hotel La Meridiana Lake &amp; Spa si trova sul pittoresco lungolago di Ascona e regala una splendida vista sul Lago Maggiore. Dispone di una terrazza ideale per rilassarsi.</p><p>*   <strong>Hotel Casa Berno:</strong> Questo hotel a 4 stelle è posizionato sopra il Lago Maggiore, immerso in un parco subtropicale. Le sue camere e suite vantano una vista fantastica. Anche la grande piscina panoramica riscaldata e la piccola oasi benessere con sauna panoramica offrono una vista mozzafiato sul lago.</p><p>*   <strong>Hotel Ascona:</strong> Situato sulle pendici della collina di Monte Verità, l'Hotel Ascona si affaccia sul Lago Maggiore. L'hotel dispone di un'esclusiva terrazza panoramica e di una piscina soleggiata con vista sul lago, immersa in giardini privati subtropicali.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Se cerchi un <strong>hotel con vista lago ad Ascona</strong>, le opzioni più citate nei risultati sono <strong>Seven Boutique Hotel</strong>, <strong>Albergo Carcani by Ketty &amp; Tommy</strong> e <strong>Hotel Collinetta</strong>. Tutti offrono camere o terrazze con vista sul Lago Maggiore, e alcuni sono proprio sul lungolago o molto vicini al centro.</p><p>- <strong>Seven Boutique Hotel</strong>: camere singole e doppie con <strong>balcone e vista lago</strong>; si trova in <strong>Piazza di Ascona</strong>.<br>- <strong>Albergo Carcani by Ketty &amp; Tommy</strong>: ha una <strong>terrazza con vista sul lago</strong> e camere con vista panoramica.<br>- <strong>Hotel Collinetta</strong>: in un parco mediterraneo <strong>sopra il Lago Maggiore</strong>, con camere con <strong>balcone o terrazza</strong>.<br>- <strong>Hotel Tamaro</strong>: situato <strong>sulle rive del Lago Maggiore</strong> nel centro di Ascona; nei risultati viene descritto con <strong>vista diretta sul lago</strong> e terrazza panoramica.<br>- <strong>Casa Berno Panorama Resort</strong>: noto per la <strong>vista sublime sul Lago Maggiore</strong> e la piscina panoramica.</p><p>Se vuoi, posso anche fare una selezione più pratica in base a:<br>- <strong>miglior vista</strong><br>- <strong>miglior rapporto qualità/prezzo</strong><br>- <strong>hotel romantico</strong><br>- <strong>hotel con piscina e vista lago</strong></p>"
+              }
+            ]
+          },
+          {
+            "id": 11,
+            "area": "esperienziale",
+            "lingua": "DE",
+            "domanda": "Wellness Hotel Tessin See",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Im Tessin gibt es mehrere Wellnesshotels, die direkt an einem See liegen und Entspannung sowie Erholung bieten. Hier sind einige Empfehlungen:</p><p><strong>Tresa Bay Hotel</strong>  <br><strong>Geschlossen · Hotel · 4.4 (361 Bewertungen)</strong>  <br><em>Via Lugano 18, 6988 Ponte Tresa, Switzerland</em>  <br>Dieses familiengeführte Hotel liegt direkt am Ufer des Luganer Sees und verfügt über 40 Zimmer mit Balkon und Seeblick. Es bietet ein Hallenbad und einen Wellnessbereich für Entspannung.</p><p><strong>Hotel Serpiano Panorama Retreat</strong>  <br><strong>Geschlossen · Hotel · 3.9 (581 Bewertungen)</strong>  <br><em>6867 Serpiano TI, Switzerland</em>  <br>Gelegen am Luganer See, bietet dieses Hotel ein beheiztes Hallenbad, Whirlpool, Fitnessraum, Sauna und Dampfbad. Gäste können sich in der kleinen Oase des Wohlbefindens regenerieren.</p><p><strong>Kurhaus Cademario Hotel &amp; Spa</strong>  <br><strong>Geschlossen · Wellness hotel · 4.3 (1047 Bewertungen)</strong>  <br><em>Via Kurhaus 12, 6936 Cademario, Switzerland</em>  <br>Dieses Hotel liegt hoch über dem Luganer See und verfügt über einen 2.200 m² großen Wellnessbereich mit Innen- und Außenpools, Saunalandschaft und Fitnessraum. Es ist ein Adults-only-Haus und bietet absolute Ruhe und Entspannung.</p><p><strong>Sunstar Hotel Brissago</strong>  <br><strong>Geschlossen · Hotel · 4.7 (387 Bewertungen)</strong>  <br><em>Via Gabbietta 3, 6614 Brissago, Switzerland</em>  <br>Nur wenige Schritte von der Seeuferpromenade des Lago Maggiore entfernt, bietet dieses Hotel einen Wellnessbereich mit Hallenbad, Sauna, Dampfbad und Erlebnisduschen. Gäste können zudem den privaten Badesteg am See nutzen.</p><p><strong>Hotel Villa Carona</strong>  <br><strong>Geschlossen · Hotel · 4.6 (192 Bewertungen)</strong>  <br><em>Via Principale 53, 6914 Lugano, Switzerland</em>  <br>Dieses Hotel bietet eine neue Wellnessoase mit Sauna, Dampfbad, Relaxgarten, Swimmingpool und Hot Pot unter freiem Himmel. Ein Ort der Ruhe und Entspannung im Tessin.</p><p><strong>Hotel La Palma au Lac</strong>  <br><strong>Geschlossen · Hotel · 4.5 (1070 Bewertungen)</strong>  <br><em>Viale Verbano 29, 6600 Muralto, Switzerland</em>  <br>Direkt am Lago Maggiore gelegen, bietet dieses Hotel einen Wellness- und Spa-Bereich mit Thai-Massagen und weiteren Entspannungsmöglichkeiten. Ideal für Reisende mit Ansprüchen.</p><p><strong>Swiss Diamond Hotel Lugano</strong>  <br><strong>Geschlossen · Hotel · 4.3 (1199 Bewertungen)</strong>  <br><em>Riva lago Olivella 29, 6921 Vico Morcote, Switzerland</em>  <br>Dieses 5-Sterne-Hotel am Ufer des Luganer Sees verfügt über das Venus Wellness Center mit Jacuzzi, Hammam, türkischem Dampfbad und Jet-Kaskaden. Ein luxuriöser Ort für Wellness-Liebhaber.</p><p>Diese Hotels bieten eine Kombination aus luxuriösen Unterkünften, umfassenden Wellnessangeboten und atemberaubenden Seeblicken, ideal für einen erholsamen Aufenthalt im Tessin.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Das Tessin, der südlichste Kanton der Schweiz, bietet eine Vielzahl an Wellnesshotels am See, die sich ideal für einen erholsamen Urlaub eignen. Die Hotels liegen hauptsächlich am Lago Maggiore und am Luganersee und zeichnen sich oft durch mediterranes Flair, luxuriöse Spa-Bereiche und eine fantastische Aussicht aus.</p><p><strong>Wellnesshotels am Lago Maggiore:</strong></p><p>*   <strong>Hotel Eden Roc in Ascona</strong> gilt als eine der Top-Adressen für Spa und Wellness am Lago Maggiore. Es verfügt über zwei Innen- und Aussenpools, einen Kneipp-Weg, eine grosse Saunawelt mit Dampfbad, Sanarium und finnischer Sauna sowie ein Fitnesscenter. Das Hotel ist zudem klimaneutral und nachhaltig ausgerichtet.<br>*   <strong>Villa Orselina in Locarno</strong> ist ein 5-Sterne-Boutique-Hotel oberhalb von Locarno mit Blick auf den Lago Maggiore. Es bietet elegante Zimmer und Suiten, zwei Restaurants, einen subtropischen Garten und einen luxuriösen Spa-Bereich mit beheiztem Aussenpool.<br>*   <strong>Termali Salini &amp; Spa in Locarno</strong> bietet ein aussergewöhnliches Spa direkt am Lago Maggiore. Im Untergeschoss gibt es Natur-Solebäder und Grotten, während das Obergeschoss lichtdurchflutete Räume mit Panoramablick auf die umliegenden Berge bietet. Das Spa-Angebot umfasst auch Gesundheits- und Baderituale.<br>*   <strong>La Palma au Lac in Locarno</strong> ist ein Spa-Hotel direkt am Ufer des Lago Maggiore, das Wellness, Spa und Massagen, einschliesslich Thai-Massagen und verwöhnende Spa-Rituale, anbietet.<br>*   Weitere empfehlenswerte Wellnesshotels am Lago Maggiore sind das <strong>Castello del Sole Beach Resort &amp; SPA in Ascona</strong> mit einem 300 m langen Privatstrand und einem geräumigen Wellnesscenter, sowie das <strong>Boutique Hotel Sunstar Brissago am Lago Maggiore</strong>.</p><p><strong>Wellnesshotels am Luganersee:</strong></p><p>*   <strong>The View Lugano</strong> bietet Suiten mit exzellenter Aussicht auf den Luganersee. Das Boutique-Luxus-Hotel in Lugano wurde 2015 eröffnet und liegt direkt an den Hängen des Monte San Salvatore.<br>*   <strong>Hotel Serpiano Wellness &amp; SPA</strong> liegt mit Blick auf den Luganersee und bietet ein beheiztes Hallenbad, Whirlpool, Fitnessraum, Sauna, Dampfbad und einen Ruheraum mit Garten und Liegestühlen.<br>*   <strong>Kurhaus Cademario Hotel &amp; Spa</strong> thront 850 Meter über dem Meeresspiegel mit einem atemberaubenden Blick auf den Luganersee. Das komplett renovierte Hotel bietet stilvolle Zimmer und Suiten, meist mit Balkon oder Terrasse, zwei Restaurants, eine Bar und das moderne DOT.Spa mit Freibad.<br>*   <strong>Villa Sassa Hotel in Lugano</strong> liegt hoch über der Stadt mit einem tollen Ausblick auf Lugano, den Luganersee und die umliegenden Berge. Das Vier-Sterne-Hotel verfügt über einen umfangreichen Wellness-Club mit Hallenbad, Panoramapool, Sauna, Dampfbad, Whirlpool, Relaxzone und Fitnesscenter.<br>*   Das <strong>Hotel Parco San Marco Lifestyle Beach Resort</strong> am Luganersee ist in einen subtropischen Garten eingebettet und verfügt über einen 3.000 qm grossen Privatstrand sowie einen Bergwald. Das Family SPA bietet einen Innenpool mit Massagedüsen, Whirlpool, Biosauna und finnische Sauna.<br>*   Das <strong>Grand Hotel Villa Castagnola</strong> in Lugano bietet ebenfalls ein umfassendes Spa- und Wellnessangebot.</p><p>Viele dieser Hotels bieten nicht nur umfassende Spa- und Wellnessbereiche mit verschiedenen Saunen, Dampfbädern, Innen- und Aussenpools, sondern auch Massagen, Körperbehandlungen und Fitnessmöglichkeiten. Einige legen auch Wert auf Nachhaltigkeit und besondere kulinarische Erlebnisse.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Im <strong>Tessin</strong> gibt es viele <strong>Wellnesshotels am See</strong>, besonders am <strong>Lago Maggiore</strong> und am <strong>Luganersee</strong>. Zu den häufig genannten Adressen zählen das <strong>Hotel Serpiano Wellness &amp; SPA</strong> am Luganersee, das <strong>Hotel Eden Roc</strong> in Ascona sowie das <strong>The View Lugano</strong> und die <strong>Villa Sassa</strong> in Lugano.</p><p>Wenn Sie gezielt ein <strong>Wellnesshotel Tessin See</strong> suchen, sind diese Kriterien meist entscheidend:</p><p>- <strong>Direkter Seezugang</strong> oder Lage direkt am Ufer, etwa bei Hotels am Lago Maggiore oder Luganersee.<br>- <strong>Spa- und Poolbereich</strong> mit Sauna, Dampfbad, Whirlpool oder Hallenbad.<br>- <strong>Panorama-/Balkonzimmer</strong> mit Seeblick, was bei vielen Tessiner Wellnesshotels hervorgehoben wird.<br>- <strong>Ruhige Lage in der Natur</strong>, oft mit mediterranen Gärten oder Hanglage über dem See.</p><p>Besonders passend für unterschiedliche Bedürfnisse:</p><p>| Bedarf | Geeignete Hotels |<br>|---|---|<br>| <strong>Direkt am See</strong> | Hotel Eden Roc, Grand Hotel Villa Castagnola, Castello del Sole, Swiss Diamond Hotel &amp; SPA |<br>| <strong>Ruhig mit Aussicht</strong> | Hotel Serpiano, La Campagnola, Kurhaus Cademario |<br>| <strong>Luxus-Wellness</strong> | The View Lugano, Giardino Ascona, Grand Hotel Villa Castagnola |<br>| <strong>Familienfreundlich</strong> | Parkhotel Delta, La Palma au Lac |</p><p>Wenn Sie möchten, kann ich Ihnen als Nächstes eine <strong>kurze Top-5-Liste nach Budget</strong>, <strong>nur Hotels direkt am See</strong>, oder <strong>Wellnesshotels im Tessin mit den besten Bewertungen</strong> zusammenstellen.</p>"
+              }
+            ]
+          },
+          {
+            "id": 12,
+            "area": "esperienziale",
+            "lingua": "EN",
+            "domanda": "boutique hotel Ascona Switzerland",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Ascona, Switzerland, offers a variety of boutique hotels that combine luxury with personalized service. Here are some notable options:</p><p><strong>Art Hotel Riposo</strong>  <br><strong>Closed · Hotel · 4.8 (329 reviews)</strong>  <br><em>Scalinata della Ruga 4, 6612 Ascona, Switzerland</em>  <br>A 4-star hotel offering an outdoor pool, sun terrace, and an on-site restaurant, with rooms featuring balconies or patios.</p><p><strong>Boutique Hotel La Rocca</strong>  <br><strong>Closed · Hotel · 4.6 (196 reviews)</strong>  <br><em>Via Ronco 61, 6613 Ronco sopra Ascona, Switzerland</em>  <br>A 4-star hotel offering panoramic views of Lake Maggiore and the Brissago Islands, with modern apartments and a future indoor infinity pool and spa set to open in 2028.</p><p><strong>Vista Lakefront Boutique Hotel</strong>  <br><strong>Closed · Hotel · 4.4 (90 reviews)</strong>  <br><em>Piazza Giuseppe Motta 29, 6612 Ascona, Switzerland</em>  <br>A 3-star hotel situated in the heart of Ascona, offering rooms with private balconies overlooking Lake Maggiore, and dining options at partner restaurants along the promenade.</p><p>Each of these hotels provides a unique experience, catering to different preferences and budgets. Whether you're seeking lakeside luxury or a charming retreat in the heart of Ascona, these boutique hotels offer exceptional accommodations.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Ascona, Switzerland, is home to a selection of charming boutique hotels, each offering a unique experience for travelers seeking luxury, comfort, and personalized service.</p><p>Here are some of the notable boutique hotels in Ascona:</p><p>*   <strong>Seven Boutique Hotel:</strong> Located in the heart of Ascona's city center on the lively Piazza G. Motta, the Seven Boutique Hotel offers a tranquil retreat with a blend of luxury and serenity. This 3-star hotel, completely renovated in 2017 with a Shabby Chic Mediterranean design, features 63 rooms distributed across five different houses, some with lake views and balconies overlooking Lake Maggiore, and others offering quiet views of an ancient courtyard and garden. Guests consistently praise its excellent breakfast, prime location, and friendly staff. The hotel also provides a bar, laundry service, safety deposit boxes, and a concierge service.<br>*   <strong>Vista Lakefront Boutique Hotel:</strong> Situated directly on the shore of Lake Maggiore, the Vista Lakefront Boutique Hotel offers an \"extraordinary hideaway\" with enchanting views of the lake and mountains. This hotel embraces Ascona's vibrant tradition with its colorful facades and aims to provide a happy stay through its warm welcome, comfortable rooms, and exceptional cuisine. Guests can enjoy breakfast directly on the lakeside promenade. The hotel offers seven room categories, including peaceful Garden View rooms and bright suites with balconies overlooking the lake.<br>*   <strong>Living Ascona Boutique Hotel:</strong> This comfortable 3-star hotel is located within walking distance of the Lungolago, Ascona, and approximately 0.6 km from the Monte Verità Foundation. It offers a sundeck, a shared lounge, and a barber shop. The 12 rooms are equipped with climate control, and the hotel provides wheelchair access, accessible bathrooms, and rooms for guests with special needs.<br>*   <strong>Art Hotel Riposo:</strong> Myboutiquehotel.com rates Art Hotel Riposo as \"Fabulous\" with a 9.5/10 rating. This 4-star hotel has 29 rooms and is noted as a top boutique hotel in Ascona.<br>*   <strong>Giardino Ascona:</strong> A 5-star establishment, Giardino Ascona is highly rated (9.5/10 by Myboutiquehotel.com and Trip.com) and is described as an \"amazing place with a beautiful garden and an exceptional crew\". It features a garden with a koi pond and a clean swimming pool, spacious rooms with air conditioning, and excellent restaurants. A shuttle service is available to transport guests into town.<br>*   <strong>Romantik Hotel Castello Seeschloss:</strong> This 4-star hotel also receives superb reviews (9/10 by Myboutiquehotel.com) and is recognized as a quality boutique option in Ascona.</p><p>Other highly-rated hotels in the vicinity include Hotel Belvedere Locarno, Hotel Villa Emden in Brissago, and Giardino Lago in Locarno, though these are located outside of Ascona itself.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>If you’re looking for a <strong>boutique hotel in Ascona, Switzerland</strong>, the best-known options in the search results are <strong>Vista Lakefront Boutique Hotel</strong> and <strong>Seven Boutique Hotel</strong>.</p><p>- <strong>Vista Lakefront Boutique Hotel</strong> sits directly on the shore of Lake Maggiore and offers <strong>seven room categories</strong>.<br>- <strong>Seven Boutique Hotel</strong> is in the center of Ascona on <strong>Piazza G. Motta</strong> and has <strong>63 rooms</strong> spread across <strong>five buildings</strong>.<br>- A broader Ascona boutique-hotel listing also includes <strong>Art Hotel Riposo</strong>, <strong>Hotel Eden Roc</strong>, <strong>Hotel Monte Verità</strong>, <strong>Hotel Collinetta</strong>, <strong>Albergo Carcani</strong>, <strong>Hotel La Meridiana, Lake &amp; Spa</strong>, and <strong>Boutique-Hotel Antica Posta</strong>.</p><p>If you want, I can narrow this down by:<br>- <strong>best luxury boutique hotel</strong><br>- <strong>best lakefront boutique hotel</strong><br>- <strong>best value boutique hotel</strong><br>- <strong>quiet / romantic / family-friendly</strong> option</p>"
+              }
+            ]
+          }
+        ]
+      },
+      "pratica": {
+        "label_it": "Pratiche",
+        "label_de": "Praktisch",
+        "domande": [
+          {
+            "id": 13,
+            "area": "pratica",
+            "lingua": "DE",
+            "domanda": "Hotel Locarno mit kostenlosem Parkplatz",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>In Locarno gibt es mehrere Hotels, die Parkmöglichkeiten anbieten, jedoch sind kostenlose Parkplätze selten. Hier sind einige Optionen:</p><p><strong>Hotel City Locarno</strong>  <br><strong>Geschlossen · Hotel · 4.6 (469 Bewertungen)</strong>  <br><em>Via Giuseppe Cattori 4, 6600 Locarno, Switzerland</em>  <br>Modernes Hotel im Stadtzentrum mit eigener Tiefgarage. Parkplätze können für CHF 19.00 pro Nacht reserviert werden.</p><p><strong>Hotel Belvedere Locarno</strong>  <br><strong>Geschlossen · Hotel · 4.7 (836 Bewertungen)</strong>  <br><em>Via ai Monti 44, 6600 Locarno, Switzerland</em>  <br>Bietet Parkplätze vor Ort für CHF 15.00 pro Nacht an. Ein kostenloser Shuttle vom Bahnhof ist ebenfalls verfügbar.</p><p><strong>Hotel La Palma au Lac</strong>  <br><strong>Geschlossen · Hotel · 4.5 (1070 Bewertungen)</strong>  <br><em>Viale Verbano 29, 6600 Muralto, Switzerland</em>  <br>Direkt an der Seepromenade gelegen, bietet dieses Hotel Parkmöglichkeiten für Gäste an.</p><p>Bitte beachten Sie, dass kostenlose Parkplätze in Locarno selten sind. Es empfiehlt sich, die aktuellen Parkgebühren direkt beim Hotel zu erfragen und gegebenenfalls im Voraus einen Parkplatz zu reservieren.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Das Hotel Locarno, ein spezifisches Hotel, befindet sich in Rom, Italien, und bietet keine kostenlosen Parkplätze an. Stattdessen steht Valet-Parking gegen eine Gebühr zur Verfügung.</p><p>Wenn Sie jedoch nach Unterkünften mit kostenlosem Parkplatz in Locarno, Schweiz, suchen, gibt es verschiedene Optionen:</p><p><strong>Apartments und andere Unterkünfte in Locarno, Schweiz, mit kostenlosem Parkplatz:</strong></p><p>*   <strong>Central Apartment, Free Parking, Netflix and Wifi</strong> ist eine Wohnung in Locarno, die kostenlose Parkplätze vor Ort, kostenloses WLAN und eine Klimaanlage bietet.<br>*   <strong>Locarno Centro, a pochi passi dal lago - Free Parking</strong> ist ein Apartment mit Stadtblick, Terrasse, kostenlosem Privatparkplatz und kostenlosem WLAN.<br>*   <strong>Locarno Center - Casa Incanto - Free Parking &amp; Washer</strong> bietet ebenfalls kostenloses WLAN und kostenfreie Privatparkplätze.<br>*   <strong>RELAX Camelia Apartment</strong> bietet familienfreundliche Unterkünfte mit kostenlosen Parkplätzen vor Ort.<br>*   <strong>Casa Milo al Lago</strong> verfügt über kostenloses WLAN und sichere Parkplätze vor Ort ohne zusätzliche Kosten.<br>*   <strong>Villa Mappina Roccabella</strong> bietet kostenlose Parkplätze und einen Außenpool.<br>*   <strong>Schloss Locarno - Suites &amp; Apartments</strong> bietet kostenloses WLAN und kostenlose Privatparkplätze.</p><p><strong>Hotels in Locarno, Schweiz, die kostenloses Parken anbieten:</strong></p><p>*   Einige der beliebtesten Hotels mit kostenlosem Parkplatz in Locarno sind <strong>Pensione Olanda</strong> und <strong>Osteria La Riva</strong>.<br>*   Das <strong>Locarno Youth Hostel</strong> bietet private Parkplätze vor Ort.<br>*   <strong>Hotel City Locarno</strong> bietet einen privaten Parkplatz vor Ort.<br>*   <strong>LA VILLA - Studios &amp; Rooms, a Swiss Quality Hotel</strong> bietet Familienzimmer und kostenlose Parkplätze in Minusio, in der Nähe von Locarno.</p><p>Es ist ratsam, die spezifischen Parkmöglichkeiten direkt bei der Unterkunft zu überprüfen, da die Verfügbarkeit und die Kosten variieren können.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Hier sind einige <strong>Hotels in Locarno mit kostenlosem Parkplatz</strong>:</p><p>- <strong>Boutique Hotel Remorino</strong> – laut Escapio gibt es <strong>kostenlose Parkmöglichkeiten</strong> für Gäste.<br>- <strong>Central Apartment, Free Parking</strong> – HolidayCheck führt <strong>kostenlose Parkplätze</strong> als Ausstattung auf.<br>- <strong>H4 Hotel Arcadia Locarno</strong> – HolidayCheck nennt <strong>kostenfreie Parkiermöglichkeiten</strong>; in den Details werden allerdings auch <strong>Tiefgarage</strong> und teils <strong>19 Euro pro Nacht</strong> erwähnt, also bitte die aktuelle Regelung prüfen.<br>- <strong>Castello del Sole Beach Resort &amp; SPA</strong> – Hotels.com zählt es zu den Favoriten für Locarno mit <strong>kostenlosem Parking</strong>.</p><p>Wenn du möchtest, kann ich dir auch eine <strong>kurze Liste mit den besten 3 Optionen direkt in Locarno-Zentrum</strong> oder <strong>nach Preis sortiert</strong> zusammenstellen.</p>"
+              }
+            ]
+          },
+          {
+            "id": 14,
+            "area": "pratica",
+            "lingua": "DE",
+            "domanda": "Hotel Ascona Frühstück inklusive",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>In Ascona gibt es mehrere Hotels, die Übernachtungen inklusive Frühstück anbieten. Hier sind einige Optionen:</p><p><strong>Hotel La Perla Ascona</strong>  <br><strong>Geschlossen · Hotel · 4.1 (391 Bewertungen)</strong>  <br><em>Str. Collina 14, 6612 Ascona, Switzerland</em>  <br>Bietet ein reichhaltiges süßes und herzhaftes Frühstücksbuffet mit glutenfreien und veganen Optionen. Frühstückszeiten: Montag bis Samstag 7:30–10:00 Uhr, Sonntag 7:30–10:30 Uhr. Gäste schätzen die Aussicht auf die Berge während des Frühstücks.</p><p><strong>Boutique Hotel La Rocca</strong>  <br><strong>Geschlossen · Hotel · 4.6 (196 Bewertungen)</strong>  <br><em>Via Ronco 61, 6613 Ronco sopra Ascona, Switzerland</em>  <br>Von April bis Oktober wird täglich ein Frühstück mit frischen, lokalen Produkten serviert. Das Hotel liegt leicht erhöht und bietet eine atemberaubende Aussicht auf den Lago Maggiore.</p><p><strong>Boutique-Hotel &amp; Ristorante Antica Posta</strong>  <br><strong>Geschlossen · Hotel · 4.7 (215 Bewertungen)</strong>  <br><em>Via Borgo 45, 6612 Ascona, Switzerland</em>  <br>Alle Übernachtungen beinhalten Frühstück. Die Zimmer sind individuell gestaltet und bieten ein einzigartiges Ambiente in der Altstadt von Ascona.</p><p><strong>Hotel Arancio - Risorante da capo</strong>  <br><strong>Geschlossen · Hotel · 4.6 (234 Bewertungen)</strong>  <br><em>Str. Collinetta 78, 6612 Ascona, Switzerland</em>  <br>Bietet gemütlich eingerichtete Zimmer mit Frühstück. Gäste loben die wunderschöne Lage mit perfekter Sicht auf den See und die schöne Frühstücksterrasse.</p><p><strong>Giardino Ascona</strong>  <br><strong>Geschlossen · Hotel · 4.9 (569 Bewertungen)</strong>  <br><em>Strada del Segnale 10, 6612 Ascona, Switzerland</em>  <br>Bietet Übernachtungen inklusive Frühstück. Gäste können zwischen verschiedenen Zimmerkategorien wählen und den Wellnessbereich nutzen.</p><p><strong>Hotel Eden Roc Ascona</strong>  <br><strong>Geschlossen · Hotel · 4.7 (619 Bewertungen)</strong>  <br><em>Via Albarelle 16, 6612 Ascona, Switzerland</em>  <br>Bietet kostenfreies Frühstücksbuffet sowie kontinentales Frühstück. Kinder bis 3 Jahre übernachten kostenlos im Zimmer der Eltern.</p><p>Bitte beachten Sie, dass die Verfügbarkeit und Details variieren können. Es ist empfehlenswert, die aktuellen Informationen direkt auf den Websites der Hotels zu überprüfen oder sie direkt zu kontaktieren.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Ja, das Hotel Ascona bietet Frühstück an. Es wird als reichhaltiges Buffet mit süßen und herzhaften Optionen beschrieben, darunter Backwaren, Milchprodukte, Marmeladen, Eier, Aufschnitt, Käse und Obst. Einige Quellen weisen darauf hin, dass das Frühstück im Preis inbegriffen ist. Gäste können auch warme Gerichte à la carte bestellen, die frisch zubereitet werden, und spezielle Ernährungsbedürfnisse können auf Anfrage berücksichtigt werden.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Wenn Sie <strong>Hotel Ascona</strong> in <strong>Ascona (Tessin)</strong> meinen: Ja, dort ist <strong>Frühstück inklusive</strong> bzw. als <strong>inbegriffenes Frühstücksbuffet</strong> angegeben.</p><p>Das Hotel beschreibt ein <strong>reichhaltiges Buffet</strong> mit süßen und herzhaften Speisen, darunter Backwaren, Milchprodukte, Konfitüren, Eier, Wurst, Käse und saisonales Obst; zusätzlich gibt es eine <strong>Frühstücksspeisekarte</strong> mit à-la-minute zubereiteten Gerichten.</p><p>Die Frühstückszeiten werden bei Expedia mit <strong>täglich 08:00 bis 10:30 Uhr</strong> angegeben.</p><p>Falls Sie stattdessen ein anderes <strong>Hotel Ascona</strong> meinen, sagen Sie mir kurz welches Land oder den genauen Ort, dann prüfe ich es gezielt.</p>"
+              }
+            ]
+          },
+          {
+            "id": 15,
+            "area": "pratica",
+            "lingua": "EN",
+            "domanda": "hotel near Locarno train station",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Here are some hotels located near the Locarno Train Station in Locarno, Switzerland:</p><p><strong>Hotel Binario</strong><br><em>Locarno, Switzerland</em><br>Situated approximately 200 feet from the Locarno Train Station, this hotel offers free Wi-Fi and modern, well-equipped rooms. Guests have praised the friendly staff and excellent breakfast.</p><p><strong>Hotel Scaletta</strong><br><em>Locarno, Switzerland</em><br>Located about 200 feet from the train station, Hotel Scaletta features a bar and is within walking distance of Piazza Grande Locarno. Guests appreciate the clean rooms and welcoming staff.</p><p><strong>Hotel Rio Muralto</strong><br><em>Locarno, Switzerland</em><br>Just 300 feet from the train station, this hotel was completely renovated in 2013. It offers bright, spacious rooms and a convenient location near public transport and the funicular to Madonna del Sasso.</p><p><strong>Hotel Geranio Au Lac</strong><br><em>Locarno, Switzerland</em><br>Set on the lakeshore promenade, this hotel is 328 feet from the train station and city center. Guests enjoy the lake views and proximity to local attractions.</p><p><strong>Hotel Lago Maggiore - Welcome!</strong><br><em>Locarno, Switzerland</em><br>Located on the beautiful lake promenade, a few steps from the city center, this hotel offers expansive rooms with balconies overlooking the lake, a fitness center, and a terrace.</p><p><strong>Hotel Millennium</strong><br><em>Locarno, Switzerland</em><br>Overlooking the lake and near the train station, this hotel offers a fantastic location with easy access to the main city sights.</p><p>These hotels offer convenient access to the Locarno Train Station and are well-regarded by guests for their amenities and service.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Here are several hotels located near Locarno train station:</p><p>*   <strong>Hotel Muralto Locarno</strong> is very close to the train station, approximately 0.19 km away. It's situated in Muralto.<br>*   <strong>ibis Locarno</strong> is a budget-friendly option just a short walk from the train station and also close to the lake and promenade. This 3-star hotel is fully air-conditioned, non-smoking, and offers a 24-hour bar, sauna, relax area, and breakfast.<br>*   <strong>Hotel Millennium</strong> is located right on the banks of Lake Maggiore, near the harbor, and only a 2-minute walk from the Old Town and the train station.<br>*   <strong>Hotel Garni Muralto</strong> is another hotel that is only minutes on foot from the railway station.<br>*   <strong>Hotel Belvedere Locarno</strong> is about 0.47 km from Locarno Train Station. This hotel offers a free shuttle bus service from the Locarno station to the hotel, which should be booked in advance.<br>*   <strong>Hotel dell'Angelo</strong> is approximately 0.68 km from Locarno Train Station and is noted as a cheaper option.<br>*   <strong>Du Lac Hotel</strong> is in the heart of Locarno, overlooking the mountains and lake, and is 200 meters from the train station.<br>*   <strong>H4 Hotel Arcadia Locarno</strong> is a family-type hotel with a restaurant, pool, sauna, children's activities, and a garden terrace, located near the town center and railway station.<br>*   <strong>Hotel la Palma au Lac</strong> is situated on the beautiful lake promenade, a few steps from the city center.<br>*   <strong>Miralago Locarno Easy Rooms - Easy Self Check-In</strong> is located in Muralto and has a great location near the train station.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>If you want a <strong>hotel near Locarno train station</strong>, the closest options in the search results are <strong>Hotel Rio Muralto</strong>, <strong>Hotel Garni</strong>, <strong>ibis Locarno</strong>, <strong>Hotel Muralto</strong>, and <strong>Hotel La Palma au Lac</strong>.</p><p>- <strong>Hotel Rio Muralto</strong> — directly <strong>in front of the station</strong>, about a <strong>1-minute walk</strong>.<br>- <strong>Hotel Garni</strong> — <strong>opposite the bus and train station</strong>; about a <strong>5-minute walk</strong> to the lake and Piazza Grande.<br>- <strong>ibis Locarno</strong> — about <strong>2 minutes on foot</strong> from the station.<br>- <strong>Hotel Muralto</strong> — about <strong>0.2 km</strong> from Locarno Station, with comments noting it is close to the station and funicular.<br>- <strong>Hotel La Palma au Lac</strong> — about <strong>0.3 km</strong> from Locarno Station.</p><p>If you want, I can also narrow these down by <strong>budget</strong>, <strong>best rating</strong>, or <strong>best lake view</strong>.</p>"
+              }
+            ]
+          },
+          {
+            "id": 16,
+            "area": "pratica",
+            "lingua": "IT",
+            "domanda": "hotel Locarno con parcheggio gratuito",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>A Locarno, trovare hotel con parcheggio gratuito può essere una sfida, poiché molti offrono parcheggi a pagamento. Ecco alcune opzioni da considerare:</p><p><strong>Smart-HOTEL MINUSIO</strong>  <br><strong>Chiuso · Hotel · 4.7 (179 recensioni)</strong>  <br><em>Via Esplanade 6, 6648 Minusio, Switzerland</em>  <br>Situato a breve distanza da Locarno, questo hotel offre parcheggio gratuito per gli ospiti, oltre a Wi-Fi gratuito e camere climatizzate.</p><p><strong>Boutique-Hotel Remorino</strong>  <br><strong>Chiuso · Hotel · 4.7 (196 recensioni)</strong>  <br><em>Via Verbano 29, 6648 Minusio, Switzerland</em>  <br>Questo hotel offre parcheggio gratuito per gli ospiti, Wi-Fi gratuito e un ambiente accogliente.</p><p><strong>Hotel Belvedere Locarno</strong>  <br><strong>Chiuso · Hotel · 4.7 (836 recensioni)</strong>  <br><em>Via ai Monti 44, 6600 Locarno, Switzerland</em>  <br>Offre parcheggio a pagamento a 13 CHF al giorno, Wi-Fi gratuito e un ristorante in loco.</p><p><strong>Hampton by Hilton Locarno</strong>  <br><strong>Chiuso · Hotel · 4.4 (201 recensioni)</strong>  <br><em>Via dei Pioppi 2, 6616 Losone, Switzerland</em>  <br>Situato nelle vicinanze di Locarno, offre parcheggio a pagamento a 15 CHF al giorno, colazione calda gratuita e Wi-Fi gratuito.</p><p><strong>Hotel dell'Angelo</strong>  <br><strong>Chiuso · Hotel · $72 · 3.4 (1890 recensioni)</strong>  <br><em>Piazza Grande, 6600 Locarno, Switzerland</em>  <br>Situato nel cuore di Locarno, offre parcheggio a pagamento presso il vicino Parking Castello a 15 CHF al giorno, Wi-Fi gratuito e un ristorante-pizzeria.</p><p><strong>ibis Locarno</strong>  <br><strong>Chiuso · Hotel · 4.3 (985 recensioni)</strong>  <br><em>Via Giuseppe Cattori 6, 6600 Locarno, Switzerland</em>  <br>Situato nel centro di Locarno, offre parcheggio a pagamento, Wi-Fi gratuito e un bar aperto 24 ore su 24.</p><p>Si consiglia di contattare direttamente gli hotel per confermare la disponibilità del parcheggio gratuito e per ottenere informazioni aggiornate sulle tariffe e sui servizi offerti.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>A Locarno, diverse strutture offrono parcheggio gratuito per i loro ospiti:</p><p>*   <strong>Locarno Center - Free Parking, Netflix and WiFi</strong> dispone di parcheggio gratuito.<br>*   <strong>Locarno Centro, a pochi passi dal lago - Free Parking</strong> offre un parcheggio privato gratuito.<br>*   <strong>CENTRAL APARTMENT, FREE PARKING, LOCARNO</strong> include anche il parcheggio gratuito.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>A Locarno ci sono hotel con <strong>parcheggio gratuito</strong>, ma dalla ricerca emergono anche strutture con parcheggio <strong>a pagamento</strong> o <strong>su richiesta</strong>. Tra quelle risultanti, <strong>Pensione Olanda</strong> indica un <strong>parcheggio privato gratuito in loco</strong>, mentre <strong>Attico Bellavista</strong> su Booking riporta un <strong>parcheggio privato gratuito</strong>.</p><p>Altre opzioni vicine a Locarno segnalate con parcheggio gratuito nelle fonti incluse sono:</p><p>- <strong>Hotel Belvedere Locarno</strong>: su Travelmyth viene descritto con <strong>free parking</strong> e parcheggio in loco apprezzato dagli ospiti.<br>- <strong>Residenza Vivian Deluxe Apartments</strong>: offre <strong>free parking</strong> in garage privato.<br>- <strong>Castello del Sole Beach Resort &amp; SPA</strong>: Hotels.com lo segnala tra i preferiti dei viaggiatori per chi arriva in auto.<br>- <strong>Hotel De La Paix Lugano</strong>: nelle recensioni appare con <strong>parcheggio gratuito</strong>, ma non è a Locarno e si trova a circa 22,7 km.<br>- <strong>Relais Villa Porta</strong>: nelle recensioni appare con <strong>molti posti auto gratuiti</strong>, ma è a circa 16,2 km da Locarno.</p><p>Se vuoi, posso anche prepararti una lista più utile in uno di questi formati:<br>- <strong>solo hotel a Locarno città</strong><br>- <strong>hotel con parcheggio gratuito e prezzo più basso</strong><br>- <strong>hotel 3/4 stelle con parcheggio gratuito</strong><br>- <strong>hotel vicino al centro/Piazza Grande</strong></p>"
+              }
+            ]
+          }
+        ]
+      },
+      "stagionale_eventi": {
+        "label_it": "Stagionali / Eventi",
+        "label_de": "Saisonal / Events",
+        "domande": [
+          {
+            "id": 17,
+            "area": "stagionale_eventi",
+            "lingua": "DE",
+            "domanda": "Hotel Locarno für Festivals und Veranstaltungen",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Locarno ist bekannt für seine vielfältigen Festivals und Veranstaltungen, die das ganze Jahr über stattfinden. Hier sind einige der wichtigsten Events:</p><p>[New Age | Locarno hails hybrid-format film festival]<br><strong>Locarno Film Festival</strong>  <br>Eines der renommiertesten internationalen Filmfestivals, das jährlich im August stattfindet. Es präsentiert Hunderte von Filmen auf der großen Leinwand der Piazza Grande und zieht über 8.000 Zuschauer an. ([hotelamerica.ch])</p><p>[Città di Locarno / Immagini / Gli spettacoli e le manifestazioni - Moon &amp; Stars]<br><strong>Moon and Stars Festival</strong>  <br>Ein berühmtes Musikfestival, das jedes Jahr im Juli auf der Piazza Grande stattfindet. Der Open-Air-Event dauert 8-10 Tage und begrüßt über 12.000 Gäste. ([hotelamerica.ch])</p><p>[JazzAscona | Ascona-Locarno]<br><strong>Jazz Ascona Festival</strong>  <br>Dieses Festival findet Ende Juni bis Anfang Juli statt und zieht Jazzliebhaber aus aller Welt an. Die Konzerte finden vor der spektakulären Kulisse des Lago Maggiore und der umliegenden Berge statt. ([belvedere-locarno.com])</p><p>[Locarno Camelie 2023, incanto sul lago Maggiore. Quando, come arrivare e biglietti: tutte le info sulla mostra]<br><strong>Camellia Festival</strong>  <br>Im März findet in Locarno das Kamelienfestival statt, bei dem über 300 Kamelienarten präsentiert werden. Der Kamelienpark an der Seepromenade erblüht in voller Pracht mit über 900 Sorten. ([hotelstella.ch])</p><p>[Hiking Switzerland, special hiking tours in autumn]<br><strong>Castagnata (Kastanienfest)</strong>  <br>Im Oktober wird in Ascona das Kastanienfest gefeiert, bei dem die goldbraune Kastanie in verschiedenen Formen angeboten wird. ([hotelstella.ch])</p><p>Für Ihren Aufenthalt während dieser Veranstaltungen bieten sich verschiedene Hotels in Locarno an, die sich in unmittelbarer Nähe der Veranstaltungsorte befinden. Beispielsweise liegt das Hotel America direkt an der Piazza Grande und ist somit ideal für Besucher des Filmfestivals und des Moon and Stars Festivals. ([hotelamerica.ch])</p><p>Bitte beachten Sie, dass die genauen Daten und Programme der Festivals variieren können. Es ist daher ratsam, die offiziellen Websites der jeweiligen Veranstaltungen für aktuelle Informationen zu konsultieren.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Das Hotel Locarno in Rom ist hervorragend für Festivals und Veranstaltungen geeignet. Es handelt sich um ein renommiertes 5-Sterne-Hotel im Jugendstil, das eine lange und enge Verbindung zur Kunst- und Kulturwelt pflegt und in der Vergangenheit bereits viele Künstler, Filmemacher und Persönlichkeiten des öffentlichen Lebens beherbergt hat.</p><p>Das Hotel bietet vielfältige und charmante Räumlichkeiten für verschiedene Anlässe. Dazu gehören die Terrazza Locarno mit Blick über Trinità dei Monti, die Bar Locarno mit ihrem gemütlichen Garten sowie intime private Salons und Dachterrassen. Diese flexiblen Bereiche eignen sich für eine breite Palette von Veranstaltungen, von Hochzeiten, Feiern und Geburtstagsfeiern bis hin zu Geschäftstreffen, Cocktail-Empfängen und Galadiners. Das Hotel bietet zudem maßgeschneiderte Dienstleistungen und gastronomische Optionen an.</p><p>Die historische Bedeutung des Hotel Locarno als Treffpunkt für Künstler und als Ort, der eng mit der Kunst- und Filmwelt verbunden ist, macht es zu einer idealen Wahl für Veranstaltungen im Rahmen von Festivals. Die zentrale Lage des Hotels in Rom, nur wenige Gehminuten von der Piazza del Popolo, der Spanischen Treppe und anderen wichtigen Sehenswürdigkeiten entfernt, ist ebenfalls vorteilhaft für Festivalbesucher und Organisatoren.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Wenn Sie ein <strong>Hotel in Locarno für Festivals und Veranstaltungen</strong> suchen, sind Hotels nahe der <strong>Piazza Grande</strong> besonders praktisch, weil dort wichtige Events wie <strong>Moon &amp; Stars</strong> und das <strong>Locarno Film Festival</strong> stattfinden.</p><p>- Das <strong>Rio Garni</strong> liegt laut ticino.ch in Locarno-Muralto nur 2 Gehminuten vom Bahnhof und 5 Gehminuten von der Piazza Grande entfernt; dort finden zentrale Veranstaltungen wie das Filmfestival, Moon &amp; Stars und das Kamelienfest statt.<br>- Das <strong>Hotel America Locarno</strong> hebt hervor, dass die weltbekannten Open-Air-Konzerte und Festivals auf der Piazza Grande stattfinden, insbesondere <strong>Moon &amp; Stars</strong> im Juli und das <strong>Locarno Film Festival</strong> im August.<br>- Das <strong>Dorint Resort Locarno/Riazzino</strong> ist stärker auf <strong>Tagungen, Konferenzen und Feierlichkeiten</strong> ausgerichtet und bietet mehrere Veranstaltungsräume sowie Tagungstechnik, also eher eine Option für geschäftliche Events als für die direkte Nähe zur Piazza Grande.</p><p>Die wichtigsten Festivaltermine in Locarno sind laut den Quellen meist <strong>Mitte Juli für Moon &amp; Stars</strong> und <strong>Mitte August für das Filmfestival</strong>; 2026 nennen mehrere Quellen etwa <strong>9.–19. Juli</strong> für Moon &amp; Stars und <strong>5.–15. August</strong> für das Filmfestival.</p><p>Wenn Sie möchten, kann ich Ihnen als Nächstes eine kurze Liste der <strong>besten Hotels nach Nähe zur Piazza Grande, Preisniveau oder Familienfreundlichkeit</strong> zusammenstellen.</p>"
+              }
+            ]
+          },
+          {
+            "id": 18,
+            "area": "stagionale_eventi",
+            "lingua": "DE",
+            "domanda": "Hotel Ascona Herbstferien Wanderurlaub",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Ascona am Lago Maggiore ist ein hervorragendes Ziel für einen Wanderurlaub während der Herbstferien. Die Region bietet zahlreiche Wanderwege durch malerische Landschaften, die im Herbst in warmen Farben erstrahlen. Zudem gibt es eine Vielzahl von Hotels, die sich ideal als Ausgangspunkt für Ihre Wanderungen eignen. Hier sind einige Empfehlungen:</p><p><strong>Hotel Ascona</strong>  <br><strong>Geschlossen · Hotel · 4.2 (407 Bewertungen)</strong>  <br><em>Via Signor in Croce 1, 6612 Ascona, Switzerland</em>  <br>Gelegen am Monte Verità mit Blick auf den Lago Maggiore, bietet dieses Hotel subtropische Gärten, einen beheizten Pool und direkten Zugang zu Wanderwegen. Es gibt spezielle Angebote für Langzeitaufenthalte und Mountainbike-Enthusiasten.</p><p><strong>Ascona Lodge, Pool &amp; Garden Retreat</strong>  <br><strong>Geschlossen · Hotel · 4.7 (264 Bewertungen)</strong>  <br><em>Via delle Scuole 17, 6612 Ascona, Switzerland</em>  <br>Dieses Hotel verfügt über einen beheizten Außenpool und bietet City-Bikes sowie E-Bikes für Gäste an, ideal für die Erkundung der Umgebung. Es ist ein bikerfreundliches Hotel und bietet Zugang zu zahlreichen Wander- und Radwegen.</p><p><strong>Parkhotel Emmaus</strong>  <br><strong>Geschlossen · Hotel · 4.4 (192 Bewertungen)</strong>  <br><em>Via Emmaus 15, 6616 Losone, Switzerland</em>  <br>Umgeben von einem großen mediterranen Park, bietet dieses Hotel eine ruhige Atmosphäre und ist dennoch zentral gelegen. Es ist ideal für Familien und Gruppen, die die Natur genießen möchten.</p><p><strong>Hotel Arancio - Risorante da capo</strong>  <br><strong>Geschlossen · Hotel · 4.6 (234 Bewertungen)</strong>  <br><em>Str. Collinetta 78, 6612 Ascona, Switzerland</em>  <br>Dieses Hotel liegt erhöht über dem Lago Maggiore und bietet einen zauberhaften Blick auf den See und die umliegenden Berge. Es verfügt über ein großes Schwimmbad und einen eigenen Strand am See.</p><p><strong>Hotel La Meridiana Lake &amp; SPA</strong>  <br><strong>Geschlossen · Hotel · 4.6 (364 Bewertungen)</strong>  <br><em>Piazza Giuseppe Motta 61, 6612 Ascona, Switzerland</em>  <br>Dieses Hotel kombiniert historischen Charme mit modernem Komfort und bietet eine Panoramaterrasse mit Blick auf den Lago Maggiore, einen beheizten Innenpool und eine Wellness-Oase.</p><p><strong>Hotel Ascovilla</strong>  <br><strong>Geschlossen · Hotel · 4.8 (291 Bewertungen)</strong>  <br><em>Via Lido 20, 6612 Ascona, Switzerland</em>  <br>Eine idyllische und ruhige Ferienoase im Herzen von Ascona, nur wenige Schritte von der berühmten Piazza entfernt. Das Hotel verfügt über einen subtropischen Garten und bietet attraktive Pakete für Golf-Enthusiasten.</p><p>Bitte beachten Sie, dass die Verfügbarkeit und spezielle Angebote je nach Saison variieren können. Es ist daher ratsam, die aktuellen Informationen direkt auf den Websites der Hotels zu überprüfen oder Kontakt mit ihnen aufzunehmen, um die besten Optionen für Ihren Wanderurlaub in den Herbstferien zu finden.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Ascona in the Swiss canton of Ticino is an ideal destination for a hiking holiday during the autumn (Herbstferien), offering a combination of mild climate, vibrant natural landscapes, and diverse hiking trails. The region is known for its extended pleasant temperatures in late summer and autumn, making it perfect for outdoor activities amidst colorful scenery.</p><p>Several hotels in and around Ascona cater specifically to hiking enthusiasts or offer excellent facilities for a hiking vacation:</p><p>*   <strong>Hotel Casa Berno</strong> is highlighted as a \"Wanderhotel\" (hiking hotel) directly on Lago Maggiore, serving as a perfect starting point for numerous hikes. It offers comfort and comprehensive service after active days and provides access to over 1400 km of marked hiking trails. The hotel also features specific \"Adventure and pleasure hiking week\" packages, which include half-board, transfers, mineral water, and lunch snacks, as well as access to their outdoor pool, wellness area, and mountain bikes.<br>*   <strong>Hotel Tobler Ascona</strong> offers activities like hiking, cycling, and table tennis, alongside a heated swimming pool.<br>*   <strong>Art Hotel Riposo</strong> and <strong>Hotel Luna Garni</strong> are other options in Ascona, providing comfortable stays in the region known for its natural beauty.<br>*   <strong>Hotel Ascona</strong> offers various packages, including those for long stays, and highlights its proximity to Ticino's nature and wellbeing trails, with free access to its wellness area.<br>*   <strong>Giardino Ascona</strong>, a 5-star hotel, is open until mid-October and provides a luxurious retreat with a spa, making it suitable for relaxation after hikes.<br>*   <strong>Vista Lakefront Boutique Hotel</strong> in Ascona also promotes hiking on Monte Verità in the autumn light.</p><p>The Ascona-Locarno region boasts a 4,000-kilometer network of well-marked hiking trails, ranging from easy walks to challenging mountain tours. Popular hiking areas and trails include:</p><p>*   <strong>Centovalli</strong>: Known for its stunning autumn colors, especially experienced via the \"Foliage-Zug\" (Foliage Train).<br>*   <strong>Monte Verità</strong>: Offers a unique cultural and spiritual hiking experience with views of Lago Maggiore.<br>*   <strong>Cardada-Cimetta</strong>: Accessible by cable car, offering diverse trails and breathtaking views.<br>*   <strong>Valle Verzasca</strong>: Ideal for discovering beyond the emerald green river, particularly beautiful in autumn.<br>*   <strong>Gambarogno</strong>: Features idyllic villages and enchanting hilly landscapes with panoramic views of Locarno and Ascona.</p><p>For those staying overnight, the <strong>Ticino Ticket</strong> is a valuable benefit, providing free use of public transportation throughout the region and discounts on various attractions, including mountain railways, which can be very helpful for accessing hiking routes.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Für einen <strong>Herbstferien-Wanderurlaub in Ascona</strong> sind vor allem Hotels interessant, die *ruhig liegen, Naturzugang bieten und idealerweise Balkon, Garten oder Pool haben*. Besonders passend wirken <strong>Hotel Collinetta</strong>, <strong>Hotel Casa Berno</strong>, <strong>Hotel Ascona</strong> und <strong>Ascona Lodge</strong>. </p><p>- <strong>Hotel Ascona</strong>: liegt ruhig auf dem Monte Verità, mit Panoramablick auf Ascona und den Lago Maggiore; von dort sind Altstadt und See in etwa 7–10 Gehminuten erreichbar, und Ausflüge ins Centovalli oder nach Indemini werden ausdrücklich empfohlen. <br>- <strong>Hotel Collinetta</strong>: liegt inmitten eines mediterranen Parks direkt über dem Lago Maggiore und bietet Zimmer mit Balkon oder Terrasse, was für Wanderferien sehr gut passt. <br>- <strong>Hotel Casa Berno</strong>: liegt hoch über dem Lago Maggiore in einem subtropischen Park; zusätzlich wird es als Trailrunning-Hotel geführt, was auf gute Nähe zu Lauf- und Wanderwegen hindeutet. <br>- <strong>Ascona Lodge, Pool &amp; Garden Retreat</strong>: liegt ruhig inmitten eines großen Gartens, nur wenige Schritte vom See und vom Zentrum entfernt. <br>- <strong>Hotel Eden Roc</strong> und <strong>Giardino Ascona</strong> gehören zu den besonders hochwertigen Optionen in Ascona, falls du eher Komfort als Preisfokus suchst. </p><p>Für die Wanderumgebung ist Ascona generell geeignet: Das milde Klima lockt bis in den Spätherbst, und in der Umgebung sind laut Trivago <strong>83 Routen</strong> ausgeschildert.  TripAdvisor nennt zudem mehrere Hotels in Ascona als besonders geeignet für Wanderurlaub, darunter <strong>Hotel Eden Roc</strong>, <strong>Hotel Luna</strong>, <strong>Albergo Carcani</strong>, <strong>Collinetta Hotel &amp; Ristorante</strong> und <strong>Castello del Sole Beach Resort &amp; SPA</strong>. </p><p>Wenn du möchtest, kann ich dir als Nächstes eine <strong>Top-5-Liste nach Preis, Lage oder Familienfreundlichkeit</strong> für Herbstferien in Ascona zusammenstellen.</p>"
+              }
+            ]
+          },
+          {
+            "id": 19,
+            "area": "stagionale_eventi",
+            "lingua": "EN",
+            "domanda": "hotel Locarno for summer events and festivals",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>Locarno, Switzerland, offers a vibrant array of summer events and festivals in 2026. Here are some highlights:</p><p>[Locarno 2026 - L'Uruguay au menu du programme First Look - Le film français]<br><strong>Luci e Ombre</strong>  <br>From July 24 to 26, 2026, the Locarno-Muralto lakefront will host 'Luci e Ombre,' featuring entertainment, music, food, and a spectacular fireworks display on Saturday night at 10:45 p.m. ([farm.myswitzerland.com])</p><p>[Quattro stelle sul cielo della Rotonda - Ticinonline]<br><strong>Rotonda by la Mobiliare</strong>  <br>From July 30 to August 15, 2026, 'Rotonda by la Mobiliare' serves as the Locarno Film Festival village, offering music, entertainment, bars, food trucks, and local and international products under the theme 'Come together!' ([ascona-locarno.com])</p><p>[Locarno Film Festival 2026 | Ascona-Locarno]<br><strong>Locarno Film Festival</strong>  <br>Running from August 5 to 15, 2026, the 79th Locarno Film Festival showcases a diverse selection of films, attracting cinephiles worldwide. ([locarno.ch])</p><p>[Moon+Stars 2026 - Event in Ticino]<br><strong>Moon+Stars 2026</strong>  <br>From July 9 to 19, 2026, the Piazza Grande hosts 'Moon+Stars,' featuring international artists, Italian performers, and Swiss acts. The festival includes free concerts in Piazza Piccola and over 30 food and drink options along the Food+Music Street. ([ticinowelcome.ch])</p><p>[Concerto d'organo in Sant'Antonio a Locarno | laRegione.ch]<br><strong>Locarno Organ Festival 2026</strong>  <br>From April 12 to December 26, 2026, the Locarno Organ Festival presents concerts of high artistic quality, promoting the region’s historic organs and hosting internationally renowned performers. ([ascona-locarno.com])</p><p>Regarding accommodations, the historic Grand Hotel in Locarno, originally opened in 1876, is undergoing extensive renovations and is scheduled to reopen as a 5-star establishment in 2025. ([en.wikipedia.org])</p><p>For current hotel options, consider the following:</p><p>- <strong>Hotel Belvedere Locarno</strong>: A 4-star hotel offering panoramic views of Lake Maggiore.</p><p>- <strong>Hotel la Palma au Lac</strong>: Located along the lakefront, this hotel provides comfortable accommodations with easy access to the city center.</p><p>- <strong>Hotel Garni Muralto</strong>: A boutique hotel known for its personalized service and proximity to major attractions.</p><p>Given the popularity of these events, it's advisable to book accommodations well in advance to ensure availability.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>Hotel Locarno is a name shared by establishments in different locations, each offering distinct summer event and festival experiences. The primary locations identified are Rome, Italy, and Locarno, Switzerland.</p><p><strong>Hotel Locarno, Rome, Italy</strong><br>Hotel Locarno in Rome is well-suited for private events, offering versatile spaces like Terrazza Locarno with views of Trinità dei Monti and Bar Locarno with a charming outdoor garden. These venues are available for various gatherings, including weddings, celebrations, birthday parties, and business events. While the hotel itself hosts private functions, it also provides guests with opportunities to engage in outdoor activities to explore Rome. These include bike tours of the Appian Way, running tours for sightseeing, guided horseback rides, and hot air balloon rides over the Sabina Valley. For families, the hotel can arrange private city tours focused on piazzas and fountains, as well as treasure hunts. The search results do not indicate that Hotel Locarno in Rome is directly associated with major public summer festivals in the city.</p><p><strong>Accommodations in Locarno, Switzerland (e.g., Rooms Al Festival Locarno)</strong><br>Locarno, Switzerland, is a vibrant hub for significant summer events and festivals, making hotels and accommodations in the area, such as \"Rooms Al Festival Locarno,\" ideal for attendees. The city, known for its Mediterranean climate and picturesque setting on Lago Maggiore, hosts several internationally renowned events during the summer months.</p><p>Key summer festivals in Locarno include:<br>*   <strong>Moon &amp; Stars:</strong> This popular music festival takes place annually in July on the Piazza Grande, attracting thousands of music fans for 8-10 days of open-air concerts.<br>*   <strong>Sommernachtfest Luci e Ombre (Light and Shadow):</strong> Held over a weekend in July along the lakeside of Locarno-Muralto, this summer festival features animation, music, gastronomy, and a spectacular fireworks display.<br>*   <strong>Locarno Film Festival:</strong> An internationally acclaimed film art festival, it has been held every August since 1946. It is one of the most important film festivals globally, transforming the city into a capital of international cinema for eleven days with screenings on the Piazza Grande and other venues.<br>*   <strong>JazzAscona:</strong> In June, this festival brings jazz and New Orleans-style music to the streets and lakeside promenade of Ascona, near Locarno, with numerous concerts and jam sessions.<br>*   <strong>International Music and Theatre Festival \"Il Teatro in Festa\":</strong> Held at the turn of July and August in a magical garden behind the theater, this festival features music and theatre performances.</p><p>During these major festivals, hotels in Locarno, including those like Rooms Al Festival Locarno, tend to be fully booked. Visitors are often advised to look for accommodation in surrounding areas such as Minusio, Ascona, Brissago, Losone, Solduno, or Tenero, which are all 1-6 km from the city center. Many accommodations in the region also offer a \"Ticino Ticket,\" providing free public transport, and the Locarno Film Festival offers a \"PardoBus\" service for accredited individuals to connect hotels with festival venues.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>If you’re looking for a <strong>hotel in Locarno</strong> that’s well placed for <strong>summer events and festivals</strong>, the strongest options in the results are <strong>Hotel Belvedere Locarno</strong>, <strong>H4 Hotel Arcadia Locarno</strong>, <strong>Hotel Giacometti</strong>, and <strong>Hotel Bellavista Locarno</strong>.</p><p>- <strong>Hotel Belvedere Locarno</strong> is a year-round hotel near Piazza Grande and the lakeshore, with a large conference/event center and space for up to 300 guests, making it a good fit if you want both accommodation and event facilities.<br>- <strong>H4 Hotel Arcadia Locarno</strong> is on the lake promenade and very close to Piazza Grande, which is useful for festival access and central walking distance.<br>- <strong>Hotel Giacometti</strong> is in the old town, just a few steps from Piazza Grande, and explicitly mentions major local events such as the International Film Festival and Moon &amp; Stars.<br>- <strong>Hotel Bellavista Locarno</strong> highlights Locarno’s summer festival calendar, including <strong>Moon &amp; Stars</strong> and the <strong>Locarno Film Festival</strong>, which makes it relevant if your priority is event timing rather than meeting space.<br>- <strong>Dorint Resort &amp; Spa Locarno/Riazzino</strong> is farther from the center, but it offers conference rooms and event capacity for larger groups if you want a resort-style stay with event space.</p><p>For the <strong>summer festival window</strong>, the results specifically mention <strong>Moon &amp; Stars</strong> in <strong>July 2026</strong> and the <strong>Locarno Film Festival</strong> in <strong>August 2026</strong>. If you want to stay closest to the action, hotels near <strong>Piazza Grande</strong> and the <strong>lakeshore</strong> are the most convenient based on the listings shown.</p><p>If you want, I can narrow this to:<br>- <strong>best luxury hotel</strong><br>- <strong>best budget option</strong><br>- <strong>best hotel for walking to Piazza Grande</strong><br>- <strong>best hotel with event/meeting rooms</strong></p>"
+              }
+            ]
+          },
+          {
+            "id": 20,
+            "area": "stagionale_eventi",
+            "lingua": "IT",
+            "domanda": "hotel Locarno per eventi e manifestazioni",
+            "risposte": [
+              {
+                "motore": "GPT-4o",
+                "colore": "#3C8A5C",
+                "html": "<p>A Locarno, diverse strutture alberghiere offrono spazi e servizi dedicati all'organizzazione di eventi e manifestazioni. Ecco alcune opzioni da considerare:</p><p><strong>Hotel Belvedere Locarno</strong><br><em>Locarno, Svizzera</em><br>Situato sulla collina sopra Locarno, l'Hotel Belvedere dispone di un centro congressi con cinque sale climatizzate e illuminate da luce naturale, dotate di infrastrutture moderne e possibilità di videoconferenza. Le sale possono ospitare fino a 180 persone per seminari, assemblee e meeting. Per eventi e banchetti, l'hotel offre soluzioni personalizzate fino a 300 persone, con un'attenzione particolare ai dettagli e alla qualità del servizio.</p><p><strong>La Palma au Lac Hotel &amp; Spa</strong><br><em>Locarno, Svizzera</em><br>Situato sul lungolago di Locarno, questo hotel offre una sala seminari con una capienza massima di 80 persone, dotata di attrezzature tecniche di base come proiettore, schermo e lavagna a fogli mobili. La grande terrazza coperta può ospitare fino a 120 persone in piedi, ideale per aperitivi ed eventi di networking con vista sul lago.</p><p><strong>Grand Hotel Locarno, a Luxury Collection Hotel &amp; Spa, Lago Maggiore</strong><br><em>Locarno, Svizzera</em><br>Previsto per la riapertura nella primavera del 2027, il Grand Hotel Locarno offrirà spazi eleganti per eventi. Due saloni al piano terra, inondati di luce naturale, saranno ideali per cene private e riunioni curate nei dettagli. Al piano inferiore, la 'Grotte' offrirà uno spazio di 588 m² con architettura a volta e colonne scultoree, capace di accogliere fino a 400 ospiti per ricevimenti memorabili.</p><p>Queste strutture offrono una combinazione di ambienti eleganti, servizi professionali e posizioni strategiche per garantire il successo del vostro evento a Locarno.</p>"
+              },
+              {
+                "motore": "Gemini",
+                "colore": "#B8791E",
+                "html": "<p>L'Hotel Locarno si presenta come una location raffinata per eventi e manifestazioni, sia a Roma che a Locarno, in Svizzera, offrendo diverse soluzioni per eventi privati e aziendali.</p><p><strong>Hotel Locarno a Roma, Italia</strong></p><p>L'Hotel Locarno a Roma, un albergo in stile Art Nouveau risalente al 1925, è situato vicino a Piazza del Popolo e offre un'atmosfera elegante e una varietà di spazi per eventi.</p><p>Le opzioni per eventi includono:<br>*   <strong>Terrazza Locarno:</strong> Questa terrazza panoramica offre una vista mozzafiato sui tetti di Roma, su Trinità dei Monti e sulle cupole di Piazza del Popolo. È ideale per brunch, pranzi, cene, aperitivi al tramonto e serate romantiche. Può ospitare fino a 65 persone sedute e 100 in piedi.<br>*   <strong>Terrazza Canossa:</strong> Un rifugio esclusivo e intimo, pensato per esperienze culinarie raffinate e momenti di assoluta riservatezza, con vista sui tetti romani e sulle famose Chiese Gemelle di Piazza del Popolo.<br>*   <strong>Saloni privati e Sala Camino:</strong> L'hotel dispone di saloni privati, perfetti per incontri di lavoro o momenti intimi, e una Sala Camino che può ospitare fino a 36 persone sedute e 90 in piedi, ideale per cene private ed eventi esclusivi.<br>*   <strong>Bar Locarno:</strong> Il bar, aperto anche al pubblico, con il suo accogliente giardino esterno e le sale da pranzo in stile Liberty, offre spazi versatili per eventi.</p><p>L'Hotel Locarno a Roma è adatto per diverse tipologie di eventi, tra cui:<br>*   Ricevimenti indimenticabili, matrimoni e celebrazioni.<br>*   Feste di compleanno e altri eventi privati.<br>*   Eventi aziendali come riunioni, pranzi di lavoro, cocktail, cene di gala, presentazioni di prodotti, conferenze stampa, team building e shooting fotografici.</p><p>L'hotel offre anche servizi personalizzati per ogni tipo di evento, con un team dedicato a trasformare ogni richiesta in un'esperienza su misura. Dispone inoltre di servizi per meeting e business come attrezzature audiovisive e strutture per riunioni.</p><p><strong>Hotel a Locarno, Svizzera</strong></p><p>Anche a Locarno, in Svizzera, esistono strutture come l'Hotel City Locarno e il Belvedere Hotel Locarno che offrono spazi per meeting ed eventi. L'Hotel City Locarno, ad esempio, dispone di una sala riunioni con moderne infrastrutture tecniche, ideale per piccoli meeting, conferenze e presentazioni fino a 40 persone. Il Belvedere Hotel Locarno è un punto di riferimento per meeting ed eventi, grazie alla sua posizione e alle sue sale riunioni lussuose e climatizzate. La regione di Ascona-Locarno offre una selezione di strutture per eventi MICE (Meetings, Incentives, Conferences, Exhibitions), incluse sale d'hotel, sale congressi e location uniche, capaci di accogliere da 200 a 1000 persone.</p>"
+              },
+              {
+                "motore": "Perplexity",
+                "colore": "#3C6D93",
+                "html": "<p>Se cerchi un <strong>hotel a Locarno per eventi e manifestazioni</strong>, l’opzione più completa nei risultati è l’<strong>Hotel Belvedere Locarno</strong>: offre spazi per meeting, seminari, congressi e banchetti, con eventi su misura fino a <strong>300 persone</strong>.</p><p>Altre strutture adatte per eventi a Locarno e dintorni:</p><p>- <strong>Dorint Resort &amp; Spa Locarno/Riazzino</strong>: dispone di sale conferenze ed eventi fino a <strong>185 persone</strong> e di altre sale per gruppi fino a <strong>100 persone</strong>.<br>- <strong>Hotel Dell’Angelo</strong>: ha una sala banchetti al primo piano con capienza fino a <strong>140 persone</strong>.<br>- <strong>Hotel Locarno</strong>: propone sala seminari e spazi per eventi privati e aziendali, con capienza interna fino a <strong>50 persone</strong> e fino a <strong>70 camere</strong>.<br>- <strong>Hotel Belvedere Locarno</strong> è anche indicato da Ticino Meetings come hotel seminariale con <strong>90 camere</strong> e <strong>7 sale</strong>.</p><p>Se vuoi, posso anche aiutarti a:<br>- trovare l’hotel <strong>più adatto per numero di ospiti</strong>,<br>- scegliere una struttura <strong>in centro a Locarno</strong>,<br>- oppure prepararti una <strong>lista comparativa</strong> con sala, capienza e contatti.</p>"
+              }
+            ]
+          }
+        ]
+      }
     },
     "lingue": {
       "labels": [
@@ -4862,27 +5254,7 @@
       ],
       "nota_it": "Prima rilevazione reale, a 3 motori. Il prossimo ciclo (tra 2-3 mesi) aggiungerà Claude come quarto motore: da trattare come serie break.",
       "nota_de": "Erste echte Erhebung, mit 3 KI-Modellen. Nächster Zyklus in 2-3 Monaten mit Claude als viertem Modell."
-    },
-    "esempi_domande_risposte": {
-      "nota_it": "Esempi reali e integrali delle risposte raccolte. I nomi delle strutture del podio restano visibili; tutte le altre strutture citate sono state anonimizzate.",
-      "nota_de": "Echte, ungekürzte Beispielantworten. Die Namen der Podiumsbetriebe bleiben sichtbar; alle anderen genannten Betriebe wurden anonymisiert.",
-      "esempi": [
-        {
-          "motore": "GPT-4o",
-          "domanda": "Familienhotel Locarno mit Pool",
-          "lingua": "DE",
-          "risposta_estratto": "In Locarno gibt es mehrere familienfreundliche Hotels mit Pool, die sich ideal für einen Aufenthalt mit Kindern eignen. Hier sind einige Empfehlungen:\n\n**[Hotel non del podio]**  \n**Geschlossen · Bed & breakfast · 4.5 (281 Bewertungen)**  \n_Lungolago Giuseppe Motta 12, 6600 Locarno, Switzerland_  \nDirekt am Ufer des Lago Maggiore gelegen, verfügt dieses Hotel über einen Garten mit Pool und Liegestühlen. Es bietet komfortable Unterkünfte und ein gesundes, vielfältiges Frühstück, ideal für Familien, die Entspannung und Aktivitäten am Wasser suchen.\n\n**Hotel Belvedere Locarno**  \n**Geschlossen · Hotel · 4.7 (836 Bewertungen)**  \n_Via ai Monti 44, 6600 Locarno, Switzerland_  \nDieses Hotel bietet"
-        },
-        {
-          "motore": "GPT-4o",
-          "domanda": "Hotel Ascona Locarno Empfehlung",
-          "lingua": "DE",
-          "risposta_estratto": "Ascona und Locarno am Lago Maggiore bieten eine Vielzahl an Hotels für unterschiedliche Bedürfnisse und Budgets. Hier sind einige Empfehlungen:\n\n**Hotel Eden Roc**\n_Ascona, Schweiz_\nEin mehrfach ausgezeichnetes 5-Sterne-Hotel direkt am Seeufer mit luxuriösen Zimmern, einem erstklassigen Spa und privatem Strand.\n\n**[Hotel non del podio]**\n_Ascona, Schweiz_\nEin charmantes Hotel in zentraler Lage, bekannt für seinen mediterranen Garten und die Nähe zur Seepromenade.\n\n**[Hotel non del podio]**\n_Ascona, Schweiz_\nEin historisches Schloss-Hotel mit romantischem Ambiente, direkt am See gelegen und ideal für Paare.\n\n**Hotel Belvedere Locarno**\n_Locarno, Schweiz_\nEin 4-Sterne-Hotel mit Panoramablick auf den Lago Maggiore, modernen Zimmern und einem Wellnessbereich.\n\n**[Hotel non del podio]**\n_Locarno, Schweiz_\nEin modernes Hotel in zentraler Lage, ideal für Reisende, die die Stadt erkunden möchten"
-        }
-      ]
-    },
-    "avviso_demo_it": "Prima rilevazione reale (3 motori: GPT-4o, Gemini, Perplexity). Claude si aggiungerà come quarto motore al prossimo ciclo (stimato tra 2-3 mesi): da quel momento i cicli a 3 e 4 motori vanno trattati come serie non direttamente comparabili.",
-    "avviso_demo_de": "Erste echte Erhebung (3 KI-Modelle: GPT-4o, Gemini, Perplexity). Claude wird beim nächsten Zyklus als viertes Modell ergänzt (in ca. 2-3 Monaten)."
+    }
   },
   "provenienza": {
     "fonte": "USTAT — Pernottamenti per paese di domicilio (13C)",

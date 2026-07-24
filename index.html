@@ -13,30 +13,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
   :root {
-    --bg: #2B2E33;
-    --bg-deep: #232529;
-    --card: #34373D;
-    --card-hi: #3C4046;
-    --border: rgba(255,255,255,0.09);
-    --border-hi: rgba(255,255,255,0.16);
-    --text: #ECEDEF;
-    --text-soft: #C3C6CC;
-    --muted: #8B9099;
-    --accent: #4FB286;
-    --accent-deep: #3A9670;
-    --accent-light: rgba(79,178,134,0.14);
-    --amber: #E0A458;
-    --amber-bg: rgba(224,164,88,0.13);
-    --red: #E0726B;
-    --red-bg: rgba(224,114,107,0.13);
-    --blue: #6FA8DC;
-    --blue-bg: rgba(111,168,220,0.13);
+    --bg: #FAF9F6;
+    --bg-deep: #F1ECE3;
+    --card: #FFFFFF;
+    --card-hi: #FFFFFF;
+    --border: rgba(32,35,42,0.10);
+    --border-hi: rgba(32,35,42,0.20);
+    --text: #20232A;
+    --text-soft: #4A4E57;
+    --muted: #82868D;
+    --accent: #C15C1B;
+    --accent-deep: #9C4A16;
+    --accent-light: rgba(193,92,27,0.11);
+    --accent-ink: #FFF8F2;
+    --amber: #A96A1A;
+    --amber-bg: rgba(169,106,26,0.12);
+    --red: #AE3A30;
+    --red-bg: rgba(174,58,48,0.10);
+    --blue: #3C6D93;
+    --blue-bg: rgba(60,109,147,0.10);
     --radius: 14px;
     --radius-sm: 9px;
     --serif: 'Inter', -apple-system, sans-serif;
     --sans: 'Inter', -apple-system, sans-serif;
-    --shadow: 0 2px 8px rgba(0,0,0,0.18);
-    --shadow-lg: 0 8px 30px rgba(0,0,0,0.28);
+    --shadow: 0 2px 10px rgba(32,35,42,0.07);
+    --shadow-lg: 0 12px 34px rgba(32,35,42,0.12);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -46,7 +47,7 @@
     color: var(--text);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
-    background-image: radial-gradient(900px 500px at 50% -120px, rgba(79,178,134,0.07), transparent 70%);
+    background-image: radial-gradient(900px 500px at 50% -120px, rgba(193,92,27,0.06), transparent 70%);
     min-height: 100vh;
   }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px 80px; }
@@ -58,13 +59,13 @@
   .header-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
   .lang-toggle { display: inline-flex; border: 0.5px solid var(--border-hi); border-radius: 20px; overflow: hidden; }
   .lang-btn { padding: 5px 13px; font-size: 12px; font-weight: 600; background: transparent; color: var(--muted); border: none; cursor: pointer; font-family: var(--sans); transition: all 0.15s; }
-  .lang-btn.active { background: var(--accent); color: #11231b; }
+  .lang-btn.active { background: var(--accent); color: var(--accent-ink); }
   .meta-line { font-size: 12px; color: var(--muted); margin-top: 10px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
   .meta-line .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; margin-right: 5px; animation: pulse 2.4s infinite; }
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
   /* TABS */
-  .tabs { position: sticky; top: 0; z-index: 50; background: rgba(43,46,51,0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 0.5px solid var(--border); margin: 0 -16px 22px; padding: 0 16px; }
+  .tabs { position: sticky; top: 0; z-index: 50; background: rgba(250,249,246,0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 0.5px solid var(--border); margin: 0 -16px 22px; padding: 0 16px; }
   .tabs-inner { max-width: 1080px; margin: 0 auto; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
   .tabs-inner::-webkit-scrollbar { display: none; }
   .tab { padding: 14px 16px; font-size: 13.5px; font-weight: 500; color: var(--muted); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-family: var(--sans); white-space: nowrap; transition: color 0.15s, border-color 0.15s; display: flex; align-items: center; gap: 7px; }
@@ -333,6 +334,49 @@
   .vis-example-a { font-size: 12px; color: var(--text-soft); line-height: 1.55; white-space: pre-wrap; max-height: 220px; overflow-y: auto; }
   .vis-example-a strong { color: var(--accent); }
   .vis-example-note { font-size: 11px; color: var(--muted); line-height: 1.45; margin-top: 10px; }
+
+  /* --- Classifica reale (leaderboard) --- */
+  .vis-leaderboard { display: flex; flex-direction: column; gap: 10px; }
+  .vis-lb-row { display: flex; align-items: center; gap: 16px; background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 12px; padding: 15px 17px; }
+  .vis-lb-rank { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 800; font-size: 16px; flex-shrink: 0; color: #fff; }
+  .vis-lb-rank.r1 { background: #C9A227; }
+  .vis-lb-rank.r2 { background: #98A0AA; }
+  .vis-lb-rank.r3 { background: #B87A4B; }
+  .vis-lb-rank.r4 { background: #6B6F76; }
+  .vis-lb-info { flex: 1; min-width: 0; }
+  .vis-lb-name { font-family: var(--serif); font-size: 15.5px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .vis-lb-bar-track { width: 100%; height: 7px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .vis-lb-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--accent-deep), var(--accent)); }
+  .vis-lb-meta { text-align: right; flex-shrink: 0; min-width: 78px; }
+  .vis-lb-pct { font-family: var(--serif); font-size: 21px; font-weight: 800; color: var(--accent); line-height: 1; }
+  .vis-lb-n { font-size: 10.5px; color: var(--muted); margin-top: 3px; }
+  .vis-lb-footer { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 16px; padding-top: 14px; border-top: 0.5px solid var(--border); }
+  .vis-lb-stat { font-size: 12px; color: var(--text-soft); }
+  .vis-lb-stat strong { font-family: var(--serif); font-size: 17px; color: var(--text); display: block; margin-bottom: 2px; }
+
+  .vis-chiuso-alert { margin-top: 16px; background: var(--red-bg); border: 0.5px solid rgba(174,58,48,0.28); border-radius: 10px; padding: 14px 16px; }
+  .vis-chiuso-title { font-size: 13px; font-weight: 700; color: var(--red); margin-bottom: 6px; display: flex; align-items: center; gap: 7px; }
+  .vis-chiuso-txt { font-size: 12.5px; color: var(--text-soft); line-height: 1.55; }
+  .vis-chiuso-txt strong { color: var(--text); }
+
+  /* --- Esploratore domande e risposte --- */
+  .vis-qna-intro { font-size: 13px; color: var(--text-soft); line-height: 1.6; margin-bottom: 16px; }
+  .vis-qna-area { margin-bottom: 16px; }
+  .vis-qna-area-title { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 0.5px solid var(--border); }
+  .vis-qna-item { border: 0.5px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden; background: var(--bg-deep); }
+  .vis-qna-item summary { cursor: pointer; padding: 12px 14px; font-size: 13px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 10px; list-style: none; }
+  .vis-qna-item summary::-webkit-details-marker { display: none; }
+  .vis-qna-item summary .vis-qna-plus { margin-left: auto; font-size: 18px; color: var(--muted); flex-shrink: 0; }
+  .vis-qna-item[open] summary .vis-qna-plus { transform: rotate(45deg); }
+  .vis-qna-lang { font-size: 10px; font-weight: 700; color: var(--muted); background: var(--card); border: 0.5px solid var(--border); border-radius: 5px; padding: 2px 7px; flex-shrink: 0; }
+  .vis-qna-body { padding: 4px 14px 14px; display: flex; flex-direction: column; gap: 10px; }
+  .vis-qna-engine { background: var(--card); border: 0.5px solid var(--border); border-radius: 9px; padding: 13px 15px; }
+  .vis-qna-engine-tag { display: inline-block; font-size: 10px; font-weight: 700; color: #fff; border-radius: 5px; padding: 3px 9px; margin-bottom: 9px; letter-spacing: 0.3px; }
+  .vis-qna-engine-txt { font-size: 12.5px; color: var(--text-soft); line-height: 1.6; }
+  .vis-qna-engine-txt strong { color: var(--accent-deep); font-weight: 700; }
+  .vis-qna-engine-txt p { margin-bottom: 8px; }
+  .vis-qna-engine-txt p:last-child { margin-bottom: 0; }
+  .vis-qna-engine-txt em { color: var(--muted); font-style: italic; }
   .trend-chart-block
  { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 11px; padding: 14px; margin: 14px 0; }
   .trend-chart-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
@@ -526,19 +570,29 @@
 
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">③</span><span data-it="Come si distribuisce la visibilità" data-de="Verteilung der Sichtbarkeit">Come si distribuisce la visibilità</span></h2>
-        <span class="section-tag" data-it="Dati aggregati" data-de="Aggregierte Daten">Dati aggregati</span>
+        <h2><span class="section-num">③</span><span data-it="La classifica reale" data-de="Die echte Rangliste">La classifica reale</span></h2>
+        <span class="section-tag" data-it="Chi vince oggi" data-de="Wer heute gewinnt">Chi vince oggi</span>
       </div>
       <div class="section-body">
-        <div class="chart-box" style="height:280px"><canvas id="visConcChart"></canvas></div>
-        <div class="chart-note" id="visConcNote"></div>
-        <div id="visElenco"></div>
+        <div id="visLeaderboard"></div>
+        <div id="visChiusoAlert"></div>
       </div>
     </div>
 
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">④</span><span data-it="Divario tra le lingue" data-de="Sprachunterschiede">Divario tra le lingue</span></h2>
+        <h2><span class="section-num">④</span><span data-it="Cosa rispondono davvero le AI" data-de="Was die KI-Modelle wirklich antworten">Cosa rispondono davvero le AI</span></h2>
+        <span class="section-tag" id="visQnaTag">—</span>
+      </div>
+      <div class="section-body">
+        <div class="vis-qna-intro" id="visQnaIntro"></div>
+        <div id="visQnaAccordion"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">⑤</span><span data-it="Divario tra le lingue" data-de="Sprachunterschiede">Divario tra le lingue</span></h2>
         <span class="section-tag">DE · EN · IT</span>
       </div>
       <div class="section-body">
@@ -549,7 +603,7 @@
 
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">⑤</span><span data-it="Andamento mensile" data-de="Monatliche Entwicklung">Andamento mensile</span></h2>
+        <h2><span class="section-num">⑥</span><span data-it="Andamento mensile" data-de="Monatliche Entwicklung">Andamento mensile</span></h2>
         <span class="section-tag" data-it="Storico" data-de="Verlauf">Storico</span>
       </div>
       <div class="section-body">
@@ -795,7 +849,6 @@ function switchTab(name, btn) {
   if (name === "mercato") setTimeout(function(){ if (ustatChart) ustatChart.resize(); if (provChart) provChart.resize(); if (offChart) offChart.resize(); }, 50);
   if (name === "marketing") setTimeout(function(){ if (typeof renderTrendCharts === "function") renderTrendCharts(); }, 60);
   if (name === "visibilita") setTimeout(function(){
-    if (visConcChart) visConcChart.resize();
     if (visLangChart) visLangChart.resize();
   }, 50);
 }
@@ -860,7 +913,7 @@ function renderKpi() {
 }
 
 /* ===== USTAT CHARTS ===== */
-const chartColors = { c2024: "#8B9099", c2025: "#4FB286", c2026: "#E0A458", grid: "rgba(255,255,255,0.06)", text: "#8B9099" };
+const chartColors = { c2024: "#9AA0A8", c2025: "#3C6D93", c2026: "#C15C1B", grid: "rgba(32,35,42,0.06)", text: "#82868D" };
 
 function initChart() { switchChart("arrivi", document.querySelector(".chart-tab")); }
 
@@ -1522,7 +1575,6 @@ function renderOfferta() {
 }
 
 /* ===== VISIBILITA AI ===== */
-let visConcChart = null;
 let visLangChart = null;
 
 function renderVisibilita() {
@@ -1559,29 +1611,34 @@ function renderVisibilita() {
     '</div>';
   document.getElementById("visIntro").innerHTML = introTxt + chips;
 
-  // --- KPI ---
-  const k = v.kpi;
+  // --- KPI (4 card, numeri reali) ---
   document.getElementById("visKpiTag").textContent =
     it ? "Su " + v.n_risposte + " risposte" : "Von " + v.n_risposte + " Antworten";
 
   const kpis = [
     {
-      value: k.strutture_citate + '<span style="font-size:18px;color:var(--muted)">/' + k.strutture_totali_zona + '</span>',
+      value: v.n_hotel_citati + '<span style="font-size:18px;color:var(--muted)">/' + v.n_hotel_totali + '</span>',
       color: "var(--accent)",
-      label: it ? "Strutture del Locarnese citate almeno una volta" : "Mindestens einmal genannte Betriebe",
-      sub: it ? "Le altre non compaiono in nessuna risposta" : "Die übrigen erscheinen in keiner Antwort"
+      label: it ? "Strutture citate almeno una volta" : "Mindestens einmal genannte Betriebe",
+      sub: it ? "Tutte le altre non compaiono mai" : "Alle anderen erscheinen nie"
     },
     {
-      value: k.quota_prime_tre + "%",
+      value: v.quota_top4_pct + "%",
       color: "var(--amber)",
-      label: it ? "Quota di citazioni raccolta dalle prime 3 strutture" : "Anteil der Top-3-Betriebe an allen Nennungen",
+      label: it ? "Quota di citazioni raccolta dai primi 4" : "Anteil der Top-4 an allen Nennungen",
       sub: it ? "La visibilità è concentrata in pochissime mani" : "Sichtbarkeit stark konzentriert"
     },
     {
-      value: k.errori_fattuali_pct + "%",
+      value: v.n_hotel_mai_citati,
       color: "var(--red)",
-      label: it ? "Risposte contenenti un errore fattuale" : "Antworten mit sachlichem Fehler",
-      sub: it ? "Verificati manualmente, uno per uno" : "Manuell einzeln überprüft"
+      label: it ? "Strutture mai citate da nessuna AI" : "Nie von einer KI genannte Betriebe",
+      sub: it ? "Su " + v.n_hotel_totali + " strutture della zona" : "Von " + v.n_hotel_totali + " Betrieben der Region"
+    },
+    {
+      value: v.finding_chiuso.n_occorrenze,
+      color: "var(--red)",
+      label: it ? "Volte in cui GPT-4o segnala \u201cchiuso\u201d" : "Fälle mit KI-Status \u201cgeschlossen\u201d",
+      sub: it ? "Anche su hotel di punta della zona" : "Auch bei führenden Hotels der Region"
     }
   ];
   document.getElementById("visKpiGrid").innerHTML = kpis.map(function(x) {
@@ -1592,69 +1649,74 @@ function renderVisibilita() {
     '</div>';
   }).join("");
 
-  // --- Grafico concentrazione ---
-  const c = v.concentrazione;
-  const labels = it ? c.labels_it : c.labels_de;
-  if (visConcChart) visConcChart.destroy();
-  visConcChart = new Chart(document.getElementById("visConcChart"), {
-    type: "bar",
-    data: {
-      labels: labels,
-      datasets: [{
-        label: it ? "% delle citazioni totali" : "% aller Nennungen",
-        data: c.values,
-        backgroundColor: ["#C0584F", "#D98352", "#E0A458", "#6FA8DC", "#5A6068"],
-        borderRadius: 5
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: { callbacks: { afterLabel: function(ctx) {
-          const n = c.n_strutture[ctx.dataIndex];
-          return n + (it ? " struttur" + (n === 1 ? "a" : "e") : " Betriebe");
-        }}}
-      },
-      scales: {
-        x: { grid: { color: chartColors.grid }, ticks: { font: { size: 11 } } },
-        y: { grid: { color: chartColors.grid }, beginAtZero: true,
-             ticks: { font: { size: 11 }, callback: function(val){ return val + "%"; } } }
-      }
-    }
-  });
-  const mai = c.n_strutture[c.n_strutture.length - 1];
-  document.getElementById("visConcNote").textContent = it
-    ? "Le prime 3 strutture raccolgono il " + k.quota_prime_tre + "% di tutte le citazioni. " + mai + " strutture non vengono mai nominate."
-    : mai + " Betriebe werden nie genannt.";
+  // --- Classifica reale (leaderboard, nomi in chiaro) ---
+  const maxN = v.classifica[0].n_citazioni;
+  const lbHtml = v.classifica.map(function(r){
+    return '<div class="vis-lb-row">' +
+      '<div class="vis-lb-rank r' + r.posizione + '">' + r.posizione + '</div>' +
+      '<div class="vis-lb-info">' +
+        '<div class="vis-lb-name">' + r.nome + '</div>' +
+        '<div class="vis-lb-bar-track"><div class="vis-lb-bar-fill" style="width:' + Math.round(100*r.n_citazioni/maxN) + '%"></div></div>' +
+      '</div>' +
+      '<div class="vis-lb-meta">' +
+        '<div class="vis-lb-pct">' + r.quota_pct + '%</div>' +
+        '<div class="vis-lb-n">' + r.n_citazioni + (it ? ' citazioni' : ' Nennungen') + '</div>' +
+      '</div>' +
+    '</div>';
+  }).join("");
 
-  // --- Esempi reali domanda/risposta (nomi podio in chiaro, altri anonimizzati) ---
-  var el = document.getElementById("visElenco");
-  if (el) {
-    var ex = v.esempi_domande_risposte;
-    if (ex && ex.esempi && ex.esempi.length) {
-      var h = '<div class="vis-example-box">';
-      h += '<div class="vis-example-title">' + svgIcon("check",14,"var(--accent)") + ' ' +
-           (it ? "Cosa rispondono davvero le AI" : "Was die KI-Modelle wirklich antworten") + '</div>';
-      ex.esempi.forEach(function(e){
-        var risposta = (e.risposta_estratto || "")
-          .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
-          .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-        h += '<div class="vis-example-card">' +
-               '<div class="vis-example-meta">' +
-                 '<span class="vis-example-tag">' + e.motore + '</span>' +
-                 '<span class="vis-example-tag">' + e.lingua + '</span>' +
-               '</div>' +
-               '<div class="vis-example-q">' + (it ? "Domanda: " : "Frage: ") + '“' + e.domanda + '”</div>' +
-               '<div class="vis-example-a">' + risposta + '</div>' +
-             '</div>';
+  document.getElementById("visLeaderboard").innerHTML =
+    '<div class="vis-leaderboard">' + lbHtml + '</div>' +
+    '<div class="vis-lb-footer">' +
+      '<div class="vis-lb-stat"><strong>' + v.quota_top4_pct + '%</strong>' +
+        (it ? 'delle citazioni totali va ai primi 4' : 'aller Nennungen an die Top-4') + '</div>' +
+      '<div class="vis-lb-stat"><strong>' + v.n_hotel_mai_citati + ' / ' + v.n_hotel_totali + '</strong>' +
+        (it ? 'strutture non compaiono mai' : 'Betriebe erscheinen nie') + '</div>' +
+    '</div>';
+
+  document.getElementById("visChiusoAlert").innerHTML =
+    '<div class="vis-chiuso-alert">' +
+      '<div class="vis-chiuso-title">' + svgIcon("alert",15) + (it ? "Un errore che nessuno sta guardando" : "Ein Fehler, den niemand bemerkt") + '</div>' +
+      '<div class="vis-chiuso-txt">' + (it
+        ? 'In <strong>' + v.finding_chiuso.n_occorrenze + ' occasioni</strong> su query di ricerca reali, GPT-4o presenta una struttura del Locarnese con lo stato <strong>\u201cChiuso\u201d</strong> — inclusi nomi di punta come <strong>' + v.finding_chiuso.esempi_nomi.slice(0,3).join(', ') + '</strong>. Probabilmente un difetto dello strumento di ricerca, non una chiusura reale — ma è esattamente ciò che un potenziale ospite legge prima ancora di aprire il sito.'
+        : 'In <strong>' + v.finding_chiuso.n_occorrenze + ' Fällen</strong> zeigt GPT-4o einen Betrieb der Region mit dem Status <strong>\u201cGeschlossen\u201d</strong> an — auch bei bekannten Namen wie <strong>' + v.finding_chiuso.esempi_nomi.slice(0,3).join(', ') + '</strong>. Wahrscheinlich ein Fehler des Suchtools, keine echte Schließung — aber genau das liest ein Gast, bevor er die Website öffnet.'
+      ) + '</div>' +
+    '</div>';
+
+  // --- Esploratore domande e risposte: tutte le 20 domande, risposte integrali ---
+  const AREA_LABEL = {
+    geografica: { it: "Geografiche", de: "Geografisch" },
+    esperienziale: { it: "Esperienziali", de: "Erlebnisorientiert" },
+    pratica: { it: "Pratiche", de: "Praktisch" },
+    stagionale_eventi: { it: "Stagionali / Eventi", de: "Saisonal / Events" }
+  };
+  document.getElementById("visQnaTag").textContent =
+    it ? v.n_query + " domande \u00d7 " + v.motori.length + " motori, integrali" : v.n_query + " Fragen \u00d7 " + v.motori.length + " Modelle, vollständig";
+  document.getElementById("visQnaIntro").innerHTML = it
+    ? "Tutte le domande poste e tutte le risposte raccolte dai motori che hanno completato il ciclo al 100%. Nessun nome è stato nascosto o modificato."
+    : "Alle gestellten Fragen und alle Antworten der Modelle, die den Zyklus zu 100% abgeschlossen haben. Kein Name wurde verborgen oder verändert.";
+
+  let qnaHtml = "";
+  Object.keys(v.domande_per_area).forEach(function(areaKey){
+    const area = v.domande_per_area[areaKey];
+    if (!area.domande.length) return;
+    qnaHtml += '<div class="vis-qna-area">';
+    qnaHtml += '<div class="vis-qna-area-title">' + (it ? AREA_LABEL[areaKey].it : AREA_LABEL[areaKey].de) + '</div>';
+    area.domande.forEach(function(d){
+      qnaHtml += '<details class="vis-qna-item"><summary><span class="vis-qna-lang">' + d.lingua + '</span>' +
+        '\u201c' + d.domanda + '\u201d<span class="vis-qna-plus">+</span></summary>';
+      qnaHtml += '<div class="vis-qna-body">';
+      d.risposte.forEach(function(r){
+        qnaHtml += '<div class="vis-qna-engine">' +
+          '<span class="vis-qna-engine-tag" style="background:' + r.colore + '">' + r.motore + '</span>' +
+          '<div class="vis-qna-engine-txt">' + r.html + '</div>' +
+        '</div>';
       });
-      h += '<div class="vis-example-note">' + (it ? ex.nota_it : ex.nota_de) + '</div></div>';
-      el.innerHTML = h;
-    } else {
-      el.innerHTML = '';
-    }
-  }
+      qnaHtml += '</div></details>';
+    });
+    qnaHtml += '</div>';
+  });
+  document.getElementById("visQnaAccordion").innerHTML = qnaHtml;
 
   // --- Grafico lingue ---
   const L = v.lingue;
@@ -1666,7 +1728,7 @@ function renderVisibilita() {
       datasets: [{
         label: it ? "Strutture citate" : "Genannte Betriebe",
         data: L.strutture_citate,
-        backgroundColor: ["#4FB286", "#6FA8DC", "#E0A458"],
+        backgroundColor: ["#3C8A5C", "#3C6D93", "#A96A1A"],
         borderRadius: 5
       }]
     },
@@ -1702,8 +1764,8 @@ function renderVisibilita() {
       type: "line",
       data: { labels: a.mesi, datasets: [{
         label: it ? "Strutture citate" : "Genannte Betriebe",
-        data: a.strutture_citate, borderColor: "#4FB286",
-        backgroundColor: "rgba(79,178,134,0.12)", fill: true, tension: 0.3, pointRadius: 4
+        data: a.strutture_citate, borderColor: "#3C8A5C",
+        backgroundColor: "rgba(60,138,92,0.12)", fill: true, tension: 0.3, pointRadius: 4
       }]},
       options: { responsive: true, maintainAspectRatio: false,
         plugins: { legend: { display: false } },
@@ -1846,13 +1908,13 @@ function renderTrendCharts() {
         datasets: [{
           data: rt.distribuzione.valori,
           backgroundColor: ["#6FA8DC", "#4FB286", "#E0A458", "#C99BD4"],
-          borderColor: "#2B2E33", borderWidth: 2
+          borderColor: "#FAF9F6", borderWidth: 2
         }]
       },
       options: {
         responsive: true, maintainAspectRatio: false, cutout: "58%",
         plugins: {
-          legend: { position: "right", labels: { boxWidth: 12, padding: 12, font: { size: 12 }, color: "#C9CDD4" } },
+          legend: { position: "right", labels: { boxWidth: 12, padding: 12, font: { size: 12 }, color: "#4A4E57" } },
           tooltip: { callbacks: { label: function(c){ return c.label + ": " + c.parsed + "%"; } } }
         }
       }
@@ -1883,7 +1945,7 @@ function renderTrendCharts() {
           x: { grid: { color: chartColors.grid }, ticks: { font: { size: 10 } } },
           y: { grid: { color: chartColors.grid }, beginAtZero: true, max: 100,
                ticks: { font: { size: 10 } },
-               title: { display: true, text: it ? "indice 0–100" : "Index 0–100", font: { size: 10 }, color: "#9DA3AC" } }
+               title: { display: true, text: it ? "indice 0–100" : "Index 0–100", font: { size: 10 }, color: "#82868D" } }
         }
       }
     });
