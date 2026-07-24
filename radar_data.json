@@ -4684,8 +4684,8 @@
   },
   "visibilita_ai": {
     "DEMO": false,
-    "avviso_demo_it": "Prima rilevazione reale (3 motori: GPT-4o, Gemini, Perplexity). Claude si aggiungerà come quarto motore al prossimo ciclo (stimato tra 2-3 mesi); da quel momento i cicli a 3 e 4 motori vanno considerati come serie non direttamente comparabili.",
-    "avviso_demo_de": "Erste echte Erhebung (3 KI-Modelle: GPT-4o, Gemini, Perplexity). Claude wird beim nächsten Zyklus als viertes Modell ergänzt (in ca. 2-3 Monaten); ab dann sind 3er- und 4er-Zyklen nicht direkt vergleichbar.",
+    "avviso_it": "Prima rilevazione reale (3 motori: GPT-4o, Gemini, Perplexity). Claude si aggiungerà come quarto motore al prossimo ciclo (stimato tra 2-3 mesi); da quel momento i cicli a 3 e 4 motori vanno considerati serie non direttamente comparabili.",
+    "avviso_de": "Erste echte Erhebung (3 KI-Modelle: GPT-4o, Gemini, Perplexity). Claude wird beim nächsten Zyklus als viertes Modell ergänzt (in ca. 2-3 Monaten); ab dann sind 3er- und 4er-Zyklen nicht direkt vergleichbar.",
     "rilevazione": "2026-07-23",
     "motori": [
       "GPT-4o",
@@ -4801,13 +4801,37 @@
         "area": "stagionale_eventi"
       }
     ],
+    "podio": {
+      "nota_it": "Le uniche 3 strutture nominate esplicitamente in questa rilevazione: quelle con il maggior numero di citazioni nelle risposte AI su query di scoperta (non brand). Tutte le altre strutture del cluster non vengono elencate per nome.",
+      "nota_de": "Die einzigen 3 namentlich genannten Betriebe dieser Erhebung: jene mit den meisten KI-Nennungen bei Discovery-Anfragen. Alle anderen Betriebe werden nicht namentlich aufgeführt.",
+      "strutture": [
+        {
+          "posizione": 1,
+          "nome": "Hotel Belvedere Locarno",
+          "n_citazioni": 21
+        },
+        {
+          "posizione": 2,
+          "nome": "Hotel Eden Roc",
+          "n_citazioni": 15
+        },
+        {
+          "posizione": 3,
+          "nome": "Giardino Ascona",
+          "n_citazioni": 12
+        }
+      ]
+    },
     "kpi": {
-      "strutture_citate": 56,
+      "strutture_citate_totale": 56,
+      "strutture_mai_citate": 29,
       "strutture_totali_zona": 85,
-      "quota_prime_tre": 23,
+      "quota_prime_tre_pct": 23,
       "errori_fattuali_pct": null
     },
-    "errori_fattuali_nota_it": "Non calcolabile automaticamente — richiede verifica manuale confrontando le risposte AI con i dati reali degli hotel (stessa metodologia del GEO Audit).",
+    "errori_fattuali_nota_it": "Non calcolabile automaticamente — richiede verifica manuale confrontando le risposte AI con i dati reali degli hotel.",
+    "messaggio_commerciale_it": "29 strutture su 85 non sono MAI state citate dalle AI in questo ciclo. Le prime 3 strutture assorbono da sole il 23% di tutte le citazioni raccolte: le altre 53 strutture citate si dividono il resto.",
+    "messaggio_commerciale_de": "29 von 85 Betrieben wurden in diesem Zyklus NIE von KI-Modellen genannt. Die ersten 3 Betriebe vereinen 23% aller Nennungen auf sich.",
     "concentrazione": {
       "labels_it": [
         "1ª struttura",
@@ -4864,68 +4888,6 @@
       ],
       "nota_it": "Prima rilevazione reale, a 3 motori. Il prossimo ciclo (tra 2-3 mesi) aggiungerà Claude come quarto motore: da trattare come serie break, non confrontare direttamente il valore.",
       "nota_de": "Erste echte Erhebung, mit 3 KI-Modellen. Der nächste Zyklus (in 2-3 Monaten) fügt Claude als viertes Modell hinzu: als Serienbruch behandeln."
-    },
-    "strutture_citate_elenco": {
-      "nota_it": "Strutture del Locarnese che compaiono almeno una volta nelle risposte dei motori AI (GPT-4o, Gemini, Perplexity). Elenco in ordine alfabetico: non è una classifica.",
-      "nota_de": "Betriebe der Region, die mindestens einmal in KI-Antworten genannt werden (GPT-4o, Gemini, Perplexity). Alphabetisch, keine Rangliste.",
-      "nomi": [
-        "Albergo Carcani by Ketty & Tommy",
-        "Albergo Mirador Ascona",
-        "Aparthotel Al Lago",
-        "Art Hotel Riposo",
-        "Ascona Lodge, Pool & Garden Retreat",
-        "Boutique Hotel Albergo Brione",
-        "Boutique Hotel Sunstar Brissago am Lago Maggiore",
-        "Boutique-Hotel Antica Posta",
-        "Boutique-Hotel REMORINO, a Lago Maggiore GARDEN RESORT",
-        "Casa Berno Panorama Resort",
-        "Castello del Sole Beach Resort&SPA",
-        "Charme Hotel al Torchio",
-        "Delta Resort Apartments",
-        "Giardino Ascona",
-        "Giardino Lago",
-        "Hampton By Hilton Locarno",
-        "Hotel America",
-        "Hotel Arancio",
-        "Hotel Arcadia Locarno, a Trademark Collection by Wyndham",
-        "Hotel Ascona",
-        "Hotel Ascovilla Charming Hideway",
-        "Hotel Bellavista Locarno",
-        "Hotel Belvedere Locarno",
-        "Hotel Binario",
-        "Hotel Castello Seeschloss, lake & pool castle",
-        "Hotel City Locarno",
-        "Hotel Eden Roc - The Leading Hotels of the World",
-        "Hotel Garni dei fiori",
-        "Hotel Geranio Au Lac",
-        "Hotel La Perla",
-        "Hotel Lago Maggiore - Welcome!",
-        "Hotel Luna Garni",
-        "Hotel Millennium",
-        "Hotel Muralto Locarno",
-        "Hotel Nessi Locarno",
-        "Hotel Polo",
-        "Hotel Rio Muralto",
-        "Hotel Scaletta",
-        "Hotel Stella SA",
-        "Hotel Tamaro",
-        "Hotel Tobler",
-        "Hotel dell'Angelo",
-        "Hotel la Meridiana, Lake & SPA",
-        "Hotel la Palma au Lac",
-        "LA VILLA - Studios & Rooms, a Swiss Quality Hotel",
-        "Miralago Locarno Easy Rooms - Easy Self Check-In",
-        "Parkhotel Emmaus - Casa del Sole",
-        "Pensione Olanda",
-        "Schloss Locarno - Suites & Apartments",
-        "Seven Boutique Hotel",
-        "Seven Town House Boutique Hotel",
-        "Smart-HOTEL MINUSIO, a Swiss Quality Hotel",
-        "Villa Delta - Parkhotel Delta",
-        "Villa Favorita - Parkhotel Delta",
-        "Vista Lakefront Boutique Hotel",
-        "ibis Locarno"
-      ]
     }
   },
   "provenienza": {
