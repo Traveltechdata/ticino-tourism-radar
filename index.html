@@ -13,30 +13,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
   :root {
-    --bg: #2B2E33;
-    --bg-deep: #232529;
-    --card: #34373D;
-    --card-hi: #3C4046;
-    --border: rgba(255,255,255,0.09);
-    --border-hi: rgba(255,255,255,0.16);
-    --text: #ECEDEF;
-    --text-soft: #C3C6CC;
-    --muted: #8B9099;
-    --accent: #4FB286;
-    --accent-deep: #3A9670;
-    --accent-light: rgba(79,178,134,0.14);
-    --amber: #E0A458;
-    --amber-bg: rgba(224,164,88,0.13);
-    --red: #E0726B;
-    --red-bg: rgba(224,114,107,0.13);
-    --blue: #6FA8DC;
-    --blue-bg: rgba(111,168,220,0.13);
+    --bg: #FAF9F6;
+    --bg-deep: #F1ECE3;
+    --card: #FFFFFF;
+    --card-hi: #FFFFFF;
+    --border: rgba(32,35,42,0.10);
+    --border-hi: rgba(32,35,42,0.20);
+    --text: #20232A;
+    --text-soft: #4A4E57;
+    --muted: #82868D;
+    --accent: #C15C1B;
+    --accent-deep: #9C4A16;
+    --accent-light: rgba(193,92,27,0.11);
+    --accent-ink: #FFF8F2;
+    --amber: #A96A1A;
+    --amber-bg: rgba(169,106,26,0.12);
+    --red: #AE3A30;
+    --red-bg: rgba(174,58,48,0.10);
+    --blue: #3C6D93;
+    --blue-bg: rgba(60,109,147,0.10);
     --radius: 14px;
     --radius-sm: 9px;
     --serif: 'Inter', -apple-system, sans-serif;
     --sans: 'Inter', -apple-system, sans-serif;
-    --shadow: 0 2px 8px rgba(0,0,0,0.18);
-    --shadow-lg: 0 8px 30px rgba(0,0,0,0.28);
+    --shadow: 0 2px 10px rgba(32,35,42,0.07);
+    --shadow-lg: 0 12px 34px rgba(32,35,42,0.12);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -46,7 +47,7 @@
     color: var(--text);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
-    background-image: radial-gradient(900px 500px at 50% -120px, rgba(79,178,134,0.07), transparent 70%);
+    background-image: radial-gradient(900px 500px at 50% -120px, rgba(193,92,27,0.06), transparent 70%);
     min-height: 100vh;
   }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px 80px; }
@@ -58,13 +59,13 @@
   .header-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
   .lang-toggle { display: inline-flex; border: 0.5px solid var(--border-hi); border-radius: 20px; overflow: hidden; }
   .lang-btn { padding: 5px 13px; font-size: 12px; font-weight: 600; background: transparent; color: var(--muted); border: none; cursor: pointer; font-family: var(--sans); transition: all 0.15s; }
-  .lang-btn.active { background: var(--accent); color: #11231b; }
+  .lang-btn.active { background: var(--accent); color: var(--accent-ink); }
   .meta-line { font-size: 12px; color: var(--muted); margin-top: 10px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
   .meta-line .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; margin-right: 5px; animation: pulse 2.4s infinite; }
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
   /* TABS */
-  .tabs { position: sticky; top: 0; z-index: 50; background: rgba(43,46,51,0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 0.5px solid var(--border); margin: 0 -16px 22px; padding: 0 16px; }
+  .tabs { position: sticky; top: 0; z-index: 50; background: rgba(250,249,246,0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 0.5px solid var(--border); margin: 0 -16px 22px; padding: 0 16px; }
   .tabs-inner { max-width: 1080px; margin: 0 auto; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
   .tabs-inner::-webkit-scrollbar { display: none; }
   .tab { padding: 14px 16px; font-size: 13.5px; font-weight: 500; color: var(--muted); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-family: var(--sans); white-space: nowrap; transition: color 0.15s, border-color 0.15s; display: flex; align-items: center; gap: 7px; }
@@ -224,8 +225,39 @@
   .nord-note { margin-top: 12px; padding: 11px 13px; background: var(--blue-bg); border-radius: var(--radius-sm); font-size: 12px; color: var(--text-soft); border-left: 3px solid var(--blue); }
 
   /* GOTTARDO */
-  .gauge-box { display: flex; flex-direction: column; align-items: center; }
+  .gauge-box { display: flex; flex-direction: column; align-items: center; background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 22px 18px; }
   .gauge-display { position: relative; }
+  .city-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-top: 16px; width: 100%; }
+  .city-card { position: relative; overflow: hidden; border-radius: 13px; padding: 13px 8px 11px; text-align: center; border: 0.5px solid rgba(255,255,255,0.5); box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 3px 10px rgba(32,35,42,0.08); backdrop-filter: blur(3px); isolation: isolate; }
+  .city-card.wx-sun { background: linear-gradient(165deg, #FFF3D2 0%, #FFE2A0 60%, #FFD37E 100%); }
+  .city-card.wx-cloudsun { background: linear-gradient(165deg, #FDF0D8 0%, #E7ECEF 65%, #DCE2E6 100%); }
+  .city-card.wx-cloud { background: linear-gradient(165deg, #EDF0F2 0%, #D6DCE1 100%); }
+  .city-card.wx-fog { background: linear-gradient(165deg, #EAEDEE 0%, #D4D8DA 100%); }
+  .city-card.wx-rain { background: linear-gradient(165deg, #DCE6EE 0%, #B7C8D5 100%); }
+  .city-card.wx-storm { background: linear-gradient(165deg, #C4CBD3 0%, #9299A4 100%); }
+  .city-card.wx-snow { background: linear-gradient(165deg, #F5F8FA 0%, #E3E9ED 100%); }
+  .city-card::before { content:""; position: absolute; inset: 0; z-index: 0; }
+  .city-card.wx-sun::before, .city-card.wx-cloudsun::before {
+    background: radial-gradient(circle at 78% 18%, rgba(255,214,110,0.9) 0%, rgba(255,214,110,0.35) 32%, transparent 62%);
+  }
+  .city-card.wx-rain::before, .city-card.wx-storm::before {
+    background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.35) 0 2px, transparent 2px 9px);
+    opacity: 0.7;
+  }
+  .city-card.wx-cloud::before, .city-card.wx-cloudsun::before, .city-card.wx-fog::before {
+    background-image: radial-gradient(ellipse 34px 14px at 30% 70%, rgba(255,255,255,0.55), transparent 70%),
+                       radial-gradient(ellipse 26px 11px at 65% 40%, rgba(255,255,255,0.4), transparent 70%);
+  }
+  .city-card.wx-snow::before {
+    background-image: radial-gradient(circle 1.5px at 20% 30%, rgba(255,255,255,0.9) 99%, transparent 100%),
+                       radial-gradient(circle 1.5px at 60% 60%, rgba(255,255,255,0.9) 99%, transparent 100%),
+                       radial-gradient(circle 1.5px at 80% 25%, rgba(255,255,255,0.9) 99%, transparent 100%);
+  }
+  .city-name, .city-temp, .city-ico { position: relative; z-index: 1; }
+  .city-name { font-size: 11px; color: #3A3E45; margin-bottom: 4px; font-weight: 600; }
+  .city-temp { font-family: var(--serif); font-size: 21px; color: #20232A; font-weight: 700; }
+  .city-ico { font-size: 17px; margin-top: 4px; color: #3A3E45; }
+  @media (max-width: 560px) { .city-cards { grid-template-columns: repeat(2,1fr); } }
   .gauge-verdict { font-size: 16px; font-weight: 700; margin-top: 4px; text-align: center; }
   .gauge-subtitle { font-size: 12.5px; color: var(--muted); margin-top: 6px; text-align: center; max-width: 420px; line-height: 1.5; }
   .gauge-factors { display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; margin-top: 14px; }
@@ -233,12 +265,6 @@
   .gauge-factor .gf-ico { font-size: 12px; }
   .gauge-factor.pos { border-color: rgba(79,178,134,0.3); color: var(--accent); }
   .gauge-factor.neg { border-color: rgba(224,114,107,0.3); color: var(--red); }
-  .city-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 9px; margin-top: 16px; width: 100%; }
-  .city-card { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 11px; text-align: center; }
-  .city-name { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
-  .city-temp { font-family: var(--serif); font-size: 20px; color: var(--text); }
-  .city-ico { font-size: 17px; margin-top: 3px; }
-  @media (max-width: 560px) { .city-cards { grid-template-columns: repeat(2,1fr); } }
 
   /* PREDICTIVE CALENDAR — KPI + TIMELINE */
   .pc-kpi-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 16px; }
@@ -323,6 +349,54 @@
   .vis-elenco-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 9px; }
   .vis-elenco-pill { font-size: 11.5px; color: var(--text-soft); background: var(--card); border: 0.5px solid var(--border); padding: 4px 10px; border-radius: 13px; }
   .vis-elenco-note { font-size: 11px; color: var(--muted); line-height: 1.45; }
+  .vis-example-box { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 10px; padding: 14px; margin-top: 14px; }
+  .vis-example-title { display: flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+  .vis-example-card { background: var(--card); border: 0.5px solid var(--border); border-radius: 9px; padding: 12px 14px; margin-bottom: 10px; }
+  .vis-example-card:last-child { margin-bottom: 0; }
+  .vis-example-meta { display: flex; gap: 8px; align-items: center; font-size: 10.5px; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .vis-example-tag { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 5px; padding: 2px 7px; }
+  .vis-example-q { font-size: 12.5px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .vis-example-a { font-size: 12px; color: var(--text-soft); line-height: 1.55; white-space: pre-wrap; max-height: 220px; overflow-y: auto; }
+  .vis-example-a strong { color: var(--accent); }
+  .vis-example-note { font-size: 11px; color: var(--muted); line-height: 1.45; margin-top: 10px; }
+
+  /* --- Classifica reale (leaderboard) --- */
+  .vis-leaderboard { display: flex; flex-direction: column; gap: 10px; }
+  .vis-lb-row { display: flex; align-items: center; gap: 16px; background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 12px; padding: 15px 17px; }
+  .vis-lb-rank { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 800; font-size: 16px; flex-shrink: 0; color: #fff; }
+  .vis-lb-rank.r1 { background: #C9A227; }
+  .vis-lb-rank.r2 { background: #98A0AA; }
+  .vis-lb-rank.r3 { background: #B87A4B; }
+  .vis-lb-rank.r4 { background: #6B6F76; }
+  .vis-lb-info { flex: 1; min-width: 0; }
+  .vis-lb-name { font-family: var(--serif); font-size: 15.5px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .vis-lb-bar-track { width: 100%; height: 7px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .vis-lb-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--accent-deep), var(--accent)); }
+  .vis-lb-meta { text-align: right; flex-shrink: 0; min-width: 78px; }
+  .vis-lb-pct { font-family: var(--serif); font-size: 21px; font-weight: 800; color: var(--accent); line-height: 1; }
+  .vis-lb-n { font-size: 10.5px; color: var(--muted); margin-top: 3px; }
+  .vis-lb-footer { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 16px; padding-top: 14px; border-top: 0.5px solid var(--border); }
+  .vis-lb-stat { font-size: 12px; color: var(--text-soft); }
+  .vis-lb-stat strong { font-family: var(--serif); font-size: 17px; color: var(--text); display: block; margin-bottom: 2px; }
+
+  /* --- Esploratore domande e risposte --- */
+  .vis-qna-intro { font-size: 13px; color: var(--text-soft); line-height: 1.6; margin-bottom: 16px; }
+  .vis-qna-area { margin-bottom: 16px; }
+  .vis-qna-area-title { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 0.5px solid var(--border); }
+  .vis-qna-item { border: 0.5px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden; background: var(--bg-deep); }
+  .vis-qna-item summary { cursor: pointer; padding: 12px 14px; font-size: 13px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 10px; list-style: none; }
+  .vis-qna-item summary::-webkit-details-marker { display: none; }
+  .vis-qna-item summary .vis-qna-plus { margin-left: auto; font-size: 18px; color: var(--muted); flex-shrink: 0; }
+  .vis-qna-item[open] summary .vis-qna-plus { transform: rotate(45deg); }
+  .vis-qna-lang { font-size: 10px; font-weight: 700; color: var(--muted); background: var(--card); border: 0.5px solid var(--border); border-radius: 5px; padding: 2px 7px; flex-shrink: 0; }
+  .vis-qna-body { padding: 4px 14px 14px; display: flex; flex-direction: column; gap: 10px; }
+  .vis-qna-engine { background: var(--card); border: 0.5px solid var(--border); border-radius: 9px; padding: 13px 15px; }
+  .vis-qna-engine-tag { display: inline-block; font-size: 10px; font-weight: 700; color: #fff; border-radius: 5px; padding: 3px 9px; margin-bottom: 9px; letter-spacing: 0.3px; }
+  .vis-qna-engine-txt { font-size: 12.5px; color: var(--text-soft); line-height: 1.6; }
+  .vis-qna-engine-txt strong { color: var(--accent-deep); font-weight: 700; }
+  .vis-qna-engine-txt p { margin-bottom: 8px; }
+  .vis-qna-engine-txt p:last-child { margin-bottom: 0; }
+  .vis-qna-engine-txt em { color: var(--muted); font-style: italic; }
   .trend-chart-block
  { background: var(--bg-deep); border: 0.5px solid var(--border); border-radius: 11px; padding: 14px; margin: 14px 0; }
   .trend-chart-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
@@ -516,19 +590,28 @@
 
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">③</span><span data-it="Come si distribuisce la visibilità" data-de="Verteilung der Sichtbarkeit">Come si distribuisce la visibilità</span></h2>
-        <span class="section-tag" data-it="Dati aggregati" data-de="Aggregierte Daten">Dati aggregati</span>
+        <h2><span class="section-num">③</span><span data-it="La classifica reale" data-de="Die echte Rangliste">La classifica reale</span></h2>
+        <span class="section-tag" data-it="Chi vince oggi" data-de="Wer heute gewinnt">Chi vince oggi</span>
       </div>
       <div class="section-body">
-        <div class="chart-box" style="height:280px"><canvas id="visConcChart"></canvas></div>
-        <div class="chart-note" id="visConcNote"></div>
-        <div id="visElenco"></div>
+        <div id="visLeaderboard"></div>
       </div>
     </div>
 
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">④</span><span data-it="Divario tra le lingue" data-de="Sprachunterschiede">Divario tra le lingue</span></h2>
+        <h2><span class="section-num">④</span><span data-it="Cosa rispondono davvero le AI" data-de="Was die KI-Modelle wirklich antworten">Cosa rispondono davvero le AI</span></h2>
+        <span class="section-tag" id="visQnaTag">—</span>
+      </div>
+      <div class="section-body">
+        <div class="vis-qna-intro" id="visQnaIntro"></div>
+        <div id="visQnaAccordion"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2><span class="section-num">⑤</span><span data-it="Divario tra le lingue" data-de="Sprachunterschiede">Divario tra le lingue</span></h2>
         <span class="section-tag">DE · EN · IT</span>
       </div>
       <div class="section-body">
@@ -539,7 +622,7 @@
 
     <div class="section">
       <div class="section-head">
-        <h2><span class="section-num">⑤</span><span data-it="Andamento mensile" data-de="Monatliche Entwicklung">Andamento mensile</span></h2>
+        <h2><span class="section-num">⑥</span><span data-it="Andamento mensile" data-de="Monatliche Entwicklung">Andamento mensile</span></h2>
         <span class="section-tag" data-it="Storico" data-de="Verlauf">Storico</span>
       </div>
       <div class="section-body">
@@ -785,7 +868,6 @@ function switchTab(name, btn) {
   if (name === "mercato") setTimeout(function(){ if (ustatChart) ustatChart.resize(); if (provChart) provChart.resize(); if (offChart) offChart.resize(); }, 50);
   if (name === "marketing") setTimeout(function(){ if (typeof renderTrendCharts === "function") renderTrendCharts(); }, 60);
   if (name === "visibilita") setTimeout(function(){
-    if (visConcChart) visConcChart.resize();
     if (visLangChart) visLangChart.resize();
   }, 50);
 }
@@ -808,7 +890,7 @@ async function loadRadarData() {
       var mesiDe = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
       var gg = parseInt(p[2],10), mm = parseInt(p[1],10)-1, yy = p[0];
       var lbl = currentLang==="it" ? ("Aggiornato il " + gg + " " + mesiIt[mm] + " " + yy) : ("Aktualisiert am " + gg + ". " + mesiDe[mm] + " " + yy);
-      aggEl.textContent = lbl + " · v6";
+      aggEl.textContent = lbl + " · v5";
     }
 
     renderKpi();
@@ -850,7 +932,7 @@ function renderKpi() {
 }
 
 /* ===== USTAT CHARTS ===== */
-const chartColors = { c2024: "#8B9099", c2025: "#4FB286", c2026: "#E0A458", grid: "rgba(255,255,255,0.06)", text: "#8B9099" };
+const chartColors = { c2024: "#9AA0A8", c2025: "#3C6D93", c2026: "#C15C1B", grid: "rgba(32,35,42,0.06)", text: "#82868D" };
 
 function initChart() { switchChart("arrivi", document.querySelector(".chart-tab")); }
 
@@ -1512,7 +1594,6 @@ function renderOfferta() {
 }
 
 /* ===== VISIBILITA AI ===== */
-let visConcChart = null;
 let visLangChart = null;
 
 function renderVisibilita() {
@@ -1549,29 +1630,28 @@ function renderVisibilita() {
     '</div>';
   document.getElementById("visIntro").innerHTML = introTxt + chips;
 
-  // --- KPI ---
-  const k = v.kpi;
+  // --- KPI (4 card, numeri reali) ---
   document.getElementById("visKpiTag").textContent =
     it ? "Su " + v.n_risposte + " risposte" : "Von " + v.n_risposte + " Antworten";
 
   const kpis = [
     {
-      value: k.strutture_citate + '<span style="font-size:18px;color:var(--muted)">/' + k.strutture_totali_zona + '</span>',
+      value: v.n_hotel_citati + '<span style="font-size:18px;color:var(--muted)">/' + v.n_hotel_totali + '</span>',
       color: "var(--accent)",
-      label: it ? "Strutture del Locarnese citate almeno una volta" : "Mindestens einmal genannte Betriebe",
-      sub: it ? "Le altre non compaiono in nessuna risposta" : "Die übrigen erscheinen in keiner Antwort"
+      label: it ? "Strutture citate almeno una volta" : "Mindestens einmal genannte Betriebe",
+      sub: it ? "Tutte le altre non compaiono mai" : "Alle anderen erscheinen nie"
     },
     {
-      value: k.quota_prime_tre + "%",
+      value: v.quota_top4_pct + "%",
       color: "var(--amber)",
-      label: it ? "Quota di citazioni raccolta dalle prime 3 strutture" : "Anteil der Top-3-Betriebe an allen Nennungen",
+      label: it ? "Quota di citazioni raccolta dai primi 4" : "Anteil der Top-4 an allen Nennungen",
       sub: it ? "La visibilità è concentrata in pochissime mani" : "Sichtbarkeit stark konzentriert"
     },
     {
-      value: k.errori_fattuali_pct + "%",
+      value: v.n_hotel_mai_citati,
       color: "var(--red)",
-      label: it ? "Risposte contenenti un errore fattuale" : "Antworten mit sachlichem Fehler",
-      sub: it ? "Verificati manualmente, uno per uno" : "Manuell einzeln überprüft"
+      label: it ? "Strutture mai citate da nessuna AI" : "Nie von einer KI genannte Betriebe",
+      sub: it ? "Su " + v.n_hotel_totali + " strutture della zona" : "Von " + v.n_hotel_totali + " Betrieben der Region"
     }
   ];
   document.getElementById("visKpiGrid").innerHTML = kpis.map(function(x) {
@@ -1582,59 +1662,65 @@ function renderVisibilita() {
     '</div>';
   }).join("");
 
-  // --- Grafico concentrazione ---
-  const c = v.concentrazione;
-  const labels = it ? c.labels_it : c.labels_de;
-  if (visConcChart) visConcChart.destroy();
-  visConcChart = new Chart(document.getElementById("visConcChart"), {
-    type: "bar",
-    data: {
-      labels: labels,
-      datasets: [{
-        label: it ? "% delle citazioni totali" : "% aller Nennungen",
-        data: c.values,
-        backgroundColor: ["#C0584F", "#D98352", "#E0A458", "#6FA8DC", "#5A6068"],
-        borderRadius: 5
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: { callbacks: { afterLabel: function(ctx) {
-          const n = c.n_strutture[ctx.dataIndex];
-          return n + (it ? " struttur" + (n === 1 ? "a" : "e") : " Betriebe");
-        }}}
-      },
-      scales: {
-        x: { grid: { color: chartColors.grid }, ticks: { font: { size: 11 } } },
-        y: { grid: { color: chartColors.grid }, beginAtZero: true,
-             ticks: { font: { size: 11 }, callback: function(val){ return val + "%"; } } }
-      }
-    }
-  });
-  const mai = c.n_strutture[c.n_strutture.length - 1];
-  document.getElementById("visConcNote").textContent = it
-    ? "Le prime 3 strutture raccolgono il " + k.quota_prime_tre + "% di tutte le citazioni. " + mai + " strutture non vengono mai nominate."
-    : mai + " Betriebe werden nie genannt.";
+  // --- Classifica reale (leaderboard, nomi in chiaro) ---
+  const maxN = v.classifica[0].n_citazioni;
+  const lbHtml = v.classifica.map(function(r){
+    return '<div class="vis-lb-row">' +
+      '<div class="vis-lb-rank r' + r.posizione + '">' + r.posizione + '</div>' +
+      '<div class="vis-lb-info">' +
+        '<div class="vis-lb-name">' + r.nome + '</div>' +
+        '<div class="vis-lb-bar-track"><div class="vis-lb-bar-fill" style="width:' + Math.round(100*r.n_citazioni/maxN) + '%"></div></div>' +
+      '</div>' +
+      '<div class="vis-lb-meta">' +
+        '<div class="vis-lb-pct">' + r.quota_pct + '%</div>' +
+        '<div class="vis-lb-n">' + r.n_citazioni + (it ? ' citazioni' : ' Nennungen') + '</div>' +
+      '</div>' +
+    '</div>';
+  }).join("");
 
-  // --- Elenco strutture citate (alfabetico, NON classifica) ---
-  var el = document.getElementById("visElenco");
-  if (el) {
-    var ec = v.strutture_citate_elenco;
-    if (ec && ec.nomi && ec.nomi.length) {
-      var nomi = ec.nomi.slice().sort(function(a,b){ return a.localeCompare(b); });
-      var h = '<div class="vis-elenco-box">';
-      h += '<div class="vis-elenco-title">' + svgIcon("check",14,"var(--accent)") + ' ' +
-           (it ? "Strutture che emergono nelle risposte AI" : "Betriebe, die in KI-Antworten erscheinen") + '</div>';
-      h += '<div class="vis-elenco-wrap">';
-      nomi.forEach(function(n){ h += '<span class="vis-elenco-pill">' + n + '</span>'; });
-      h += '</div><div class="vis-elenco-note">' + (it ? ec.nota_it : ec.nota_de) + '</div></div>';
-      el.innerHTML = h;
-    } else {
-      el.innerHTML = '';
-    }
-  }
+  document.getElementById("visLeaderboard").innerHTML =
+    '<div class="vis-leaderboard">' + lbHtml + '</div>' +
+    '<div class="vis-lb-footer">' +
+      '<div class="vis-lb-stat"><strong>' + v.quota_top4_pct + '%</strong>' +
+        (it ? 'delle citazioni totali va ai primi 4' : 'aller Nennungen an die Top-4') + '</div>' +
+      '<div class="vis-lb-stat"><strong>' + v.n_hotel_mai_citati + ' / ' + v.n_hotel_totali + '</strong>' +
+        (it ? 'strutture non compaiono mai' : 'Betriebe erscheinen nie') + '</div>' +
+    '</div>';
+
+  // --- Esploratore domande e risposte: tutte le 20 domande, risposte integrali ---
+  const AREA_LABEL = {
+    geografica: { it: "Geografiche", de: "Geografisch" },
+    esperienziale: { it: "Esperienziali", de: "Erlebnisorientiert" },
+    pratica: { it: "Pratiche", de: "Praktisch" },
+    stagionale_eventi: { it: "Stagionali / Eventi", de: "Saisonal / Events" }
+  };
+  document.getElementById("visQnaTag").textContent =
+    it ? v.n_query + " domande \u00d7 " + v.motori.length + " motori, integrali" : v.n_query + " Fragen \u00d7 " + v.motori.length + " Modelle, vollständig";
+  document.getElementById("visQnaIntro").innerHTML = it
+    ? "Tutte le domande poste e tutte le risposte raccolte dai motori che hanno completato il ciclo al 100%. Nessun nome è stato nascosto o modificato."
+    : "Alle gestellten Fragen und alle Antworten der Modelle, die den Zyklus zu 100% abgeschlossen haben. Kein Name wurde verborgen oder verändert.";
+
+  let qnaHtml = "";
+  Object.keys(v.domande_per_area).forEach(function(areaKey){
+    const area = v.domande_per_area[areaKey];
+    if (!area.domande.length) return;
+    qnaHtml += '<div class="vis-qna-area">';
+    qnaHtml += '<div class="vis-qna-area-title">' + (it ? AREA_LABEL[areaKey].it : AREA_LABEL[areaKey].de) + '</div>';
+    area.domande.forEach(function(d){
+      qnaHtml += '<details class="vis-qna-item"><summary><span class="vis-qna-lang">' + d.lingua + '</span>' +
+        '\u201c' + d.domanda + '\u201d<span class="vis-qna-plus">+</span></summary>';
+      qnaHtml += '<div class="vis-qna-body">';
+      d.risposte.forEach(function(r){
+        qnaHtml += '<div class="vis-qna-engine">' +
+          '<span class="vis-qna-engine-tag" style="background:' + r.colore + '">' + r.motore + '</span>' +
+          '<div class="vis-qna-engine-txt">' + r.html + '</div>' +
+        '</div>';
+      });
+      qnaHtml += '</div></details>';
+    });
+    qnaHtml += '</div>';
+  });
+  document.getElementById("visQnaAccordion").innerHTML = qnaHtml;
 
   // --- Grafico lingue ---
   const L = v.lingue;
@@ -1646,7 +1732,7 @@ function renderVisibilita() {
       datasets: [{
         label: it ? "Strutture citate" : "Genannte Betriebe",
         data: L.strutture_citate,
-        backgroundColor: ["#4FB286", "#6FA8DC", "#E0A458"],
+        backgroundColor: ["#3C8A5C", "#3C6D93", "#A96A1A"],
         borderRadius: 5
       }]
     },
@@ -1682,8 +1768,8 @@ function renderVisibilita() {
       type: "line",
       data: { labels: a.mesi, datasets: [{
         label: it ? "Strutture citate" : "Genannte Betriebe",
-        data: a.strutture_citate, borderColor: "#4FB286",
-        backgroundColor: "rgba(79,178,134,0.12)", fill: true, tension: 0.3, pointRadius: 4
+        data: a.strutture_citate, borderColor: "#3C8A5C",
+        backgroundColor: "rgba(60,138,92,0.12)", fill: true, tension: 0.3, pointRadius: 4
       }]},
       options: { responsive: true, maintainAspectRatio: false,
         plugins: { legend: { display: false } },
@@ -1826,13 +1912,13 @@ function renderTrendCharts() {
         datasets: [{
           data: rt.distribuzione.valori,
           backgroundColor: ["#6FA8DC", "#4FB286", "#E0A458", "#C99BD4"],
-          borderColor: "#2B2E33", borderWidth: 2
+          borderColor: "#FAF9F6", borderWidth: 2
         }]
       },
       options: {
         responsive: true, maintainAspectRatio: false, cutout: "58%",
         plugins: {
-          legend: { position: "right", labels: { boxWidth: 12, padding: 12, font: { size: 12 }, color: "#C9CDD4" } },
+          legend: { position: "right", labels: { boxWidth: 12, padding: 12, font: { size: 12 }, color: "#4A4E57" } },
           tooltip: { callbacks: { label: function(c){ return c.label + ": " + c.parsed + "%"; } } }
         }
       }
@@ -1863,7 +1949,7 @@ function renderTrendCharts() {
           x: { grid: { color: chartColors.grid }, ticks: { font: { size: 10 } } },
           y: { grid: { color: chartColors.grid }, beginAtZero: true, max: 100,
                ticks: { font: { size: 10 } },
-               title: { display: true, text: it ? "indice 0–100" : "Index 0–100", font: { size: 10 }, color: "#9DA3AC" } }
+               title: { display: true, text: it ? "indice 0–100" : "Index 0–100", font: { size: 10 }, color: "#82868D" } }
         }
       }
     });
@@ -2020,7 +2106,8 @@ async function loadGottardo() {
     document.getElementById("cityCards").innerHTML = results.map(function(c, idx) {
       const star = idx === 0 ? ' ★' : '';
       const hl = idx === 0 ? ' style="border-color:var(--accent)"' : '';
-      return '<div class="city-card"' + hl + '><div class="city-name">' + c.name + star + '</div><div class="city-temp">' + c.temp + '°</div><div class="city-ico">' + svgIcon(WMO_ICON[c.code]||"cloud", 20) + '</div></div>';
+      var wxClass = "wx-" + (WMO_ICON[c.code] || "cloud");
+      return '<div class="city-card ' + wxClass + '"' + hl + '><div class="city-name">' + c.name + star + '</div><div class="city-temp">' + c.temp + '°</div><div class="city-ico">' + svgIcon(WMO_ICON[c.code]||"cloud", 20) + '</div></div>';
     }).join("");
   } catch (e) {
     document.getElementById("gaugeVerdict").textContent = currentLang==="it"?"Meteo non disponibile":"Wetter nicht verfügbar";
